@@ -1,0 +1,1011 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="barChuongTrinh" xml:space="preserve">
+    <value>Stock manage program</value>
+  </data>
+  <data name="btBoPhan" xml:space="preserve">
+    <value>Deparment</value>
+  </data>
+  <data name="btCongNoKH" xml:space="preserve">
+    <value>Custommer</value>
+  </data>
+  <data name="btCongNoNCC" xml:space="preserve">
+    <value>Provider</value>
+  </data>
+  <data name="btDangXuat" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="btDanhSachNV" xml:space="preserve">
+    <value>List staf</value>
+  </data>
+  <data name="btDoanhThu" xml:space="preserve">
+    <value>Revenue</value>
+  </data>
+  <data name="btDoiMatKhau" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="btDonViTinh" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="btHoaDonNhap" xml:space="preserve">
+    <value>Imprort bill</value>
+  </data>
+  <data name="btHoaDonXuat" xml:space="preserve">
+    <value>Export bill</value>
+  </data>
+  <data name="btHuongDan" xml:space="preserve">
+    <value>Moa</value>
+  </data>
+  <data name="btKetThuc" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="btKhachHang" xml:space="preserve">
+    <value>Custommer</value>
+  </data>
+  <data name="btKho" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="btKhuVuc" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="btLienHe" xml:space="preserve">
+    <value>Contract</value>
+  </data>
+  <data name="btMatHang" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="btNhaCungCap" xml:space="preserve">
+    <value>Supplier</value>
+  </data>
+  <data name="btNhanVien" xml:space="preserve">
+    <value>Staf</value>
+  </data>
+  <data name="btNhapHang" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="btNhomHang" xml:space="preserve">
+    <value>Group product</value>
+  </data>
+  <data name="btPhanQuyen" xml:space="preserve">
+    <value>Decentralization</value>
+  </data>
+  <data name="btPhucHoi" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="btSaoLuu" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="btTacGia" xml:space="preserve">
+    <value>About us</value>
+  </data>
+  <data name="btThongTin" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="btTongHop" xml:space="preserve">
+    <value>Synthesis</value>
+  </data>
+  <data name="btTonKho" xml:space="preserve">
+    <value>Investoty</value>
+  </data>
+  <data name="btXuatHang" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="colTongDanhThu" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="ribBaoMat" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="ribChucNang" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="ribDanhMuc" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="ribDoiTac" xml:space="preserve">
+    <value>Partner</value>
+  </data>
+  <data name="ribDuLieu" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="ribHeThong" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="ribHeThongBar" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="ribHoaDon" xml:space="preserve">
+    <value>Bill</value>
+  </data>
+  <data name="ribKhoHang" xml:space="preserve">
+    <value>Warehouse</value>
+  </data>
+  <data name="ribNhanVien" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="ribQLCongNo" xml:space="preserve">
+    <value>Manager debt</value>
+  </data>
+  <data name="ribQLHangHoa" xml:space="preserve">
+    <value>Manager product</value>
+  </data>
+  <data name="ribThongke" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="ribTroGiup" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="ribTroGiupBar" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="btXem" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="colNhomHang" xml:space="preserve">
+    <value>Group product</value>
+  </data>
+  <data name="frmMain" xml:space="preserve">
+    <value>Manage Stock</value>
+  </data>
+  <data name="btDong" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="btIn" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="btXuat" xml:space="preserve">
+    <value>Export excel</value>
+  </data>
+  <data name="colDonViTInh" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="colHangHoa" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="colMa" xml:space="preserve">
+    <value>Product ID</value>
+  </data>
+  <data name="colNgay" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="gridCuoiKi" xml:space="preserve">
+    <value>End investory</value>
+  </data>
+  <data name="gridDauKi" xml:space="preserve">
+    <value>First investory</value>
+  </data>
+  <data name="gridNhapKho" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="gridThongTin" xml:space="preserve">
+    <value>Infomation product</value>
+  </data>
+  <data name="gridXuatKho" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="SoLuong" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="TongCong" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="btLuu" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="colKhachHang" xml:space="preserve">
+    <value>Custommer name</value>
+  </data>
+  <data name="colTenKhuVuc" xml:space="preserve">
+    <value>Area name</value>
+  </data>
+  <data name="lbBaoCaoDoanhThu" xml:space="preserve">
+    <value>Reported revenue</value>
+  </data>
+  <data name="lbDiaChi" xml:space="preserve">
+    <value>Address :</value>
+  </data>
+  <data name="lbDienThoai" xml:space="preserve">
+    <value>Phone :</value>
+  </data>
+  <data name="lbDuongDan" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="lbFax" xml:space="preserve">
+    <value>Fax :</value>
+  </data>
+  <data name="lbGiamDoc" xml:space="preserve">
+    <value>Director</value>
+  </data>
+  <data name="lbKeToan" xml:space="preserve">
+    <value>Accounting</value>
+  </data>
+  <data name="lbKiTen" xml:space="preserve">
+    <value>(Full name Signature)</value>
+  </data>
+  <data name="lbNgayThang" xml:space="preserve">
+    <value>Month....date....year....</value>
+  </data>
+  <data name="lbNguoiLap" xml:space="preserve">
+    <value>Prepared by</value>
+  </data>
+  <data name="lbTenFile" xml:space="preserve">
+    <value>Chose file</value>
+  </data>
+  <data name="lbTieuDeTongHop" xml:space="preserve">
+    <value>Total of inventory</value>
+  </data>
+  <data name="linkTheoNam" xml:space="preserve">
+    <value>By year</value>
+  </data>
+  <data name="linkTheoNgay" xml:space="preserve">
+    <value>By date</value>
+  </data>
+  <data name="linkTheoQui" xml:space="preserve">
+    <value>Quarterly</value>
+  </data>
+  <data name="linkTheoThang" xml:space="preserve">
+    <value>By Month</value>
+  </data>
+  <data name="navBarKhachHang" xml:space="preserve">
+    <value>Custommer area</value>
+  </data>
+  <data name="nvaChucNang" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="lbKhoHang" xml:space="preserve">
+    <value>Store :</value>
+  </data>
+  <data name="NgayBD" xml:space="preserve">
+    <value>From :</value>
+  </data>
+  <data name="NgayKT" xml:space="preserve">
+    <value>To :</value>
+  </data>
+  <data name="lbDienTen" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="lbNam" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="MaKho" xml:space="preserve">
+    <value>ID Store</value>
+  </data>
+  <data name="TenKho" xml:space="preserve">
+    <value>Store Name</value>
+  </data>
+  <data name="Thoat" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="checkNho" xml:space="preserve">
+    <value>Remember account and password</value>
+  </data>
+  <data name="DangNhap" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="TuyChon" xml:space="preserve">
+    <value>Option</value>
+  </data>
+  <data name="barChuongTrinh1" xml:space="preserve">
+    <value>Stock manage program</value>
+  </data>
+  <data name="barChuongTrinh11" xml:space="preserve">
+    <value>Stock manage program</value>
+  </data>
+  <data name="btBoPhan1" xml:space="preserve">
+    <value>Deparment</value>
+  </data>
+  <data name="btBoPhan11" xml:space="preserve">
+    <value>Deparment</value>
+  </data>
+  <data name="btCongNoKH1" xml:space="preserve">
+    <value>Custommer</value>
+  </data>
+  <data name="btCongNoKH11" xml:space="preserve">
+    <value>Custommer</value>
+  </data>
+  <data name="btCongNoNCC1" xml:space="preserve">
+    <value>Provider</value>
+  </data>
+  <data name="btCongNoNCC11" xml:space="preserve">
+    <value>Provider</value>
+  </data>
+  <data name="btDangXuat1" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="btDangXuat11" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="btDanhSachNV1" xml:space="preserve">
+    <value>List staf</value>
+  </data>
+  <data name="btDanhSachNV11" xml:space="preserve">
+    <value>List staf</value>
+  </data>
+  <data name="btDoanhThu1" xml:space="preserve">
+    <value>Revenue</value>
+  </data>
+  <data name="btDoanhThu11" xml:space="preserve">
+    <value>Revenue</value>
+  </data>
+  <data name="btDoiMatKhau1" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="btDoiMatKhau11" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="btDong1" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="btDong11" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="btDonViTinh1" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="btDonViTinh11" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="btHoaDonNhap1" xml:space="preserve">
+    <value>Imprort bill</value>
+  </data>
+  <data name="btHoaDonNhap11" xml:space="preserve">
+    <value>Imprort bill</value>
+  </data>
+  <data name="btHoaDonXuat1" xml:space="preserve">
+    <value>Export bill</value>
+  </data>
+  <data name="btHoaDonXuat11" xml:space="preserve">
+    <value>Export bill</value>
+  </data>
+  <data name="btHuongDan1" xml:space="preserve">
+    <value>Moa</value>
+  </data>
+  <data name="btHuongDan11" xml:space="preserve">
+    <value>Moa</value>
+  </data>
+  <data name="btIn1" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="btIn11" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="btKetThuc1" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="btKetThuc11" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="btKhachHang1" xml:space="preserve">
+    <value>Custommer</value>
+  </data>
+  <data name="btKhachHang11" xml:space="preserve">
+    <value>Custommer</value>
+  </data>
+  <data name="btKho1" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="btKho11" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="btKhuVuc1" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="btKhuVuc11" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="btLienHe1" xml:space="preserve">
+    <value>Contract</value>
+  </data>
+  <data name="btLienHe11" xml:space="preserve">
+    <value>Contract</value>
+  </data>
+  <data name="btLuu1" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="btMatHang1" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="btMatHang11" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="btNhaCungCap1" xml:space="preserve">
+    <value>Provider</value>
+  </data>
+  <data name="btNhaCungCap11" xml:space="preserve">
+    <value>Provider</value>
+  </data>
+  <data name="btNhanVien1" xml:space="preserve">
+    <value>Staf</value>
+  </data>
+  <data name="btNhanVien11" xml:space="preserve">
+    <value>Staf</value>
+  </data>
+  <data name="btNhapHang1" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="btNhapHang11" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="btNhomHang1" xml:space="preserve">
+    <value>Group product</value>
+  </data>
+  <data name="btNhomHang11" xml:space="preserve">
+    <value>Group product</value>
+  </data>
+  <data name="btPhanQuyen1" xml:space="preserve">
+    <value>Decentralization</value>
+  </data>
+  <data name="btPhanQuyen11" xml:space="preserve">
+    <value>Decentralization</value>
+  </data>
+  <data name="btPhucHoi1" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="btPhucHoi11" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="btSaoLuu1" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="btSaoLuu11" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="btTacGia1" xml:space="preserve">
+    <value>About us</value>
+  </data>
+  <data name="btTacGia11" xml:space="preserve">
+    <value>About us</value>
+  </data>
+  <data name="btThongTin1" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="btThongTin11" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="btTongHop1" xml:space="preserve">
+    <value>Synthesis</value>
+  </data>
+  <data name="btTongHop11" xml:space="preserve">
+    <value>Synthesis</value>
+  </data>
+  <data name="btTonKho1" xml:space="preserve">
+    <value>Investoty</value>
+  </data>
+  <data name="btTonKho11" xml:space="preserve">
+    <value>Investoty</value>
+  </data>
+  <data name="btXem1" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="btXem11" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="btXuat1" xml:space="preserve">
+    <value>Export excel</value>
+  </data>
+  <data name="btXuat11" xml:space="preserve">
+    <value>Export excel</value>
+  </data>
+  <data name="btXuatHang1" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="btXuatHang11" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="coldongia" xml:space="preserve">
+    <value>price</value>
+  </data>
+  <data name="coldonvi" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="colDonViTInh1" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="colDonViTInh11" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="colgiaban" xml:space="preserve">
+    <value>Cash sales</value>
+  </data>
+  <data name="colgiamua" xml:space="preserve">
+    <value>Purchase price</value>
+  </data>
+  <data name="COLGIAVON" xml:space="preserve">
+    <value>Purchase price</value>
+  </data>
+  <data name="colHangHoa1" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="colHangHoa11" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="colhansudung" xml:space="preserve">
+    <value>Expiry date</value>
+  </data>
+  <data name="colhinhanh" xml:space="preserve">
+    <value>Picture</value>
+  </data>
+  <data name="colkhachang" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="colKhachHang1" xml:space="preserve">
+    <value>Custommer name</value>
+  </data>
+  <data name="colkhachhang11" xml:space="preserve">
+    <value>Custommer</value>
+  </data>
+  <data name="colkho" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="colloinhuan" xml:space="preserve">
+    <value>Profit</value>
+  </data>
+  <data name="colMa1" xml:space="preserve">
+    <value>Product ID</value>
+  </data>
+  <data name="colMa11" xml:space="preserve">
+    <value>Product ID</value>
+  </data>
+  <data name="colmahang" xml:space="preserve">
+    <value>Code's product</value>
+  </data>
+  <data name="COLMAHDX" xml:space="preserve">
+    <value>Bill code's</value>
+  </data>
+  <data name="colmamhathangg1" xml:space="preserve">
+    <value>Commoditie's code</value>
+  </data>
+  <data name="colmathang" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="colmota" xml:space="preserve">
+    <value>Product description</value>
+  </data>
+  <data name="colNgay1" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="colNgay11" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="colngayxuat" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="colNhomHang1" xml:space="preserve">
+    <value>Group product</value>
+  </data>
+  <data name="colNhomHang11" xml:space="preserve">
+    <value>Group product</value>
+  </data>
+  <data name="colSLDau1" xml:space="preserve">
+    <value>Firt quantity</value>
+  </data>
+  <data name="colSLNhap1" xml:space="preserve">
+    <value>Enter amount</value>
+  </data>
+  <data name="colSLTOn1" xml:space="preserve">
+    <value>Exist numbers</value>
+  </data>
+  <data name="colSLXuat1" xml:space="preserve">
+    <value>Export quantity</value>
+  </data>
+  <data name="colsoluong" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="colsoluongmh" xml:space="preserve">
+    <value>quantity</value>
+  </data>
+  <data name="coltendonvi" xml:space="preserve">
+    <value>Units</value>
+  </data>
+  <data name="colTenKhuVuc1" xml:space="preserve">
+    <value>Area name</value>
+  </data>
+  <data name="coltenmathang" xml:space="preserve">
+    <value>Commoditie's name</value>
+  </data>
+  <data name="coltennhomhang" xml:space="preserve">
+    <value>Group name</value>
+  </data>
+  <data name="colthanhtien" xml:space="preserve">
+    <value>Total Money</value>
+  </data>
+  <data name="colthanhtiennhap" xml:space="preserve">
+    <value>Total Added Money</value>
+  </data>
+  <data name="colthanhtienxuat" xml:space="preserve">
+    <value>Total cash sales</value>
+  </data>
+  <data name="colthue" xml:space="preserve">
+    <value>Tax</value>
+  </data>
+  <data name="colthueGTGT" xml:space="preserve">
+    <value>Tax VAT</value>
+  </data>
+  <data name="coltienban" xml:space="preserve">
+    <value>Total Cash sales</value>
+  </data>
+  <data name="coltinhtrang" xml:space="preserve">
+    <value>Condition</value>
+  </data>
+  <data name="colTongDanhThu1" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="colTongDanhThu11" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="frmMain1" xml:space="preserve">
+    <value>Manage Stock</value>
+  </data>
+  <data name="frmMain11" xml:space="preserve">
+    <value>Manage Stock</value>
+  </data>
+  <data name="gridCuoiKi1" xml:space="preserve">
+    <value>End investory</value>
+  </data>
+  <data name="gridCuoiKi11" xml:space="preserve">
+    <value>End investory</value>
+  </data>
+  <data name="gridDauKi1" xml:space="preserve">
+    <value>First investory</value>
+  </data>
+  <data name="gridDauKi11" xml:space="preserve">
+    <value>First investory</value>
+  </data>
+  <data name="gridNhapKho1" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="gridNhapKho11" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="gridThongTin1" xml:space="preserve">
+    <value>Infomation product</value>
+  </data>
+  <data name="gridThongTin11" xml:space="preserve">
+    <value>Infomation product</value>
+  </data>
+  <data name="gridXuatKho1" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="gridXuatKho11" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="lbBaoCaoDoanhThu1" xml:space="preserve">
+    <value>Reported revenue</value>
+  </data>
+  <data name="lbBaoCaoLOINHUAN" xml:space="preserve">
+    <value>EARNINGS STATISTICS</value>
+  </data>
+  <data name="lbBaoCaoMATHANG" xml:space="preserve">
+    <value>STATISTICAL ITEMS</value>
+  </data>
+  <data name="lbBaoCaotheokho" xml:space="preserve">
+    <value>STORAGE STATISTICS</value>
+  </data>
+  <data name="lbchonnhom" xml:space="preserve">
+    <value>Select Group</value>
+  </data>
+  <data name="lbden" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="lbDiaChi1" xml:space="preserve">
+    <value>Address :</value>
+  </data>
+  <data name="lbDienTen1" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="lbDienThoai1" xml:space="preserve">
+    <value>Phone :</value>
+  </data>
+  <data name="lbDuongDan1" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="lbFax1" xml:space="preserve">
+    <value>Fax :</value>
+  </data>
+  <data name="lbGiamDoc1" xml:space="preserve">
+    <value>Director</value>
+  </data>
+  <data name="lbKeToan1" xml:space="preserve">
+    <value>Accounting</value>
+  </data>
+  <data name="lbKhoHang1" xml:space="preserve">
+    <value>Store :</value>
+  </data>
+  <data name="lbKiTen1" xml:space="preserve">
+    <value>(Full name Signature)</value>
+  </data>
+  <data name="lbloai" xml:space="preserve">
+    <value>Sort</value>
+  </data>
+  <data name="lbNam1" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="lbNgayThang1" xml:space="preserve">
+    <value>Month....date....year....</value>
+  </data>
+  <data name="lbNguoiLap1" xml:space="preserve">
+    <value>Prepared by</value>
+  </data>
+  <data name="lbTenFile1" xml:space="preserve">
+    <value>Chose file</value>
+  </data>
+  <data name="lbThongkenhmhang" xml:space="preserve">
+    <value>COMMODITY GROUP STATISTICS</value>
+  </data>
+  <data name="lbTieuDeTongHop1" xml:space="preserve">
+    <value>Total of inventory</value>
+  </data>
+  <data name="lbtu" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="linhtheokho" xml:space="preserve">
+    <value>By store</value>
+  </data>
+  <data name="linktheokhachhang" xml:space="preserve">
+    <value>By custommer</value>
+  </data>
+  <data name="linktheoloinhuan" xml:space="preserve">
+    <value>By profit</value>
+  </data>
+  <data name="linktheomathang" xml:space="preserve">
+    <value>By product</value>
+  </data>
+  <data name="linkTheoNam1" xml:space="preserve">
+    <value>By year</value>
+  </data>
+  <data name="linkTheoNgay1" xml:space="preserve">
+    <value>By date</value>
+  </data>
+  <data name="linktheonhomhang" xml:space="preserve">
+    <value>By group product</value>
+  </data>
+  <data name="linkTheoQui1" xml:space="preserve">
+    <value>Quarterly</value>
+  </data>
+  <data name="linkTheoThang1" xml:space="preserve">
+    <value>By Month</value>
+  </data>
+  <data name="MaKho1" xml:space="preserve">
+    <value>ID Store</value>
+  </data>
+  <data name="navBarKhachHang1" xml:space="preserve">
+    <value>Custommer area</value>
+  </data>
+  <data name="navthongke" xml:space="preserve">
+    <value>statistics</value>
+  </data>
+  <data name="NgayBD1" xml:space="preserve">
+    <value>From :</value>
+  </data>
+  <data name="NgayKT1" xml:space="preserve">
+    <value>To :</value>
+  </data>
+  <data name="nvaChucNang1" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="ribBaoMat1" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="ribBaoMat11" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="ribChucNang1" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="ribChucNang11" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="ribDanhMuc1" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="ribDanhMuc11" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="ribDoiTac1" xml:space="preserve">
+    <value>Partner</value>
+  </data>
+  <data name="ribDoiTac11" xml:space="preserve">
+    <value>Partner</value>
+  </data>
+  <data name="ribDuLieu1" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="ribDuLieu11" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="ribHeThong1" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="ribHeThong11" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="ribHeThongBar1" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="ribHeThongBar11" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="ribHoaDon1" xml:space="preserve">
+    <value>Bill</value>
+  </data>
+  <data name="ribHoaDon11" xml:space="preserve">
+    <value>Bill</value>
+  </data>
+  <data name="ribKhoHang1" xml:space="preserve">
+    <value>Warehouse</value>
+  </data>
+  <data name="ribKhoHang11" xml:space="preserve">
+    <value>Warehouse</value>
+  </data>
+  <data name="ribNhanVien1" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="ribNhanVien11" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="ribQLCongNo1" xml:space="preserve">
+    <value>Manager debt</value>
+  </data>
+  <data name="ribQLCongNo11" xml:space="preserve">
+    <value>Manager debt</value>
+  </data>
+  <data name="ribQLHangHoa1" xml:space="preserve">
+    <value>Manager product</value>
+  </data>
+  <data name="ribQLHangHoa11" xml:space="preserve">
+    <value>Manager product</value>
+  </data>
+  <data name="ribThongke1" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="ribThongke11" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="ribTroGiup1" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="ribTroGiup11" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="ribTroGiupBar1" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="ribTroGiupBar11" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="SoLuong1" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="SoLuong11" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="TenKho1" xml:space="preserve">
+    <value>Store Name</value>
+  </data>
+  <data name="TongCong1" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="TongCong11" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="colsongayconhan" xml:space="preserve">
+    <value>Date valid</value>
+  </data>
+</root>
