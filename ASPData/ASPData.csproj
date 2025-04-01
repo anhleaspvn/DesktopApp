@@ -61,6 +61,7 @@
     <Compile Include="ASPDAO\LosstimeDAO.cs" />
     <Compile Include="ASPDAO\MachineDAO.cs" />
     <Compile Include="ASPDAO\NFCReaderDAO.cs" />
+    <Compile Include="ASPDAO\PlanningDAO.cs" />
     <Compile Include="ASPDAO\ProdStatisticDAO.cs" />
     <Compile Include="ASPDAO\TimekeepingDAO.cs" />
     <Compile Include="ASPDAO\WOSOPDAO.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="ASPDTO\LosstimeDTO.cs" />
     <Compile Include="ASPDTO\MachineDTO.cs" />
     <Compile Include="ASPDTO\NFCReaderDTO.cs" />
+    <Compile Include="ASPDTO\PlanningDTO.cs" />
     <Compile Include="ASPDTO\ProdStatisticDTO.cs" />
     <Compile Include="ASPDTO\PSScanQRHeaderDTO.cs" />
     <Compile Include="ASPDTO\TimekeepingDTO.cs" />

@@ -37,12 +37,11 @@
             this.dtpChartDate = new DevExpress.XtraEditors.DateEdit();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.lstWeekName = new DevExpress.XtraEditors.ListBoxControl();
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.splitContainerControl4 = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.splitContainerControl4 = new DevExpress.XtraEditors.SplitContainerControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
@@ -52,32 +51,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstWeekName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
             this.splitContainerControl1.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).BeginInit();
             this.splitContainerControl1.Panel2.SuspendLayout();
             this.splitContainerControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lstWeekName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel1)).BeginInit();
             this.splitContainerControl2.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel2)).BeginInit();
             this.splitContainerControl2.Panel2.SuspendLayout();
             this.splitContainerControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4.Panel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4.Panel2)).BeginInit();
-            this.splitContainerControl4.Panel2.SuspendLayout();
-            this.splitContainerControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3.Panel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3.Panel2)).BeginInit();
             this.splitContainerControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5.Panel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5.Panel2)).BeginInit();
-            this.splitContainerControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4.Panel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4.Panel2)).BeginInit();
+            this.splitContainerControl4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -89,7 +83,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1297, 57);
+            this.panelControl1.Size = new System.Drawing.Size(1745, 57);
             this.panelControl1.TabIndex = 90;
             // 
             // labelControl1
@@ -107,7 +101,7 @@
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl1.Location = new System.Drawing.Point(67, 0);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(1080, 57);
+            this.labelControl1.Size = new System.Drawing.Size(1528, 57);
             this.labelControl1.TabIndex = 3;
             this.labelControl1.Text = "DAILY QUALITY DASHBOARD";
             // 
@@ -118,7 +112,7 @@
             this.panelControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl6.Controls.Add(this.dtpChartDate);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl6.Location = new System.Drawing.Point(1147, 0);
+            this.panelControl6.Location = new System.Drawing.Point(1595, 0);
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Size = new System.Drawing.Size(150, 57);
             this.panelControl6.TabIndex = 2;
@@ -142,7 +136,7 @@
             this.dtpChartDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.dtpChartDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dtpChartDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dtpChartDate.Size = new System.Drawing.Size(150, 80);
+            this.dtpChartDate.Size = new System.Drawing.Size(150, 57);
             this.dtpChartDate.TabIndex = 6;
             // 
             // panelControl4
@@ -167,6 +161,16 @@
             this.pictureEdit1.Size = new System.Drawing.Size(67, 57);
             this.pictureEdit1.TabIndex = 0;
             // 
+            // lstWeekName
+            // 
+            this.lstWeekName.Appearance.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstWeekName.Appearance.Options.UseFont = true;
+            this.lstWeekName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstWeekName.Location = new System.Drawing.Point(0, 0);
+            this.lstWeekName.Name = "lstWeekName";
+            this.lstWeekName.Size = new System.Drawing.Size(156, 802);
+            this.lstWeekName.TabIndex = 9;
+            // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -183,19 +187,9 @@
             // 
             this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1297, 688);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1745, 802);
             this.splitContainerControl1.SplitterPosition = 156;
             this.splitContainerControl1.TabIndex = 91;
-            // 
-            // lstWeekName
-            // 
-            this.lstWeekName.Appearance.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstWeekName.Appearance.Options.UseFont = true;
-            this.lstWeekName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstWeekName.Location = new System.Drawing.Point(0, 0);
-            this.lstWeekName.Name = "lstWeekName";
-            this.lstWeekName.Size = new System.Drawing.Size(156, 688);
-            this.lstWeekName.TabIndex = 9;
             // 
             // splitContainerControl2
             // 
@@ -205,35 +199,16 @@
             // 
             // splitContainerControl2.Panel1
             // 
-            this.splitContainerControl2.Panel1.Controls.Add(this.splitContainerControl4);
+            this.splitContainerControl2.Panel1.Controls.Add(this.splitContainerControl3);
             this.splitContainerControl2.Panel1.Text = "Panel1";
             // 
             // splitContainerControl2.Panel2
             // 
-            this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl3);
+            this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl4);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(1134, 688);
-            this.splitContainerControl2.SplitterPosition = 941;
+            this.splitContainerControl2.Size = new System.Drawing.Size(1582, 802);
+            this.splitContainerControl2.SplitterPosition = 825;
             this.splitContainerControl2.TabIndex = 0;
-            // 
-            // splitContainerControl4
-            // 
-            this.splitContainerControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl4.Horizontal = false;
-            this.splitContainerControl4.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl4.Name = "splitContainerControl4";
-            // 
-            // splitContainerControl4.Panel1
-            // 
-            this.splitContainerControl4.Panel1.Text = "Panel1";
-            // 
-            // splitContainerControl4.Panel2
-            // 
-            this.splitContainerControl4.Panel2.Controls.Add(this.splitContainerControl5);
-            this.splitContainerControl4.Panel2.Text = "Panel2";
-            this.splitContainerControl4.Size = new System.Drawing.Size(941, 688);
-            this.splitContainerControl4.SplitterPosition = 267;
-            this.splitContainerControl4.TabIndex = 2;
             // 
             // splitContainerControl3
             // 
@@ -249,34 +224,34 @@
             // splitContainerControl3.Panel2
             // 
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(186, 688);
-            this.splitContainerControl3.SplitterPosition = 510;
+            this.splitContainerControl3.Size = new System.Drawing.Size(825, 802);
+            this.splitContainerControl3.SplitterPosition = 419;
             this.splitContainerControl3.TabIndex = 0;
             // 
-            // splitContainerControl5
+            // splitContainerControl4
             // 
-            this.splitContainerControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl5.Horizontal = false;
-            this.splitContainerControl5.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl5.Name = "splitContainerControl5";
+            this.splitContainerControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl4.Horizontal = false;
+            this.splitContainerControl4.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl4.Name = "splitContainerControl4";
             // 
-            // splitContainerControl5.Panel1
+            // splitContainerControl4.Panel1
             // 
-            this.splitContainerControl5.Panel1.Text = "Panel1";
+            this.splitContainerControl4.Panel1.Text = "Panel1";
             // 
-            // splitContainerControl5.Panel2
+            // splitContainerControl4.Panel2
             // 
-            this.splitContainerControl5.Panel2.Text = "Panel2";
-            this.splitContainerControl5.Size = new System.Drawing.Size(941, 414);
-            this.splitContainerControl5.SplitterPosition = 236;
-            this.splitContainerControl5.TabIndex = 0;
+            this.splitContainerControl4.Panel2.Text = "Panel2";
+            this.splitContainerControl4.Size = new System.Drawing.Size(750, 802);
+            this.splitContainerControl4.SplitterPosition = 419;
+            this.splitContainerControl4.TabIndex = 0;
             // 
             // frmIQCStatisticChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1297, 745);
+            this.ClientSize = new System.Drawing.Size(1745, 859);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -292,32 +267,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstWeekName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();
             this.splitContainerControl1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).EndInit();
             this.splitContainerControl1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lstWeekName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel1)).EndInit();
             this.splitContainerControl2.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel2)).EndInit();
             this.splitContainerControl2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
             this.splitContainerControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4.Panel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4.Panel2)).EndInit();
-            this.splitContainerControl4.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4)).EndInit();
-            this.splitContainerControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3.Panel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3.Panel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).EndInit();
             this.splitContainerControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5.Panel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5.Panel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).EndInit();
-            this.splitContainerControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4.Panel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4.Panel2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl4)).EndInit();
+            this.splitContainerControl4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -330,11 +300,10 @@
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.DateEdit dtpChartDate;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraEditors.ListBoxControl lstWeekName;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl3;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl4;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl5;
     }
 }

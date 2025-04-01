@@ -66,9 +66,9 @@ namespace ASPProject.SOPStage
 
         private void FillData()
         {
-            DataTable dtSOP = new DataTable();
-            dtSOP = _sqlHelper.ExecQueryDataAsDataTable("SELECT * FROM ASPWOSOPDetail");
-            gridSOP.DataSource = dtSOP;
+            //DataTable dtSOP = new DataTable();
+            //dtSOP = _sqlHelper.ExecQueryDataAsDataTable("SELECT * FROM ASPWOSOPDetail");
+            //gridSOP.DataSource = dtSOP;
 
             woDto.LineID = lineID;
             woDto.Username = userName;
@@ -177,7 +177,7 @@ namespace ASPProject.SOPStage
                     List<string> arrProd = new List<string>();
                     ASPExcelDataProcess.ASPExcelDataProcess excel = new ASPExcelDataProcess.ASPExcelDataProcess();
                     DataTable dtExcel = new DataTable();
-                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:H10000");
+                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:G10000");
                  
                     foreach (DataRow dr in dtExcel.Rows)
                     {

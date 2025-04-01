@@ -89,7 +89,6 @@ namespace ASPProject.LineProdStatistic
             ResetChartControl();
 
            // dtpChartDate.EditValue = DateTime.Now;
-
             chartDate = (DateTime)dtpChartDate.EditValue;
            
             Month = chartDate.Month;
@@ -100,24 +99,23 @@ namespace ASPProject.LineProdStatistic
 
             //Attendance chart
             DailyAttendanceChartAddSeries();
-            //DailyAttendanceCircleChartAddSeries();
 
-            //yield chart
+            //Yield chart
             DailyYieldChartAddSeries();
-            //DailyPipeYieldChartAddSeries();
 
+            //OTE chart
             OTDChartAddSeries();
 
-            //production chart
+            //Production chart
             DailyProductionChartAddSeries();
 
-            //productivity chart
+            //Productivity chart
             DailyProductivityChartAddSeries();
 
-            //planning chart
+            //Planning chart
             PlanningChartAddSeries();
 
-            //production scrap
+            //Production scrap
             DailyProdScrapChartChartAddSeries();
         }
         #endregion
@@ -498,7 +496,7 @@ namespace ASPProject.LineProdStatistic
             XYDiagram diagram = (XYDiagram)barChartProdScrap.Diagram;
             diagram.AxisX.Tickmarks.MinorVisible = false;
             //diagram.AxisY.WholeRange.SetMinMaxValues(0, 0.3);
-            diagram.AxisY.WholeRange.MaxValue = 3;
+            diagram.AxisY.WholeRange.MaxValue = 1;
 
             // Add a barChartProdScrap title:
             barChartProdScrap.Titles.Add(new ChartTitle { Text = "SCRAP (%)" });
@@ -604,7 +602,9 @@ namespace ASPProject.LineProdStatistic
 
             //((XYDiagram)barChartProductivity.Diagram).AxisY.NumericScaleOptions.MeasureUnit = NumericMeasureUnit.Ones;
             //((XYDiagram)barChartProductivity.Diagram).AxisY.Label.TextPattern = "{V:n0} pcs";
-            ((XYDiagram)barChartProductivity.Diagram).AxisY.Label.Visible = false;
+            ((XYDiagram)barChartProductivity.Diagram).AxisY.Label.Visible = true;
+            ((XYDiagram)barChartProductivity.Diagram).AxisY.NumericScaleOptions.MeasureUnit = NumericMeasureUnit.Ones;
+            ((XYDiagram)barChartProductivity.Diagram).AxisY.Label.TextPattern = "{V:n2} %";
             ((XYDiagram)barChartProductivity.Diagram).AxisY.GridLines.Visible = false;
 
             //SecondaryAxisX myAxisX = new SecondaryAxisX("my X-Axis");

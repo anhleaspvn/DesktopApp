@@ -64,8 +64,9 @@
             this.colHRBeginWorkingDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHROfficialDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHRQuitJobDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHRSex = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDateOfBirth = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -284,6 +285,7 @@
             this.colEmpID,
             this.colEmpName,
             this.colPosition,
+            this.colDateOfBirth,
             this.colDirect_Indirect,
             this.colLineID,
             this.colQuitJob,
@@ -441,16 +443,6 @@
             this.colHRQuitJobDate.VisibleIndex = 11;
             this.colHRQuitJobDate.Width = 94;
             // 
-            // colDescription
-            // 
-            this.colDescription.Caption = "Ghi chú";
-            this.colDescription.FieldName = "Description";
-            this.colDescription.MinWidth = 25;
-            this.colDescription.Name = "colDescription";
-            this.colDescription.Visible = true;
-            this.colDescription.VisibleIndex = 13;
-            this.colDescription.Width = 94;
-            // 
             // colHRSex
             // 
             this.colHRSex.Caption = "Giới tính";
@@ -460,6 +452,26 @@
             this.colHRSex.Visible = true;
             this.colHRSex.VisibleIndex = 12;
             this.colHRSex.Width = 94;
+            // 
+            // colDescription
+            // 
+            this.colDescription.Caption = "Ghi chú";
+            this.colDescription.FieldName = "Description";
+            this.colDescription.MinWidth = 25;
+            this.colDescription.Name = "colDescription";
+            this.colDescription.Visible = true;
+            this.colDescription.VisibleIndex = 14;
+            this.colDescription.Width = 94;
+            // 
+            // colDateOfBirth
+            // 
+            this.colDateOfBirth.Caption = "Ngày sinh";
+            this.colDateOfBirth.FieldName = "DateOfBirth";
+            this.colDateOfBirth.MinWidth = 25;
+            this.colDateOfBirth.Name = "colDateOfBirth";
+            this.colDateOfBirth.Visible = true;
+            this.colDateOfBirth.VisibleIndex = 13;
+            this.colDateOfBirth.Width = 94;
             // 
             // frmEmployee
             // 
@@ -528,6 +540,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIsOfficialEmp;
         private DevExpress.XtraGrid.Columns.GridColumn colDescription;
         private DevExpress.XtraGrid.Columns.GridColumn colHRSex;
+        private DevExpress.XtraGrid.Columns.GridColumn colDateOfBirth;
         //private XUAT_NHAPTONDataSet33 xUAT_NHAPTONDataSet33;
         //private ASPProject.XUAT_NHAPTONDataSet33TableAdapters.NHANVIENTableAdapter nHANVIENTableAdapter1;
         //private XUAT_NHAPTONDataSet36 xUAT_NHAPTONDataSet36;

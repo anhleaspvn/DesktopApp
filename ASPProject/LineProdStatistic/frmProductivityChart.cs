@@ -3,6 +3,7 @@ using ASPData;
 using ASPData.ASPDAO;
 using DevExpress.Charts.Native;
 using DevExpress.Data.TreeList;
+using DevExpress.DataProcessing.InMemoryDataProcessor;
 using DevExpress.Office.Drawing;
 using DevExpress.Utils.Layout;
 using DevExpress.XtraCharts;
@@ -174,6 +175,7 @@ namespace ASPProject.LineProdStatistic
                 };
 
                 mail.To.Add(toEmail);
+                
                 if (CcEmail != string.Empty)
                     mail.CC.Add(CcEmail);
                 mail.BodyEncoding = Encoding.UTF8;
@@ -360,9 +362,9 @@ namespace ASPProject.LineProdStatistic
 
             chartDate = Convert.ToDateTime(dtpChartDate.EditValue).Date;
 
-            Month = chartDate.Month;
+            Month = chartDate.Month; 
             Year = chartDate.Year;
-        
+         
             //production chart
             DailyProductionChartAddSeries();
 
@@ -726,7 +728,6 @@ namespace ASPProject.LineProdStatistic
             seriesLine.Label.ResolveOverlappingMode = ResolveOverlappingMode.JustifyAroundPoint;
             seriesLine.DataSource = ProductivityChartDataPoint.GetDataPointsActualLine(dtProdData);
             seriesLine.SetDataMembers("StatisticDate", "Quantity");
-
             barChartProductivity.Series.Add(seriesLine);
 
             Series seriesLineACC = new Series("%OR Actual Yield", ViewType.Line);
@@ -741,8 +742,26 @@ namespace ASPProject.LineProdStatistic
             seriesLineACC.DataSource = ProductivityChartDataPoint.GetDataPointsACCLine(dtProdData);
             seriesLineACC.SetDataMembers("StatisticDate", "Quantity");
             seriesLineACC.Label.ResolveOverlappingMode = ResolveOverlappingMode.JustifyAroundPoint;
-
             barChartProductivity.Series.Add(seriesLineACC);
+
+            Series seriesBar = new Series("OR Target", ViewType.Bar);
+            seriesBar.View.Color = Color.Yellow;
+            ((BarSeriesView)seriesBar.View).FillStyle.FillMode = FillMode.Solid;
+            ((BarSeriesView)seriesBar.View).Shadow.Visible = true;
+            ((BarSeriesView)seriesBar.View).Shadow.Color = Color.Gray;
+            ((BarSeriesView)seriesBar.View).Shadow.Size = 5;
+
+            ((SideBySideBarSeriesView)seriesBar.View).AxisY = myAxisY;
+            myAxisY.Label.TextPattern = "{V:n1}";
+            myAxisY.Label.Visible = true;
+            myAxisY.GridLines.Visible = false;
+            seriesBar.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+            seriesBar.Label.TextPattern = "{V:n1}";
+            seriesBar.Label.TextOrientation = TextOrientation.TopToBottom;
+            seriesBar.DataSource = ProductivityChartDataPoint.GetDataPointsORTargetBar(dtProdData);
+            seriesBar.SetDataMembers("StatisticDate", "Quantity");
+
+            barChartProductivity.Series.Add(seriesBar);
 
             Series seriesBar2 = new Series("OR Actual", ViewType.Bar);
             seriesBar2.View.Color = Color.Green;
@@ -777,7 +796,7 @@ namespace ASPProject.LineProdStatistic
             seriesBar3.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
             seriesBar3.Label.TextPattern = "{V:n1}";
             seriesBar3.Label.TextOrientation = TextOrientation.TopToBottom;
-            seriesBar3.DataSource = ProductivityChartDataPoint.GetDataPointsORACCBar(dtProdData);
+            seriesBar3.DataSource = ProductivityChartDataPoint.GetDataPointsORPlanBar(dtProdData);
             seriesBar3.SetDataMembers("StatisticDate", "Quantity");
 
             barChartProductivity.Series.Add(seriesBar3);
@@ -1017,7 +1036,7 @@ namespace ASPProject.LineProdStatistic
 
             //barChartProductivityYear.Series.Add(seriesBar2);
 
-            Series seriesBar3 = new Series("OR ACC", ViewType.Line);
+            Series seriesBar3 = new Series("%OR Actual Yield", ViewType.Line);
             seriesBar3.View.Color = Color.Blue;
             //((BarSeriesView)seriesBar3.View).FillStyle.FillMode = FillMode.Solid;
             ((LineSeriesView)seriesBar3.View).Shadow.Visible = true;

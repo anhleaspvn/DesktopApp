@@ -174,6 +174,7 @@
             this.colStampBy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btReportDaily = new DevExpress.XtraEditors.SimpleButton();
             this.btStageRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.btOverall = new DevExpress.XtraEditors.SimpleButton();
             this.btStatEmpMulti = new DevExpress.XtraEditors.SimpleButton();
@@ -217,7 +218,6 @@
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.barCheckItem2 = new DevExpress.XtraBars.BarCheckItem();
             this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.btReportDaily = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -789,7 +789,7 @@
             // 
             this.tabEmpStat.Controls.Add(this.gridEmpStat);
             this.tabEmpStat.Name = "tabEmpStat";
-            this.tabEmpStat.Size = new System.Drawing.Size(1785, 411);
+            this.tabEmpStat.Size = new System.Drawing.Size(1785, 413);
             this.tabEmpStat.Text = "Thống kê nhân viên";
             // 
             // gridEmpStat
@@ -801,7 +801,7 @@
             this.gridEmpStat.MainView = this.gridEmpStatView;
             this.gridEmpStat.Margin = new System.Windows.Forms.Padding(4);
             this.gridEmpStat.Name = "gridEmpStat";
-            this.gridEmpStat.Size = new System.Drawing.Size(1785, 411);
+            this.gridEmpStat.Size = new System.Drawing.Size(1785, 413);
             this.gridEmpStat.TabIndex = 29;
             this.gridEmpStat.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridEmpStatView,
@@ -1144,7 +1144,7 @@
             // 
             this.tabDFStat.Controls.Add(this.splitContainerControl1);
             this.tabDFStat.Name = "tabDFStat";
-            this.tabDFStat.Size = new System.Drawing.Size(1785, 411);
+            this.tabDFStat.Size = new System.Drawing.Size(1785, 413);
             this.tabDFStat.Text = "Thống kê Defect mode";
             // 
             // splitContainerControl1
@@ -1162,7 +1162,7 @@
             // 
             this.splitContainerControl1.Panel2.Controls.Add(this.gridDFStage);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1785, 411);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1785, 413);
             this.splitContainerControl1.SplitterPosition = 1493;
             this.splitContainerControl1.TabIndex = 0;
             // 
@@ -1174,7 +1174,7 @@
             this.gridDFStat.MainView = this.gridDFStatView;
             this.gridDFStat.Margin = new System.Windows.Forms.Padding(4);
             this.gridDFStat.Name = "gridDFStat";
-            this.gridDFStat.Size = new System.Drawing.Size(1493, 411);
+            this.gridDFStat.Size = new System.Drawing.Size(1493, 413);
             this.gridDFStat.TabIndex = 29;
             this.gridDFStat.UseEmbeddedNavigator = true;
             this.gridDFStat.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1293,7 +1293,7 @@
             this.gridDFStage.MainView = this.gridDFStageView;
             this.gridDFStage.Margin = new System.Windows.Forms.Padding(4);
             this.gridDFStage.Name = "gridDFStage";
-            this.gridDFStage.Size = new System.Drawing.Size(285, 411);
+            this.gridDFStage.Size = new System.Drawing.Size(287, 413);
             this.gridDFStage.TabIndex = 30;
             this.gridDFStage.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridDFStageView,
@@ -1423,7 +1423,7 @@
             // 
             this.tabMachineTime.Controls.Add(this.gridMachineTime);
             this.tabMachineTime.Name = "tabMachineTime";
-            this.tabMachineTime.Size = new System.Drawing.Size(1785, 411);
+            this.tabMachineTime.Size = new System.Drawing.Size(1785, 413);
             this.tabMachineTime.Text = "Thống kê giờ máy";
             // 
             // gridMachineTime
@@ -1434,7 +1434,7 @@
             this.gridMachineTime.MainView = this.gridMachineTimeView;
             this.gridMachineTime.Margin = new System.Windows.Forms.Padding(4);
             this.gridMachineTime.Name = "gridMachineTime";
-            this.gridMachineTime.Size = new System.Drawing.Size(1785, 411);
+            this.gridMachineTime.Size = new System.Drawing.Size(1785, 413);
             this.gridMachineTime.TabIndex = 28;
             this.gridMachineTime.UseEmbeddedNavigator = true;
             this.gridMachineTime.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1499,7 +1499,7 @@
             this.tabLosstime.Controls.Add(this.gridLosstime);
             this.tabLosstime.Name = "tabLosstime";
             this.tabLosstime.PageVisible = false;
-            this.tabLosstime.Size = new System.Drawing.Size(1785, 411);
+            this.tabLosstime.Size = new System.Drawing.Size(1785, 413);
             this.tabLosstime.Text = "Thống kê Losstime";
             // 
             // gridLosstime
@@ -1510,7 +1510,7 @@
             this.gridLosstime.MainView = this.gridLosstimeView;
             this.gridLosstime.Margin = new System.Windows.Forms.Padding(4);
             this.gridLosstime.Name = "gridLosstime";
-            this.gridLosstime.Size = new System.Drawing.Size(1785, 411);
+            this.gridLosstime.Size = new System.Drawing.Size(1785, 413);
             this.gridLosstime.TabIndex = 28;
             this.gridLosstime.UseEmbeddedNavigator = true;
             this.gridLosstime.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1574,7 +1574,7 @@
             // 
             this.tabExWork.Controls.Add(this.gridExWork);
             this.tabExWork.Name = "tabExWork";
-            this.tabExWork.Size = new System.Drawing.Size(1785, 411);
+            this.tabExWork.Size = new System.Drawing.Size(1785, 413);
             this.tabExWork.Text = "Thống kê công việc phụ";
             // 
             // gridExWork
@@ -1585,7 +1585,7 @@
             this.gridExWork.MainView = this.gridExWorkView;
             this.gridExWork.Margin = new System.Windows.Forms.Padding(5);
             this.gridExWork.Name = "gridExWork";
-            this.gridExWork.Size = new System.Drawing.Size(1785, 411);
+            this.gridExWork.Size = new System.Drawing.Size(1785, 413);
             this.gridExWork.TabIndex = 29;
             this.gridExWork.UseEmbeddedNavigator = true;
             this.gridExWork.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1685,7 +1685,7 @@
             // 
             this.tabEmpScanBarcode.Controls.Add(this.splitContainer3);
             this.tabEmpScanBarcode.Name = "tabEmpScanBarcode";
-            this.tabEmpScanBarcode.Size = new System.Drawing.Size(1785, 411);
+            this.tabEmpScanBarcode.Size = new System.Drawing.Size(1785, 413);
             this.tabEmpScanBarcode.Text = "Employee Scanner";
             // 
             // splitContainer3
@@ -1701,7 +1701,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.gridDetailEmpScan);
-            this.splitContainer3.Size = new System.Drawing.Size(1785, 411);
+            this.splitContainer3.Size = new System.Drawing.Size(1785, 413);
             this.splitContainer3.SplitterDistance = 593;
             this.splitContainer3.TabIndex = 1;
             // 
@@ -1714,7 +1714,7 @@
             this.gridEmpScan.MainView = this.gridEmpScanView;
             this.gridEmpScan.Margin = new System.Windows.Forms.Padding(4);
             this.gridEmpScan.Name = "gridEmpScan";
-            this.gridEmpScan.Size = new System.Drawing.Size(593, 411);
+            this.gridEmpScan.Size = new System.Drawing.Size(593, 413);
             this.gridEmpScan.TabIndex = 28;
             this.gridEmpScan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridEmpScanView,
@@ -1842,7 +1842,7 @@
             this.gridDetailEmpScan.MainView = this.gridDetailEmpScanView;
             this.gridDetailEmpScan.Margin = new System.Windows.Forms.Padding(4);
             this.gridDetailEmpScan.Name = "gridDetailEmpScan";
-            this.gridDetailEmpScan.Size = new System.Drawing.Size(1188, 411);
+            this.gridDetailEmpScan.Size = new System.Drawing.Size(1188, 413);
             this.gridDetailEmpScan.TabIndex = 29;
             this.gridDetailEmpScan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridDetailEmpScanView,
@@ -2004,7 +2004,7 @@
             // 
             this.tabMold.Controls.Add(this.gridMold);
             this.tabMold.Name = "tabMold";
-            this.tabMold.Size = new System.Drawing.Size(1785, 411);
+            this.tabMold.Size = new System.Drawing.Size(1785, 413);
             this.tabMold.Text = "Thống kê Khuôn";
             // 
             // gridMold
@@ -2015,7 +2015,7 @@
             this.gridMold.MainView = this.gridMoldView;
             this.gridMold.Margin = new System.Windows.Forms.Padding(4);
             this.gridMold.Name = "gridMold";
-            this.gridMold.Size = new System.Drawing.Size(1785, 411);
+            this.gridMold.Size = new System.Drawing.Size(1785, 413);
             this.gridMold.TabIndex = 29;
             this.gridMold.UseEmbeddedNavigator = true;
             this.gridMold.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -2124,6 +2124,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1791, 59);
             this.panel2.TabIndex = 29;
+            // 
+            // btReportDaily
+            // 
+            this.btReportDaily.ImageOptions.Image = global::ASPProject.Properties.Resources.export;
+            this.btReportDaily.Location = new System.Drawing.Point(675, 11);
+            this.btReportDaily.Name = "btReportDaily";
+            this.btReportDaily.Size = new System.Drawing.Size(161, 35);
+            this.btReportDaily.TabIndex = 6;
+            this.btReportDaily.Text = "Xuất báo cáo";
+            this.btReportDaily.Click += new System.EventHandler(this.btReportDaily_Click_1);
             // 
             // btStageRefresh
             // 
@@ -2516,15 +2526,6 @@
             this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
-            // 
-            // btReportDaily
-            // 
-            this.btReportDaily.ImageOptions.Image = global::ASPProject.Properties.Resources.export;
-            this.btReportDaily.Location = new System.Drawing.Point(675, 11);
-            this.btReportDaily.Name = "btReportDaily";
-            this.btReportDaily.Size = new System.Drawing.Size(161, 35);
-            this.btReportDaily.TabIndex = 6;
-            this.btReportDaily.Text = "Xuất báo cáo";
             // 
             // frmProdStatisticView
             // 

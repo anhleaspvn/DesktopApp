@@ -167,36 +167,40 @@
             // btExportReport
             // 
             this.btExportReport.ImageOptions.Image = global::ASPProject.Properties.Resources.report1;
-            this.btExportReport.Location = new System.Drawing.Point(722, 11);
+            this.btExportReport.Location = new System.Drawing.Point(619, 9);
+            this.btExportReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btExportReport.Name = "btExportReport";
-            this.btExportReport.Size = new System.Drawing.Size(161, 35);
+            this.btExportReport.Size = new System.Drawing.Size(138, 28);
             this.btExportReport.TabIndex = 4;
             this.btExportReport.Text = "Xuất báo cáo";
             // 
             // btStatEmpMulti
             // 
             this.btStatEmpMulti.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btStatEmpMulti.ImageOptions.Image")));
-            this.btStatEmpMulti.Location = new System.Drawing.Point(156, 11);
+            this.btStatEmpMulti.Location = new System.Drawing.Point(134, 9);
+            this.btStatEmpMulti.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btStatEmpMulti.Name = "btStatEmpMulti";
-            this.btStatEmpMulti.Size = new System.Drawing.Size(161, 35);
+            this.btStatEmpMulti.Size = new System.Drawing.Size(138, 28);
             this.btStatEmpMulti.TabIndex = 3;
             this.btStatEmpMulti.Text = "Sửa nhiều dòng";
             // 
             // btStatDelete
             // 
             this.btStatDelete.ImageOptions.Image = global::ASPProject.Properties.Resources.cancel;
-            this.btStatDelete.Location = new System.Drawing.Point(156, 11);
+            this.btStatDelete.Location = new System.Drawing.Point(134, 9);
+            this.btStatDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btStatDelete.Name = "btStatDelete";
-            this.btStatDelete.Size = new System.Drawing.Size(120, 35);
+            this.btStatDelete.Size = new System.Drawing.Size(103, 28);
             this.btStatDelete.TabIndex = 2;
             this.btStatDelete.Text = "Xoá";
             // 
             // btStatEdit
             // 
             this.btStatEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btStatEdit.ImageOptions.Image")));
-            this.btStatEdit.Location = new System.Drawing.Point(156, 11);
+            this.btStatEdit.Location = new System.Drawing.Point(134, 9);
+            this.btStatEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btStatEdit.Name = "btStatEdit";
-            this.btStatEdit.Size = new System.Drawing.Size(120, 35);
+            this.btStatEdit.Size = new System.Drawing.Size(103, 28);
             this.btStatEdit.TabIndex = 1;
             this.btStatEdit.Text = "Sửa";
             this.btStatEdit.Visible = false;
@@ -204,9 +208,10 @@
             // btStatAdd
             // 
             this.btStatAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btStatAdd.ImageOptions.Image")));
-            this.btStatAdd.Location = new System.Drawing.Point(16, 11);
+            this.btStatAdd.Location = new System.Drawing.Point(14, 9);
+            this.btStatAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btStatAdd.Name = "btStatAdd";
-            this.btStatAdd.Size = new System.Drawing.Size(120, 35);
+            this.btStatAdd.Size = new System.Drawing.Size(103, 28);
             this.btStatAdd.TabIndex = 0;
             this.btStatAdd.Text = "Thêm";
             // 
@@ -218,9 +223,10 @@
             this.panel2.Controls.Add(this.btStatEdit);
             this.panel2.Controls.Add(this.btStatAdd);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 554);
+            this.panel2.Location = new System.Drawing.Point(0, 450);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1700, 59);
+            this.panel2.Size = new System.Drawing.Size(1457, 48);
             this.panel2.TabIndex = 29;
             // 
             // barButtonItem3
@@ -291,10 +297,9 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1700, 54);
+            this.barDockControlRight.Location = new System.Drawing.Point(1457, 44);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 613);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 498);
             // 
             // barManager1
             // 
@@ -499,26 +504,23 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlTop.Size = new System.Drawing.Size(1700, 54);
+            this.barDockControlTop.Size = new System.Drawing.Size(1457, 44);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 667);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 542);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1700, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1457, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 54);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 44);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 613);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 498);
             // 
             // barButtonItem1
             // 
@@ -534,6 +536,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -544,19 +547,18 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabPageProdStatDetail);
-            this.splitContainer1.Size = new System.Drawing.Size(1700, 554);
-            this.splitContainer1.SplitterDistance = 205;
+            this.splitContainer1.Size = new System.Drawing.Size(1457, 450);
+            this.splitContainer1.SplitterDistance = 166;
+            this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 2;
             // 
             // gridIQCHeader
             // 
             this.gridIQCHeader.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridIQCHeader.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridIQCHeader.Location = new System.Drawing.Point(0, 0);
             this.gridIQCHeader.MainView = this.gridIQCHeaderView;
-            this.gridIQCHeader.Margin = new System.Windows.Forms.Padding(4);
             this.gridIQCHeader.Name = "gridIQCHeader";
-            this.gridIQCHeader.Size = new System.Drawing.Size(1700, 205);
+            this.gridIQCHeader.Size = new System.Drawing.Size(1457, 166);
             this.gridIQCHeader.TabIndex = 29;
             this.gridIQCHeader.UseEmbeddedNavigator = true;
             this.gridIQCHeader.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -577,7 +579,6 @@
             this.colProdStatus,
             this.colCheckState,
             this.colStateOfChecking});
-            this.gridIQCHeaderView.DetailHeight = 431;
             this.gridIQCHeaderView.GridControl = this.gridIQCHeader;
             this.gridIQCHeaderView.Name = "gridIQCHeaderView";
             this.gridIQCHeaderView.OptionsBehavior.Editable = false;
@@ -590,114 +591,115 @@
             // 
             this.colFactoryID.Caption = "Mã nhà máy";
             this.colFactoryID.FieldName = "FactoryID";
-            this.colFactoryID.MinWidth = 25;
+            this.colFactoryID.MinWidth = 21;
             this.colFactoryID.Name = "colFactoryID";
             this.colFactoryID.Visible = true;
             this.colFactoryID.VisibleIndex = 10;
-            this.colFactoryID.Width = 94;
+            this.colFactoryID.Width = 81;
             // 
             // colDocDate
             // 
             this.colDocDate.Caption = "Ngày chứng từ";
             this.colDocDate.FieldName = "DocDate";
-            this.colDocDate.MinWidth = 25;
+            this.colDocDate.MinWidth = 21;
             this.colDocDate.Name = "colDocDate";
             this.colDocDate.Visible = true;
             this.colDocDate.VisibleIndex = 0;
-            this.colDocDate.Width = 94;
+            this.colDocDate.Width = 81;
             // 
             // colLineID
             // 
             this.colLineID.Caption = "Mã Line";
             this.colLineID.FieldName = "LineID";
-            this.colLineID.MinWidth = 25;
+            this.colLineID.MinWidth = 21;
             this.colLineID.Name = "colLineID";
             this.colLineID.Visible = true;
             this.colLineID.VisibleIndex = 1;
-            this.colLineID.Width = 94;
+            this.colLineID.Width = 81;
             // 
             // colQCID
             // 
             this.colQCID.Caption = "Mã QC";
             this.colQCID.FieldName = "QCID";
-            this.colQCID.MinWidth = 25;
+            this.colQCID.MinWidth = 21;
             this.colQCID.Name = "colQCID";
             this.colQCID.Visible = true;
             this.colQCID.VisibleIndex = 2;
-            this.colQCID.Width = 94;
+            this.colQCID.Width = 81;
             // 
             // colProductID
             // 
             this.colProductID.Caption = "Mã sản phẩm";
             this.colProductID.FieldName = "ProductID";
-            this.colProductID.MinWidth = 25;
+            this.colProductID.MinWidth = 21;
             this.colProductID.Name = "colProductID";
             this.colProductID.Visible = true;
             this.colProductID.VisibleIndex = 3;
-            this.colProductID.Width = 94;
+            this.colProductID.Width = 81;
             // 
             // colWODocNo
             // 
             this.colWODocNo.Caption = "Số lệnh sản xuất";
             this.colWODocNo.FieldName = "WODocNo";
-            this.colWODocNo.MinWidth = 25;
+            this.colWODocNo.MinWidth = 21;
             this.colWODocNo.Name = "colWODocNo";
             this.colWODocNo.Visible = true;
             this.colWODocNo.VisibleIndex = 4;
-            this.colWODocNo.Width = 94;
+            this.colWODocNo.Width = 81;
             // 
             // colProdReqQuantity
             // 
             this.colProdReqQuantity.Caption = "Số lượng yêu cầu";
             this.colProdReqQuantity.FieldName = "ProdReqQuantity";
-            this.colProdReqQuantity.MinWidth = 25;
+            this.colProdReqQuantity.MinWidth = 21;
             this.colProdReqQuantity.Name = "colProdReqQuantity";
             this.colProdReqQuantity.Visible = true;
             this.colProdReqQuantity.VisibleIndex = 5;
-            this.colProdReqQuantity.Width = 94;
+            this.colProdReqQuantity.Width = 81;
             // 
             // colCustomerID
             // 
             this.colCustomerID.Caption = "Mã khách hàng";
             this.colCustomerID.FieldName = "CustomerID";
-            this.colCustomerID.MinWidth = 25;
+            this.colCustomerID.MinWidth = 21;
             this.colCustomerID.Name = "colCustomerID";
             this.colCustomerID.Visible = true;
             this.colCustomerID.VisibleIndex = 6;
-            this.colCustomerID.Width = 94;
+            this.colCustomerID.Width = 81;
             // 
             // colProdStatus
             // 
             this.colProdStatus.Caption = "Tình trạng SX";
             this.colProdStatus.FieldName = "ProdStatus";
-            this.colProdStatus.MinWidth = 25;
+            this.colProdStatus.MinWidth = 21;
             this.colProdStatus.Name = "colProdStatus";
             this.colProdStatus.Visible = true;
             this.colProdStatus.VisibleIndex = 7;
-            this.colProdStatus.Width = 94;
+            this.colProdStatus.Width = 81;
             // 
             // colCheckState
             // 
             this.colCheckState.Caption = "Trạng thái KT";
             this.colCheckState.FieldName = "CheckState";
-            this.colCheckState.MinWidth = 25;
+            this.colCheckState.MinWidth = 21;
             this.colCheckState.Name = "colCheckState";
             this.colCheckState.Visible = true;
             this.colCheckState.VisibleIndex = 8;
-            this.colCheckState.Width = 94;
+            this.colCheckState.Width = 81;
             // 
             // colStateOfChecking
             // 
             this.colStateOfChecking.Caption = "Công đoạn KT";
             this.colStateOfChecking.FieldName = "StateOfChecking";
-            this.colStateOfChecking.MinWidth = 25;
+            this.colStateOfChecking.MinWidth = 21;
             this.colStateOfChecking.Name = "colStateOfChecking";
             this.colStateOfChecking.Visible = true;
             this.colStateOfChecking.VisibleIndex = 9;
-            this.colStateOfChecking.Width = 94;
+            this.colStateOfChecking.Width = 81;
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridIQCHeader;
             this.gridView1.Name = "gridView1";
             // 
@@ -705,9 +707,10 @@
             // 
             this.tabPageProdStatDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPageProdStatDetail.Location = new System.Drawing.Point(0, 0);
+            this.tabPageProdStatDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPageProdStatDetail.Name = "tabPageProdStatDetail";
             this.tabPageProdStatDetail.SelectedTabPage = this.tabCheckContent;
-            this.tabPageProdStatDetail.Size = new System.Drawing.Size(1700, 345);
+            this.tabPageProdStatDetail.Size = new System.Drawing.Size(1457, 281);
             this.tabPageProdStatDetail.TabIndex = 0;
             this.tabPageProdStatDetail.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabCheckContent,
@@ -716,14 +719,16 @@
             // tabCheckContent
             // 
             this.tabCheckContent.Controls.Add(this.splitContainerControl1);
+            this.tabCheckContent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabCheckContent.Name = "tabCheckContent";
-            this.tabCheckContent.Size = new System.Drawing.Size(1694, 313);
+            this.tabCheckContent.Size = new System.Drawing.Size(1452, 255);
             this.tabCheckContent.Text = "Ngoại quan";
             // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainerControl1.Name = "splitContainerControl1";
             // 
             // splitContainerControl1.Panel1
@@ -735,19 +740,17 @@
             // 
             this.splitContainerControl1.Panel2.Controls.Add(this.gridDefect);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1694, 313);
-            this.splitContainerControl1.SplitterPosition = 1172;
+            this.splitContainerControl1.Size = new System.Drawing.Size(1452, 255);
+            this.splitContainerControl1.SplitterPosition = 1005;
             this.splitContainerControl1.TabIndex = 0;
             // 
             // gridCheckContent
             // 
             this.gridCheckContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridCheckContent.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridCheckContent.Location = new System.Drawing.Point(0, 0);
             this.gridCheckContent.MainView = this.gridCheckContentView;
-            this.gridCheckContent.Margin = new System.Windows.Forms.Padding(4);
             this.gridCheckContent.Name = "gridCheckContent";
-            this.gridCheckContent.Size = new System.Drawing.Size(1172, 313);
+            this.gridCheckContent.Size = new System.Drawing.Size(1005, 255);
             this.gridCheckContent.TabIndex = 30;
             this.gridCheckContent.UseEmbeddedNavigator = true;
             this.gridCheckContent.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -763,7 +766,6 @@
             this.colIQCTemplateQuantity,
             this.colIQCEvalueResult,
             this.colIQCPeriodTime});
-            this.gridCheckContentView.DetailHeight = 431;
             this.gridCheckContentView.GridControl = this.gridCheckContent;
             this.gridCheckContentView.Name = "gridCheckContentView";
             this.gridCheckContentView.OptionsBehavior.Editable = false;
@@ -777,76 +779,75 @@
             // 
             this.colIQCCheckID.Caption = "Công đoạn";
             this.colIQCCheckID.FieldName = "IQCCheckID";
-            this.colIQCCheckID.MinWidth = 25;
+            this.colIQCCheckID.MinWidth = 21;
             this.colIQCCheckID.Name = "colIQCCheckID";
             this.colIQCCheckID.Visible = true;
             this.colIQCCheckID.VisibleIndex = 1;
-            this.colIQCCheckID.Width = 94;
+            this.colIQCCheckID.Width = 81;
             // 
             // colIQCCheckName
             // 
             this.colIQCCheckName.Caption = "Tên công đoạn";
             this.colIQCCheckName.FieldName = "IQCCheckName";
-            this.colIQCCheckName.MinWidth = 25;
+            this.colIQCCheckName.MinWidth = 21;
             this.colIQCCheckName.Name = "colIQCCheckName";
             this.colIQCCheckName.Visible = true;
             this.colIQCCheckName.VisibleIndex = 2;
-            this.colIQCCheckName.Width = 94;
+            this.colIQCCheckName.Width = 81;
             // 
             // colIQCCheckCont
             // 
             this.colIQCCheckCont.Caption = "Nội dung";
             this.colIQCCheckCont.FieldName = "IQCCheckCont";
-            this.colIQCCheckCont.MinWidth = 25;
+            this.colIQCCheckCont.MinWidth = 21;
             this.colIQCCheckCont.Name = "colIQCCheckCont";
             this.colIQCCheckCont.Visible = true;
             this.colIQCCheckCont.VisibleIndex = 3;
-            this.colIQCCheckCont.Width = 94;
+            this.colIQCCheckCont.Width = 81;
             // 
             // colIQCTemplateQuantity
             // 
             this.colIQCTemplateQuantity.Caption = "Số lượng mẫu";
             this.colIQCTemplateQuantity.FieldName = "IQCTemplateQuantity";
-            this.colIQCTemplateQuantity.MinWidth = 25;
+            this.colIQCTemplateQuantity.MinWidth = 21;
             this.colIQCTemplateQuantity.Name = "colIQCTemplateQuantity";
             this.colIQCTemplateQuantity.Visible = true;
             this.colIQCTemplateQuantity.VisibleIndex = 4;
-            this.colIQCTemplateQuantity.Width = 94;
+            this.colIQCTemplateQuantity.Width = 81;
             // 
             // colIQCEvalueResult
             // 
             this.colIQCEvalueResult.Caption = "Kết quả kiểm tra";
             this.colIQCEvalueResult.FieldName = "IQCEvalueResult";
-            this.colIQCEvalueResult.MinWidth = 25;
+            this.colIQCEvalueResult.MinWidth = 21;
             this.colIQCEvalueResult.Name = "colIQCEvalueResult";
             this.colIQCEvalueResult.Visible = true;
             this.colIQCEvalueResult.VisibleIndex = 5;
-            this.colIQCEvalueResult.Width = 94;
+            this.colIQCEvalueResult.Width = 81;
             // 
             // colIQCPeriodTime
             // 
             this.colIQCPeriodTime.Caption = "Thời gian kiểm tra";
             this.colIQCPeriodTime.FieldName = "IQCPeriodTime";
-            this.colIQCPeriodTime.MinWidth = 25;
+            this.colIQCPeriodTime.MinWidth = 21;
             this.colIQCPeriodTime.Name = "colIQCPeriodTime";
             this.colIQCPeriodTime.Visible = true;
             this.colIQCPeriodTime.VisibleIndex = 6;
-            this.colIQCPeriodTime.Width = 94;
+            this.colIQCPeriodTime.Width = 81;
             // 
             // gridView3
             // 
+            this.gridView3.DetailHeight = 284;
             this.gridView3.GridControl = this.gridCheckContent;
             this.gridView3.Name = "gridView3";
             // 
             // gridDefect
             // 
             this.gridDefect.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridDefect.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridDefect.Location = new System.Drawing.Point(0, 0);
             this.gridDefect.MainView = this.gridDefectView;
-            this.gridDefect.Margin = new System.Windows.Forms.Padding(4);
             this.gridDefect.Name = "gridDefect";
-            this.gridDefect.Size = new System.Drawing.Size(515, 313);
+            this.gridDefect.Size = new System.Drawing.Size(441, 255);
             this.gridDefect.TabIndex = 29;
             this.gridDefect.UseEmbeddedNavigator = true;
             this.gridDefect.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -859,7 +860,6 @@
             this.colDefectID,
             this.colDefectName,
             this.colDefectQuantity});
-            this.gridDefectView.DetailHeight = 431;
             this.gridDefectView.GridControl = this.gridDefect;
             this.gridDefectView.Name = "gridDefectView";
             this.gridDefectView.OptionsBehavior.Editable = false;
@@ -873,21 +873,21 @@
             // 
             this.colDefectID.Caption = "Mã defect";
             this.colDefectID.FieldName = "DefectID";
-            this.colDefectID.MinWidth = 25;
+            this.colDefectID.MinWidth = 21;
             this.colDefectID.Name = "colDefectID";
             this.colDefectID.Visible = true;
             this.colDefectID.VisibleIndex = 1;
-            this.colDefectID.Width = 94;
+            this.colDefectID.Width = 81;
             // 
             // colDefectName
             // 
             this.colDefectName.Caption = "Tên Defect";
             this.colDefectName.FieldName = "DefectName";
-            this.colDefectName.MinWidth = 25;
+            this.colDefectName.MinWidth = 21;
             this.colDefectName.Name = "colDefectName";
             this.colDefectName.Visible = true;
             this.colDefectName.VisibleIndex = 2;
-            this.colDefectName.Width = 94;
+            this.colDefectName.Width = 81;
             // 
             // colDefectQuantity
             // 
@@ -895,33 +895,33 @@
             this.colDefectQuantity.DisplayFormat.FormatString = "#0.00";
             this.colDefectQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colDefectQuantity.FieldName = "DefectQuantity";
-            this.colDefectQuantity.MinWidth = 25;
+            this.colDefectQuantity.MinWidth = 21;
             this.colDefectQuantity.Name = "colDefectQuantity";
             this.colDefectQuantity.Visible = true;
             this.colDefectQuantity.VisibleIndex = 3;
-            this.colDefectQuantity.Width = 94;
+            this.colDefectQuantity.Width = 81;
             // 
             // gridView2
             // 
+            this.gridView2.DetailHeight = 284;
             this.gridView2.GridControl = this.gridDefect;
             this.gridView2.Name = "gridView2";
             // 
             // tabActualChecking
             // 
             this.tabActualChecking.Controls.Add(this.gridActualCheck);
+            this.tabActualChecking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabActualChecking.Name = "tabActualChecking";
-            this.tabActualChecking.Size = new System.Drawing.Size(1694, 313);
+            this.tabActualChecking.Size = new System.Drawing.Size(1452, 255);
             this.tabActualChecking.Text = "Dim Function";
             // 
             // gridActualCheck
             // 
             this.gridActualCheck.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridActualCheck.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridActualCheck.Location = new System.Drawing.Point(0, 0);
             this.gridActualCheck.MainView = this.gridActualCheckView;
-            this.gridActualCheck.Margin = new System.Windows.Forms.Padding(4);
             this.gridActualCheck.Name = "gridActualCheck";
-            this.gridActualCheck.Size = new System.Drawing.Size(1694, 313);
+            this.gridActualCheck.Size = new System.Drawing.Size(1452, 255);
             this.gridActualCheck.TabIndex = 29;
             this.gridActualCheck.UseEmbeddedNavigator = true;
             this.gridActualCheck.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -942,7 +942,6 @@
             this.IQCEvalueResult,
             this.IQCDeviceID,
             this.IQCMeasuringToolID});
-            this.gridActualCheckView.DetailHeight = 431;
             this.gridActualCheckView.GridControl = this.gridActualCheck;
             this.gridActualCheckView.Name = "gridActualCheckView";
             this.gridActualCheckView.OptionsBehavior.Editable = false;
@@ -956,114 +955,115 @@
             // 
             this.IQCCheckID.Caption = "ID";
             this.IQCCheckID.FieldName = "IQCCheckID";
-            this.IQCCheckID.MinWidth = 25;
+            this.IQCCheckID.MinWidth = 21;
             this.IQCCheckID.Name = "IQCCheckID";
             this.IQCCheckID.Visible = true;
             this.IQCCheckID.VisibleIndex = 1;
-            this.IQCCheckID.Width = 94;
+            this.IQCCheckID.Width = 81;
             // 
             // IQCCheckName
             // 
             this.IQCCheckName.Caption = "Mô tả công đoạn";
             this.IQCCheckName.FieldName = "IQCCheckName";
-            this.IQCCheckName.MinWidth = 25;
+            this.IQCCheckName.MinWidth = 21;
             this.IQCCheckName.Name = "IQCCheckName";
             this.IQCCheckName.Visible = true;
             this.IQCCheckName.VisibleIndex = 2;
-            this.IQCCheckName.Width = 94;
+            this.IQCCheckName.Width = 81;
             // 
             // IQCDFID
             // 
             this.IQCDFID.Caption = "Mã công đoạn";
             this.IQCDFID.FieldName = "IQCDFID";
-            this.IQCDFID.MinWidth = 25;
+            this.IQCDFID.MinWidth = 21;
             this.IQCDFID.Name = "IQCDFID";
             this.IQCDFID.Visible = true;
             this.IQCDFID.VisibleIndex = 3;
-            this.IQCDFID.Width = 94;
+            this.IQCDFID.Width = 81;
             // 
             // IQCCheckingContent
             // 
             this.IQCCheckingContent.Caption = "Hạng mục KT";
             this.IQCCheckingContent.FieldName = "IQCCheckingContent";
-            this.IQCCheckingContent.MinWidth = 25;
+            this.IQCCheckingContent.MinWidth = 21;
             this.IQCCheckingContent.Name = "IQCCheckingContent";
             this.IQCCheckingContent.Visible = true;
             this.IQCCheckingContent.VisibleIndex = 4;
-            this.IQCCheckingContent.Width = 94;
+            this.IQCCheckingContent.Width = 81;
             // 
             // IQCStandardMin
             // 
             this.IQCStandardMin.Caption = "Tiêu chuẩn Min";
             this.IQCStandardMin.FieldName = "IQCStandardMin";
-            this.IQCStandardMin.MinWidth = 25;
+            this.IQCStandardMin.MinWidth = 21;
             this.IQCStandardMin.Name = "IQCStandardMin";
             this.IQCStandardMin.Visible = true;
             this.IQCStandardMin.VisibleIndex = 5;
-            this.IQCStandardMin.Width = 94;
+            this.IQCStandardMin.Width = 81;
             // 
             // IQCStandardMax
             // 
             this.IQCStandardMax.Caption = "Tiêu chuẩn Max";
             this.IQCStandardMax.FieldName = "IQCStandardMax";
-            this.IQCStandardMax.MinWidth = 25;
+            this.IQCStandardMax.MinWidth = 21;
             this.IQCStandardMax.Name = "IQCStandardMax";
             this.IQCStandardMax.Visible = true;
             this.IQCStandardMax.VisibleIndex = 6;
-            this.IQCStandardMax.Width = 94;
+            this.IQCStandardMax.Width = 81;
             // 
             // IQCEvalueActual
             // 
             this.IQCEvalueActual.Caption = "Thực tế kiểm tra";
             this.IQCEvalueActual.FieldName = "IQCEvalueActual";
-            this.IQCEvalueActual.MinWidth = 25;
+            this.IQCEvalueActual.MinWidth = 21;
             this.IQCEvalueActual.Name = "IQCEvalueActual";
             this.IQCEvalueActual.Visible = true;
             this.IQCEvalueActual.VisibleIndex = 7;
-            this.IQCEvalueActual.Width = 94;
+            this.IQCEvalueActual.Width = 81;
             // 
             // IQCEvalueCheckTime
             // 
             this.IQCEvalueCheckTime.Caption = "Thời gian KT";
             this.IQCEvalueCheckTime.FieldName = "IQCEvalueCheckTime";
-            this.IQCEvalueCheckTime.MinWidth = 25;
+            this.IQCEvalueCheckTime.MinWidth = 21;
             this.IQCEvalueCheckTime.Name = "IQCEvalueCheckTime";
             this.IQCEvalueCheckTime.Visible = true;
             this.IQCEvalueCheckTime.VisibleIndex = 8;
-            this.IQCEvalueCheckTime.Width = 94;
+            this.IQCEvalueCheckTime.Width = 81;
             // 
             // IQCEvalueResult
             // 
             this.IQCEvalueResult.Caption = "Phán định";
             this.IQCEvalueResult.FieldName = "IQCEvalueResult";
-            this.IQCEvalueResult.MinWidth = 25;
+            this.IQCEvalueResult.MinWidth = 21;
             this.IQCEvalueResult.Name = "IQCEvalueResult";
             this.IQCEvalueResult.Visible = true;
             this.IQCEvalueResult.VisibleIndex = 11;
-            this.IQCEvalueResult.Width = 94;
+            this.IQCEvalueResult.Width = 81;
             // 
             // IQCDeviceID
             // 
             this.IQCDeviceID.Caption = "Mã thiết bị";
             this.IQCDeviceID.FieldName = "IQCDeviceID";
-            this.IQCDeviceID.MinWidth = 25;
+            this.IQCDeviceID.MinWidth = 21;
             this.IQCDeviceID.Name = "IQCDeviceID";
             this.IQCDeviceID.Visible = true;
             this.IQCDeviceID.VisibleIndex = 9;
-            this.IQCDeviceID.Width = 94;
+            this.IQCDeviceID.Width = 81;
             // 
             // IQCMeasuringToolID
             // 
             this.IQCMeasuringToolID.Caption = "Mã công cụ đo";
             this.IQCMeasuringToolID.FieldName = "IQCMeasuringToolID";
-            this.IQCMeasuringToolID.MinWidth = 25;
+            this.IQCMeasuringToolID.MinWidth = 21;
             this.IQCMeasuringToolID.Name = "IQCMeasuringToolID";
             this.IQCMeasuringToolID.Visible = true;
             this.IQCMeasuringToolID.VisibleIndex = 10;
-            this.IQCMeasuringToolID.Width = 94;
+            this.IQCMeasuringToolID.Width = 81;
             // 
             // gridView4
             // 
+            this.gridView4.DetailHeight = 284;
             this.gridView4.GridControl = this.gridActualCheck;
             this.gridView4.Name = "gridView4";
             // 
@@ -1072,27 +1072,27 @@
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 54);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(0, 44);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1700, 613);
+            this.panel1.Size = new System.Drawing.Size(1457, 498);
             this.panel1.TabIndex = 32;
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(1700, 54);
+            this.barDockControl4.Location = new System.Drawing.Point(1457, 44);
             this.barDockControl4.Manager = null;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 613);
+            this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 498);
             // 
             // textEdit1
             // 
             this.textEdit1.Enabled = false;
-            this.textEdit1.Location = new System.Drawing.Point(275, 268);
-            this.textEdit1.Margin = new System.Windows.Forms.Padding(5);
+            this.textEdit1.Location = new System.Drawing.Point(236, 218);
+            this.textEdit1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(146, 23);
+            this.textEdit1.Size = new System.Drawing.Size(125, 20);
             this.textEdit1.TabIndex = 34;
             this.textEdit1.Visible = false;
             // 
@@ -1108,9 +1108,9 @@
             // 
             // frmExternalIQC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1700, 667);
+            this.ClientSize = new System.Drawing.Size(1457, 542);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textEdit1);
             this.Controls.Add(this.barDockControl4);
@@ -1119,6 +1119,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmExternalIQC";
             this.Text = "frmExternalIQC";
             this.panel2.ResumeLayout(false);

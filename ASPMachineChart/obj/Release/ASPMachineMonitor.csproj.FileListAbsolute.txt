@@ -1,0 +1,10 @@
+D:\Airspeed Dev\ASPProjects\ASP\ASPMachineMonitor.dll
+D:\Airspeed Dev\ASPProjects\ASP\ASPMachineMonitor.pdb
+D:\Airspeed Dev\ASPProjects\ASPMachineChart\obj\Release\ASPMachineMonitor.csproj.AssemblyReference.cache
+D:\Airspeed Dev\ASPProjects\ASPMachineChart\obj\Release\ASPMachineMonitor.MachineChart.resources
+D:\Airspeed Dev\ASPProjects\ASPMachineChart\obj\Release\ASPMachineMonitor.csproj.GenerateResource.cache
+D:\Airspeed Dev\ASPProjects\ASPMachineChart\obj\Release\ASPMachineMonitor.dll.licenses
+D:\Airspeed Dev\ASPProjects\ASPMachineChart\obj\Release\ASPMachineMonitor.csproj.CoreCompileInputs.cache
+D:\Airspeed Dev\ASPProjects\ASPMachineChart\obj\Release\ASPMachi.4A5C16F9.Up2Date
+D:\Airspeed Dev\ASPProjects\ASPMachineChart\obj\Release\ASPMachineMonitor.dll
+D:\Airspeed Dev\ASPProjects\ASPMachineChart\obj\Release\ASPMachineMonitor.pdb

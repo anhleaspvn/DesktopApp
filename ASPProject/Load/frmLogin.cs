@@ -14,6 +14,7 @@ using System.Configuration;
 using ASPData.ASPDTO;
 using ASPData.ASPDAO;
 using DevExpress.LookAndFeel;
+using ASPProject.Load;
 
 namespace ASPProject
 {
@@ -21,6 +22,7 @@ namespace ASPProject
     {
         public frmLogin()
         {
+            //AutoUpdater.UpdateAllDlls();
             InitializeComponent();
         }
 

@@ -44,8 +44,6 @@
             this.CycleTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UsageBom = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ManPower = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btImportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.Summary = new DevExpress.XtraTab.XtraTabPage();
             this.gridSOP = new DevExpress.XtraGrid.GridControl();
             this.gridSOPView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -58,7 +56,9 @@
             this.colManPower = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btExport = new DevExpress.XtraEditors.SimpleButton();
+            this.btImportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.btDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.FuncTab.SuspendLayout();
@@ -72,13 +72,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridWOSOPView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSOPStage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSOPStageView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
             this.Summary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSOP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSOPView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -98,7 +98,7 @@
             this.FuncTab.Controls.Add(this.splitContainerControl1);
             this.FuncTab.Controls.Add(this.panelControl1);
             this.FuncTab.Name = "FuncTab";
-            this.FuncTab.Size = new System.Drawing.Size(1086, 536);
+            this.FuncTab.Size = new System.Drawing.Size(1086, 537);
             this.FuncTab.Text = "Chức năng";
             // 
             // splitContainerControl1
@@ -118,7 +118,7 @@
             // 
             this.splitContainerControl1.Panel2.Controls.Add(this.gridSOPStage);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1086, 490);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1086, 491);
             this.splitContainerControl1.SplitterPosition = 214;
             this.splitContainerControl1.TabIndex = 5;
             // 
@@ -168,7 +168,7 @@
             this.gridSOPStage.MainView = this.gridSOPStageView;
             this.gridSOPStage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridSOPStage.Name = "gridSOPStage";
-            this.gridSOPStage.Size = new System.Drawing.Size(1086, 270);
+            this.gridSOPStage.Size = new System.Drawing.Size(1086, 273);
             this.gridSOPStage.TabIndex = 5;
             this.gridSOPStage.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridSOPStageView});
@@ -264,33 +264,12 @@
             this.ManPower.VisibleIndex = 6;
             this.ManPower.Width = 81;
             // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.btDelete);
-            this.panelControl1.Controls.Add(this.btImportExcel);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 490);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1086, 46);
-            this.panelControl1.TabIndex = 4;
-            // 
-            // btImportExcel
-            // 
-            this.btImportExcel.ImageOptions.Image = global::ASPProject.Properties.Resources.excel;
-            this.btImportExcel.Location = new System.Drawing.Point(15, 9);
-            this.btImportExcel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btImportExcel.Name = "btImportExcel";
-            this.btImportExcel.Size = new System.Drawing.Size(138, 28);
-            this.btImportExcel.TabIndex = 7;
-            this.btImportExcel.Text = "Import Dữ liệu";
-            // 
             // Summary
             // 
             this.Summary.Controls.Add(this.gridSOP);
             this.Summary.Controls.Add(this.panelControl2);
             this.Summary.Name = "Summary";
-            this.Summary.Size = new System.Drawing.Size(1086, 536);
+            this.Summary.Size = new System.Drawing.Size(1086, 537);
             this.Summary.Text = "Tổng hợp";
             // 
             // gridSOP
@@ -301,7 +280,7 @@
             this.gridSOP.MainView = this.gridSOPView;
             this.gridSOP.Margin = new System.Windows.Forms.Padding(5);
             this.gridSOP.Name = "gridSOP";
-            this.gridSOP.Size = new System.Drawing.Size(1086, 492);
+            this.gridSOP.Size = new System.Drawing.Size(1086, 493);
             this.gridSOP.TabIndex = 7;
             this.gridSOP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridSOPView});
@@ -386,7 +365,7 @@
             // 
             this.panelControl2.Controls.Add(this.btExport);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(0, 492);
+            this.panelControl2.Location = new System.Drawing.Point(0, 493);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(1086, 44);
@@ -403,6 +382,16 @@
             this.btExport.TabIndex = 16;
             this.btExport.Text = "Xuất dữ liệu";
             // 
+            // btImportExcel
+            // 
+            this.btImportExcel.ImageOptions.Image = global::ASPProject.Properties.Resources.excel;
+            this.btImportExcel.Location = new System.Drawing.Point(15, 9);
+            this.btImportExcel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btImportExcel.Name = "btImportExcel";
+            this.btImportExcel.Size = new System.Drawing.Size(138, 28);
+            this.btImportExcel.TabIndex = 7;
+            this.btImportExcel.Text = "Import Dữ liệu";
+            // 
             // btDelete
             // 
             this.btDelete.ImageOptions.Image = global::ASPProject.Properties.Resources.cancel;
@@ -412,6 +401,17 @@
             this.btDelete.Size = new System.Drawing.Size(138, 28);
             this.btDelete.TabIndex = 8;
             this.btDelete.Text = "Xoá";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.btDelete);
+            this.panelControl1.Controls.Add(this.btImportExcel);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl1.Location = new System.Drawing.Point(0, 491);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1086, 46);
+            this.panelControl1.TabIndex = 4;
             // 
             // frmWOSOP
             // 
@@ -436,13 +436,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridWOSOPView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSOPStage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSOPStageView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
             this.Summary.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridSOP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSOPView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -464,8 +464,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn CycleTime;
         private DevExpress.XtraGrid.Columns.GridColumn UsageBom;
         private DevExpress.XtraGrid.Columns.GridColumn ManPower;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SimpleButton btImportExcel;
         private DevExpress.XtraTab.XtraTabPage Summary;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.SimpleButton btExport;
@@ -478,6 +476,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCycleTime;
         private DevExpress.XtraGrid.Columns.GridColumn colUsageBom;
         private DevExpress.XtraGrid.Columns.GridColumn colManPower;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton btDelete;
+        private DevExpress.XtraEditors.SimpleButton btImportExcel;
     }
 }

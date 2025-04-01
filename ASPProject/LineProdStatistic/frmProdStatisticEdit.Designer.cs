@@ -149,7 +149,7 @@
             this.lkeWO.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkeWO.Properties.NullText = "";
-            this.lkeWO.Size = new System.Drawing.Size(266, 22);
+            this.lkeWO.Size = new System.Drawing.Size(266, 23);
             this.lkeWO.TabIndex = 2;
             // 
             // lblMaNganh
@@ -183,7 +183,7 @@
             this.lkeFieldID.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkeFieldID.Properties.NullText = "";
-            this.lkeFieldID.Size = new System.Drawing.Size(266, 22);
+            this.lkeFieldID.Size = new System.Drawing.Size(266, 23);
             this.lkeFieldID.TabIndex = 1;
             // 
             // labelControl2
@@ -206,7 +206,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpStatisDate.Properties.MaskSettings.Set("culture", "vi-VN");
             this.dtpStatisDate.Properties.UseMaskAsDisplayFormat = true;
-            this.dtpStatisDate.Size = new System.Drawing.Size(266, 22);
+            this.dtpStatisDate.Size = new System.Drawing.Size(266, 23);
             this.dtpStatisDate.TabIndex = 3;
             // 
             // labelControl4
@@ -253,7 +253,7 @@
             this.lkeStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkeStatus.Properties.NullText = "";
-            this.lkeStatus.Size = new System.Drawing.Size(266, 22);
+            this.lkeStatus.Size = new System.Drawing.Size(266, 23);
             this.lkeStatus.TabIndex = 6;
             // 
             // labelControl1
@@ -286,7 +286,7 @@
             this.txtStatisQuantity.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtStatisQuantity.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtStatisQuantity.Properties.UseMaskAsDisplayFormat = true;
-            this.txtStatisQuantity.Size = new System.Drawing.Size(266, 22);
+            this.txtStatisQuantity.Size = new System.Drawing.Size(266, 23);
             this.txtStatisQuantity.TabIndex = 8;
             // 
             // labelControl11
@@ -321,7 +321,7 @@
             this.txtManStatis.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtManStatis.Properties.MaskSettings.Set("mask", "#####");
             this.txtManStatis.Properties.UseMaskAsDisplayFormat = true;
-            this.txtManStatis.Size = new System.Drawing.Size(266, 22);
+            this.txtManStatis.Size = new System.Drawing.Size(266, 23);
             this.txtManStatis.TabIndex = 7;
             // 
             // labelControl14
@@ -342,7 +342,7 @@
             this.lkeProdShift.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkeProdShift.Properties.NullText = "";
-            this.lkeProdShift.Size = new System.Drawing.Size(266, 22);
+            this.lkeProdShift.Size = new System.Drawing.Size(266, 23);
             this.lkeProdShift.TabIndex = 4;
             // 
             // dtpProdBeginDate
@@ -356,7 +356,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpProdBeginDate.Properties.MaskSettings.Set("culture", "vi-VN");
             this.dtpProdBeginDate.Properties.UseMaskAsDisplayFormat = true;
-            this.dtpProdBeginDate.Size = new System.Drawing.Size(266, 22);
+            this.dtpProdBeginDate.Size = new System.Drawing.Size(266, 23);
             this.dtpProdBeginDate.TabIndex = 5;
             // 
             // labelControl8

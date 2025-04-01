@@ -83,7 +83,6 @@ namespace ASPProject.Losstime
         private void LoadData()
         {
             gridLosstime.DataSource = losstimeDao.GetAllLosstime();
-            //gridLosstimeView.SelectRow(curIndex);
         }
         #endregion
 
@@ -132,6 +131,7 @@ namespace ASPProject.Losstime
             saveFileDialog1.Filter = "Excel|*.xlsx";
             saveFileDialog1.Title = "Save an File";
             saveFileDialog1.ShowDialog();
+
             if (saveFileDialog1.FileName != "")
             {
                 gridLosstime.ExportToXlsx(saveFileDialog1.FileName);

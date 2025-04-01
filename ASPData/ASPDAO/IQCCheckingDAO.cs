@@ -298,7 +298,7 @@ namespace ASPData.ASPDAO
             return result;
         }
 
-        public DataTable GetDailyIQCProcessPercentChart(int Week, int Month, int Year)
+        public DataTable GetDailyIQCPPMByProcessChart(int Week, int Month, int Year)
         {
             DataTable result = new DataTable();
 
@@ -309,7 +309,23 @@ namespace ASPData.ASPDAO
                 { "@Year", Year }
             };
 
-            result = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPDailyIQCProcessPercentChart", dicParams);
+            result = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPDailyIQCProcessPPMChart", dicParams);
+
+            return result;
+        }
+
+        public DataTable GetDailyIQCPPMByProductChart(int Week, int Month, int Year)
+        {
+            DataTable result = new DataTable();
+
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@Week", Week },
+                { "@Month", Month },
+                { "@Year", Year }
+            };
+
+            result = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPDailyIQCProductPPMChart", dicParams);
 
             return result;
         }

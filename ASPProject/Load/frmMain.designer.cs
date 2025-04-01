@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btKhuVuc = new DevExpress.XtraBars.BarButtonItem();
@@ -106,6 +106,15 @@
             this.btRptMachineStage = new DevExpress.XtraBars.BarButtonItem();
             this.btMachine = new DevExpress.XtraBars.BarButtonItem();
             this.btEmpCapacity = new DevExpress.XtraBars.BarButtonItem();
+            this.btIsoEmail = new DevExpress.XtraBars.BarButtonItem();
+            this.btScanBarcodeBin = new DevExpress.XtraBars.BarButtonItem();
+            this.btPlanningMasterList = new DevExpress.XtraBars.BarButtonItem();
+            this.btQRCodeMaster = new DevExpress.XtraBars.BarButtonItem();
+            this.btProdScanQRCodeLog = new DevExpress.XtraBars.BarButtonItem();
+            this.btTracebility = new DevExpress.XtraBars.BarButtonItem();
+            this.btScanQRCodeJig = new DevExpress.XtraBars.BarButtonItem();
+            this.btDetailTableJig = new DevExpress.XtraBars.BarButtonItem();
+            this.btSBLine = new DevExpress.XtraBars.BarButtonItem();
             this.ribDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribNhanVien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbDefectMode = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -113,6 +122,10 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbLSXSOPStage = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.isoAuditEmail = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.scanBarCodeBinList = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btPlanningList = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbQRCodeMaster = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribChucNang = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbProd = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbMachineTime = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -146,8 +159,7 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.barMayChu = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.isoAuditEmail = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btIsoEmail = new DevExpress.XtraBars.BarButtonItem();
+            this.btSumDataQRCode = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeZone1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemWeekOfMonth1)).BeginInit();
@@ -163,7 +175,7 @@
             // ribbon
             // 
             this.ribbon.ApplicationButtonText = null;
-            this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(74, 72, 74, 72);
+            this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(86, 89, 86, 89);
             this.ribbon.ExpandCollapseItem.Id = 106;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
@@ -240,12 +252,21 @@
             this.btRptMachineStage,
             this.btMachine,
             this.btEmpCapacity,
-            this.btIsoEmail});
+            this.btIsoEmail,
+            this.btScanBarcodeBin,
+            this.btPlanningMasterList,
+            this.btQRCodeMaster,
+            this.btProdScanQRCodeLog,
+            this.btTracebility,
+            this.btScanQRCodeJig,
+            this.btDetailTableJig,
+            this.btSBLine,
+            this.btSumDataQRCode});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
-            this.ribbon.MaxItemId = 170;
+            this.ribbon.Margin = new System.Windows.Forms.Padding(10);
+            this.ribbon.MaxItemId = 180;
             this.ribbon.Name = "ribbon";
-            this.ribbon.OptionsMenuMinWidth = 805;
+            this.ribbon.OptionsMenuMinWidth = 939;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribDanhMuc,
             this.ribChucNang,
@@ -259,7 +280,7 @@
             this.repositoryItemComboBox2,
             this.repositoryItemComboBox3});
             this.ribbon.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ribbon.Size = new System.Drawing.Size(1287, 147);
+            this.ribbon.Size = new System.Drawing.Size(1556, 181);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btKhuVuc
@@ -443,12 +464,12 @@
             this.btNgonNguViet.Id = 74;
             this.btNgonNguViet.ImageOptions.Image = global::ASPProject.Properties.Resources.vn;
             this.btNgonNguViet.Name = "btNgonNguViet";
-            toolTipTitleItem1.Text = "Ngôn ngữ";
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Vietnamese\r\n";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btNgonNguViet.SuperTip = superToolTip1;
+            toolTipTitleItem2.Text = "Ngôn ngữ";
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "Vietnamese\r\n";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            superToolTip2.Items.Add(toolTipItem2);
+            this.btNgonNguViet.SuperTip = superToolTip2;
             this.btNgonNguViet.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // btHoaDonNhap
@@ -760,6 +781,79 @@
             this.btEmpCapacity.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btEmpCapacity.ImageOptions.LargeImage")));
             this.btEmpCapacity.Name = "btEmpCapacity";
             // 
+            // btIsoEmail
+            // 
+            this.btIsoEmail.Caption = "ISO Email List";
+            this.btIsoEmail.Id = 169;
+            this.btIsoEmail.ImageOptions.Image = global::ASPProject.Properties.Resources.listvn;
+            this.btIsoEmail.ImageOptions.LargeImage = global::ASPProject.Properties.Resources.listvn;
+            this.btIsoEmail.Name = "btIsoEmail";
+            // 
+            // btScanBarcodeBin
+            // 
+            this.btScanBarcodeBin.Caption = "Scan Barcode Bin";
+            this.btScanBarcodeBin.Id = 170;
+            this.btScanBarcodeBin.ImageOptions.Image = global::ASPProject.Properties.Resources.product1;
+            this.btScanBarcodeBin.ImageOptions.LargeImage = global::ASPProject.Properties.Resources.product;
+            this.btScanBarcodeBin.Name = "btScanBarcodeBin";
+            // 
+            // btPlanningMasterList
+            // 
+            this.btPlanningMasterList.Caption = "Planning Master List";
+            this.btPlanningMasterList.Id = 171;
+            this.btPlanningMasterList.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btPlanningMasterList.ImageOptions.Image")));
+            this.btPlanningMasterList.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btPlanningMasterList.ImageOptions.LargeImage")));
+            this.btPlanningMasterList.Name = "btPlanningMasterList";
+            this.btPlanningMasterList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btPlanningMasterList_ItemClick);
+            // 
+            // btQRCodeMaster
+            // 
+            this.btQRCodeMaster.Caption = "QR Code Master";
+            this.btQRCodeMaster.Id = 172;
+            this.btQRCodeMaster.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btQRCodeMaster.ImageOptions.Image")));
+            this.btQRCodeMaster.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btQRCodeMaster.ImageOptions.LargeImage")));
+            this.btQRCodeMaster.Name = "btQRCodeMaster";
+            // 
+            // btProdScanQRCodeLog
+            // 
+            this.btProdScanQRCodeLog.Caption = "Scan QR Code";
+            this.btProdScanQRCodeLog.Id = 174;
+            this.btProdScanQRCodeLog.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btProdScanQRCodeLog.ImageOptions.Image")));
+            this.btProdScanQRCodeLog.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btProdScanQRCodeLog.ImageOptions.LargeImage")));
+            this.btProdScanQRCodeLog.Name = "btProdScanQRCodeLog";
+            // 
+            // btTracebility
+            // 
+            this.btTracebility.Caption = "Traceability";
+            this.btTracebility.Id = 175;
+            this.btTracebility.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btTracebility.ImageOptions.Image")));
+            this.btTracebility.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btTracebility.ImageOptions.LargeImage")));
+            this.btTracebility.Name = "btTracebility";
+            // 
+            // btScanQRCodeJig
+            // 
+            this.btScanQRCodeJig.Caption = "Jig Test QRCode";
+            this.btScanQRCodeJig.Id = 176;
+            this.btScanQRCodeJig.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btScanQRCodeJig.ImageOptions.Image")));
+            this.btScanQRCodeJig.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btScanQRCodeJig.ImageOptions.LargeImage")));
+            this.btScanQRCodeJig.Name = "btScanQRCodeJig";
+            // 
+            // btDetailTableJig
+            // 
+            this.btDetailTableJig.Caption = "Bảng kê chi tiết Jig";
+            this.btDetailTableJig.Id = 177;
+            this.btDetailTableJig.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btDetailTableJig.ImageOptions.Image")));
+            this.btDetailTableJig.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btDetailTableJig.ImageOptions.LargeImage")));
+            this.btDetailTableJig.Name = "btDetailTableJig";
+            // 
+            // btSBLine
+            // 
+            this.btSBLine.Caption = "Line - Scan Barcode Bin";
+            this.btSBLine.Id = 178;
+            this.btSBLine.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btSBLine.ImageOptions.Image")));
+            this.btSBLine.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btSBLine.ImageOptions.LargeImage")));
+            this.btSBLine.Name = "btSBLine";
+            // 
             // ribDanhMuc
             // 
             this.ribDanhMuc.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -769,7 +863,10 @@
             this.ribbonPageGroup1,
             this.rbLSXSOPStage,
             this.ribbonPageGroup4,
-            this.isoAuditEmail});
+            this.isoAuditEmail,
+            this.scanBarCodeBinList,
+            this.btPlanningList,
+            this.rbQRCodeMaster});
             this.ribDanhMuc.Name = "ribDanhMuc";
             this.ribDanhMuc.Text = "Danh Mục";
             // 
@@ -812,6 +909,31 @@
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Danh sách máy";
             // 
+            // isoAuditEmail
+            // 
+            this.isoAuditEmail.ItemLinks.Add(this.btIsoEmail);
+            this.isoAuditEmail.Name = "isoAuditEmail";
+            this.isoAuditEmail.Text = "ISO Audit Email";
+            // 
+            // scanBarCodeBinList
+            // 
+            this.scanBarCodeBinList.ItemLinks.Add(this.btScanBarcodeBin);
+            this.scanBarCodeBinList.ItemLinks.Add(this.btSBLine);
+            this.scanBarCodeBinList.Name = "scanBarCodeBinList";
+            this.scanBarCodeBinList.Text = "Scan Barcode  Bin";
+            // 
+            // btPlanningList
+            // 
+            this.btPlanningList.ItemLinks.Add(this.btPlanningMasterList);
+            this.btPlanningList.Name = "btPlanningList";
+            this.btPlanningList.Text = "Planning Master List";
+            // 
+            // rbQRCodeMaster
+            // 
+            this.rbQRCodeMaster.ItemLinks.Add(this.btQRCodeMaster);
+            this.rbQRCodeMaster.Name = "rbQRCodeMaster";
+            this.rbQRCodeMaster.Text = "QR Code Master";
+            // 
             // ribChucNang
             // 
             this.ribChucNang.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -829,6 +951,8 @@
             this.rbProd.ItemLinks.Add(this.btProdStatistic);
             this.rbProd.ItemLinks.Add(this.btProdExLosstime);
             this.rbProd.ItemLinks.Add(this.btOutputChart);
+            this.rbProd.ItemLinks.Add(this.btProdScanQRCodeLog);
+            this.rbProd.ItemLinks.Add(this.btSumDataQRCode);
             this.rbProd.ItemLinks.Add(this.btAttendanceTable);
             this.rbProd.ItemLinks.Add(this.btProdPlan);
             this.rbProd.ItemLinks.Add(this.btSumReport);
@@ -836,9 +960,11 @@
             this.rbProd.ItemLinks.Add(this.btRptMachineStage);
             this.rbProd.ItemLinks.Add(this.btEmpCapacity);
             this.rbProd.ItemLinks.Add(this.btProdORChart);
+            this.rbProd.ItemLinks.Add(this.btTracebility);
             this.rbProd.ItemLinks.Add(this.btAbsenceDoc);
             this.rbProd.ItemLinks.Add(this.btAbsenceFollow);
             this.rbProd.ItemLinks.Add(this.btHRAbsence);
+            this.rbProd.ItemLinks.Add(this.btScanQRCodeJig);
             this.rbProd.Name = "rbProd";
             this.rbProd.Text = "Sản xuất";
             // 
@@ -846,8 +972,10 @@
             // 
             this.rbMachineTime.ItemLinks.Add(this.btMachineChart);
             this.rbMachineTime.ItemLinks.Add(this.btRptMold);
+            this.rbMachineTime.ItemLinks.Add(this.btDetailTableJig);
             this.rbMachineTime.Name = "rbMachineTime";
             this.rbMachineTime.Text = "Machine Time";
+            this.rbMachineTime.Visible = false;
             // 
             // rbQuality
             // 
@@ -946,21 +1074,21 @@
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticNhanVien);
             this.ribbonStatusBar.ItemLinks.Add(this.barDatabase);
             this.ribbonStatusBar.ItemLinks.Add(this.barThoiGian);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 551);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 703);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(10);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1287, 23);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1556, 27);
             // 
             // clientPanel
             // 
             this.clientPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.clientPanel.Controls.Add(this.tabControl12);
             this.clientPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clientPanel.Location = new System.Drawing.Point(0, 147);
-            this.clientPanel.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
+            this.clientPanel.Location = new System.Drawing.Point(0, 181);
+            this.clientPanel.Margin = new System.Windows.Forms.Padding(10);
             this.clientPanel.Name = "clientPanel";
-            this.clientPanel.Size = new System.Drawing.Size(1287, 404);
+            this.clientPanel.Size = new System.Drawing.Size(1556, 522);
             this.clientPanel.TabIndex = 2;
             // 
             // tabControl12
@@ -971,11 +1099,11 @@
             this.tabControl12.CloseButtonPosition = DevComponents.DotNetBar.eTabCloseButtonPosition.Right;
             this.tabControl12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl12.Location = new System.Drawing.Point(0, 0);
-            this.tabControl12.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
+            this.tabControl12.Margin = new System.Windows.Forms.Padding(10);
             this.tabControl12.Name = "tabControl12";
             this.tabControl12.SelectedTabFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.tabControl12.SelectedTabIndex = -1;
-            this.tabControl12.Size = new System.Drawing.Size(1287, 404);
+            this.tabControl12.Size = new System.Drawing.Size(1556, 522);
             this.tabControl12.Style = DevComponents.DotNetBar.eTabStripStyle.Office2007Document;
             this.tabControl12.TabIndex = 5;
             this.tabControl12.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
@@ -1012,32 +1140,32 @@
             this.hiệnToolStripMenuItem,
             this.thoátToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(68, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(70, 114);
             // 
             // phụcHồiDữLiệuToolStripMenuItem
             // 
             this.phụcHồiDữLiệuToolStripMenuItem.Name = "phụcHồiDữLiệuToolStripMenuItem";
-            this.phụcHồiDữLiệuToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
+            this.phụcHồiDữLiệuToolStripMenuItem.Size = new System.Drawing.Size(69, 22);
             // 
             // saoLưuDữLiệuToolStripMenuItem
             // 
             this.saoLưuDữLiệuToolStripMenuItem.Name = "saoLưuDữLiệuToolStripMenuItem";
-            this.saoLưuDữLiệuToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
+            this.saoLưuDữLiệuToolStripMenuItem.Size = new System.Drawing.Size(69, 22);
             // 
             // ẩnToolStripMenuItem
             // 
             this.ẩnToolStripMenuItem.Name = "ẩnToolStripMenuItem";
-            this.ẩnToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
+            this.ẩnToolStripMenuItem.Size = new System.Drawing.Size(69, 22);
             // 
             // hiệnToolStripMenuItem
             // 
             this.hiệnToolStripMenuItem.Name = "hiệnToolStripMenuItem";
-            this.hiệnToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
+            this.hiệnToolStripMenuItem.Size = new System.Drawing.Size(69, 22);
             // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(69, 22);
             // 
             // defaultLookAndFeel1
             // 
@@ -1074,29 +1202,25 @@
             this.barStaticItem1.Id = 67;
             this.barStaticItem1.Name = "barStaticItem1";
             // 
-            // isoAuditEmail
+            // btSumDataQRCode
             // 
-            this.isoAuditEmail.ItemLinks.Add(this.btIsoEmail);
-            this.isoAuditEmail.Name = "isoAuditEmail";
-            this.isoAuditEmail.Text = "ISO Audit Email";
-            // 
-            // btIsoEmail
-            // 
-            this.btIsoEmail.Caption = "ISO Email List";
-            this.btIsoEmail.Id = 169;
-            this.btIsoEmail.ImageOptions.Image = global::ASPProject.Properties.Resources.listvn;
-            this.btIsoEmail.ImageOptions.LargeImage = global::ASPProject.Properties.Resources.listvn;
-            this.btIsoEmail.Name = "btIsoEmail";
+            this.btSumDataQRCode.Caption = "Sum Data QR Code";
+            this.btSumDataQRCode.Id = 179;
+            this.btSumDataQRCode.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btSumDataQRCode.ImageOptions.Image")));
+            this.btSumDataQRCode.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btSumDataQRCode.ImageOptions.LargeImage")));
+            this.btSumDataQRCode.Name = "btSumDataQRCode";
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1287, 574);
+            this.ClientSize = new System.Drawing.Size(1556, 730);
             this.Controls.Add(this.clientPanel);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("frmMain.IconOptions.Icon")));
+            this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("frmMain.IconOptions.LargeImage")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1237,5 +1361,17 @@
         private DevExpress.XtraBars.BarButtonItem btEmpCapacity;
         private DevExpress.XtraBars.BarButtonItem btIsoEmail;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup isoAuditEmail;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup scanBarCodeBinList;
+        private DevExpress.XtraBars.BarButtonItem btScanBarcodeBin;
+        private DevExpress.XtraBars.BarButtonItem btPlanningMasterList;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup btPlanningList;
+        private DevExpress.XtraBars.BarButtonItem btQRCodeMaster;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbQRCodeMaster;
+        private DevExpress.XtraBars.BarButtonItem btProdScanQRCodeLog;
+        private DevExpress.XtraBars.BarButtonItem btTracebility;
+        private DevExpress.XtraBars.BarButtonItem btScanQRCodeJig;
+        private DevExpress.XtraBars.BarButtonItem btDetailTableJig;
+        private DevExpress.XtraBars.BarButtonItem btSBLine;
+        private DevExpress.XtraBars.BarButtonItem btSumDataQRCode;
     }
 }

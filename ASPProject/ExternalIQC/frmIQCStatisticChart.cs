@@ -40,6 +40,7 @@ namespace ASPProject.ExternalIQC
         private ChartControl barChartQCPPM = new ChartControl();
         private ChartControl barChartQCProcPercent = new ChartControl();
         private ChartControl barChartQCDefectPercent = new ChartControl();
+        private ChartControl barChartQCProcProduct = new ChartControl();
 
         string weekName = string.Empty;
         public frmIQCStatisticChart()
@@ -95,11 +96,14 @@ namespace ASPProject.ExternalIQC
             //PPM QC Chart
             DailyIQCDPPMChartAddSeries();
 
-            //ProcessChart
-            //DailyIQCProcessPercentChartAddSeries();
-
             //Defect Quantity
             DailyIQCDefectPercentChartAddSeries();
+
+            //ProcessChart
+            DailyIQCPPMByProcessChartAddSeries();
+
+            //ProductChart
+            DailyIQCPPMByProductChartAddSeries();
         }
         #endregion
 
@@ -118,20 +122,17 @@ namespace ASPProject.ExternalIQC
         {
             // Bind the chart to a data source:
             barChartQCPPM.DataSource = IQCPPMChartDataPoint.GetDataPoints(DailyIQCDPPMChartData());
-            barChartQCPPM.SeriesTemplate.ChangeView(ViewType.StackedBar);
+            barChartQCPPM.SeriesTemplate.ChangeView(ViewType.Line);
             barChartQCPPM.SeriesTemplate.SeriesDataMember = "Caption";
 
             barChartQCPPM.SeriesTemplate.SetDataMembers("DocDate", "Ratio");
 
             // Enable series point labels, specify their text pattern and position:
             barChartQCPPM.SeriesTemplate.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            //barChartQCPPM.SeriesTemplate.Label.TextPattern = "${V}M";
-            ((BarSeriesLabel)barChartQCPPM.SeriesTemplate.Label).Position = BarSeriesLabelPosition.Center;
-            ((BarSeriesLabel)barChartQCPPM.SeriesTemplate.Label).TextPattern = "{V:n0}";
-
+          
             // Customize series view settings (for example, bar width):
-            StackedBarSeriesView view = (StackedBarSeriesView)barChartQCPPM.SeriesTemplate.View;
-            view.BarWidth = 0.8;
+            LineSeriesView view = (LineSeriesView)barChartQCPPM.SeriesTemplate.View;
+            //view.BarWidth = 0.8;
 
             // Disable minor tickmarks on the x-axis:
             XYDiagram diagram = (XYDiagram)barChartQCPPM.Diagram;
@@ -139,47 +140,49 @@ namespace ASPProject.ExternalIQC
 
 
             // Add a barChartQCPPM title:
-            barChartQCPPM.Titles.Add(new ChartTitle { Text = "PPM ( % )" });
+            ChartTitle chartTitle = new ChartTitle();
+            chartTitle.Text = "PPM BY DAY";
+            chartTitle.Font = new Font("Arial", 12, System.Drawing.FontStyle.Bold);
+
+            barChartQCPPM.Titles.Add(chartTitle);
 
             // Specify legend settings:
             barChartQCPPM.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             barChartQCPPM.Legend.MarkerMode = LegendMarkerMode.CheckBoxAndMarker;
             barChartQCPPM.Legend.AlignmentHorizontal = LegendAlignmentHorizontal.Center;
             barChartQCPPM.Legend.AlignmentVertical = LegendAlignmentVertical.BottomOutside;
+            
 
             ((XYDiagram)barChartQCPPM.Diagram).AxisX.DateTimeScaleOptions.GridAlignment = DateTimeGridAlignment.Day;
-            //((XYDiagram)barChartQCPPM.Diagram).AxisX.DateTimeScaleOptions.MeasureUnit = DateTimeMeasureUnit.Day;
-            //((XYDiagram)barChartQCPPM.Diagram).AxisX.Label.TextPattern = "{A:dd-MMM}";
-            //((XYDiagram)barChartQCPPM.Diagram).AxisX.DateTimeScaleOptions.WorkdaysOnly = true;
-            //((XYDiagram)barChartQCPPM.Diagram).AxisX.DateTimeScaleOptions.WorkdaysOptions.Workdays = Weekday.Monday | Weekday.Tuesday | Weekday.Wednesday | Weekday.Thursday | Weekday.Friday | Weekday.Saturday;
-
+            ((XYDiagram)barChartQCPPM.Diagram).AxisX.DateTimeScaleOptions.MeasureUnit = DateTimeMeasureUnit.Day;
+            ((XYDiagram)barChartQCPPM.Diagram).AxisX.Label.TextPattern = "{A:dd-MMM}";
+            ((XYDiagram)barChartQCPPM.Diagram).AxisX.DateTimeScaleOptions.WorkdaysOnly = true;
+            ((XYDiagram)barChartQCPPM.Diagram).AxisX.DateTimeScaleOptions.WorkdaysOptions.Workdays = Weekday.Monday | Weekday.Tuesday | Weekday.Wednesday | Weekday.Thursday | Weekday.Friday | Weekday.Saturday;
             ((XYDiagram)barChartQCPPM.Diagram).AxisY.Label.TextPattern = "{V:n0}";
-
             ((XYDiagram)barChartQCPPM.Diagram).AxisY.GridLines.Visible = false;
 
             barChartQCPPM.Dock = DockStyle.Fill;
 
-            splitContainerControl5.Panel1.Controls.Add(barChartQCPPM);
+            splitContainerControl3.Panel1.Controls.Add(barChartQCPPM);
         }
         #endregion
 
         #region IQCProccessPercentChart
-        private DataTable DailyIQCProcessPercentChart()
+        private DataTable DailyIQCPPMByProcessChart()
         {
             DataTable dt = new DataTable();
 
             int Week = Convert.ToInt32(lstWeekName.SelectedValue.ToString().Substring(1, 2));
 
-            dt = iqcDao.GetDailyIQCProcessPercentChart(Week, Month, Year);
+            dt = iqcDao.GetDailyIQCPPMByProcessChart(Week, Month, Year);
 
             return dt;
         }
 
-        private void DailyIQCProcessPercentChartAddSeries()
+        private void DailyIQCPPMByProcessChartAddSeries()
         {
-
             // Bind the chart to a data source:
-            barChartQCProcPercent.DataSource = IQCProcessPercentDataPoint.GetDataPoints(DailyIQCProcessPercentChart());
+            barChartQCProcPercent.DataSource = IQCPPMByProcessDataPoint.GetDataPoints(DailyIQCPPMByProcessChart());
             barChartQCProcPercent.SeriesTemplate.ChangeView(ViewType.StackedBar);
             barChartQCProcPercent.SeriesTemplate.SeriesDataMember = "Caption";
 
@@ -201,29 +204,37 @@ namespace ASPProject.ExternalIQC
 
 
             // Add a barChartQCProcPercent title:
-            barChartQCProcPercent.Titles.Add(new ChartTitle { Text = "Process Percent ( % )" });
+            ChartTitle chartTitle = new ChartTitle();
+            chartTitle.Text = "PPM BY PROCESS";
+            chartTitle.Font = new Font("Arial", 12, System.Drawing.FontStyle.Bold);
+            barChartQCProcPercent.Titles.Add(chartTitle);
 
             // Specify legend settings:
+            barChartQCProcPercent.Legend.Direction = LegendDirection.LeftToRight;
             barChartQCProcPercent.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             barChartQCProcPercent.Legend.MarkerMode = LegendMarkerMode.CheckBoxAndMarker;
             barChartQCProcPercent.Legend.AlignmentHorizontal = LegendAlignmentHorizontal.Center;
             barChartQCProcPercent.Legend.AlignmentVertical = LegendAlignmentVertical.BottomOutside;
 
-            ((XYDiagram)barChartQCProcPercent.Diagram).AxisX.DateTimeScaleOptions.GridAlignment = DateTimeGridAlignment.Day;
-            ((XYDiagram)barChartQCProcPercent.Diagram).AxisX.DateTimeScaleOptions.MeasureUnit = DateTimeMeasureUnit.Day;
-            ((XYDiagram)barChartQCProcPercent.Diagram).AxisX.Label.TextPattern = "{A:dd-MMM}";
-            ((XYDiagram)barChartQCProcPercent.Diagram).AxisX.DateTimeScaleOptions.WorkdaysOnly = true;
-            ((XYDiagram)barChartQCProcPercent.Diagram).AxisX.DateTimeScaleOptions.WorkdaysOptions.Workdays = Weekday.Monday | Weekday.Tuesday | Weekday.Wednesday | Weekday.Thursday | Weekday.Friday | Weekday.Saturday;
-
-            ((XYDiagram)barChartQCProcPercent.Diagram).AxisY.Label.TextPattern = "{V:n0}%";
-
             ((XYDiagram)barChartQCProcPercent.Diagram).AxisY.GridLines.Visible = false;
 
-            ((DevExpress.XtraCharts.XYDiagram)barChartQCProcPercent.Diagram).Rotated = true;
+            //SecondaryAxisX myAxisX = new SecondaryAxisX("my X-Axis");
+            SecondaryAxisY myAxisY = new SecondaryAxisY("my Y-Axis");
 
+            //((XYDiagram)barChartDailyProd.Diagram).SecondaryAxesX.Add(myAxisX);
+            ((XYDiagram)barChartQCProcPercent.Diagram).SecondaryAxesY.Add(myAxisY);
+
+            Series seriesLine = new Series("% PPM", ViewType.Line);
+            ((LineSeriesView)seriesLine.View).AxisY = myAxisY;
+            seriesLine.View.Color = Color.DarkGreen;
+            seriesLine.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+            seriesLine.DataSource = IQCPPMByProcessDataPoint.GetDataPointsLine(DailyIQCPPMByProcessChart());
+            seriesLine.SetDataMembers("IQCCheckName", "Ratio");
+
+            barChartQCProcPercent.Series.Add(seriesLine);
             barChartQCProcPercent.Dock = DockStyle.Fill;
 
-            //splitContainerControl4.Panel1.Controls.Add(barChartQCProcPercent);
+            splitContainerControl4.Panel1.Controls.Add(barChartQCProcPercent);
         }
         #endregion
 
@@ -262,8 +273,9 @@ namespace ASPProject.ExternalIQC
             XYDiagram diagram = (XYDiagram)barChartQCDefectPercent.Diagram;
             diagram.AxisX.Tickmarks.MinorVisible = false;
             ChartTitle chartTitle = new ChartTitle();
-            chartTitle.Text = "DEFECT RATE";
-            chartTitle.Font = new Font("Arial", 12);
+            chartTitle.Text = "NG QUANTITY BY DEFECT";
+            chartTitle.Font = new Font("Arial", 12, System.Drawing.FontStyle.Bold);
+           
 
             // Add a barChartQCDefectPercent title:
             barChartQCDefectPercent.Titles.Add(chartTitle);
@@ -287,7 +299,64 @@ namespace ASPProject.ExternalIQC
             barChartQCDefectPercent.Series.Add(seriesLine);
             barChartQCDefectPercent.Dock = DockStyle.Fill;
 
-            splitContainerControl4.Panel1.Controls.Add(barChartQCDefectPercent);
+            splitContainerControl3.Panel2.Controls.Add(barChartQCDefectPercent);
+        }
+        #endregion
+
+        #region IQCProductPPMChart
+        private DataTable DailyIQCPPMByProductChart()
+        {
+            DataTable dt = new DataTable();
+
+            int Week = Convert.ToInt32(lstWeekName.SelectedValue.ToString().Substring(1, 2));
+
+            dt = iqcDao.GetDailyIQCPPMByProductChart(Week, Month, Year);
+
+            return dt;
+        }
+
+        private void DailyIQCPPMByProductChartAddSeries()
+        {
+            // Bind the chart to a data source:
+            barChartQCProcProduct.DataSource = IQCPPMByProcessDataPoint.GetDataPoints(DailyIQCPPMByProductChart());
+            barChartQCProcProduct.SeriesTemplate.ChangeView(ViewType.StackedBar);
+            barChartQCProcProduct.SeriesTemplate.SeriesDataMember = "Caption";
+
+            barChartQCProcProduct.SeriesTemplate.SetDataMembers("IQCCheckName", "Ratio");
+
+            // Enable series point labels, specify their text pattern and position:
+            barChartQCProcProduct.SeriesTemplate.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            //barChartQCProcProduct.SeriesTemplate.Label.TextPattern = "${V}M";
+            ((BarSeriesLabel)barChartQCProcProduct.SeriesTemplate.Label).Position = BarSeriesLabelPosition.Center;
+            ((BarSeriesLabel)barChartQCProcProduct.SeriesTemplate.Label).TextPattern = "{V:n0}";
+
+            // Customize series view settings (for example, bar width):
+            StackedBarSeriesView view = (StackedBarSeriesView)barChartQCProcProduct.SeriesTemplate.View;
+            view.BarWidth = 0.8;
+
+            // Disable minor tickmarks on the x-axis:
+            XYDiagram diagram = (XYDiagram)barChartQCProcProduct.Diagram;
+            diagram.AxisX.Tickmarks.MinorVisible = false;
+
+
+            // Add a barChartQCProcProduct title:
+            ChartTitle chartTitle = new ChartTitle();
+            chartTitle.Text = "PPM BY PRODUCT";
+            chartTitle.Font = new Font("Arial", 12, System.Drawing.FontStyle.Bold);
+            barChartQCProcProduct.Titles.Add(chartTitle);
+
+            // Specify legend settings:
+            barChartQCProcProduct.Legend.Direction = LegendDirection.LeftToRight;
+            barChartQCProcProduct.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            barChartQCProcProduct.Legend.MarkerMode = LegendMarkerMode.CheckBoxAndMarker;
+            barChartQCProcProduct.Legend.AlignmentHorizontal = LegendAlignmentHorizontal.Center;
+            barChartQCProcProduct.Legend.AlignmentVertical = LegendAlignmentVertical.BottomOutside;
+
+            ((XYDiagram)barChartQCProcProduct.Diagram).AxisY.GridLines.Visible = false;
+
+            barChartQCProcProduct.Dock = DockStyle.Fill;
+
+            splitContainerControl4.Panel2.Controls.Add(barChartQCProcProduct);
         }
         #endregion
 
@@ -350,16 +419,17 @@ namespace ASPProject.ExternalIQC
         #region reset
         private void ResetChartControl()
         {
-            splitContainerControl4.Panel1.Controls.Remove(barChartQCDefectPercent);
-            //splitContainerControl3.Panel1.Controls.Remove(barChartDailyProd);
-            //splitContainerControl4.Panel2.Controls.Remove(barChartQCDefectPercent);
-            //splitContainerControl3.Panel1.Controls.Remove(barChartQCDefectPercent);
+            splitContainerControl4.Panel1.Controls.Remove(barChartQCProcPercent);
+            splitContainerControl3.Panel1.Controls.Remove(barChartQCPPM);
+            splitContainerControl4.Panel2.Controls.Remove(barChartQCProcProduct);
+            splitContainerControl3.Panel2.Controls.Remove(barChartQCDefectPercent);
            
             barChartQCProcPercent = new ChartControl();
             barChartQCPPM = new ChartControl();
             barChartDailyProd = new ChartControl();
             barChartProductivity = new ChartControl();
             barChartQCDefectPercent = new ChartControl();
+            barChartQCProcProduct = new ChartControl();
         }
         #endregion
     }

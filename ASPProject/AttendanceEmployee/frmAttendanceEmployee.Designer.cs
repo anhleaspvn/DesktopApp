@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAttendanceEmployee));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.lkeDinnerTime = new DevExpress.XtraEditors.LookUpEdit();
+            this.lkeLunchTime = new DevExpress.XtraEditors.LookUpEdit();
+            this.lblLuchTime = new DevExpress.XtraEditors.LabelControl();
             this.txtEveVege = new DevExpress.XtraEditors.TextEdit();
             this.txtMorVege = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -52,14 +56,14 @@
             this.Timekeeping = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DateBeginTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DateEndTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LunchTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DinnerTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LastModifiedBy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LastModifiedDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lkeLunchTime = new DevExpress.XtraEditors.LookUpEdit();
-            this.lblLuchTime = new DevExpress.XtraEditors.LabelControl();
-            this.lkeDinnerTime = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeDinnerTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeLunchTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEveVege.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMorVege.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpAttendanceDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -68,8 +72,6 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAttendance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridAttendanceView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkeLunchTime.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkeDinnerTime.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -90,6 +92,48 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1256, 119);
             this.panelControl1.TabIndex = 0;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(393, 81);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(5);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(70, 16);
+            this.labelControl3.TabIndex = 130;
+            this.labelControl3.Text = "Giờ ăn chiều";
+            // 
+            // lkeDinnerTime
+            // 
+            this.lkeDinnerTime.EditValue = "";
+            this.lkeDinnerTime.Location = new System.Drawing.Point(488, 78);
+            this.lkeDinnerTime.Margin = new System.Windows.Forms.Padding(4);
+            this.lkeDinnerTime.Name = "lkeDinnerTime";
+            this.lkeDinnerTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkeDinnerTime.Properties.NullText = "";
+            this.lkeDinnerTime.Size = new System.Drawing.Size(162, 23);
+            this.lkeDinnerTime.TabIndex = 129;
+            // 
+            // lkeLunchTime
+            // 
+            this.lkeLunchTime.EditValue = "";
+            this.lkeLunchTime.Location = new System.Drawing.Point(488, 48);
+            this.lkeLunchTime.Margin = new System.Windows.Forms.Padding(4);
+            this.lkeLunchTime.Name = "lkeLunchTime";
+            this.lkeLunchTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkeLunchTime.Properties.NullText = "";
+            this.lkeLunchTime.Size = new System.Drawing.Size(162, 23);
+            this.lkeLunchTime.TabIndex = 127;
+            // 
+            // lblLuchTime
+            // 
+            this.lblLuchTime.Location = new System.Drawing.Point(393, 51);
+            this.lblLuchTime.Margin = new System.Windows.Forms.Padding(5);
+            this.lblLuchTime.Name = "lblLuchTime";
+            this.lblLuchTime.Size = new System.Drawing.Size(64, 16);
+            this.lblLuchTime.TabIndex = 128;
+            this.lblLuchTime.Text = "Giờ ăn trưa";
             // 
             // txtEveVege
             // 
@@ -275,6 +319,8 @@
             this.Timekeeping,
             this.DateBeginTime,
             this.DateEndTime,
+            this.LunchTime,
+            this.DinnerTime,
             this.LastModifiedBy,
             this.LastModifiedDate});
             this.gridAttendanceView.GridControl = this.gridAttendance;
@@ -352,6 +398,26 @@
             this.DateEndTime.VisibleIndex = 6;
             this.DateEndTime.Width = 94;
             // 
+            // LunchTime
+            // 
+            this.LunchTime.Caption = "Giờ ăn trưa";
+            this.LunchTime.FieldName = "LunchTime";
+            this.LunchTime.MinWidth = 25;
+            this.LunchTime.Name = "LunchTime";
+            this.LunchTime.Visible = true;
+            this.LunchTime.VisibleIndex = 7;
+            this.LunchTime.Width = 94;
+            // 
+            // DinnerTime
+            // 
+            this.DinnerTime.Caption = "Giờ ăn chiều";
+            this.DinnerTime.FieldName = "DinnerTime";
+            this.DinnerTime.MinWidth = 25;
+            this.DinnerTime.Name = "DinnerTime";
+            this.DinnerTime.Visible = true;
+            this.DinnerTime.VisibleIndex = 8;
+            this.DinnerTime.Width = 94;
+            // 
             // LastModifiedBy
             // 
             this.LastModifiedBy.Caption = "Người sửa";
@@ -359,7 +425,7 @@
             this.LastModifiedBy.MinWidth = 25;
             this.LastModifiedBy.Name = "LastModifiedBy";
             this.LastModifiedBy.Visible = true;
-            this.LastModifiedBy.VisibleIndex = 7;
+            this.LastModifiedBy.VisibleIndex = 9;
             this.LastModifiedBy.Width = 94;
             // 
             // LastModifiedDate
@@ -371,50 +437,8 @@
             this.LastModifiedDate.MinWidth = 25;
             this.LastModifiedDate.Name = "LastModifiedDate";
             this.LastModifiedDate.Visible = true;
-            this.LastModifiedDate.VisibleIndex = 8;
+            this.LastModifiedDate.VisibleIndex = 10;
             this.LastModifiedDate.Width = 94;
-            // 
-            // lkeLunchTime
-            // 
-            this.lkeLunchTime.EditValue = "";
-            this.lkeLunchTime.Location = new System.Drawing.Point(488, 48);
-            this.lkeLunchTime.Margin = new System.Windows.Forms.Padding(4);
-            this.lkeLunchTime.Name = "lkeLunchTime";
-            this.lkeLunchTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkeLunchTime.Properties.NullText = "";
-            this.lkeLunchTime.Size = new System.Drawing.Size(162, 23);
-            this.lkeLunchTime.TabIndex = 127;
-            // 
-            // lblLuchTime
-            // 
-            this.lblLuchTime.Location = new System.Drawing.Point(393, 51);
-            this.lblLuchTime.Margin = new System.Windows.Forms.Padding(5);
-            this.lblLuchTime.Name = "lblLuchTime";
-            this.lblLuchTime.Size = new System.Drawing.Size(64, 16);
-            this.lblLuchTime.TabIndex = 128;
-            this.lblLuchTime.Text = "Giờ ăn trưa";
-            // 
-            // lkeDinnerTime
-            // 
-            this.lkeDinnerTime.EditValue = "";
-            this.lkeDinnerTime.Location = new System.Drawing.Point(488, 78);
-            this.lkeDinnerTime.Margin = new System.Windows.Forms.Padding(4);
-            this.lkeDinnerTime.Name = "lkeDinnerTime";
-            this.lkeDinnerTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkeDinnerTime.Properties.NullText = "";
-            this.lkeDinnerTime.Size = new System.Drawing.Size(162, 23);
-            this.lkeDinnerTime.TabIndex = 129;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(393, 81);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(5);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(70, 16);
-            this.labelControl3.TabIndex = 130;
-            this.labelControl3.Text = "Giờ ăn chiều";
             // 
             // frmAttendanceEmployee
             // 
@@ -430,6 +454,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeDinnerTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeLunchTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEveVege.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMorVege.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpAttendanceDate.Properties.CalendarTimeProperties)).EndInit();
@@ -438,8 +464,6 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridAttendance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridAttendanceView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkeLunchTime.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkeDinnerTime.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -475,5 +499,7 @@
         private DevExpress.XtraEditors.LookUpEdit lkeLunchTime;
         private DevExpress.XtraEditors.LabelControl lblLuchTime;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraGrid.Columns.GridColumn LunchTime;
+        private DevExpress.XtraGrid.Columns.GridColumn DinnerTime;
     }
 }

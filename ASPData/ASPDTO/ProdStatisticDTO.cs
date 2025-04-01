@@ -131,4 +131,91 @@ namespace ASPData.ProdStatisticDTO
         public string LastModifiedBy { get; set; } = string.Empty;
         public DateTime LastModifiedDate { get; set; } = DateTime.Now;
     }
+
+    public class QRCodeFGsData
+    {
+        public string QRCode { get; set; }
+        public string WODocNo { get; set; }
+        public string ProductID { get; set; }
+        public int ProdOrderNo { get; set; }
+        public DateTime TestTime { get; set; } = DateTime.Now;
+        public string TestResult { get; set; }
+        public string FactoryID { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public string LastModifiedBy { get; set; }
+        public DateTime LastModifiedDate { get; set; } = DateTime.Now;
+
+    }
+
+    public class QRCodeMasterList
+    {
+        public long OrderNo { get; set; }
+        public string WODocNo { get; set; }
+        public string ProductID { get; set; }
+        public double RequestQuantity { get; set;  }
+        public bool IsPrinted { get; set; }
+        public int NumOfPrints { get; set; }
+        public string LineID { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public string LastModifiedBy { get; set; }
+        public DateTime LastModifiedDate { get; set; } = DateTime.Now;
+    }
+
+    public class QRCodeLog
+    {
+        public string LogID { get; set; }
+        public DateTime LogTime { get; set; } = DateTime.Now;
+        public string StageID { get; set; }
+        public string LogResult { get; set; }
+        public string LineID { get; set; }
+        public string QRCodeData { get; set; }
+
+        public string Username { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public string LastModifiedBy { get; set; }
+        public DateTime LastModifiedDate { get; set; } = DateTime.Now;
+        public string JigID { get; set; }
+    }
+
+    public class PSScanBarcodeBin
+    {
+        public long AutoID { get; set; }
+        public string CusID { get; set; }
+        public string BinQuantity { get; set; }
+        public string BinQuantitySum { get; set; }
+        public string ShipDate { get; set; }
+        public string Rev { get; set; }
+        public string PkgGwt { get; set; }
+        public string Desc { get; set; }
+        public string MadeInVN { get; set; }
+        public string PartNo { get; set; }
+        public string ItemNo { get; set; }
+        public string Quantity { get; set; }
+        public double NW { get; set; }
+        public double GW { get; set; }
+        public string CartNo { get; set; }
+        public string LotNo { get; set; }
+        public string WO { get; set; }
+        public string Cable { get; set; }
+        public string BinSize { get; set; }
+        public string ULStamp { get; set; }
+        public string UL2Stamp { get; set; }
+        public string SBDate { get; set; }
+        public double N5 { get; set; }
+        public double N25 { get; set; }
+        public double N100 { get; set;}
+        public double N250 { get; set; }
+        public double N500 { get; set; }
+        public double N1_25 { get; set; }
+        public double N1_100 { get; set; }
+        public double N1_250 { get; set; }
+        public double N1_500 { get; set; }
+        public string CreatedBy { get; set; } = string.Empty;
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public string LastModifiedBy { get; set; } = string.Empty;
+        public DateTime LastModifiedDate { get; set; } = DateTime.Now;
+    }
 }

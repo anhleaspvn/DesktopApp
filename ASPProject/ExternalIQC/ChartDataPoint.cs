@@ -317,7 +317,7 @@ namespace ASPProject.ExternalIQC
         }
     }
 
-    public class IQCProcessPercentDataPoint
+    public class IQCPPMByProcessDataPoint
     {
         public string IQCCheckName { get; set; }
         public double Ratio { get; set; }
@@ -327,7 +327,7 @@ namespace ASPProject.ExternalIQC
         public static string defaultBlue = "#3d85c6";
         public static string defaultRed = "#BA4D51";
 
-        public IQCProcessPercentDataPoint(string iqcCheckName, double ratio, string caption, string colorMember)
+        public IQCPPMByProcessDataPoint(string iqcCheckName, double ratio, string caption, string colorMember)
         {
             this.IQCCheckName = iqcCheckName;
             this.Ratio = ratio;
@@ -335,14 +335,24 @@ namespace ASPProject.ExternalIQC
             this.ColorMember = colorMember;
         }
 
-        public static List<IQCProcessPercentDataPoint> GetDataPoints(DataTable dt)
+        public static List<IQCPPMByProcessDataPoint> GetDataPoints(DataTable dt)
         {
-            List<IQCProcessPercentDataPoint> data = new List<IQCProcessPercentDataPoint>();
+            List<IQCPPMByProcessDataPoint> data = new List<IQCPPMByProcessDataPoint>();
 
             foreach (DataRow dr in dt.Rows)
             {
-                data.Add(new IQCProcessPercentDataPoint(Convert.ToString(dr["IQCCheckName"]), Convert.ToDouble(dr["OKPercent"]), "Tỷ lệ đạt", defaultBlue));
-                data.Add(new IQCProcessPercentDataPoint(Convert.ToString(dr["IQCCheckName"]), Convert.ToDouble(dr["NGPercent"]), "Tỷ lệ NG", defaultRed));
+                data.Add(new IQCPPMByProcessDataPoint(Convert.ToString(dr["IQCCheckName"]), Convert.ToDouble(dr["PPM"]), "PPM", defaultBlue));
+            }
+
+            return data;
+        }
+        public static List<IQCPPMByProcessDataPoint> GetDataPointsLine(DataTable dt)
+        {
+            List<IQCPPMByProcessDataPoint> data = new List<IQCPPMByProcessDataPoint>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                data.Add(new IQCPPMByProcessDataPoint(Convert.ToString(dr["IQCCheckName"]), Convert.ToDouble(dr["PPMPercent"]), "PPMPercent", defaultBlue));
             }
 
             return data;
