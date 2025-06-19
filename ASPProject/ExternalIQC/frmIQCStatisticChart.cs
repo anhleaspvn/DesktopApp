@@ -41,25 +41,27 @@ namespace ASPProject.ExternalIQC
         private ChartControl barChartQCProcPercent = new ChartControl();
         private ChartControl barChartQCDefectPercent = new ChartControl();
         private ChartControl barChartQCProcProduct = new ChartControl();
+        private ChartControl barChartQCProcDefect = new ChartControl();
 
         string weekName = string.Empty;
         public frmIQCStatisticChart()
         {
             InitializeComponent();
 
-            dtpChartDate.EditValue = DateTime.Now;
-
-            lstWeekName.DataSource = prodDao.GetWeeknameOfYear();
-            lstWeekName.DisplayMember = "WeekName";
-            lstWeekName.ValueMember = "WeekID";
+          
+            this.dtFromDate.EditValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            this.dtToDate.EditValue = DateTime.Now;
 
             timerChart.Interval = 300000; //5 minutes
             timerChart.Start();
 
             this.Load += FrmProdStatisticChart_Load;
             this.timerChart.Tick += TimerChart_Tick;
-            this.dtpChartDate.EditValueChanged += DtpChartDate_EditValueChanged;
-            lstWeekName.SelectedValueChanged += LstWeekName_SelectedValueChanged;
+            
+
+            this.dtFromDate.EditValueChanged += DtFromDate_EditValueChanged;
+            this.dtToDate.EditValueChanged += DtToDate_EditValueChanged;
+            
         }
 
         #region Load
@@ -71,15 +73,14 @@ namespace ASPProject.ExternalIQC
 
         private void LoadWeekname()
         {
-            chartDate = (DateTime)dtpChartDate.EditValue;
-            DataTable dtWeek = prodDao.GetWeekByDate(chartDate);
+            //chartDate = (DateTime)dtpChartDate.EditValue;
+            //DataTable dtWeek = prodDao.GetWeekByDate(chartDate);
 
 
-            if (dtWeek.Rows.Count > 0)
-            {
-                weekName = (string)dtWeek.Rows[0]["WeekID"];
-                lstWeekName.SelectedValue = weekName;
-            }
+            //if (dtWeek.Rows.Count > 0)
+            //{
+            //    weekName = (string)dtWeek.Rows[0]["WeekID"];
+            //}
         }
 
         private void LoadData()
@@ -87,7 +88,7 @@ namespace ASPProject.ExternalIQC
             //reset chart
             ResetChartControl();
 
-            chartDate = (DateTime)dtpChartDate.EditValue;
+            //chartDate = (DateTime)dtpChartDate.EditValue;
            
             Month = chartDate.Month;
             Year = chartDate.Year;
@@ -104,6 +105,9 @@ namespace ASPProject.ExternalIQC
 
             //ProductChart
             DailyIQCPPMByProductChartAddSeries();
+
+            //PPMByDefectChart
+            DailyIQCPPMByDefectChartAddSeries();
         }
         #endregion
 
@@ -112,9 +116,9 @@ namespace ASPProject.ExternalIQC
         {
             DataTable dt = new DataTable();
 
-            int Week = Convert.ToInt32(lstWeekName.SelectedValue.ToString().Substring(1, 2));
+            int Week = 0;
 
-            dt = iqcDao.GetDailyIQCDPPMChart(Week, Month, Year);
+            dt = iqcDao.GetDailyIQCDPPMChartV2(Convert.ToDateTime(this.dtFromDate.EditValue), Convert.ToDateTime(this.dtToDate.EditValue));
 
             return dt;
         }
@@ -172,9 +176,9 @@ namespace ASPProject.ExternalIQC
         {
             DataTable dt = new DataTable();
 
-            int Week = Convert.ToInt32(lstWeekName.SelectedValue.ToString().Substring(1, 2));
+            int Week = 0;
 
-            dt = iqcDao.GetDailyIQCPPMByProcessChart(Week, Month, Year);
+            dt = iqcDao.GetDailyIQCPPMByProcessChartV2(Convert.ToDateTime(this.dtFromDate.EditValue), Convert.ToDateTime(this.dtToDate.EditValue));
 
             return dt;
         }
@@ -243,9 +247,9 @@ namespace ASPProject.ExternalIQC
         {
             DataTable dt = new DataTable();
 
-            int Week = Convert.ToInt32(lstWeekName.SelectedValue.ToString().Substring(1, 2));
+            int Week = 0;
 
-            dt = iqcDao.GetDailyIQCDefectPercentChart(Week, Month, Year);
+            dt = iqcDao.GetDailyIQCDefectPercentChartV2(Convert.ToDateTime(dtFromDate.EditValue), Convert.ToDateTime(dtToDate.EditValue));
 
             return dt;
         }
@@ -308,9 +312,9 @@ namespace ASPProject.ExternalIQC
         {
             DataTable dt = new DataTable();
 
-            int Week = Convert.ToInt32(lstWeekName.SelectedValue.ToString().Substring(1, 2));
+            int Week = 0;
 
-            dt = iqcDao.GetDailyIQCPPMByProductChart(Week, Month, Year);
+            dt = iqcDao.GetDailyIQCPPMByProductChartV2(Convert.ToDateTime(this.dtFromDate.EditValue), Convert.ToDateTime(this.dtToDate.EditValue));
 
             return dt;
         }
@@ -359,6 +363,62 @@ namespace ASPProject.ExternalIQC
             splitContainerControl4.Panel2.Controls.Add(barChartQCProcProduct);
         }
         #endregion
+        #region IQCDefectPPMChart
+        private DataTable DailyIQCPPMByDefectChart()
+        {
+            DataTable dt = new DataTable();
+
+            int Week = 0;
+
+            dt = iqcDao.GetDailyIQCPPMByDefectChart(Convert.ToDateTime(this.dtFromDate.EditValue), Convert.ToDateTime(this.dtToDate.EditValue));
+
+            return dt;
+        }
+
+        private void DailyIQCPPMByDefectChartAddSeries()
+        {
+            // Bind the chart to a data source:
+            barChartQCProcDefect.DataSource = IQCPPMByProcessDataPoint.GetDataPoints(DailyIQCPPMByDefectChart());
+            barChartQCProcDefect.SeriesTemplate.ChangeView(ViewType.StackedBar);
+            barChartQCProcDefect.SeriesTemplate.SeriesDataMember = "Caption";
+
+            barChartQCProcDefect.SeriesTemplate.SetDataMembers("IQCCheckName", "Ratio");
+
+            // Enable series point labels, specify their text pattern and position:
+            barChartQCProcDefect.SeriesTemplate.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            //barChartQCProcDefect.SeriesTemplate.Label.TextPattern = "${V}M";
+            ((BarSeriesLabel)barChartQCProcDefect.SeriesTemplate.Label).Position = BarSeriesLabelPosition.Center;
+            ((BarSeriesLabel)barChartQCProcDefect.SeriesTemplate.Label).TextPattern = "{V:n0}";
+
+            // Customize series view settings (for example, bar width):
+            StackedBarSeriesView view = (StackedBarSeriesView)barChartQCProcDefect.SeriesTemplate.View;
+            view.BarWidth = 0.8;
+
+            // Disable minor tickmarks on the x-axis:
+            XYDiagram diagram = (XYDiagram)barChartQCProcDefect.Diagram;
+            diagram.AxisX.Tickmarks.MinorVisible = false;
+
+
+            // Add a barChartQCProcDefect title:
+            ChartTitle chartTitle = new ChartTitle();
+            chartTitle.Text = "PPM BY DEFECT";
+            chartTitle.Font = new Font("Arial", 12, System.Drawing.FontStyle.Bold);
+            barChartQCProcDefect.Titles.Add(chartTitle);
+
+            // Specify legend settings:
+            barChartQCProcDefect.Legend.Direction = LegendDirection.LeftToRight;
+            barChartQCProcDefect.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            barChartQCProcDefect.Legend.MarkerMode = LegendMarkerMode.CheckBoxAndMarker;
+            barChartQCProcDefect.Legend.AlignmentHorizontal = LegendAlignmentHorizontal.Center;
+            barChartQCProcDefect.Legend.AlignmentVertical = LegendAlignmentVertical.BottomOutside;
+
+            ((XYDiagram)barChartQCProcDefect.Diagram).AxisY.GridLines.Visible = false;
+
+            barChartQCProcDefect.Dock = DockStyle.Fill;
+
+            splitContainerControl5.Panel1.Controls.Add(barChartQCProcDefect);
+        }
+        #endregion
 
         #region Event
         private void SplitContainerControl3_SizeChanged(object sender, EventArgs e)
@@ -388,30 +448,40 @@ namespace ASPProject.ExternalIQC
 
         private void DtpChartDate_EditValueChanged(object sender, EventArgs e)
         {
-            chartDate = (DateTime)dtpChartDate.EditValue;
+            //chartDate = (DateTime)dtpChartDate.EditValue;
 
+            LoadData();
+        }
+
+        private void DtToDate_EditValueChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void DtFromDate_EditValueChanged(object sender, EventArgs e)
+        {
             LoadData();
         }
 
         private void LstWeekName_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (Month == 0)
-                Month = DateTime.Now.Month;
+            //if (Month == 0)
+            //    Month = DateTime.Now.Month;
 
-            if (Year == 0)
-                Year = DateTime.Now.Year;
+            //if (Year == 0)
+            //    Year = DateTime.Now.Year;
 
-            int Week = Convert.ToInt32(lstWeekName.SelectedValue.ToString().Substring(1, 2));
-            DataTable dtDate = prodDao.GetDateByWeek(Week, Month, Year);
+            //int Week = 0;
+            //DataTable dtDate = prodDao.GetDateByWeek(Week, Month, Year);
 
-            chartDate = (DateTime)dtpChartDate.EditValue;
+            //chartDate = (DateTime)dtpChartDate.EditValue;
 
-            if (dtDate.Rows.Count > 0)
-            {
-                dtpChartDate.EditValue = chartDate;
-            }
+            //if (dtDate.Rows.Count > 0)
+            //{
+            //    dtpChartDate.EditValue = chartDate;
+            //}
 
-            LoadData();
+            //LoadData();
             
         }
         #endregion
@@ -423,13 +493,15 @@ namespace ASPProject.ExternalIQC
             splitContainerControl3.Panel1.Controls.Remove(barChartQCPPM);
             splitContainerControl4.Panel2.Controls.Remove(barChartQCProcProduct);
             splitContainerControl3.Panel2.Controls.Remove(barChartQCDefectPercent);
-           
+            splitContainerControl5.Panel1.Controls.Remove(barChartQCProcDefect);
+
             barChartQCProcPercent = new ChartControl();
             barChartQCPPM = new ChartControl();
             barChartDailyProd = new ChartControl();
             barChartProductivity = new ChartControl();
             barChartQCDefectPercent = new ChartControl();
             barChartQCProcProduct = new ChartControl();
+            barChartQCProcDefect = new ChartControl();
         }
         #endregion
     }

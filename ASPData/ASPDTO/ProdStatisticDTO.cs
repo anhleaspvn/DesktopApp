@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Permissions;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -83,12 +84,12 @@ namespace ASPData.ProdStatisticDTO
     {
         public long HeaderID { get; set; }
         public string LosstimeID { get; set; }
-        public string LosstimeName { get; set; }    
+        public string LosstimeName { get; set; }
         public double LosstimeNum { get; set; } = 0;
         public string CreatedBy { get; set; }
-        public DateTime CreatedDate { get; set;}
-        public string LastModifiedBy { get; set;}
-        public DateTime LastModifiedDate { get; set;}
+        public DateTime CreatedDate { get; set; }
+        public string LastModifiedBy { get; set; }
+        public DateTime LastModifiedDate { get; set; }
     }
 
     public class PSDetailMachine
@@ -97,10 +98,10 @@ namespace ASPData.ProdStatisticDTO
         public string MachineID { get; set; }
         public string MachineName { get; set; }
         public double MachineTime { get; set; } = 0;
-        public string CreatedBy { get; set;}
-        public DateTime CreatedDate { get; set;}
-        public string LastModifiedBy { get; set;}
-        public DateTime LastModifiedDate { get; set;}   
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string LastModifiedBy { get; set; }
+        public DateTime LastModifiedDate { get; set; }
     }
 
     public class PSDetailMold
@@ -123,7 +124,7 @@ namespace ASPData.ProdStatisticDTO
         public string EmpID { get; set; } = string.Empty;
         public string EmpName { get; set; } = string.Empty;
         public string ExProdWorkID { get; set; } = string.Empty;
-        public string ExProdWorkName { get;set; } = string.Empty;
+        public string ExProdWorkName { get; set; } = string.Empty;
         public double ExProdWorkTime { get; set; } = 0;
         public double ExProdWorkTimeTC { get; set; } = 0;
         public string CreatedBy { get; set; } = string.Empty;
@@ -153,7 +154,7 @@ namespace ASPData.ProdStatisticDTO
         public long OrderNo { get; set; }
         public string WODocNo { get; set; }
         public string ProductID { get; set; }
-        public double RequestQuantity { get; set;  }
+        public double RequestQuantity { get; set; }
         public bool IsPrinted { get; set; }
         public int NumOfPrints { get; set; }
         public string LineID { get; set; }
@@ -171,15 +172,44 @@ namespace ASPData.ProdStatisticDTO
         public string LogResult { get; set; }
         public string LineID { get; set; }
         public string QRCodeData { get; set; }
-
+        public string GroupData { get; set; }
         public string Username { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public string LastModifiedBy { get; set; }
         public DateTime LastModifiedDate { get; set; } = DateTime.Now;
         public string JigID { get; set; }
+        public DateTime FromDate { get; set; } = DateTime.Now;
+        public DateTime ToDate { get; set; } = DateTime.Now;
+        public int CartNo { get; set; } = 0;
     }
 
+    public class PLineMachineIns
+    {
+        public long AutoID { get; set; }
+        public DateTime DocDate { get; set; }
+        public string LineID { get; set; }
+        public string WODocNo { get; set; }
+        public string ProductID { get; set; }
+        public string StageID { get; set; }
+        public string MachineID { get; set; }
+        public string RequiredStatus { get; set; }
+        public string MaterialID { get; set;  }
+        public double MaterialQuantity { get; set; }
+        public bool TechApproval { get; set; }
+        public string TechName { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public string JigID { get; set;  }
+        public double TargetTime { get; set; }
+        public string Evaluation { get; set;  }
+        public string Notes { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string LastModifiedBy { get; set; }
+        public DateTime LastModifiedDate { get; set; }
+        public bool IsPriority { get; set; }
+    }
     public class PSScanBarcodeBin
     {
         public long AutoID { get; set; }
@@ -206,7 +236,7 @@ namespace ASPData.ProdStatisticDTO
         public string SBDate { get; set; }
         public double N5 { get; set; }
         public double N25 { get; set; }
-        public double N100 { get; set;}
+        public double N100 { get; set; }
         public double N250 { get; set; }
         public double N500 { get; set; }
         public double N1_25 { get; set; }
@@ -217,5 +247,34 @@ namespace ASPData.ProdStatisticDTO
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public string LastModifiedBy { get; set; } = string.Empty;
         public DateTime LastModifiedDate { get; set; } = DateTime.Now;
+
+        public string POText { get; set; } = string.Empty;
+        public string POCode { get; set; } = string.Empty;
+        public int IntType { get; set; } = 0;
+
+        public DateTime PrintDate { get; set; } = DateTime.Now;
+        public string Line { get; set; } = string.Empty;
+        public string ProductIDVN { get; set; } = string.Empty;
+        public string Customer { get; set; } = string.Empty;
+        public string QRCodeVerify { get; set; } = string.Empty;
+        public string QRCodeData { get; set; } = string.Empty;
+        public string CustomerVerify { get; set; } = string.Empty;
+
+        public Boolean QCVerify { get; set; } = false;
+        public string QCVerify_Log { get; set; } = string.Empty;
+        public string PrintUser { get; set; } = string.Empty;
+        public double FirstBinQuantity { get; set; } = 0;
+        public double LastBinQuantity { get; set; } = 0;
+        public double SumQuantity { get; set; } = 0;
+        public double LinkQQuantityPerBin { get; set; } = 0;
+        public double N5_Line { get; set; } = 0;
+        public double N25_Line { get; set; } = 0;
+        public double N100_Line { get; set; } = 0;
+        public double N250_Line { get; set; } = 0;
+        public double N500_Line { get; set; } = 0;
+        public double N1_25_Line { get; set; } = 0;
+        public double N1_100_Line { get; set; } = 0;
+        public double N1_250_Line { get; set; } = 0;
+        public double N1_500_Line { get; set; } = 0;
     }
 }

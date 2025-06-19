@@ -73,6 +73,68 @@ namespace ASPProject
             btDetailTableJig.ItemClick += BtDetailTableJig_ItemClick;
             btSBLine.ItemClick += BtSBLine_ItemClick;
             btSumDataQRCode.ItemClick += BtSumDataQRCode_ItemClick;
+            btBinQCApproval.ItemClick += BtBinQCApproval_ItemClick;
+            btMachineIns.ItemClick += BtMachineIns_ItemClick;
+        }
+        private void BtMachineIns_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Yêu cầu setup máy";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Machine installation require";
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "Machine installation require";
+
+            frmPLineMachineInsRequire frminsMachine = new frmPLineMachineInsRequire();
+            frminsMachine.userName = sManv;
+            frminsMachine.TopLevel = false;
+            frminsMachine.Dock = DockStyle.Fill;
+
+            t.AttachedControl.Controls.Add(frminsMachine);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+
+            frminsMachine.Show();
+            ld.simpleCloseWait();
+        }
+        private void BtBinQCApproval_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Xác nhận QC";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "QC Approval";
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "QC Approval";
+
+            frmBinLineQCApproval qcApproval = new frmBinLineQCApproval();
+
+            qcApproval.TopLevel = false;
+            qcApproval.Dock = DockStyle.Fill;
+           
+            t.AttachedControl.Controls.Add(qcApproval);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+
+            qcApproval.Show();
+            ld.simpleCloseWait();
         }
 
         private void BtEmpCapacity_ItemClick(object sender, ItemClickEventArgs e)
@@ -938,8 +1000,6 @@ namespace ASPProject
                 frm.Show();
                 tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
             }
-
-
             ld.simpleCloseWait();
         }
 
@@ -957,7 +1017,6 @@ namespace ASPProject
             if (iNgonNgu == 1)
             {
                 sTieuDe = "Internal Audit";
-
             }
 
             if (!checkOpenTabs(sTieuDe))

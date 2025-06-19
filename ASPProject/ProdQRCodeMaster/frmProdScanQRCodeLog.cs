@@ -224,7 +224,6 @@ namespace ASPProject.ProdQRCodeMaster
         }
     }
 }
-
 public class UsbDevice
 {
     public UsbDevice(string deviceId, string description, string areaID, string status)

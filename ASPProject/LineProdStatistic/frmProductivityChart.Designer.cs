@@ -277,7 +277,7 @@
             this.splitContainerControl6.Panel2.Controls.Add(this.splitContainerControl7);
             this.splitContainerControl6.Panel2.Controls.Add(this.panelControl5);
             this.splitContainerControl6.Panel2.Text = "Panel2";
-            this.splitContainerControl6.Size = new System.Drawing.Size(129, 662);
+            this.splitContainerControl6.Size = new System.Drawing.Size(129, 660);
             this.splitContainerControl6.SplitterPosition = 224;
             this.splitContainerControl6.TabIndex = 0;
             // 
@@ -307,7 +307,7 @@
             // 
             this.splitContainerControl7.Panel2.Controls.Add(this.lstProdType);
             this.splitContainerControl7.Panel2.Text = "Panel2";
-            this.splitContainerControl7.Size = new System.Drawing.Size(129, 407);
+            this.splitContainerControl7.Size = new System.Drawing.Size(129, 403);
             this.splitContainerControl7.SplitterPosition = 274;
             this.splitContainerControl7.TabIndex = 1;
             // 
@@ -326,14 +326,14 @@
             this.lstProdType.Location = new System.Drawing.Point(0, 0);
             this.lstProdType.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.lstProdType.Name = "lstProdType";
-            this.lstProdType.Size = new System.Drawing.Size(129, 128);
+            this.lstProdType.Size = new System.Drawing.Size(129, 122);
             this.lstProdType.TabIndex = 4;
             // 
             // panelControl5
             // 
             this.panelControl5.Controls.Add(this.btSendMail);
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl5.Location = new System.Drawing.Point(0, 407);
+            this.panelControl5.Location = new System.Drawing.Point(0, 403);
             this.panelControl5.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panelControl5.Name = "panelControl5";
             this.panelControl5.Size = new System.Drawing.Size(129, 26);
@@ -366,7 +366,7 @@
             // 
             this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl4);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(1607, 581);
+            this.splitContainerControl2.Size = new System.Drawing.Size(1605, 581);
             this.splitContainerControl2.SplitterPosition = 275;
             this.splitContainerControl2.TabIndex = 1;
             // 
@@ -384,7 +384,7 @@
             // splitContainerControl3.Panel2
             // 
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(1607, 275);
+            this.splitContainerControl3.Size = new System.Drawing.Size(1605, 275);
             this.splitContainerControl3.SplitterPosition = 859;
             this.splitContainerControl3.TabIndex = 0;
             // 
@@ -402,7 +402,7 @@
             // splitContainerControl4.Panel2
             // 
             this.splitContainerControl4.Panel2.Text = "Panel2";
-            this.splitContainerControl4.Size = new System.Drawing.Size(1607, 301);
+            this.splitContainerControl4.Size = new System.Drawing.Size(1605, 299);
             this.splitContainerControl4.SplitterPosition = 859;
             this.splitContainerControl4.TabIndex = 0;
             // 
@@ -413,13 +413,13 @@
             this.panelControl3.Location = new System.Drawing.Point(0, 581);
             this.panelControl3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1607, 250);
+            this.panelControl3.Size = new System.Drawing.Size(1605, 250);
             this.panelControl3.TabIndex = 0;
             // 
             // splitContainerControl8
             // 
             this.splitContainerControl8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl8.Location = new System.Drawing.Point(3, 3);
+            this.splitContainerControl8.Location = new System.Drawing.Point(2, 2);
             this.splitContainerControl8.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.splitContainerControl8.Name = "splitContainerControl8";
             // 
@@ -430,7 +430,7 @@
             // splitContainerControl8.Panel2
             // 
             this.splitContainerControl8.Panel2.Text = "Panel2";
-            this.splitContainerControl8.Size = new System.Drawing.Size(1601, 244);
+            this.splitContainerControl8.Size = new System.Drawing.Size(1601, 246);
             this.splitContainerControl8.SplitterPosition = 857;
             this.splitContainerControl8.TabIndex = 0;
             // 

@@ -242,6 +242,12 @@
     <Compile Include="DefectiveMode\frmDefectiveModeEdit.Designer.cs">
       <DependentUpon>frmDefectiveModeEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="EngASM2ScanQRCode\frmEngASM2ScanQRCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EngASM2ScanQRCode\frmEngASM2ScanQRCode.Designer.cs">
+      <DependentUpon>frmEngASM2ScanQRCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExLosstime\frmExLosstime.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +365,18 @@
       <DependentUpon>frmISOAuditEmailEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="LineProdStatistic\ChartDataPoint.cs" />
+    <Compile Include="LineProdStatistic\frmPLineMachineInsRequire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LineProdStatistic\frmPLineMachineInsRequire.Designer.cs">
+      <DependentUpon>frmPLineMachineInsRequire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LineProdStatistic\frmPLineMachineInsRequireEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LineProdStatistic\frmPLineMachineInsRequireEdit.Designer.cs">
+      <DependentUpon>frmPLineMachineInsRequireEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="LineProdStatistic\frmProdPSDetailExWork.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -610,6 +628,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScanBarCodeBin\frmBinLineQCApproval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScanBarCodeBin\frmBinLineQCApproval.Designer.cs">
+      <DependentUpon>frmBinLineQCApproval.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScanBarCodeBin\frmScanBarcodeBin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -676,6 +700,9 @@
     <EmbeddedResource Include="DefectiveMode\frmDefectiveModeEdit.resx">
       <DependentUpon>frmDefectiveModeEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EngASM2ScanQRCode\frmEngASM2ScanQRCode.resx">
+      <DependentUpon>frmEngASM2ScanQRCode.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ExLosstime\frmExLosstime.resx">
       <DependentUpon>frmExLosstime.cs</DependentUpon>
     </EmbeddedResource>
@@ -732,6 +759,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InternalAudit\frmISOAuditEmailEdit.resx">
       <DependentUpon>frmISOAuditEmailEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LineProdStatistic\frmPLineMachineInsRequire.resx">
+      <DependentUpon>frmPLineMachineInsRequire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LineProdStatistic\frmPLineMachineInsRequireEdit.resx">
+      <DependentUpon>frmPLineMachineInsRequireEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LineProdStatistic\frmProdPSDetailExWork.resx">
       <DependentUpon>frmProdPSDetailExWork.cs</DependentUpon>
@@ -882,6 +915,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ScanBarCodeBin\frmBinLineQCApproval.resx">
+      <DependentUpon>frmBinLineQCApproval.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScanBarCodeBin\frmScanBarcodeBin.resx">
       <DependentUpon>frmScanBarcodeBin.cs</DependentUpon>
     </EmbeddedResource>

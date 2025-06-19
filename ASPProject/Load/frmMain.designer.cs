@@ -115,6 +115,9 @@
             this.btScanQRCodeJig = new DevExpress.XtraBars.BarButtonItem();
             this.btDetailTableJig = new DevExpress.XtraBars.BarButtonItem();
             this.btSBLine = new DevExpress.XtraBars.BarButtonItem();
+            this.btSumDataQRCode = new DevExpress.XtraBars.BarButtonItem();
+            this.btBinQCApproval = new DevExpress.XtraBars.BarButtonItem();
+            this.btMachineIns = new DevExpress.XtraBars.BarButtonItem();
             this.ribDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribNhanVien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbDefectMode = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -159,7 +162,6 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.barMayChu = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.btSumDataQRCode = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeZone1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemWeekOfMonth1)).BeginInit();
@@ -261,10 +263,12 @@
             this.btScanQRCodeJig,
             this.btDetailTableJig,
             this.btSBLine,
-            this.btSumDataQRCode});
+            this.btSumDataQRCode,
+            this.btBinQCApproval,
+            this.btMachineIns});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(10);
-            this.ribbon.MaxItemId = 180;
+            this.ribbon.MaxItemId = 182;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsMenuMinWidth = 939;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -854,6 +858,30 @@
             this.btSBLine.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btSBLine.ImageOptions.LargeImage")));
             this.btSBLine.Name = "btSBLine";
             // 
+            // btSumDataQRCode
+            // 
+            this.btSumDataQRCode.Caption = "Sum Data QR Code";
+            this.btSumDataQRCode.Id = 179;
+            this.btSumDataQRCode.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btSumDataQRCode.ImageOptions.Image")));
+            this.btSumDataQRCode.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btSumDataQRCode.ImageOptions.LargeImage")));
+            this.btSumDataQRCode.Name = "btSumDataQRCode";
+            // 
+            // btBinQCApproval
+            // 
+            this.btBinQCApproval.Caption = "Xác nhận QC";
+            this.btBinQCApproval.Id = 180;
+            this.btBinQCApproval.ImageOptions.Image = global::ASPProject.Properties.Resources.listvn;
+            this.btBinQCApproval.ImageOptions.LargeImage = global::ASPProject.Properties.Resources.listvn;
+            this.btBinQCApproval.Name = "btBinQCApproval";
+            // 
+            // btMachineIns
+            // 
+            this.btMachineIns.Caption = "Yêu cầu Setup Máy";
+            this.btMachineIns.Id = 181;
+            this.btMachineIns.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btMachineIns.ImageOptions.Image")));
+            this.btMachineIns.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btMachineIns.ImageOptions.LargeImage")));
+            this.btMachineIns.Name = "btMachineIns";
+            // 
             // ribDanhMuc
             // 
             this.ribDanhMuc.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -919,6 +947,7 @@
             // 
             this.scanBarCodeBinList.ItemLinks.Add(this.btScanBarcodeBin);
             this.scanBarCodeBinList.ItemLinks.Add(this.btSBLine);
+            this.scanBarCodeBinList.ItemLinks.Add(this.btBinQCApproval);
             this.scanBarCodeBinList.Name = "scanBarCodeBinList";
             this.scanBarCodeBinList.Text = "Scan Barcode  Bin";
             // 
@@ -965,6 +994,7 @@
             this.rbProd.ItemLinks.Add(this.btAbsenceFollow);
             this.rbProd.ItemLinks.Add(this.btHRAbsence);
             this.rbProd.ItemLinks.Add(this.btScanQRCodeJig);
+            this.rbProd.ItemLinks.Add(this.btMachineIns);
             this.rbProd.Name = "rbProd";
             this.rbProd.Text = "Sản xuất";
             // 
@@ -1202,14 +1232,6 @@
             this.barStaticItem1.Id = 67;
             this.barStaticItem1.Name = "barStaticItem1";
             // 
-            // btSumDataQRCode
-            // 
-            this.btSumDataQRCode.Caption = "Sum Data QR Code";
-            this.btSumDataQRCode.Id = 179;
-            this.btSumDataQRCode.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btSumDataQRCode.ImageOptions.Image")));
-            this.btSumDataQRCode.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btSumDataQRCode.ImageOptions.LargeImage")));
-            this.btSumDataQRCode.Name = "btSumDataQRCode";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1373,5 +1395,7 @@
         private DevExpress.XtraBars.BarButtonItem btDetailTableJig;
         private DevExpress.XtraBars.BarButtonItem btSBLine;
         private DevExpress.XtraBars.BarButtonItem btSumDataQRCode;
+        private DevExpress.XtraBars.BarButtonItem btBinQCApproval;
+        private DevExpress.XtraBars.BarButtonItem btMachineIns;
     }
 }

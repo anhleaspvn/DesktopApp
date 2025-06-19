@@ -37,7 +37,7 @@ namespace ASPProject.ProdQRCodeMaster
             DataTable dtWeek = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPFindWeeknameByDate", dicParams);
             if (dtWeek.Rows.Count > 0)
             {
-                strWeek = "12";//dtWeek.Rows[0]["IntWeek"].ToString().PadLeft(2, '0');
+                strWeek = "22";//dtWeek.Rows[0]["IntWeek"].ToString().PadLeft(2, '0');
             }
 
             string dateStr = strYear + strWeek;

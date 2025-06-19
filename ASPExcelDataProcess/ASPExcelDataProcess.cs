@@ -97,14 +97,14 @@ namespace ASPExcelDataProcess
               
                 // Setting the properties
                 // of the first row
-                workSheet.Cells[rangeName].Clear();
+                workSheet.Cells[rangeName].ClearFormulaValues();
                 workSheet.Cells[rangeName].LoadFromDataTable(dtData);
 
                 foreach (var cell in workSheet.Cells[rangeName])
                 {
                     if (cell.Value == null || string.IsNullOrEmpty(cell.Value.ToString()))
                     {
-                        cell.Clear();
+                        cell.ClearFormulaValues();
                     }
                 }
 

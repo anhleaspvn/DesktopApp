@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using ASPData;
 
 namespace ASPData.ASPDAO
 {
@@ -9,6 +11,7 @@ namespace ASPData.ASPDAO
     {
         private readonly configDatabase _config = new configDatabase();
         private readonly SQLHelper _sqlhelper = new SQLHelper();
+        private readonly ASPData aspData = new ASPData();
 
         public DataTable GetAllScanQRHeader(DateTime FromDate, DateTime ToDate, string LineID, string WODocNo, string EmpID)
         {
@@ -401,6 +404,53 @@ namespace ASPData.ASPDAO
             };
 
             _sqlhelper.ExecProcedureNonData("sp_ASPInsertPSDetailMoldList", dicParams);
+        }
+
+        public void InsertPLineMachineIns(ProdStatisticDTO.PLineMachineIns plineDto)
+        {
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@DocDate", plineDto.DocDate },
+                { "@LineID", plineDto.LineID },
+                { "@WODocNo", plineDto.WODocNo },
+                { "@ProductID", plineDto.ProductID },
+                { "@StageID", plineDto.StageID },
+                { "@MachineID", plineDto.MachineID },
+                { "@RequiredStatus", plineDto.RequiredStatus },
+                { "@MaterialID", plineDto.MaterialID },
+                { "@MaterialQuantity", plineDto.MaterialQuantity },
+                { "@IsPriority", plineDto.IsPriority },
+                { "@CreatedBy", plineDto.CreatedBy },
+                { "@CreatedDate", plineDto.CreatedDate },
+                { "@LastModifiedBy", plineDto.LastModifiedBy },
+                { "@LastModifiedDate", plineDto.LastModifiedDate }
+            };
+
+            _sqlhelper.ExecProcedureNonData("sp_ASPInsertPLineMachineInsV2", dicParams);
+        }
+
+        public void UpdatePLineMachineIns(ProdStatisticDTO.PLineMachineIns plineDto)
+        {
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@AutoID", plineDto.AutoID },
+                { "@DocDate", plineDto.DocDate },
+                { "@LineID", plineDto.LineID },
+                { "@WODocNo", plineDto.WODocNo },
+                { "@ProductID", plineDto.ProductID },
+                { "@StageID", plineDto.StageID },
+                { "@MachineID", plineDto.MachineID },
+                { "@RequiredStatus", plineDto.RequiredStatus },
+                { "@MaterialID", plineDto.MaterialID },
+                { "@MaterialQuantity", plineDto.MaterialQuantity },
+                { "@IsPriority", plineDto.IsPriority },
+                { "@CreatedBy", plineDto.CreatedBy },
+                { "@CreatedDate", plineDto.CreatedDate },
+                { "@LastModifiedBy", plineDto.LastModifiedBy },
+                { "@LastModifiedDate", plineDto.LastModifiedDate }
+            };
+
+            _sqlhelper.ExecProcedureNonData("sp_ASPUpdatePLineMachineInsV2", dicParams);
         }
 
         //add, edit header
@@ -959,6 +1009,22 @@ namespace ASPData.ASPDAO
             return ds;
         }
 
+        public DataTable GetPLineMachineIns(DateTime fromDate, DateTime toDate)
+        {
+            DataTable dt = new DataTable();
+
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@FromDate", fromDate },
+                { "@ToDate", toDate },
+                { "@AutoID", 0 }
+            };
+
+            dt = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPGetPLineMachineIns", dicParams);
+
+            return dt;
+        }
+
         public void InsertDailyProdScrapChartData(int Week, int Month, int Year, string LineID, string Username, bool CheckByWeek)
         {
             var dicParams = new Dictionary<string, object>()
@@ -1233,6 +1299,19 @@ namespace ASPData.ASPDAO
             return ds;
         }
 
+        public void UpdateBinQCApproval(DataTable dt)
+        {
+            // Logic cập nhật DataTable vào cơ sở dữ liệu
+            // Ví dụ: dùng SqlDataAdapter để cập nhật
+            using (SqlConnection connection = new SqlConnection(aspData.ASPDecrypt(configDatabase.CONNECTION_STRINGS)))
+            {
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM ASPBinLineQCApproval", connection);
+                SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                adapter.Update(dt);
+            }
+        }
+
         public DataSet GetScanBarcodeBinLine(ProdStatisticDTO.ProdStatisticDTO prodDto)
         {
             DataSet ds = new DataSet();
@@ -1244,6 +1323,21 @@ namespace ASPData.ASPDAO
             };
 
             ds = _sqlhelper.ExecProcedureDataAsDataSet("sp_ASPGetScanBarcodeBinLine", dicParams);
+
+            return ds;
+        }
+
+        public DataSet GetScanBarcodeBinLineFinish(ProdStatisticDTO.ProdStatisticDTO prodDto)
+        {
+            DataSet ds = new DataSet();
+
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@FromDate", prodDto.FromDate },
+                { "@ToDate", prodDto.ToDate }
+            };
+
+            ds = _sqlhelper.ExecProcedureDataAsDataSet("sp_ASPGetScanBarcodeBinLineFinish", dicParams);
 
             return ds;
         }
@@ -1276,6 +1370,8 @@ namespace ASPData.ASPDAO
                 { "@ULStamp", prodDto.ULStamp },
                 { "@UL2Stamp", prodDto.UL2Stamp },
                 { "@SBDate", prodDto.SBDate },
+                { "@POText", prodDto.POText },
+                { "@POCode", prodDto.POCode },
                 { "@N5", prodDto.N5 },
                 { "@N25", prodDto.N25 },
                 { "@N100", prodDto.N100 },
@@ -1354,6 +1450,94 @@ namespace ASPData.ASPDAO
             _sqlhelper.ExecProcedureNonData("sp_ASPCopyScanBarcodeBin", dicParams);
         }
 
+        public void TransScanBarcodeBinLine(ProdStatisticDTO.PSScanBarcodeBin prodDto)
+        {
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@PartNo", prodDto.PartNo },
+                { "@ItemNo", prodDto.ItemNo },
+                { "@Quantity", prodDto.Quantity },
+                { "@NW", prodDto.NW },
+                { "@GW", prodDto.GW },
+                { "@CartNo", prodDto.CartNo },
+                { "@LotNo", prodDto.LotNo },
+                { "@WO", prodDto.WO },
+                { "@Cable", prodDto.Cable },
+                { "@BinSize", prodDto.BinSize },
+                { "@ULStamp", prodDto.ULStamp },
+                { "@UL2Stamp", prodDto.UL2Stamp },
+                { "@SBDate", prodDto.SBDate },
+                { "@CreatedBy", prodDto.CreatedBy },
+                { "@CreatedDate", prodDto.CreatedDate },
+                { "@LastModifiedBy", prodDto.LastModifiedBy },
+                { "@LastModifiedDate", prodDto.LastModifiedDate },
+                { "@IsOriginal", false },
+                { "@AutoID", prodDto.AutoID },
+                { "@IntType", prodDto.IntType }
+            };
+
+            _sqlhelper.ExecProcedureNonData("sp_ASPTransScanBarcodeBinLine", dicParams);
+        }
+
+        public void TransScanBinQCApproval(ProdStatisticDTO.PSScanBarcodeBin prodDto)
+        {
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@WODocNo", prodDto.WO },
+                { "@PrintDate", prodDto.PrintDate },
+                { "@Line", prodDto.Line },
+                { "@ProductIDVN", prodDto.ProductIDVN },
+                { "@Customer", prodDto.Customer },
+                { "@QRCodeVerify", prodDto.QRCodeVerify },
+                { "@QRCodeData", prodDto.QRCodeData },
+                { "@CustomerVerify", prodDto.CustomerVerify },
+                { "@ULStamp", prodDto.ULStamp },
+                { "@QCVerify", prodDto.QCVerify },
+                { "@QCVerify_Log", prodDto.QCVerify_Log },
+                { "@PrintUser", prodDto.PrintUser },
+                { "@FirstBinQuantity", prodDto.FirstBinQuantity },
+                { "@LastBinQuantity", prodDto.LastBinQuantity },
+                { "@SumQuantity", prodDto.SumQuantity },
+                { "@LinkQQuantityPerBin", prodDto.LinkQQuantityPerBin },
+                { "@BinSize", prodDto.BinSize },
+                { "@N5", prodDto.N5 },
+                { "@N25", prodDto.N25 },
+                { "@N100", prodDto.N100 },
+                { "@N250", prodDto.N250 },
+                { "@N500", prodDto.N500 },
+                { "@1N25", prodDto.N1_25 },
+                { "@1N100", prodDto.N1_100 },
+                { "@1N250", prodDto.N1_250 },
+                { "@1N500", prodDto.N1_500 },
+                { "@N5_Line", prodDto.N5_Line },
+                { "@N25_Line", prodDto.N25_Line },
+                { "@N100_Line", prodDto.N100_Line },
+                { "@N250_Line", prodDto.N250_Line },
+                { "@N500_Line", prodDto.N500_Line },
+                { "@1N25_Line", prodDto.N1_25_Line },
+                { "@1N100_Line", prodDto.N1_100_Line },
+                { "@1N250_Line", prodDto.N1_250_Line },
+                { "@1N500_Line", prodDto.N1_500_Line },
+                { "@CreatedBy", prodDto.CreatedBy },
+                { "@CreatedDate", prodDto.CreatedDate },
+                { "@LastModifiedBy", prodDto.LastModifiedBy },
+                { "@LastModifiedDate", prodDto.LastModifiedDate }
+            };
+
+            _sqlhelper.ExecProcedureNonData("sp_ASPTransScanBinLineQCApproval", dicParams);
+        }
+
+        public DataTable GetBinQCApproval()
+        {
+            var dicParams = new Dictionary<string, object>();
+
+            DataTable result = new DataTable();
+
+            result = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPGetBinLineQCApproval");
+
+            return result;
+        }
+
         public void CopyScanBarcodeBinLineV2(ProdStatisticDTO.PSScanBarcodeBin prodDto)
         {
             var dicParams = new Dictionary<string, object>()
@@ -1377,6 +1561,33 @@ namespace ASPData.ASPDAO
             };
 
             _sqlhelper.ExecProcedureNonData("sp_ASPCopyScanBarcodeBinV2", dicParams);
+        }
+
+        public void TransScanBarcodeBinLineV2(ProdStatisticDTO.PSScanBarcodeBin prodDto)
+        {
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@CusID", prodDto.CusID },
+                { "@Quantity", prodDto.Quantity },
+                { "@BinQuantity", prodDto.BinQuantity },
+                { "@BinQuantitySum", prodDto.BinQuantitySum },
+                { "@ShipDate", prodDto.ShipDate },
+                { "@Rev", prodDto.Rev },
+                { "@PartNo", prodDto.PartNo },
+                { "@WO", prodDto.WO },
+                { "@PkgGwt", prodDto.PkgGwt },
+                { "@Desc", prodDto.Desc },
+                { "@MadeInVN", prodDto.MadeInVN },
+                { "@CreatedBy", prodDto.CreatedBy },
+                { "@CreatedDate", prodDto.CreatedDate },
+                { "@LastModifiedBy", prodDto.LastModifiedBy },
+                { "@LastModifiedDate", prodDto.LastModifiedDate },
+                { "@IsOriginal", false },
+                { "@AutoID", prodDto.AutoID },
+                { "@IntType", prodDto.IntType }
+            };
+
+            _sqlhelper.ExecProcedureNonData("sp_ASPTransScanBarcodeBinV2", dicParams);
         }
 
         public void UpdateScanBarCodeBinLine(ProdStatisticDTO.PSScanBarcodeBin prodDto)
@@ -1519,6 +1730,25 @@ namespace ASPData.ASPDAO
             _sqlhelper.ExecProcedureNonData("sp_ASPInsertProdQRCodeLog", dicParams);
         }
 
+        public void InsertEngASM2ScanQRCode(QRCodeLog qrDto)
+        {
+            DataTable dt = new DataTable();
+
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@LogID", qrDto.LogID },
+                { "@LogTime", qrDto.LogTime },
+                { "@QRCodeData", qrDto.QRCodeData },
+                { "@CartNo", qrDto.CartNo },
+                { "@GroupData", qrDto.GroupData },
+                { "@CreatedBy", qrDto.CreatedBy },
+                { "@CreatedDate", qrDto.CreatedDate },
+                { "@LastModifiedBy", qrDto.LastModifiedBy },
+                { "@LastModifiedDate", qrDto.LastModifiedDate },
+            };
+            _sqlhelper.ExecProcedureNonData("sp_ASPEngASM2ScanQRCode", dicParams);
+        }
+
         public void InsertProdQRCodeJigLog(QRCodeLog qrDto)
         {
             DataTable dt = new DataTable();
@@ -1547,6 +1777,22 @@ namespace ASPData.ASPDAO
             };
 
             dt = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPGetQRCodeLog", dicParams);
+
+            return dt;
+        }
+
+        public DataTable GetEngASM2QRCode(QRCodeLog qrDto)
+        {
+            DataTable dt = new DataTable();
+
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@FromDate", qrDto.FromDate },
+                { "@ToDate", qrDto.ToDate },
+                { "@CartNo", qrDto.CartNo }
+            };
+
+            dt = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPGetEngASM2QRCode", dicParams);
 
             return dt;
         }

@@ -140,6 +140,7 @@ namespace ASPProject.ScanBarCodeBin
                         psScanBin.PkgGwt = Convert.ToString(dr["PkgGwt"]);
                         psScanBin.Desc = Convert.ToString(dr["Desc"]);
                         psScanBin.MadeInVN = Convert.ToString(dr["MadeInVN"]);
+                       
                         psScanBin.N5 = Convert.ToDouble(dr["N-5"]);
                         psScanBin.N25 = Convert.ToDouble(dr["N-25"]);
                         psScanBin.N100 = Convert.ToDouble(dr["N-100"]);
@@ -219,7 +220,7 @@ namespace ASPProject.ScanBarCodeBin
                     List<string> arrProd = new List<string>();
                     ASPExcelDataProcess.ASPExcelDataProcess excel = new ASPExcelDataProcess.ASPExcelDataProcess();
                     DataTable dtExcel = new DataTable();
-                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:V10000");
+                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:X10000");
 
                     foreach (DataRow dr in dtExcel.Rows)
                     {
@@ -246,6 +247,8 @@ namespace ASPProject.ScanBarCodeBin
                         psScanBin.ULStamp = Convert.ToString(dr["ULStamp"]);
                         psScanBin.UL2Stamp = Convert.ToString(dr["UL2Stamp"]);
                         psScanBin.SBDate = Convert.ToString(dr["SBDate"]);
+                        psScanBin.POText = Convert.ToString(dr["POText"]);
+                        psScanBin.POCode = Convert.ToString(dr["POCode"]);
                         psScanBin.N5 = Convert.ToDouble(dr["N-5"]);
                         psScanBin.N25 = Convert.ToDouble(dr["N-25"]);
                         psScanBin.N100 = Convert.ToDouble(dr["N-100"]);

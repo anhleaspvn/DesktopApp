@@ -59,6 +59,7 @@
             this.gridBOMView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.MLevel = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProduct = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Material = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaterialName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaterialType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.QuotaQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -69,11 +70,28 @@
             this.UsageCost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.IsSemiProd = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btSave = new System.Windows.Forms.Panel();
             this.btExportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.lkeProduct = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.Material = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tabQRCheck = new DevExpress.XtraTab.XtraTabPage();
+            this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.btLuu = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.dtToDate = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.dtFromDate = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.lkeCartNo = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtQRCodeData = new System.Windows.Forms.TextBox();
+            this.gridQRCode = new DevExpress.XtraGrid.GridControl();
+            this.gridQRCodeView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colLogID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colQRCodeData = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLogTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCartNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGroupData = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btXoa = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.tabWO.SuspendLayout();
@@ -101,8 +119,22 @@
             this.tabProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridBOM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridBOMView)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.btSave.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lkeProduct.Properties)).BeginInit();
+            this.tabQRCheck.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3.Panel1)).BeginInit();
+            this.splitContainerControl3.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3.Panel2)).BeginInit();
+            this.splitContainerControl3.Panel2.SuspendLayout();
+            this.splitContainerControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeCartNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridQRCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridQRCodeView)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -111,11 +143,12 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.tabWO;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1239, 721);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1428, 721);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabWO,
-            this.tabProduct});
+            this.tabProduct,
+            this.tabQRCheck});
             // 
             // tabWO
             // 
@@ -324,7 +357,7 @@
             this.tabWarehouse.Controls.Add(this.gridWHInfo);
             this.tabWarehouse.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabWarehouse.Name = "tabWarehouse";
-            this.tabWarehouse.Size = new System.Drawing.Size(1227, 492);
+            this.tabWarehouse.Size = new System.Drawing.Size(1227, 494);
             this.tabWarehouse.Text = "Warehouse";
             // 
             // gridWHInfo
@@ -335,7 +368,7 @@
             this.gridWHInfo.MainView = this.gridWHInfoView;
             this.gridWHInfo.Margin = new System.Windows.Forms.Padding(6);
             this.gridWHInfo.Name = "gridWHInfo";
-            this.gridWHInfo.Size = new System.Drawing.Size(1227, 492);
+            this.gridWHInfo.Size = new System.Drawing.Size(1227, 494);
             this.gridWHInfo.TabIndex = 8;
             this.gridWHInfo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridWHInfoView});
@@ -401,20 +434,20 @@
             // 
             this.tabProduction.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabProduction.Name = "tabProduction";
-            this.tabProduction.Size = new System.Drawing.Size(1227, 492);
+            this.tabProduction.Size = new System.Drawing.Size(1227, 494);
             this.tabProduction.Text = "Production";
             // 
             // tabQC
             // 
             this.tabQC.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.tabQC.Name = "tabQC";
-            this.tabQC.Size = new System.Drawing.Size(1227, 492);
+            this.tabQC.Size = new System.Drawing.Size(1227, 494);
             this.tabQC.Text = "QC";
             // 
             // tabProduct
             // 
             this.tabProduct.Controls.Add(this.gridBOM);
-            this.tabProduct.Controls.Add(this.panel1);
+            this.tabProduct.Controls.Add(this.btSave);
             this.tabProduct.Name = "tabProduct";
             this.tabProduct.Size = new System.Drawing.Size(1233, 689);
             this.tabProduct.Text = "Sản phẩm";
@@ -477,6 +510,16 @@
             this.colProduct.Visible = true;
             this.colProduct.VisibleIndex = 1;
             this.colProduct.Width = 94;
+            // 
+            // Material
+            // 
+            this.Material.Caption = "Material";
+            this.Material.FieldName = "Material";
+            this.Material.MinWidth = 25;
+            this.Material.Name = "Material";
+            this.Material.Visible = true;
+            this.Material.VisibleIndex = 2;
+            this.Material.Width = 94;
             // 
             // MaterialName
             // 
@@ -578,16 +621,16 @@
             this.IsSemiProd.VisibleIndex = 12;
             this.IsSemiProd.Width = 94;
             // 
-            // panel1
+            // btSave
             // 
-            this.panel1.Controls.Add(this.btExportExcel);
-            this.panel1.Controls.Add(this.lkeProduct);
-            this.panel1.Controls.Add(this.labelControl2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1233, 120);
-            this.panel1.TabIndex = 0;
+            this.btSave.Controls.Add(this.btExportExcel);
+            this.btSave.Controls.Add(this.lkeProduct);
+            this.btSave.Controls.Add(this.labelControl2);
+            this.btSave.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btSave.Location = new System.Drawing.Point(0, 0);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(1233, 120);
+            this.btSave.TabIndex = 0;
             // 
             // btExportExcel
             // 
@@ -624,21 +667,238 @@
             this.labelControl2.TabIndex = 80;
             this.labelControl2.Text = "SẢN PHẨM";
             // 
-            // Material
+            // tabQRCheck
             // 
-            this.Material.Caption = "Material";
-            this.Material.FieldName = "Material";
-            this.Material.MinWidth = 25;
-            this.Material.Name = "Material";
-            this.Material.Visible = true;
-            this.Material.VisibleIndex = 2;
-            this.Material.Width = 94;
+            this.tabQRCheck.Controls.Add(this.splitContainerControl3);
+            this.tabQRCheck.Name = "tabQRCheck";
+            this.tabQRCheck.Size = new System.Drawing.Size(1422, 689);
+            this.tabQRCheck.Text = "QR Test";
+            // 
+            // splitContainerControl3
+            // 
+            this.splitContainerControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl3.Horizontal = false;
+            this.splitContainerControl3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.splitContainerControl3.Name = "splitContainerControl3";
+            // 
+            // splitContainerControl3.Panel1
+            // 
+            this.splitContainerControl3.Panel1.Controls.Add(this.btXoa);
+            this.splitContainerControl3.Panel1.Controls.Add(this.btLuu);
+            this.splitContainerControl3.Panel1.Controls.Add(this.labelControl5);
+            this.splitContainerControl3.Panel1.Controls.Add(this.dtToDate);
+            this.splitContainerControl3.Panel1.Controls.Add(this.labelControl4);
+            this.splitContainerControl3.Panel1.Controls.Add(this.dtFromDate);
+            this.splitContainerControl3.Panel1.Controls.Add(this.labelControl3);
+            this.splitContainerControl3.Panel1.Controls.Add(this.lkeCartNo);
+            this.splitContainerControl3.Panel1.Controls.Add(this.txtQRCodeData);
+            this.splitContainerControl3.Panel1.Text = "Panel1";
+            // 
+            // splitContainerControl3.Panel2
+            // 
+            this.splitContainerControl3.Panel2.Controls.Add(this.gridQRCode);
+            this.splitContainerControl3.Panel2.Text = "Panel2";
+            this.splitContainerControl3.Size = new System.Drawing.Size(1422, 689);
+            this.splitContainerControl3.SplitterPosition = 133;
+            this.splitContainerControl3.TabIndex = 1;
+            // 
+            // btLuu
+            // 
+            this.btLuu.ImageOptions.Image = global::ASPProject.Properties.Resources.backup;
+            this.btLuu.Location = new System.Drawing.Point(1017, 53);
+            this.btLuu.Name = "btLuu";
+            this.btLuu.Size = new System.Drawing.Size(176, 53);
+            this.btLuu.TabIndex = 86;
+            this.btLuu.Text = "Lưu";
+            this.btLuu.Visible = false;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(626, 11);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(8);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(54, 16);
+            this.labelControl5.TabIndex = 85;
+            this.labelControl5.Text = "Đến ngày";
+            // 
+            // dtToDate
+            // 
+            this.dtToDate.EditValue = null;
+            this.dtToDate.Location = new System.Drawing.Point(695, 6);
+            this.dtToDate.Margin = new System.Windows.Forms.Padding(8);
+            this.dtToDate.Name = "dtToDate";
+            this.dtToDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtToDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtToDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dtToDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtToDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dtToDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtToDate.Size = new System.Drawing.Size(166, 23);
+            this.dtToDate.TabIndex = 84;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(368, 13);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(8);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(47, 16);
+            this.labelControl4.TabIndex = 83;
+            this.labelControl4.Text = "Từ ngày";
+            // 
+            // dtFromDate
+            // 
+            this.dtFromDate.EditValue = null;
+            this.dtFromDate.Location = new System.Drawing.Point(431, 8);
+            this.dtFromDate.Margin = new System.Windows.Forms.Padding(8);
+            this.dtFromDate.Name = "dtFromDate";
+            this.dtFromDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtFromDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtFromDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dtFromDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtFromDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dtFromDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtFromDate.Size = new System.Drawing.Size(166, 23);
+            this.dtFromDate.TabIndex = 82;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(12, 32);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(130, 33);
+            this.labelControl3.TabIndex = 81;
+            this.labelControl3.Text = "SỐ THÙNG";
+            // 
+            // lkeCartNo
+            // 
+            this.lkeCartNo.EditValue = "";
+            this.lkeCartNo.Location = new System.Drawing.Point(12, 76);
+            this.lkeCartNo.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.lkeCartNo.MaximumSize = new System.Drawing.Size(500, 250);
+            this.lkeCartNo.MinimumSize = new System.Drawing.Size(199, 30);
+            this.lkeCartNo.Name = "lkeCartNo";
+            this.lkeCartNo.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.lkeCartNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkeCartNo.Properties.NullText = "";
+            this.lkeCartNo.Size = new System.Drawing.Size(203, 23);
+            this.lkeCartNo.TabIndex = 80;
+            // 
+            // txtQRCodeData
+            // 
+            this.txtQRCodeData.BackColor = System.Drawing.Color.Cyan;
+            this.txtQRCodeData.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQRCodeData.Location = new System.Drawing.Point(361, 66);
+            this.txtQRCodeData.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.txtQRCodeData.MaximumSize = new System.Drawing.Size(500, 200);
+            this.txtQRCodeData.MinimumSize = new System.Drawing.Size(400, 40);
+            this.txtQRCodeData.Name = "txtQRCodeData";
+            this.txtQRCodeData.Size = new System.Drawing.Size(500, 36);
+            this.txtQRCodeData.TabIndex = 77;
+            // 
+            // gridQRCode
+            // 
+            this.gridQRCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridQRCode.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.gridQRCode.Location = new System.Drawing.Point(0, 0);
+            this.gridQRCode.MainView = this.gridQRCodeView;
+            this.gridQRCode.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.gridQRCode.Name = "gridQRCode";
+            this.gridQRCode.Size = new System.Drawing.Size(1422, 549);
+            this.gridQRCode.TabIndex = 9;
+            this.gridQRCode.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridQRCodeView});
+            // 
+            // gridQRCodeView
+            // 
+            this.gridQRCodeView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colLogID,
+            this.colQRCodeData,
+            this.colLogTime,
+            this.colCartNo,
+            this.colGroupData});
+            this.gridQRCodeView.GridControl = this.gridQRCode;
+            this.gridQRCodeView.Name = "gridQRCodeView";
+            this.gridQRCodeView.OptionsBehavior.Editable = false;
+            this.gridQRCodeView.OptionsFilter.AllowAutoFilterConditionChange = DevExpress.Utils.DefaultBoolean.False;
+            this.gridQRCodeView.OptionsMenu.ShowAutoFilterRowItem = false;
+            this.gridQRCodeView.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridQRCodeView.OptionsView.ShowAutoFilterRow = true;
+            this.gridQRCodeView.OptionsView.ShowGroupPanel = false;
+            // 
+            // colLogID
+            // 
+            this.colLogID.Caption = "Log ID";
+            this.colLogID.FieldName = "LogID";
+            this.colLogID.MinWidth = 25;
+            this.colLogID.Name = "colLogID";
+            this.colLogID.Visible = true;
+            this.colLogID.VisibleIndex = 0;
+            this.colLogID.Width = 94;
+            // 
+            // colQRCodeData
+            // 
+            this.colQRCodeData.Caption = "QR Code Data";
+            this.colQRCodeData.FieldName = "QRCodeData";
+            this.colQRCodeData.MinWidth = 25;
+            this.colQRCodeData.Name = "colQRCodeData";
+            this.colQRCodeData.Visible = true;
+            this.colQRCodeData.VisibleIndex = 1;
+            this.colQRCodeData.Width = 94;
+            // 
+            // colLogTime
+            // 
+            this.colLogTime.Caption = "Log Time";
+            this.colLogTime.DisplayFormat.FormatString = "dd-MM-yyyy HH:mm:ss";
+            this.colLogTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colLogTime.FieldName = "LogTime";
+            this.colLogTime.MinWidth = 25;
+            this.colLogTime.Name = "colLogTime";
+            this.colLogTime.Visible = true;
+            this.colLogTime.VisibleIndex = 2;
+            this.colLogTime.Width = 94;
+            // 
+            // colCartNo
+            // 
+            this.colCartNo.Caption = "Số thùng";
+            this.colCartNo.FieldName = "CartNo";
+            this.colCartNo.MinWidth = 25;
+            this.colCartNo.Name = "colCartNo";
+            this.colCartNo.Visible = true;
+            this.colCartNo.VisibleIndex = 3;
+            this.colCartNo.Width = 94;
+            // 
+            // colGroupData
+            // 
+            this.colGroupData.Caption = "Nhóm";
+            this.colGroupData.FieldName = "GroupData";
+            this.colGroupData.MinWidth = 25;
+            this.colGroupData.Name = "colGroupData";
+            this.colGroupData.Visible = true;
+            this.colGroupData.VisibleIndex = 4;
+            this.colGroupData.Width = 94;
+            // 
+            // btXoa
+            // 
+            this.btXoa.ImageOptions.Image = global::ASPProject.Properties.Resources.close__2_;
+            this.btXoa.Location = new System.Drawing.Point(1227, 53);
+            this.btXoa.Name = "btXoa";
+            this.btXoa.Size = new System.Drawing.Size(176, 53);
+            this.btXoa.TabIndex = 87;
+            this.btXoa.Text = "Xoá";
             // 
             // frmProdQRCodeTraceability
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1239, 721);
+            this.ClientSize = new System.Drawing.Size(1428, 721);
             this.Controls.Add(this.xtraTabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -673,9 +933,24 @@
             this.tabProduct.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridBOM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridBOMView)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.btSave.ResumeLayout(false);
+            this.btSave.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lkeProduct.Properties)).EndInit();
+            this.tabQRCheck.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3.Panel1)).EndInit();
+            this.splitContainerControl3.Panel1.ResumeLayout(false);
+            this.splitContainerControl3.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3.Panel2)).EndInit();
+            this.splitContainerControl3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).EndInit();
+            this.splitContainerControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeCartNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridQRCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridQRCodeView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -709,7 +984,7 @@
         private DevExpress.XtraTab.XtraTabPage tabProduction;
         private DevExpress.XtraTab.XtraTabPage tabQC;
         private DevExpress.XtraTab.XtraTabPage tabProduct;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel btSave;
         private DevExpress.XtraEditors.LookUpEdit lkeProduct;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton btExportExcel;
@@ -728,5 +1003,23 @@
         private DevExpress.XtraGrid.Columns.GridColumn UsageCost;
         private DevExpress.XtraGrid.Columns.GridColumn CT;
         private DevExpress.XtraGrid.Columns.GridColumn Material;
+        private DevExpress.XtraTab.XtraTabPage tabQRCheck;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl3;
+        private System.Windows.Forms.TextBox txtQRCodeData;
+        private DevExpress.XtraGrid.GridControl gridQRCode;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridQRCodeView;
+        private DevExpress.XtraGrid.Columns.GridColumn colQRCodeData;
+        private DevExpress.XtraGrid.Columns.GridColumn colLogID;
+        private DevExpress.XtraGrid.Columns.GridColumn colLogTime;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LookUpEdit lkeCartNo;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.DateEdit dtFromDate;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.DateEdit dtToDate;
+        private DevExpress.XtraEditors.SimpleButton btLuu;
+        private DevExpress.XtraGrid.Columns.GridColumn colCartNo;
+        private DevExpress.XtraGrid.Columns.GridColumn colGroupData;
+        private DevExpress.XtraEditors.SimpleButton btXoa;
     }
 }

@@ -66,9 +66,9 @@ namespace ASPProject.SOPStage
 
         private void FillData()
         {
-            //DataTable dtSOP = new DataTable();
-            //dtSOP = _sqlHelper.ExecQueryDataAsDataTable("SELECT * FROM ASPWOSOPDetail");
-            //gridSOP.DataSource = dtSOP;
+            DataTable dtSOP = new DataTable();
+            dtSOP = _sqlHelper.ExecQueryDataAsDataTable("SELECT * FROM ASPWOSOPDetail");
+            gridSOP.DataSource = dtSOP;
 
             woDto.LineID = lineID;
             woDto.Username = userName;

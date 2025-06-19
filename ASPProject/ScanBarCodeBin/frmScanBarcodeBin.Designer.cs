@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btGetLinkQData = new DevExpress.XtraEditors.SimpleButton();
             this.btTransLine = new DevExpress.XtraEditors.SimpleButton();
             this.btImport2 = new DevExpress.XtraEditors.SimpleButton();
             this.btDelete = new DevExpress.XtraEditors.SimpleButton();
@@ -49,6 +50,8 @@
             this.colULStamp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUL2Stamp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSBDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPOText = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPOCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colN5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colN25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colN100 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -80,7 +83,6 @@
             this.N1100 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.N1250 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.N1500 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btGetLinkQData = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
@@ -107,6 +109,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1149, 62);
             this.panel1.TabIndex = 0;
+            // 
+            // btGetLinkQData
+            // 
+            this.btGetLinkQData.ImageOptions.Image = global::ASPProject.Properties.Resources.money;
+            this.btGetLinkQData.Location = new System.Drawing.Point(624, 14);
+            this.btGetLinkQData.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btGetLinkQData.Name = "btGetLinkQData";
+            this.btGetLinkQData.Size = new System.Drawing.Size(185, 34);
+            this.btGetLinkQData.TabIndex = 13;
+            this.btGetLinkQData.Text = "Lấy dữ liệu từ LinkQ";
             // 
             // btTransLine
             // 
@@ -198,6 +210,8 @@
             this.colULStamp,
             this.colUL2Stamp,
             this.colSBDate,
+            this.colPOText,
+            this.colPOCode,
             this.colN5,
             this.colN25,
             this.colN100,
@@ -239,6 +253,8 @@
             // colQuantity
             // 
             this.colQuantity.Caption = "Quantity";
+            this.colQuantity.DisplayFormat.FormatString = "{0:#0}";
+            this.colQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colQuantity.FieldName = "Quantity";
             this.colQuantity.MinWidth = 23;
             this.colQuantity.Name = "colQuantity";
@@ -248,6 +264,8 @@
             // colNW
             // 
             this.colNW.Caption = "NW";
+            this.colNW.DisplayFormat.FormatString = "{0:#0.00}";
+            this.colNW.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colNW.FieldName = "NW";
             this.colNW.MinWidth = 23;
             this.colNW.Name = "colNW";
@@ -257,6 +275,8 @@
             // colGW
             // 
             this.colGW.Caption = "GW";
+            this.colGW.DisplayFormat.FormatString = "{0:#0.00}";
+            this.colGW.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colGW.FieldName = "GW";
             this.colGW.MinWidth = 23;
             this.colGW.Name = "colGW";
@@ -335,86 +355,124 @@
             this.colSBDate.Visible = true;
             this.colSBDate.VisibleIndex = 13;
             // 
+            // colPOText
+            // 
+            this.colPOText.Caption = "PO Text";
+            this.colPOText.FieldName = "POText";
+            this.colPOText.MinWidth = 25;
+            this.colPOText.Name = "colPOText";
+            this.colPOText.Visible = true;
+            this.colPOText.VisibleIndex = 14;
+            this.colPOText.Width = 94;
+            // 
+            // colPOCode
+            // 
+            this.colPOCode.Caption = "PO Code";
+            this.colPOCode.FieldName = "POCode";
+            this.colPOCode.MinWidth = 25;
+            this.colPOCode.Name = "colPOCode";
+            this.colPOCode.Visible = true;
+            this.colPOCode.VisibleIndex = 15;
+            this.colPOCode.Width = 94;
+            // 
             // colN5
             // 
             this.colN5.Caption = "N-5";
+            this.colN5.DisplayFormat.FormatString = "{0:#0}";
+            this.colN5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colN5.FieldName = "N-5";
             this.colN5.MinWidth = 23;
             this.colN5.Name = "colN5";
             this.colN5.Visible = true;
-            this.colN5.VisibleIndex = 14;
+            this.colN5.VisibleIndex = 16;
             // 
             // colN25
             // 
             this.colN25.Caption = "N-25";
+            this.colN25.DisplayFormat.FormatString = "{0:#0}";
+            this.colN25.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colN25.FieldName = "N-25";
             this.colN25.MinWidth = 23;
             this.colN25.Name = "colN25";
             this.colN25.Visible = true;
-            this.colN25.VisibleIndex = 15;
+            this.colN25.VisibleIndex = 17;
             // 
             // colN100
             // 
             this.colN100.Caption = "N-100";
+            this.colN100.DisplayFormat.FormatString = "{0:#0}";
+            this.colN100.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colN100.FieldName = "N-100";
             this.colN100.MinWidth = 23;
             this.colN100.Name = "colN100";
             this.colN100.Visible = true;
-            this.colN100.VisibleIndex = 16;
+            this.colN100.VisibleIndex = 18;
             // 
             // colN250
             // 
             this.colN250.Caption = "N-250";
+            this.colN250.DisplayFormat.FormatString = "{0:#0}";
+            this.colN250.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colN250.FieldName = "N-250";
             this.colN250.MinWidth = 23;
             this.colN250.Name = "colN250";
             this.colN250.Visible = true;
-            this.colN250.VisibleIndex = 17;
+            this.colN250.VisibleIndex = 19;
             // 
             // colN500
             // 
             this.colN500.Caption = "N-500";
+            this.colN500.DisplayFormat.FormatString = "{0:#0}";
+            this.colN500.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colN500.FieldName = "N-500";
             this.colN500.MinWidth = 23;
             this.colN500.Name = "colN500";
             this.colN500.Visible = true;
-            this.colN500.VisibleIndex = 18;
+            this.colN500.VisibleIndex = 20;
             // 
             // col1N25
             // 
             this.col1N25.Caption = "1-N-25";
+            this.col1N25.DisplayFormat.FormatString = "{0:#0}";
+            this.col1N25.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.col1N25.FieldName = "1-N-25";
             this.col1N25.MinWidth = 23;
             this.col1N25.Name = "col1N25";
             this.col1N25.Visible = true;
-            this.col1N25.VisibleIndex = 19;
+            this.col1N25.VisibleIndex = 21;
             // 
             // col1N100
             // 
             this.col1N100.Caption = "1-N-100";
+            this.col1N100.DisplayFormat.FormatString = "{0:#0}";
+            this.col1N100.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.col1N100.FieldName = "1-N-100";
             this.col1N100.MinWidth = 23;
             this.col1N100.Name = "col1N100";
             this.col1N100.Visible = true;
-            this.col1N100.VisibleIndex = 20;
+            this.col1N100.VisibleIndex = 22;
             // 
             // col1N250
             // 
             this.col1N250.Caption = "1-N-250";
+            this.col1N250.DisplayFormat.FormatString = "{0:#0}";
+            this.col1N250.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.col1N250.FieldName = "1-N-250";
             this.col1N250.MinWidth = 23;
             this.col1N250.Name = "col1N250";
             this.col1N250.Visible = true;
-            this.col1N250.VisibleIndex = 21;
+            this.col1N250.VisibleIndex = 23;
             // 
             // col1N500
             // 
             this.col1N500.Caption = "1-N-500";
+            this.col1N500.DisplayFormat.FormatString = "{0:#0}";
+            this.col1N500.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.col1N500.FieldName = "1-N-500";
             this.col1N500.MinWidth = 23;
             this.col1N500.Name = "col1N500";
             this.col1N500.Visible = true;
-            this.col1N500.VisibleIndex = 22;
+            this.col1N500.VisibleIndex = 24;
             // 
             // gridScanBarcodeBinV2
             // 
@@ -565,6 +623,8 @@
             // N5
             // 
             this.N5.Caption = "N-5";
+            this.N5.DisplayFormat.FormatString = "{0:#0}";
+            this.N5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.N5.FieldName = "N-5";
             this.N5.MinWidth = 23;
             this.N5.Name = "N5";
@@ -574,6 +634,8 @@
             // N25
             // 
             this.N25.Caption = "N-25";
+            this.N25.DisplayFormat.FormatString = "{0:#0}";
+            this.N25.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.N25.FieldName = "N-25";
             this.N25.MinWidth = 23;
             this.N25.Name = "N25";
@@ -583,6 +645,8 @@
             // N100
             // 
             this.N100.Caption = "N-100";
+            this.N100.DisplayFormat.FormatString = "{0:#0}";
+            this.N100.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.N100.FieldName = "N-100";
             this.N100.MinWidth = 23;
             this.N100.Name = "N100";
@@ -592,6 +656,8 @@
             // N250
             // 
             this.N250.Caption = "N-250";
+            this.N250.DisplayFormat.FormatString = "{0:#0}";
+            this.N250.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.N250.FieldName = "N-250";
             this.N250.MinWidth = 23;
             this.N250.Name = "N250";
@@ -601,6 +667,8 @@
             // N500
             // 
             this.N500.Caption = "N-500";
+            this.N500.DisplayFormat.FormatString = "{0:#0}";
+            this.N500.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.N500.FieldName = "N-500";
             this.N500.MinWidth = 23;
             this.N500.Name = "N500";
@@ -610,6 +678,8 @@
             // N125
             // 
             this.N125.Caption = "1-N-25";
+            this.N125.DisplayFormat.FormatString = "{0:#0}";
+            this.N125.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.N125.FieldName = "1-N-25";
             this.N125.MinWidth = 23;
             this.N125.Name = "N125";
@@ -619,6 +689,8 @@
             // N1100
             // 
             this.N1100.Caption = "1-N-100";
+            this.N1100.DisplayFormat.FormatString = "{0:#0}";
+            this.N1100.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.N1100.FieldName = "1-N-100";
             this.N1100.MinWidth = 23;
             this.N1100.Name = "N1100";
@@ -628,6 +700,8 @@
             // N1250
             // 
             this.N1250.Caption = "1-N-250";
+            this.N1250.DisplayFormat.FormatString = "{0:#0}";
+            this.N1250.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.N1250.FieldName = "1-N-250";
             this.N1250.MinWidth = 23;
             this.N1250.Name = "N1250";
@@ -637,21 +711,13 @@
             // N1500
             // 
             this.N1500.Caption = "1-N-500";
+            this.N1500.DisplayFormat.FormatString = "{0:#0}";
+            this.N1500.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.N1500.FieldName = "1-N-500";
             this.N1500.MinWidth = 23;
             this.N1500.Name = "N1500";
             this.N1500.Visible = true;
             this.N1500.VisibleIndex = 20;
-            // 
-            // btGetLinkQData
-            // 
-            this.btGetLinkQData.ImageOptions.Image = global::ASPProject.Properties.Resources.money;
-            this.btGetLinkQData.Location = new System.Drawing.Point(624, 14);
-            this.btGetLinkQData.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btGetLinkQData.Name = "btGetLinkQData";
-            this.btGetLinkQData.Size = new System.Drawing.Size(185, 34);
-            this.btGetLinkQData.TabIndex = 13;
-            this.btGetLinkQData.Text = "Lấy dữ liệu từ LinkQ";
             // 
             // frmScanBarcodeBin
             // 
@@ -734,5 +800,7 @@
         private DevExpress.XtraEditors.SimpleButton btImport2;
         private DevExpress.XtraEditors.SimpleButton btTransLine;
         private DevExpress.XtraEditors.SimpleButton btGetLinkQData;
+        private DevExpress.XtraGrid.Columns.GridColumn colPOText;
+        private DevExpress.XtraGrid.Columns.GridColumn colPOCode;
     }
 }
