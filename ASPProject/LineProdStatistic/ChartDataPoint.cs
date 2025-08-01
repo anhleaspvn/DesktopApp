@@ -281,6 +281,18 @@ namespace ASPProject.LineProdStatistic
             return data;
         }
 
+        public static List<ProductivityChartDataPoint> GetDataPointsORPlanBar(DataTable dt)
+        {
+            List<ProductivityChartDataPoint> data = new List<ProductivityChartDataPoint>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                data.Add(new ProductivityChartDataPoint(Convert.ToDateTime(dr["StatisticDate"]), Convert.ToDouble(dr["ORPlan"]), "Target"));
+            }
+
+            return data;
+        }
+
         public static List<ProductivityChartDataPoint> GetDataPointsORTargetBar(DataTable dt)
         {
             List<ProductivityChartDataPoint> data = new List<ProductivityChartDataPoint>();
@@ -570,7 +582,7 @@ namespace ASPProject.LineProdStatistic
         }
     }
 
-    public class IQCProcessPercentDataPoint
+    public class IQCPPMByProcessDataPoint
     {
         public string IQCCheckName { get; set; }
         public double Ratio { get; set; }
@@ -580,7 +592,7 @@ namespace ASPProject.LineProdStatistic
         public static string defaultBlue = "#3d85c6";
         public static string defaultRed = "#BA4D51";
 
-        public IQCProcessPercentDataPoint(string iqcCheckName, double ratio, string caption, string colorMember)
+        public IQCPPMByProcessDataPoint(string iqcCheckName, double ratio, string caption, string colorMember)
         {
             this.IQCCheckName = iqcCheckName;
             this.Ratio = ratio;
@@ -588,14 +600,14 @@ namespace ASPProject.LineProdStatistic
             this.ColorMember = colorMember;
         }
 
-        public static List<IQCProcessPercentDataPoint> GetDataPoints(DataTable dt)
+        public static List<IQCPPMByProcessDataPoint> GetDataPoints(DataTable dt)
         {
-            List<IQCProcessPercentDataPoint> data = new List<IQCProcessPercentDataPoint>();
+            List<IQCPPMByProcessDataPoint> data = new List<IQCPPMByProcessDataPoint>();
 
             foreach (DataRow dr in dt.Rows)
             {
-                data.Add(new IQCProcessPercentDataPoint(Convert.ToString(dr["IQCCheckName"]), Convert.ToDouble(dr["OKPercent"]), "% Đạt", defaultBlue));
-                data.Add(new IQCProcessPercentDataPoint(Convert.ToString(dr["IQCCheckName"]), Convert.ToDouble(dr["NGPercent"]), "% NG", defaultRed));
+                data.Add(new IQCPPMByProcessDataPoint(Convert.ToString(dr["IQCCheckName"]), Convert.ToDouble(dr["OKPercent"]), "% Đạt", defaultBlue));
+                data.Add(new IQCPPMByProcessDataPoint(Convert.ToString(dr["IQCCheckName"]), Convert.ToDouble(dr["NGPercent"]), "% NG", defaultRed));
             }
 
             return data;

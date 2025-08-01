@@ -20,6 +20,9 @@ using ASPProject.Properties;
 using DevExpress.XtraBars.Ribbon;
 using System.Drawing;
 using ASPProject.Machine;
+using ASPProject.ScanBarCodeBin;
+using ASPProject.PlaningMasterList;
+using ASPProject.ProdQRCodeMaster;
 
 namespace ASPProject
 {
@@ -62,6 +65,76 @@ namespace ASPProject
             btMachine.ItemClick += BtMachine_ItemClick;
             btEmpCapacity.ItemClick += BtEmpCapacity_ItemClick;
             btIsoEmail.ItemClick += BtIsoEmail_ItemClick;
+            btScanBarcodeBin.ItemClick += BtScanBarcodeBin_ItemClick;
+            btQRCodeMaster.ItemClick += BtQRCodeMaster_ItemClick;
+            btProdScanQRCodeLog.ItemClick += BtProdScanQRCodeLog_ItemClick;
+            btTracebility.ItemClick += BtTracebility_ItemClick;
+            btScanQRCodeJig.ItemClick += BtScanQRCodeJig_ItemClick;
+            btDetailTableJig.ItemClick += BtDetailTableJig_ItemClick;
+            btSBLine.ItemClick += BtSBLine_ItemClick;
+            btSumDataQRCode.ItemClick += BtSumDataQRCode_ItemClick;
+            btBinQCApproval.ItemClick += BtBinQCApproval_ItemClick;
+            btMachineIns.ItemClick += BtMachineIns_ItemClick;
+        }
+        private void BtMachineIns_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Yêu cầu setup máy";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Machine installation require";
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "Machine installation require";
+
+            frmPLineMachineInsRequire frminsMachine = new frmPLineMachineInsRequire();
+            frminsMachine.userName = sManv;
+            frminsMachine.TopLevel = false;
+            frminsMachine.Dock = DockStyle.Fill;
+
+            t.AttachedControl.Controls.Add(frminsMachine);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+
+            frminsMachine.Show();
+            ld.simpleCloseWait();
+        }
+        private void BtBinQCApproval_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Xác nhận QC";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "QC Approval";
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "QC Approval";
+
+            frmBinLineQCApproval qcApproval = new frmBinLineQCApproval();
+
+            qcApproval.TopLevel = false;
+            qcApproval.Dock = DockStyle.Fill;
+           
+            t.AttachedControl.Controls.Add(qcApproval);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+
+            qcApproval.Show();
+            ld.simpleCloseWait();
         }
 
         private void BtEmpCapacity_ItemClick(object sender, ItemClickEventArgs e)
@@ -130,6 +203,167 @@ namespace ASPProject
             ld.simpleCloseWait();
         }
 
+        private void BtScanBarcodeBin_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Import Scan barcode bin";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Import Scan barcode bin";
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "Import Scan barcode bin";
+
+            frmScanBarcodeBin frmScanBCB = new frmScanBarcodeBin();
+
+            frmScanBCB.TopLevel = false;
+            frmScanBCB.Dock = DockStyle.Fill;
+            frmScanBCB.userName = sManv;
+            t.AttachedControl.Controls.Add(frmScanBCB);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            frmScanBCB.Show();
+            ld.simpleCloseWait();
+        }
+
+        private void BtQRCodeMaster_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "QR Code Master";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "QR Code Master";
+
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "QR Code Master";
+
+            frmProdQRCodeMaster prodQr = new frmProdQRCodeMaster();
+
+            prodQr.TopLevel = false;
+            prodQr.Dock = DockStyle.Fill;
+            prodQr.userName = sManv;
+            prodQr.frm = this;
+            t.AttachedControl.Controls.Add(prodQr);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            prodQr.Show();
+
+            ld.simpleCloseWait();
+        }
+        private void BtProdScanQRCodeLog_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Scan QR Code";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Scan QR Code";
+
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "Scan QR Code";
+
+            frmProdScanQRCodeLog prodQr = new frmProdScanQRCodeLog();
+
+            prodQr.TopLevel = false;
+            prodQr.Dock = DockStyle.Fill;
+            prodQr.userName = sManv;
+            prodQr.frm = this;
+            t.AttachedControl.Controls.Add(prodQr);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            prodQr.Show();
+
+            ld.simpleCloseWait();
+        }
+
+        private void BtScanQRCodeJig_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Scan QR Code Jig Test";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Scan QR Code Jig Test";
+
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "Scan QR Code Jig Test";
+
+            frmProdQRCodeJigTestLog prodQr = new frmProdQRCodeJigTestLog();
+
+            prodQr.TopLevel = false;
+            prodQr.Dock = DockStyle.Fill;
+            prodQr.userName = sManv;
+            prodQr.frm = this;
+            t.AttachedControl.Controls.Add(prodQr);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            prodQr.Show();
+
+            ld.simpleCloseWait();
+        }
+
+        private void BtTracebility_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Traceability";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Traceability";
+
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "Traceability";
+
+            frmProdQRCodeTraceability prodQr = new frmProdQRCodeTraceability();
+
+            prodQr.TopLevel = false;
+            prodQr.Dock = DockStyle.Fill;
+            prodQr.userName = sManv;
+            prodQr.frm = this;
+            t.AttachedControl.Controls.Add(prodQr);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            prodQr.Show();
+
+            ld.simpleCloseWait();
+        }
+
         private void Ribbon_Paint(object sender, PaintEventArgs e)
         {
             Image image = Resources.asplogo128x128;
@@ -190,7 +424,7 @@ namespace ASPProject
             {
                 TabItem t = tabControl12.CreateTab(sTieuDe);
                 t.Name = "BaoCao";
-                ASPReportToExcel.ASPReportExcel aspRpt = new ASPReportToExcel.ASPReportExcel();
+                ASPReportToExcel.ASPReports aspRpt = new ASPReportToExcel.ASPReports();
                 aspRpt.Username = sManv;
 
                 aspRpt.Show();
@@ -220,7 +454,7 @@ namespace ASPProject
             {
                 TabItem t = tabControl12.CreateTab(sTieuDe);
                 t.Name = "BaoCao";
-                ASPReportToExcel.ASPReportExcel aspRpt = new ASPReportToExcel.ASPReportExcel();
+                ASPReportToExcel.ASPReports aspRpt = new ASPReportToExcel.ASPReports();
                 aspRpt.Username = sManv;
 
                 aspRpt.Show();
@@ -755,19 +989,18 @@ namespace ASPProject
             {
                 TabItem t = tabControl12.CreateTab(sTieuDe);
                 t.Name = "QC Output Chart";
-                frmIQCStatisticChart frm = new frmIQCStatisticChart();
-                frm.deDongTab = new frmIQCStatisticChart._deDongTab(vDOngTab);
-                frm.frm = this;
-                frm.iNgonNgu = iNgonNgu;
-                frm.TopLevel = false;
-                frm.Dock = DockStyle.Fill;
-                frm.username = this.sManv;
-                t.AttachedControl.Controls.Add(frm);
+                //frmIQCStatisticChart frm = new frmIQCStatisticChart();
+                //frm.deDongTab = new frmIQCStatisticChart._deDongTab(vDOngTab);
+                //frm.frm = this;
+                //frm.iNgonNgu = iNgonNgu;
+                //frm.TopLevel = false;
+                //frm.Dock = DockStyle.Fill;
+                //frm.username = this.sManv;
+                //t.AttachedControl.Controls.Add(frm);
+                ExternalIQC.Form1 frm = new ExternalIQC.Form1();
                 frm.Show();
                 tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
             }
-
-
             ld.simpleCloseWait();
         }
 
@@ -785,7 +1018,6 @@ namespace ASPProject
             if (iNgonNgu == 1)
             {
                 sTieuDe = "Internal Audit";
-
             }
 
             if (!checkOpenTabs(sTieuDe))
@@ -1022,6 +1254,115 @@ namespace ASPProject
             ld.simpleCloseWait();
         }
 
+        private void BtDetailTableJig_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Bảng kê chi tiết Jig";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Detail Jig Report";
+            }
+
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabControl12.CreateTab(sTieuDe);
+                t.Name = "Detail Jig Report";
+                frmPSRptDetailJig frmJig = new frmPSRptDetailJig();
+                frmJig.userName = this.sManv;
+                frmJig.deDongTab = new frmPSRptDetailJig._deDongTab(vDOngTab);
+                frmJig.frm = this;
+                frmJig.iNgonNgu = iNgonNgu;
+                frmJig.TopLevel = false;
+                frmJig.Dock = DockStyle.Fill;
+
+                t.AttachedControl.Controls.Add(frmJig);
+                frmJig.Show();
+                tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            }
+
+            ld.simpleCloseWait();
+        }
+
+        private void BtSBLine_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Line - Scan thùng thành phẩm";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Line - Scan barcode bin";
+            }
+
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabControl12.CreateTab(sTieuDe);
+                t.Name = "Line - Scan barcode bin";
+                frmScanBarcodeBinLine frmSBL = new frmScanBarcodeBinLine();
+                frmSBL.userName = this.sManv;
+                frmSBL.deDongTab = new frmScanBarcodeBinLine._deDongTab(vDOngTab);
+                frmSBL.frm = this;
+                frmSBL.iNgonNgu = iNgonNgu;
+                frmSBL.TopLevel = false;
+                frmSBL.Dock = DockStyle.Fill;
+
+                t.AttachedControl.Controls.Add(frmSBL);
+                frmSBL.Show();
+                tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            }
+
+            ld.simpleCloseWait(); 
+            
+        }
+
+        private void BtSumDataQRCode_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "Tổng hợp dữ liệu QR Code";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Tổng hợp dữ liệu QR Code";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Tổng hợp dữ liệu QR Code";
+            }
+
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabControl12.CreateTab(sTieuDe);
+                t.Name = "";
+                frmProdQRCodeSummary frmSBL = new frmProdQRCodeSummary();
+                frmSBL.userName = this.sManv;
+                frmSBL.deDongTab = new frmProdQRCodeSummary._deDongTab(vDOngTab);
+                frmSBL.frm = this;
+                frmSBL.iNgonNgu = iNgonNgu;
+                frmSBL.TopLevel = false;
+                frmSBL.Dock = DockStyle.Fill;
+
+                t.AttachedControl.Controls.Add(frmSBL);
+                frmSBL.Show();
+                tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            }
+
+            ld.simpleCloseWait();
+        }
+
         private void BtAbsenceFollow_ItemClick(object sender, ItemClickEventArgs e)
         {
             ld.CreateWaitDialog();
@@ -1113,14 +1454,15 @@ namespace ASPProject
             {
                 TabItem t = tabControl12.CreateTab(sTieuDe);
                 t.Name = "Output Chart";
-                frmProdStatisticChart frmOutChart = new frmProdStatisticChart();
-                frmOutChart.username = this.sManv;
+                InventoryDashboardForm frmOutChart = new InventoryDashboardForm();
+                //frmProdStatisticChart frmOutChart = new frmProdStatisticChart();
+                //frmOutChart.username = this.sManv;
                 //frmOutChart.deDongTab = new frmExLosstime._deDongTab(vDOngTab);
                 //frmOutChart.frm = this;
                 //frmOutChart.iNgonNgu = iNgonNgu;
                 frmOutChart.TopLevel = false;
                 frmOutChart.Dock = DockStyle.Fill;
-                //frmOutChart.userName = this.sManv;
+                //frmOutChart.username = this.sManv;
                 t.AttachedControl.Controls.Add(frmOutChart);
                 frmOutChart.Show();
                 tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
@@ -1566,6 +1908,41 @@ namespace ASPProject
         {
             //foreach (BarItemLink link in barSubItem1.ItemLinks)
             //    ((BarCheckItem)link.Item).Checked = link.Item.Caption == defaultLookAndFeel1.LookAndFeel.ActiveSkinName;
+        }
+
+        private void btPlanningMasterList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            bKTraMoTab = true;
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Planning master list";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Planning master list";
+
+            }
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabControl12.CreateTab(sTieuDe);
+                t.Name = "NhanVien";
+                frmPlanningMasterList dt = new frmPlanningMasterList();
+                dt.deDongTab = new frmPlanningMasterList._deDongTab(vDOngTab);
+                dt.frm = this;
+                dt.iNgonNgu = iNgonNgu;
+                dt.TopLevel = false;
+                dt.Dock = DockStyle.Fill;
+                dt.userName = this.sManv;
+                t.AttachedControl.Controls.Add(dt);
+                dt.Show();
+                tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            }
+            ld.simpleCloseWait();
         }
 
         private void btKetThuc_ItemClick(object sender, ItemClickEventArgs e)

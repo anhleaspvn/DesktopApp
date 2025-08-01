@@ -37,7 +37,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gridProdStat = new DevExpress.XtraGrid.GridControl();
             this.gridProdStatView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colQRStart = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFieldID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLineID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDocDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -174,6 +173,7 @@
             this.colStampBy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btReportDaily = new DevExpress.XtraEditors.SimpleButton();
             this.btStageRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.btOverall = new DevExpress.XtraEditors.SimpleButton();
             this.btStatEmpMulti = new DevExpress.XtraEditors.SimpleButton();
@@ -217,7 +217,6 @@
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.barCheckItem2 = new DevExpress.XtraBars.BarCheckItem();
             this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.btReportDaily = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -362,7 +361,6 @@
             // gridProdStatView
             // 
             this.gridProdStatView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colQRStart,
             this.colFieldID,
             this.colLineID,
             this.colDocDate,
@@ -405,16 +403,6 @@
             this.gridProdStatView.OptionsView.ShowFooter = true;
             this.gridProdStatView.OptionsView.ShowGroupPanel = false;
             // 
-            // colQRStart
-            // 
-            this.colQRStart.Caption = "QR Start";
-            this.colQRStart.FieldName = "QRStart";
-            this.colQRStart.MinWidth = 25;
-            this.colQRStart.Name = "colQRStart";
-            this.colQRStart.Visible = true;
-            this.colQRStart.VisibleIndex = 0;
-            this.colQRStart.Width = 94;
-            // 
             // colFieldID
             // 
             this.colFieldID.Caption = "Mã ngành";
@@ -422,7 +410,7 @@
             this.colFieldID.MinWidth = 25;
             this.colFieldID.Name = "colFieldID";
             this.colFieldID.Visible = true;
-            this.colFieldID.VisibleIndex = 1;
+            this.colFieldID.VisibleIndex = 0;
             this.colFieldID.Width = 94;
             // 
             // colLineID
@@ -432,7 +420,7 @@
             this.colLineID.MinWidth = 25;
             this.colLineID.Name = "colLineID";
             this.colLineID.Visible = true;
-            this.colLineID.VisibleIndex = 2;
+            this.colLineID.VisibleIndex = 1;
             this.colLineID.Width = 94;
             // 
             // colDocDate
@@ -444,7 +432,7 @@
             this.colDocDate.MinWidth = 25;
             this.colDocDate.Name = "colDocDate";
             this.colDocDate.Visible = true;
-            this.colDocDate.VisibleIndex = 3;
+            this.colDocDate.VisibleIndex = 2;
             this.colDocDate.Width = 94;
             // 
             // colStatisticDate
@@ -456,7 +444,7 @@
             this.colStatisticDate.MinWidth = 25;
             this.colStatisticDate.Name = "colStatisticDate";
             this.colStatisticDate.Visible = true;
-            this.colStatisticDate.VisibleIndex = 4;
+            this.colStatisticDate.VisibleIndex = 3;
             this.colStatisticDate.Width = 94;
             // 
             // colProdBeginDate
@@ -468,7 +456,7 @@
             this.colProdBeginDate.MinWidth = 25;
             this.colProdBeginDate.Name = "colProdBeginDate";
             this.colProdBeginDate.Visible = true;
-            this.colProdBeginDate.VisibleIndex = 5;
+            this.colProdBeginDate.VisibleIndex = 4;
             this.colProdBeginDate.Width = 94;
             // 
             // colProdShift
@@ -478,7 +466,7 @@
             this.colProdShift.MinWidth = 25;
             this.colProdShift.Name = "colProdShift";
             this.colProdShift.Visible = true;
-            this.colProdShift.VisibleIndex = 6;
+            this.colProdShift.VisibleIndex = 5;
             this.colProdShift.Width = 94;
             // 
             // colWODocNo
@@ -488,7 +476,7 @@
             this.colWODocNo.MinWidth = 25;
             this.colWODocNo.Name = "colWODocNo";
             this.colWODocNo.Visible = true;
-            this.colWODocNo.VisibleIndex = 7;
+            this.colWODocNo.VisibleIndex = 6;
             this.colWODocNo.Width = 94;
             // 
             // colGWODocNo
@@ -498,7 +486,7 @@
             this.colGWODocNo.MinWidth = 25;
             this.colGWODocNo.Name = "colGWODocNo";
             this.colGWODocNo.Visible = true;
-            this.colGWODocNo.VisibleIndex = 8;
+            this.colGWODocNo.VisibleIndex = 7;
             this.colGWODocNo.Width = 94;
             // 
             // colProductID
@@ -508,7 +496,7 @@
             this.colProductID.MinWidth = 25;
             this.colProductID.Name = "colProductID";
             this.colProductID.Visible = true;
-            this.colProductID.VisibleIndex = 9;
+            this.colProductID.VisibleIndex = 8;
             this.colProductID.Width = 94;
             // 
             // colProductType
@@ -518,7 +506,7 @@
             this.colProductType.MinWidth = 25;
             this.colProductType.Name = "colProductType";
             this.colProductType.Visible = true;
-            this.colProductType.VisibleIndex = 10;
+            this.colProductType.VisibleIndex = 9;
             this.colProductType.Width = 94;
             // 
             // colProdReqQuantity
@@ -530,7 +518,7 @@
             this.colProdReqQuantity.MinWidth = 25;
             this.colProdReqQuantity.Name = "colProdReqQuantity";
             this.colProdReqQuantity.Visible = true;
-            this.colProdReqQuantity.VisibleIndex = 11;
+            this.colProdReqQuantity.VisibleIndex = 10;
             this.colProdReqQuantity.Width = 111;
             // 
             // colProdStatus
@@ -540,7 +528,7 @@
             this.colProdStatus.MinWidth = 25;
             this.colProdStatus.Name = "colProdStatus";
             this.colProdStatus.Visible = true;
-            this.colProdStatus.VisibleIndex = 12;
+            this.colProdStatus.VisibleIndex = 11;
             this.colProdStatus.Width = 94;
             // 
             // colProdStatisticQuantity
@@ -554,7 +542,7 @@
             this.colProdStatisticQuantity.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ProdStatisticQuantity", "{0:#0.00}")});
             this.colProdStatisticQuantity.Visible = true;
-            this.colProdStatisticQuantity.VisibleIndex = 13;
+            this.colProdStatisticQuantity.VisibleIndex = 12;
             this.colProdStatisticQuantity.Width = 94;
             // 
             // colProdStatisticEmpQuantity
@@ -568,7 +556,7 @@
             this.colProdStatisticEmpQuantity.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ProdStatisticEmpQuantity", "{0:#0.00}")});
             this.colProdStatisticEmpQuantity.Visible = true;
-            this.colProdStatisticEmpQuantity.VisibleIndex = 14;
+            this.colProdStatisticEmpQuantity.VisibleIndex = 13;
             this.colProdStatisticEmpQuantity.Width = 94;
             // 
             // colProdWorktime
@@ -582,7 +570,7 @@
             this.colProdWorktime.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ProdWorktime", "{0:#0.00}")});
             this.colProdWorktime.Visible = true;
-            this.colProdWorktime.VisibleIndex = 15;
+            this.colProdWorktime.VisibleIndex = 14;
             this.colProdWorktime.Width = 94;
             // 
             // colProdReworkTime
@@ -596,7 +584,7 @@
             this.colProdReworkTime.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ProdReworkTime", "{0:#0.00}")});
             this.colProdReworkTime.Visible = true;
-            this.colProdReworkTime.VisibleIndex = 16;
+            this.colProdReworkTime.VisibleIndex = 15;
             this.colProdReworkTime.Width = 94;
             // 
             // colProdSortTime
@@ -610,7 +598,7 @@
             this.colProdSortTime.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ProdSortTime", "{0:#0.00}")});
             this.colProdSortTime.Visible = true;
-            this.colProdSortTime.VisibleIndex = 17;
+            this.colProdSortTime.VisibleIndex = 16;
             this.colProdSortTime.Width = 94;
             // 
             // SubJobHC
@@ -624,7 +612,7 @@
             this.SubJobHC.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SubJobHC", "{0:#0.00}")});
             this.SubJobHC.Visible = true;
-            this.SubJobHC.VisibleIndex = 18;
+            this.SubJobHC.VisibleIndex = 17;
             this.SubJobHC.Width = 94;
             // 
             // colSumPrevFQCDFQuantity
@@ -638,7 +626,7 @@
             this.colSumPrevFQCDFQuantity.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "PrevFQCDFQuantity", "{0:#0.00}")});
             this.colSumPrevFQCDFQuantity.Visible = true;
-            this.colSumPrevFQCDFQuantity.VisibleIndex = 19;
+            this.colSumPrevFQCDFQuantity.VisibleIndex = 18;
             this.colSumPrevFQCDFQuantity.Width = 94;
             // 
             // colSumFQCDFQuantity
@@ -652,7 +640,7 @@
             this.colSumFQCDFQuantity.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FQCDFQuantity", "{0:#0.00}")});
             this.colSumFQCDFQuantity.Visible = true;
-            this.colSumFQCDFQuantity.VisibleIndex = 20;
+            this.colSumFQCDFQuantity.VisibleIndex = 19;
             this.colSumFQCDFQuantity.Width = 94;
             // 
             // colSumFQCReworkQuantity
@@ -666,7 +654,7 @@
             this.colSumFQCReworkQuantity.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FQCReworkQuantity", "{0:#0.00}")});
             this.colSumFQCReworkQuantity.Visible = true;
-            this.colSumFQCReworkQuantity.VisibleIndex = 21;
+            this.colSumFQCReworkQuantity.VisibleIndex = 20;
             this.colSumFQCReworkQuantity.Width = 94;
             // 
             // colSumFQCScrapQuantity
@@ -680,7 +668,7 @@
             this.colSumFQCScrapQuantity.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FQCScrapQuantity", "{0:#0.00}")});
             this.colSumFQCScrapQuantity.Visible = true;
-            this.colSumFQCScrapQuantity.VisibleIndex = 22;
+            this.colSumFQCScrapQuantity.VisibleIndex = 21;
             this.colSumFQCScrapQuantity.Width = 94;
             // 
             // colOutputRateDG
@@ -694,7 +682,7 @@
             this.colOutputRateDG.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "OutputRateDG", "{0:#0.00}", "2")});
             this.colOutputRateDG.Visible = true;
-            this.colOutputRateDG.VisibleIndex = 23;
+            this.colOutputRateDG.VisibleIndex = 22;
             this.colOutputRateDG.Width = 94;
             // 
             // colOutputRateVN
@@ -708,7 +696,7 @@
             this.colOutputRateVN.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "OutputRateVN", "{0:#0.00}", "1")});
             this.colOutputRateVN.Visible = true;
-            this.colOutputRateVN.VisibleIndex = 24;
+            this.colOutputRateVN.VisibleIndex = 23;
             this.colOutputRateVN.Width = 94;
             // 
             // colTimeDG
@@ -722,7 +710,7 @@
             this.colTimeDG.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TimeDG", "{0:#0.00}")});
             this.colTimeDG.Visible = true;
-            this.colTimeDG.VisibleIndex = 25;
+            this.colTimeDG.VisibleIndex = 24;
             this.colTimeDG.Width = 94;
             // 
             // colTimeVN
@@ -736,7 +724,7 @@
             this.colTimeVN.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TimeVN", "{0:#0.00}")});
             this.colTimeVN.Visible = true;
-            this.colTimeVN.VisibleIndex = 26;
+            this.colTimeVN.VisibleIndex = 25;
             this.colTimeVN.Width = 94;
             // 
             // colProductivity
@@ -748,7 +736,7 @@
             this.colProductivity.MinWidth = 25;
             this.colProductivity.Name = "colProductivity";
             this.colProductivity.Visible = true;
-            this.colProductivity.VisibleIndex = 27;
+            this.colProductivity.VisibleIndex = 26;
             this.colProductivity.Width = 94;
             // 
             // colYTDProductivity
@@ -760,7 +748,7 @@
             this.colYTDProductivity.MinWidth = 25;
             this.colYTDProductivity.Name = "colYTDProductivity";
             this.colYTDProductivity.Visible = true;
-            this.colYTDProductivity.VisibleIndex = 28;
+            this.colYTDProductivity.VisibleIndex = 27;
             this.colYTDProductivity.Width = 94;
             // 
             // gridView5
@@ -2125,6 +2113,16 @@
             this.panel2.Size = new System.Drawing.Size(1791, 59);
             this.panel2.TabIndex = 29;
             // 
+            // btReportDaily
+            // 
+            this.btReportDaily.ImageOptions.Image = global::ASPProject.Properties.Resources.export;
+            this.btReportDaily.Location = new System.Drawing.Point(675, 11);
+            this.btReportDaily.Name = "btReportDaily";
+            this.btReportDaily.Size = new System.Drawing.Size(161, 35);
+            this.btReportDaily.TabIndex = 6;
+            this.btReportDaily.Text = "Xuất báo cáo";
+            this.btReportDaily.Click += new System.EventHandler(this.btReportDaily_Click_1);
+            // 
             // btStageRefresh
             // 
             this.btStageRefresh.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -2517,15 +2515,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
             // 
-            // btReportDaily
-            // 
-            this.btReportDaily.ImageOptions.Image = global::ASPProject.Properties.Resources.export;
-            this.btReportDaily.Location = new System.Drawing.Point(675, 11);
-            this.btReportDaily.Name = "btReportDaily";
-            this.btReportDaily.Size = new System.Drawing.Size(161, 35);
-            this.btReportDaily.TabIndex = 6;
-            this.btReportDaily.Text = "Xuất báo cáo";
-            // 
             // frmProdStatisticView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -2721,7 +2710,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView7;
         private DevExpress.XtraGrid.Columns.GridColumn ExProdWorkTimeTC;
         private DevExpress.XtraGrid.Columns.GridColumn SubJobHC;
-        private DevExpress.XtraGrid.Columns.GridColumn colQRStart;
         private DevExpress.XtraEditors.SimpleButton btStageRefresh;
         private DevExpress.XtraTab.XtraTabPage tabEmpScanBarcode;
         private System.Windows.Forms.SplitContainer splitContainer3;

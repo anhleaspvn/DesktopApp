@@ -649,6 +649,11 @@ namespace ASPProject.LineProdStatistic
             }
         }
 
+        private void btReportDaily_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void GridEmpStatView_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             drEmpCurrent = gridEmpStatView.GetDataRow(e.RowHandle);

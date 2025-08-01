@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMachine));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btExport = new DevExpress.XtraEditors.SimpleButton();
             this.btImportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.gridMachine = new DevExpress.XtraGrid.GridControl();
@@ -38,7 +39,6 @@
             this.colMachineName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaintenanceMonth = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMachineGroup = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btDelete = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMachine)).BeginInit();
@@ -51,42 +51,52 @@
             this.panelControl1.Controls.Add(this.btExport);
             this.panelControl1.Controls.Add(this.btImportExcel);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 275);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.panelControl1.Location = new System.Drawing.Point(0, 339);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(638, 44);
+            this.panelControl1.Size = new System.Drawing.Size(744, 54);
             this.panelControl1.TabIndex = 0;
+            // 
+            // btDelete
+            // 
+            this.btDelete.ImageOptions.Image = global::ASPProject.Properties.Resources.cancel;
+            this.btDelete.Location = new System.Drawing.Point(178, 9);
+            this.btDelete.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(152, 38);
+            this.btDelete.TabIndex = 17;
+            this.btDelete.Text = "Xoá";
             // 
             // btExport
             // 
             this.btExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btExport.ImageOptions.Image")));
-            this.btExport.Location = new System.Drawing.Point(496, 6);
-            this.btExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btExport.Location = new System.Drawing.Point(579, 7);
+            this.btExport.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btExport.Name = "btExport";
-            this.btExport.Size = new System.Drawing.Size(130, 31);
+            this.btExport.Size = new System.Drawing.Size(152, 38);
             this.btExport.TabIndex = 16;
             this.btExport.Text = "Xuất dữ liệu";
             // 
             // btImportExcel
             // 
             this.btImportExcel.ImageOptions.Image = global::ASPProject.Properties.Resources.excel;
-            this.btImportExcel.Location = new System.Drawing.Point(12, 6);
-            this.btImportExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.btImportExcel.Location = new System.Drawing.Point(14, 7);
+            this.btImportExcel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btImportExcel.Name = "btImportExcel";
-            this.btImportExcel.Size = new System.Drawing.Size(130, 31);
+            this.btImportExcel.Size = new System.Drawing.Size(152, 38);
             this.btImportExcel.TabIndex = 8;
             this.btImportExcel.Text = "Import Dữ liệu";
             // 
             // gridMachine
             // 
             this.gridMachine.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridMachine.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5);
+            this.gridMachine.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.gridMachine.Location = new System.Drawing.Point(0, 0);
             this.gridMachine.MainView = this.gridMachineView;
-            this.gridMachine.Margin = new System.Windows.Forms.Padding(5);
+            this.gridMachine.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.gridMachine.Name = "gridMachine";
-            this.gridMachine.Size = new System.Drawing.Size(638, 275);
+            this.gridMachine.Size = new System.Drawing.Size(744, 339);
             this.gridMachine.TabIndex = 6;
             this.gridMachine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridMachineView});
@@ -98,7 +108,7 @@
             this.colMachineName,
             this.colMaintenanceMonth,
             this.colMachineGroup});
-            this.gridMachineView.DetailHeight = 554;
+            this.gridMachineView.DetailHeight = 682;
             this.gridMachineView.GridControl = this.gridMachine;
             this.gridMachineView.Name = "gridMachineView";
             this.gridMachineView.OptionsBehavior.Editable = false;
@@ -112,61 +122,51 @@
             // 
             this.colMachineID.Caption = "Mã máy";
             this.colMachineID.FieldName = "MachineID";
-            this.colMachineID.MinWidth = 27;
+            this.colMachineID.MinWidth = 31;
             this.colMachineID.Name = "colMachineID";
             this.colMachineID.Visible = true;
             this.colMachineID.VisibleIndex = 0;
-            this.colMachineID.Width = 100;
+            this.colMachineID.Width = 117;
             // 
             // colMachineName
             // 
             this.colMachineName.Caption = "Tên máy";
             this.colMachineName.FieldName = "MachineName";
-            this.colMachineName.MinWidth = 27;
+            this.colMachineName.MinWidth = 31;
             this.colMachineName.Name = "colMachineName";
             this.colMachineName.Visible = true;
             this.colMachineName.VisibleIndex = 1;
-            this.colMachineName.Width = 100;
+            this.colMachineName.Width = 117;
             // 
             // colMaintenanceMonth
             // 
             this.colMaintenanceMonth.Caption = "Số tháng bảo hành";
             this.colMaintenanceMonth.FieldName = "MaintenanceMonth";
-            this.colMaintenanceMonth.MinWidth = 27;
+            this.colMaintenanceMonth.MinWidth = 31;
             this.colMaintenanceMonth.Name = "colMaintenanceMonth";
             this.colMaintenanceMonth.Visible = true;
             this.colMaintenanceMonth.VisibleIndex = 2;
-            this.colMaintenanceMonth.Width = 100;
+            this.colMaintenanceMonth.Width = 117;
             // 
             // colMachineGroup
             // 
             this.colMachineGroup.Caption = "Nhóm máy";
             this.colMachineGroup.FieldName = "MachineGroup";
-            this.colMachineGroup.MinWidth = 27;
+            this.colMachineGroup.MinWidth = 31;
             this.colMachineGroup.Name = "colMachineGroup";
             this.colMachineGroup.Visible = true;
             this.colMachineGroup.VisibleIndex = 3;
-            this.colMachineGroup.Width = 100;
-            // 
-            // btDelete
-            // 
-            this.btDelete.ImageOptions.Image = global::ASPProject.Properties.Resources.cancel;
-            this.btDelete.Location = new System.Drawing.Point(153, 7);
-            this.btDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(130, 31);
-            this.btDelete.TabIndex = 17;
-            this.btDelete.Text = "Xoá";
+            this.colMachineGroup.Width = 117;
             // 
             // frmMachine
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 319);
+            this.ClientSize = new System.Drawing.Size(744, 393);
             this.Controls.Add(this.gridMachine);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "frmMachine";
             this.Text = "frmMachine";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

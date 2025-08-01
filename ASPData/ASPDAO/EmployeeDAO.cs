@@ -1,4 +1,5 @@
 ﻿using ASPData;
+using ASPData.ASPDTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -129,6 +130,22 @@ namespace ASPData.EmployeeDAO
             dt = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPGetTimeOff", dicParams);
 
             return dt;
+        }
+
+        public void ImportExcelEmpID(EmployeeDTO.EmployeeDTO empDto)
+        {
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@EmpID", empDto.EmpID },
+                { "@EmpName", empDto.EmpName },
+                { "@Position", empDto.Position },
+                { "@Direct_Indirect", empDto.Direct },
+                { "@LineID", empDto.LineID },
+                { "@IsOfficalEmp", empDto.IsOfficialEmp },
+                { "@HREmpID", empDto.HREmpID }
+            };
+
+            _sqlhelper.ExecProcedureNonData("sp_ASPImportExcelEmpID", dicParams);
         }
     }
 }

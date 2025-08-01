@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ASPData
@@ -37,6 +38,7 @@ namespace ASPData
             using (var connection = new SqlConnection(asp.ASPDecrypt(configDatabase.CONNECTION_STRINGS)))
             {
                 connection.Open();
+                
                 long re = 0;
                 try
                 {
@@ -108,7 +110,8 @@ namespace ASPData
         //        }
         //    }
         //}
-        public DataTable ExecProcedureDataAsDataTable(string ProcedureName, object parametter = null)
+
+        public DataTable ExecProcedureDataAsDataTable(string ProcedureName, object parameter = null)
         {
             string connStr = asp.ASPDecrypt(configDatabase.CONNECTION_STRINGS);
             using (var connection = new SqlConnection(connStr))
@@ -117,7 +120,7 @@ namespace ASPData
                 DataTable table = new DataTable();
                 try
                 {
-                    var reader = connection.ExecuteReader(ProcedureName, param: parametter, commandType: CommandType.StoredProcedure);
+                    var reader = connection.ExecuteReader(ProcedureName, param: parameter, commandType: CommandType.StoredProcedure, commandTimeout: 0);
 
                     table.Load(reader);
                 }
@@ -211,7 +214,6 @@ namespace ASPData
             });
 
         }
-
         public DataSet ExecQueryDataAsDataSet(string T_SQL, object parametter = null)
         {
             using (var connection = new SqlConnection(asp.ASPDecrypt(configDatabase.CONNECTION_STRINGS)))
@@ -277,9 +279,12 @@ namespace ASPData
         {
             using (var connection = new SqlConnection(asp.ASPDecrypt(configDatabase.CONNECTION_STRINGS)))
             {
-                connection.Open();
+                //int tmp = connection.ConnectionTimeout;
+                //connection.Open();
+                //SqlCommand cmd = new SqlCommand(ProcedureName, connection);
+                //cmd.CommandTimeout = 0;
                 //return affectedRows 
-                return connection.Execute(ProcedureName, parametter, commandType: CommandType.StoredProcedure);
+                return connection.Execute(ProcedureName, parametter, null, 0, commandType: CommandType.StoredProcedure);
             }
         }
 

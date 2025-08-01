@@ -1,0 +1,115 @@
+C:\LinkQ\Cus2019\AirSpeed\LinkQ\LinkQ.Reports7.0.dll
+C:\LinkQ\Cus2019\AirSpeed\LinkQ\LinkQ.Reports7.0.pdb
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmChart.resources
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmChartOption.resources
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReport_Edit.resources
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Systems.Customizes.frmSendMail.resources
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportDesign.resources
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportFormula.resources
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportPrint.resources
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReport.resources
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportFilter.resources
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportResult.resources
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.Properties.Resources.resources
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.GenerateResource.cache
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.dll.licenses
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.CoreCompileInputs.cache
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.CopyComplete
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.dll
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.pdb
+C:\LinkQ\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.AssemblyReference.cache
+C:\LinkQTFS\Cus2019\AirSpeed\LinkQ\LinkQ.Reports7.0.dll
+C:\LinkQTFS\Cus2019\AirSpeed\LinkQ\LinkQ.Reports7.0.pdb
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.AssemblyReference.cache
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmChart.resources
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmChartOption.resources
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReport_Edit.resources
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Systems.Customizes.frmSendMail.resources
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportDesign.resources
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportFormula.resources
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportPrint.resources
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReport.resources
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportFilter.resources
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportResult.resources
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.Properties.Resources.resources
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.GenerateResource.cache
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.dll.licenses
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.CoreCompileInputs.cache
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.CopyComplete
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.dll
+C:\LinkQTFS\Cus2019\AirSpeed\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.pdb
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.AssemblyReference.cache
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmChart.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmChartOption.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReport_Edit.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Systems.Customizes.frmSendMail.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportDesign.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportFormula.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportPrint.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReport.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportFilter.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportResult.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.Properties.Resources.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.GenerateResource.cache
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.dll.licenses
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.dll
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.pdb
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.CoreCompileInputs.cache
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\LinkQ\LinkQ.Reports7.0.dll
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\LinkQ\LinkQ.Reports7.0.pdb
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\Airspeed_2NhaMay\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.CopyComplete
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\LinkQ\LinkQ.Reports7.0.dll
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\LinkQ\LinkQ.Reports7.0.pdb
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.AssemblyReference.cache
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmChart.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmChartOption.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReport_Edit.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Systems.Customizes.frmSendMail.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportDesign.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportFormula.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportPrint.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReport.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportFilter.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportResult.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.Properties.Resources.resources
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.GenerateResource.cache
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.dll.licenses
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.CoreCompileInputs.cache
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.CopyComplete
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.dll
+C:\LinkQTFS\Cus2019\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.pdb
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\LinkQ\LinkQ.Reports7.0.dll
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\LinkQ\LinkQ.Reports7.0.pdb
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.AssemblyReference.cache
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmChart.resources
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmChartOption.resources
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReport_Edit.resources
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Systems.Customizes.frmSendMail.resources
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportDesign.resources
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportFormula.resources
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportPrint.resources
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReport.resources
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportFilter.resources
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportResult.resources
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.Properties.Resources.resources
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.GenerateResource.cache
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.dll.licenses
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.CoreCompileInputs.cache
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Re.EA3B2283.Up2Date
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.dll
+D:\Airspeed Dev\Tools\AirSpeed\Desktop\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.pdb
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.AssemblyReference.cache
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmChart.resources
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmChartOption.resources
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReport_Edit.resources
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Systems.Customizes.frmSendMail.resources
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportDesign.resources
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportFormula.resources
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportPrint.resources
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReport.resources
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportFilter.resources
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.frmReportResult.resources
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports.Properties.Resources.resources
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.GenerateResource.cache
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.dll.licenses
+D:\Airspeed Dev\LinkQMRP\MRP\Reports\LinkQ.Reports\obj\Debug\LinkQ.Reports7.0.csproj.CoreCompileInputs.cache

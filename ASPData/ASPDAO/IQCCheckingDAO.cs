@@ -298,7 +298,22 @@ namespace ASPData.ASPDAO
             return result;
         }
 
-        public DataTable GetDailyIQCProcessPercentChart(int Week, int Month, int Year)
+        public DataTable GetDailyIQCDPPMChartV2(DateTime fromDate, DateTime toDate)
+        {
+            DataTable result = new DataTable();
+
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@Ngay_Ct1", fromDate },
+                { "@Ngay_Ct2", toDate }
+            };
+
+            result = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPDailyIQCPPMChartV2", dicParams);
+
+            return result;
+        }
+
+        public DataTable GetDailyIQCPPMByProcessChart(int Week, int Month, int Year)
         {
             DataTable result = new DataTable();
 
@@ -309,7 +324,68 @@ namespace ASPData.ASPDAO
                 { "@Year", Year }
             };
 
-            result = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPDailyIQCProcessPercentChart", dicParams);
+            result = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPDailyIQCProcessPPMChart", dicParams);
+
+            return result;
+        }
+
+        public DataTable GetDailyIQCPPMByProcessChartV2(DateTime fromDate, DateTime toDate)
+        {
+            DataTable result = new DataTable();
+
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@Ngay_Ct1", fromDate },
+                { "@Ngay_Ct2", toDate }
+            };
+
+            result = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPDailyIQCProcessPPMChartV2", dicParams);
+
+            return result;
+        }
+
+        public DataTable GetDailyIQCPPMByProductChart(int Week, int Month, int Year)
+        {
+            DataTable result = new DataTable();
+
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@Week", Week },
+                { "@Month", Month },
+                { "@Year", Year }
+            };
+
+            result = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPDailyIQCProductPPMChart", dicParams);
+
+            return result;
+        }
+
+        public DataTable GetDailyIQCPPMByProductChartV2(DateTime fromDate, DateTime toDate)
+        {
+            DataTable result = new DataTable();
+
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@Ngay_Ct1", fromDate },
+                { "@Ngay_Ct2", toDate }
+            };
+
+            result = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPDailyIQCProductPPMChartV2", dicParams);
+
+            return result;
+        }
+
+        public DataTable GetDailyIQCPPMByDefectChart(DateTime fromDate, DateTime toDate)
+        {
+            DataTable result = new DataTable();
+
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@Ngay_Ct1", fromDate },
+                { "@Ngay_Ct2", toDate }
+            };
+
+            result = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPDailyIQCDefectPPMChart", dicParams);
 
             return result;
         }
@@ -326,6 +402,21 @@ namespace ASPData.ASPDAO
             };
 
             result = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPDailyIQCDefectPercentChart", dicParams);
+
+            return result;
+        }
+
+        public DataTable GetDailyIQCDefectPercentChartV2(DateTime fromDate, DateTime toDate)
+        {
+            DataTable result = new DataTable();
+
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@Ngay_Ct1", fromDate },
+                { "@Ngay_Ct2", toDate }
+            };
+
+            result = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPDailyIQCDefectPercentChartV2", dicParams);
 
             return result;
         }

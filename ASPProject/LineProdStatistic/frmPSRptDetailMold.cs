@@ -121,7 +121,14 @@ namespace ASPProject.LineProdStatistic
 
         private void BtExport_Click(object sender, EventArgs e)
         {
-            
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Excel|*.xlsx";
+            saveFileDialog1.Title = "Save an File";
+            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.FileName != "")
+            {
+                gridRptMoldView.ExportToXlsx(saveFileDialog1.FileName);
+            }
         }
 
         private void BtRestart_Click(object sender, EventArgs e)

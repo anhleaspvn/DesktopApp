@@ -91,7 +91,7 @@ namespace ASPProject.Losstime
 
             var dicParams = new Dictionary<string, object> {
                 { "@Prefix", "LT" },
-                { "@NumLen", 2},
+                { "@NumLen", 2 },
                 { "@ColumnID", "LosstimeID" },
                 { "@TableName", "ASPLosstime" }
             };

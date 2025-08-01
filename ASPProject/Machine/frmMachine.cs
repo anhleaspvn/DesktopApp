@@ -95,12 +95,28 @@ namespace ASPProject.Machine
                     //
                     ASPExcelDataProcess.ASPExcelDataProcess excel = new ASPExcelDataProcess.ASPExcelDataProcess();
                     DataTable dtExcel = new DataTable();
-                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:G10000");
-                    string MachineID = dtExcel.Rows.Count > 0 ? Convert.ToString(dtExcel.Rows[0]["MachineID"]) : string.Empty;
-                    _sqlHelper.ExecQueryNonData("DELETE FROM ASPMachine WHERE MachineID = '" + MachineID + "'");
-
-                    foreach (DataRow dr in dtExcel.Rows)
+                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:D10000");
+                  
+                    for (int i = 0; i < dtExcel.Rows.Count; i++)
                     {
+                        DataRow dr = dtExcel.Rows[i];
+
+                        if (i == 0)
+                        {
+                            string MachineID = dtExcel.Rows.Count > 0 ? Convert.ToString(dr["MachineID"]) : string.Empty;
+                            _sqlHelper.ExecQueryNonData("DELETE FROM ASPMachine WHERE MachineID = '" + MachineID + "'");
+                        }
+                        else if (i > 0)
+                        {
+                            int j = i - 1;
+                            DataRow drTemp = dtExcel.Rows[j];
+                            if (dr["MachineID"] != drTemp["MachineID"])
+                            {
+                                string MachineID = dtExcel.Rows.Count > 0 ? Convert.ToString(dr["MachineID"]) : string.Empty;
+                                _sqlHelper.ExecQueryNonData("DELETE FROM ASPMachine WHERE MachineID = '" + MachineID + "'");
+                            }
+                        }
+
                         machineDto.MachineID = Convert.ToString(dr["MachineID"]);
                         machineDto.MachineName = Convert.ToString(dr["MachineName"]);
                         machineDto.MaintenanceMonth = Convert.ToInt32(dr["MaintenanceMonth"]);

@@ -12,6 +12,7 @@ using System.Threading;
 using ASPData.EmployeeDTO;
 using ASPData.EmployeeDAO;
 using System.Runtime.CompilerServices;
+using ASPData;
 
 //using ASPProject.class_TungLam;
 
@@ -31,6 +32,8 @@ namespace ASPProject
         public frmMain frm;
         public delegate void _deDongTab();
         public _deDongTab deDongTab;
+
+        private readonly SQLHelper _sqlHelper = new SQLHelper();
         #endregion
 
         #region constructor
@@ -50,6 +53,7 @@ namespace ASPProject
             this.barXoa.ItemClick += BarXoa_ItemClick;
             this.barThem.ItemClick += BarThem_ItemClick;
             this.barMultiEditLine.ItemClick += BarMultiEditLine_ItemClick;
+            this.barNhap.ItemClick += BarNhap_ItemClick;
         }
         #endregion
 
@@ -83,7 +87,6 @@ namespace ASPProject
         private void LoadData()
         {
             gridEmp.DataSource = empDao.GetAllEmployee();
-            //gridEmpView.SelectRow(curIndex);
         }
         #endregion
 
@@ -116,7 +119,6 @@ namespace ASPProject
                 {
                     XtraMessageBox.Show("Please select information to edit.");
                 }
-
             }
             else
             {
@@ -124,7 +126,6 @@ namespace ASPProject
                 LoadData();
             }
         }
-
         private void BarMultiEditLine_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmEmployeeEdit editForm = new frmEmployeeEdit();
@@ -158,6 +159,53 @@ namespace ASPProject
                 LoadData();
             }
         }
+        private void BarNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenFileDialog openExcel = new OpenFileDialog();
+            openExcel.Title = "Open Excel File";
+            openExcel.Filter = "XLSX files|*.xlsx";
+            openExcel.InitialDirectory = @"C:\";
+
+            if (openExcel.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    List<string> arrProd = new List<string>();
+                    ASPExcelDataProcess.ASPExcelDataProcess excel = new ASPExcelDataProcess.ASPExcelDataProcess();
+                    DataTable dtExcel = new DataTable();
+                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:G10000");
+
+                    foreach (DataRow dr in dtExcel.Rows)
+                    {
+                        string EmpID = Convert.ToString(dr["EmpID"]);
+
+                        if (!arrProd.Contains(EmpID))
+                        {
+                            _sqlHelper.ExecQueryNonData("DELETE FROM ASPEmployee WHERE EmpID = '" + EmpID + "'");
+                            arrProd.Add(Convert.ToString(dr["EmpID"]));
+                        }
+
+                        empDto.EmpID = Convert.ToString(dr["EmpID"]);
+                        empDto.EmpName = Convert.ToString(dr["EmpName"]);
+                        empDto.Position = Convert.ToString(dr["Position"]);
+                        empDto.Direct = Convert.ToString(dr["Direct_Indirect"]);
+                        empDto.LineID = Convert.ToString(dr["LineID"]);
+                        empDto.IsOfficialEmp = Convert.ToBoolean(dr["IsOfficialEmp"]);
+                        empDto.HREmpID = Convert.ToString(dr["HREmpID"]);
+                        
+                        empDao.ImportExcelEmpID(empDto);
+                    }
+
+                    XtraMessageBox.Show("Import dữ liệu thành công.");
+
+                    LoadData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
+        }
 
         private void BarXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -171,14 +219,12 @@ namespace ASPProject
                 {
                     XtraMessageBox.Show("Please select infomation to delete.");
                 }
-
             }
             else if (iNgonNgu == 0)
             {
                 DialogResult a = XtraMessageBox.Show("Bạn có chắc xóa thông tin nhân viên " + empName + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (a == DialogResult.Yes)
                 {
-
                     empDto.EmpID = empID;
                     empDao.DeleteEmployee(empDto);
                     LoadData();
@@ -197,7 +243,6 @@ namespace ASPProject
                 DialogResult a = XtraMessageBox.Show(" Are you sure to delete Employee  " + empName + " ???", "Warming", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (a == DialogResult.Yes)
                 {
-
                     empDto.EmpID = empID;
                     empDao.DeleteEmployee(empDto);
                     LoadData();

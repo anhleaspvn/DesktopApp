@@ -49,40 +49,36 @@
             // 
             // lbTenTaiKhoan
             // 
-            this.lbTenTaiKhoan.Location = new System.Drawing.Point(140, 77);
-            this.lbTenTaiKhoan.Margin = new System.Windows.Forms.Padding(4);
+            this.lbTenTaiKhoan.Location = new System.Drawing.Point(127, 63);
             this.lbTenTaiKhoan.Name = "lbTenTaiKhoan";
-            this.lbTenTaiKhoan.Size = new System.Drawing.Size(56, 16);
+            this.lbTenTaiKhoan.Size = new System.Drawing.Size(46, 13);
             this.lbTenTaiKhoan.TabIndex = 1;
             this.lbTenTaiKhoan.Text = "Tài khoản";
             // 
             // lbMatKhau
             // 
-            this.lbMatKhau.Location = new System.Drawing.Point(140, 109);
-            this.lbMatKhau.Margin = new System.Windows.Forms.Padding(4);
+            this.lbMatKhau.Location = new System.Drawing.Point(127, 89);
             this.lbMatKhau.Name = "lbMatKhau";
-            this.lbMatKhau.Size = new System.Drawing.Size(52, 16);
+            this.lbMatKhau.Size = new System.Drawing.Size(44, 13);
             this.lbMatKhau.TabIndex = 1;
             this.lbMatKhau.Text = "Mật khẩu";
             // 
             // txtTenTaiKhoan
             // 
-            this.txtTenTaiKhoan.Location = new System.Drawing.Point(226, 73);
-            this.txtTenTaiKhoan.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTenTaiKhoan.Location = new System.Drawing.Point(201, 59);
             this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
             this.txtTenTaiKhoan.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTenTaiKhoan.Size = new System.Drawing.Size(184, 23);
+            this.txtTenTaiKhoan.Size = new System.Drawing.Size(158, 20);
             this.txtTenTaiKhoan.TabIndex = 0;
             this.txtTenTaiKhoan.Validating += new System.ComponentModel.CancelEventHandler(this.txtTenTaiKhoan_Validating);
             // 
             // txtMatKhau
             // 
             this.txtMatKhau.EditValue = "";
-            this.txtMatKhau.Location = new System.Drawing.Point(226, 105);
-            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMatKhau.Location = new System.Drawing.Point(201, 85);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Properties.PasswordChar = '*';
-            this.txtMatKhau.Size = new System.Drawing.Size(184, 23);
+            this.txtMatKhau.Size = new System.Drawing.Size(158, 20);
             this.txtMatKhau.TabIndex = 1;
             this.txtMatKhau.Tag = "*";
             this.txtMatKhau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatKhau_KeyPress);
@@ -92,38 +88,34 @@
             // 
             this.lbDangNhap.Appearance.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDangNhap.Appearance.Options.UseFont = true;
-            this.lbDangNhap.Location = new System.Drawing.Point(194, 15);
-            this.lbDangNhap.Margin = new System.Windows.Forms.Padding(4);
+            this.lbDangNhap.Location = new System.Drawing.Point(173, 12);
             this.lbDangNhap.Name = "lbDangNhap";
-            this.lbDangNhap.Size = new System.Drawing.Size(155, 39);
+            this.lbDangNhap.Size = new System.Drawing.Size(124, 31);
             this.lbDangNhap.TabIndex = 1;
             this.lbDangNhap.Text = "Đăng Nhập";
             // 
             // checkNho
             // 
-            this.checkNho.Location = new System.Drawing.Point(140, 136);
-            this.checkNho.Margin = new System.Windows.Forms.Padding(4);
+            this.checkNho.Location = new System.Drawing.Point(127, 110);
             this.checkNho.Name = "checkNho";
             this.checkNho.Properties.Caption = "Nhớ tài khoản và mật khẩu";
-            this.checkNho.Size = new System.Drawing.Size(186, 20);
+            this.checkNho.Size = new System.Drawing.Size(159, 19);
             this.checkNho.TabIndex = 2;
             // 
             // btDangNhap
             // 
-            this.btDangNhap.Location = new System.Drawing.Point(145, 180);
-            this.btDangNhap.Margin = new System.Windows.Forms.Padding(4);
+            this.btDangNhap.Location = new System.Drawing.Point(131, 146);
             this.btDangNhap.Name = "btDangNhap";
-            this.btDangNhap.Size = new System.Drawing.Size(88, 28);
+            this.btDangNhap.Size = new System.Drawing.Size(75, 23);
             this.btDangNhap.TabIndex = 3;
             this.btDangNhap.Text = "Đăng nhập";
             this.btDangNhap.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // btKetThuc
             // 
-            this.btKetThuc.Location = new System.Drawing.Point(261, 180);
-            this.btKetThuc.Margin = new System.Windows.Forms.Padding(4);
+            this.btKetThuc.Location = new System.Drawing.Point(231, 146);
             this.btKetThuc.Name = "btKetThuc";
-            this.btKetThuc.Size = new System.Drawing.Size(88, 28);
+            this.btKetThuc.Size = new System.Drawing.Size(75, 23);
             this.btKetThuc.TabIndex = 4;
             this.btKetThuc.Text = "Kết thúc";
             this.btKetThuc.Click += new System.EventHandler(this.btKetThuc_Click);
@@ -134,11 +126,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::ASPProject.Properties.Resources.ASP_Icon;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 37);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Image = global::ASPProject.Properties.Resources.asplogo128x128;
+            this.pictureBox1.Location = new System.Drawing.Point(2, 37);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(119, 119);
+            this.pictureBox1.Size = new System.Drawing.Size(116, 92);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -149,9 +140,9 @@
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 218);
+            this.ClientSize = new System.Drawing.Size(361, 177);
             this.ControlBox = false;
             this.Controls.Add(this.btKetThuc);
             this.Controls.Add(this.btDangNhap);
@@ -163,7 +154,6 @@
             this.Controls.Add(this.lbDangNhap);
             this.Controls.Add(this.lbTenTaiKhoan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";

@@ -50,8 +50,6 @@ namespace ASPProject.HRAbsenceDoc
             
         }
 
-       
-
         private void FrmHRAbsenceDocByStaff_Load(object sender, EventArgs e)
         {
             lkeEmpID.Properties.DataSource = hrDao.GetHREmployeeListV2(userName);
