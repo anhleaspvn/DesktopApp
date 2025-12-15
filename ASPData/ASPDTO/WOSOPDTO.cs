@@ -42,7 +42,7 @@ namespace ASPData.ASPDTO
 
         public DateTime CheckOutDtOld { get; set; } = DateTime.Now;
         public double ManPower { get; set; } = 0;
-
+        public string SkillID { get; set; } = string.Empty;
         public int ViewType { get; set; } = 0;
     }
 }

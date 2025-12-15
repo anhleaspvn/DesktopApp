@@ -133,6 +133,7 @@ namespace ASPProject.LineProdStatistic
             frmEdit.requireQuantity = Convert.ToDouble(drCurrent["MaterialQuantity"]);
             frmEdit.materialID = Convert.ToString(drCurrent["MaterialID"]);
             frmEdit.isPriority = Convert.ToBoolean(drCurrent["IsPriority"]);
+            frmEdit.notes = Convert.ToString(drCurrent["Notes"]);
             frmEdit.ShowDialog();
 
             FillData();

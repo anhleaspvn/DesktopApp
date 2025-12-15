@@ -23,6 +23,7 @@ namespace ASPProject.LineProdStatistic
         public int iNgonNgu;
         public long HeaderID;
         public string factoryID, fieldID, shift, WODocNo = string.Empty, productID, prodStatus, userName, passWord;
+        public string materialReason, manReason, machineReason, methodReason;
         public double prodStatisticQuantity, prodStatisticEmpQuantity;
         public DateTime statisticDate, prodBeginDate;
         public Boolean IschkQRStart;
@@ -81,6 +82,10 @@ namespace ASPProject.LineProdStatistic
                 txtStatisQuantity.Text = prodStatisticQuantity > 0 ? Convert.ToString(prodStatisticQuantity) : string.Empty;
                 txtManStatis.Text = prodStatisticEmpQuantity > 0 ? Convert.ToString(prodStatisticEmpQuantity) : string.Empty;
                 chkQRStart.Checked = IschkQRStart;
+                rtMaterial.Text = materialReason;
+                rtMan.Text = manReason;
+                rtMachine.Text = machineReason;
+                rtMethod.Text = methodReason;
             }
             else
             {
@@ -274,6 +279,10 @@ namespace ASPProject.LineProdStatistic
 
                     prodStatDto.LastModifiedBy = userName;
                     prodStatDto.LastModifiedDate = DateTime.Now;
+                    prodStatDto.MaterialReason = !string.IsNullOrEmpty(rtMaterial.Text) ? rtMaterial.Text: string.Empty;
+                    prodStatDto.ManReason = !string.IsNullOrEmpty(rtMan.Text) ? rtMan.Text : string.Empty;
+                    prodStatDto.MachineReason = !string.IsNullOrEmpty(rtMachine.Text) ? rtMachine.Text : string.Empty;
+                    prodStatDto.MethodReason = !string.IsNullOrEmpty(rtMethod.Text) ? rtMethod.Text : string.Empty;
 
                     if (Convert.ToString(lkeFieldID.EditValue) != fieldID)
                     {

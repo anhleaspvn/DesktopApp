@@ -39,6 +39,10 @@ namespace ASPData.ProdStatisticDTO
         public Boolean QRStart { get; set; } = false;
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
+        public string MaterialReason { get; set; }
+        public string ManReason { get; set; }
+        public string MachineReason { get; set; }
+        public string MethodReason { get; set; }
     }
 
     public class PSDetailEmp
@@ -195,6 +199,7 @@ namespace ASPData.ProdStatisticDTO
         public string ProductID { get; set; }
         public string StageID { get; set; }
         public string MachineID { get; set; }
+        public string BladeID { get; set; }
         public string RequiredStatus { get; set; }
         public string MaterialID { get; set;  }
         public double MaterialQuantity { get; set; }
@@ -279,5 +284,8 @@ namespace ASPData.ProdStatisticDTO
         public double N1_100_Line { get; set; } = 0;
         public double N1_250_Line { get; set; } = 0;
         public double N1_500_Line { get; set; } = 0;
+        public string Supplier { get; set; } = string.Empty;
+        public string ENGLevel { get; set; } = string.Empty;
+        public string PartNo0 { get; set; } = string.Empty;
     }
 }

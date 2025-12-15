@@ -13,7 +13,10 @@ using System.Windows.Forms;
 using DevExpress.Printing.Core.PdfExport.Metafile;
 using DevExpress.XtraEditors;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
 namespace ASPProject.ProdQRCodeMaster
 {
     public partial class frmProdQRCodeTraceability : DevExpress.XtraEditors.XtraForm
@@ -34,8 +37,12 @@ namespace ASPProject.ProdQRCodeMaster
         QRCodeMasterList qrDto = new QRCodeMasterList();
         ProdStatisticDAO qrDao = new ProdStatisticDAO();
         QRCodeLog qrLogDto = new QRCodeLog();
+<<<<<<< HEAD
         ASPExcelDataProcess.ASPExcelDataProcess aspExcel = new ASPExcelDataProcess.ASPExcelDataProcess();
 
+=======
+       
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         public frmMain frm;
         public delegate void _deDongTab();
         public _deDongTab deDongTab;
@@ -58,11 +65,14 @@ namespace ASPProject.ProdQRCodeMaster
             lkeCartNo.Properties.DisplayMember = null; // Vì là kiểu int, không cần DisplayMember
             lkeCartNo.Properties.ValueMember = null;   // Vì là kiểu int, không cần ValueMember
 
+<<<<<<< HEAD
             //gan collection vao lke product
             lkeProduct.Properties.DataSource = qrDao.GetProductList(string.Empty);
             lkeProduct.Properties.DisplayMember = "Ma_Vt";
             lkeProduct.Properties.ValueMember = "Ma_Vt";
 
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             // (Tùy chọn) Thiết lập giá trị ban đầu
             lkeCartNo.EditValue = 1;
 
@@ -71,7 +81,11 @@ namespace ASPProject.ProdQRCodeMaster
             dtToDate.EditValue = DateTime.Now;
 
             this.Load += FrmProdQRCodeTraceability_Load;
+<<<<<<< HEAD
 
+=======
+          
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.lkeProduct.EditValueChanged += LkeProduct_EditValueChanged;
             this.btExportExcel.Click += BtExportExcel_Click;
             this.txtQRCodeData.TextChanged += TxtQRCodeData_TextChanged;
@@ -83,8 +97,11 @@ namespace ASPProject.ProdQRCodeMaster
             this.gridQRCodeView.RowStyle += GridQRCodeView_RowStyle;
 
             this.btXoa.Click += BtXoa_Click;
+<<<<<<< HEAD
             this.btExcelReport.Click += BtExcelReport_Click;
             this.btSysExcel.Click += BtSysExcel_Click;
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         }
 
         private void DtToDate_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -135,6 +152,7 @@ namespace ASPProject.ProdQRCodeMaster
             if (txtQRCodeData.Text.Length != 9)
                 return;
 
+<<<<<<< HEAD
             if (string.IsNullOrEmpty(txtScanInfo.Text))
             {
                 XtraMessageBox.Show("Vui lòng nhập nội dung scan !!");
@@ -149,19 +167,28 @@ namespace ASPProject.ProdQRCodeMaster
                 return;
             }
 
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             qrLogDto.LogID = ASPGenLogQRCode();
             qrLogDto.StageID = Convert.ToString(lkeProduct.EditValue);
             qrLogDto.LogTime = DateTime.Now;
             qrLogDto.QRCodeData = txtQRCodeData.Text.Trim();
             qrLogDto.CartNo = Convert.ToInt32(lkeCartNo.EditValue);
             qrLogDto.GroupData = txtQRCodeData.Text.Substring(0, 3);
+<<<<<<< HEAD
             qrLogDto.ScanInfo = txtScanInfo.Text.Trim();
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             qrLogDto.CreatedDate = DateTime.Now;
             qrLogDto.CreatedBy = userName;
             qrLogDto.LastModifiedBy = userName;
             qrLogDto.LastModifiedDate = DateTime.Now;
 
+<<<<<<< HEAD
 
+=======
+          
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             if (ValidateQRCode() == false)
             {
                 if (XtraMessageBox.Show("QR Code đã tồn tại, bạn có muốn lưu tiếp không ?", "Kiểm tra", MessageBoxButtons.YesNo) == DialogResult.No)
@@ -170,6 +197,7 @@ namespace ASPProject.ProdQRCodeMaster
                     this.ActiveControl = txtQRCodeData;
                     return;
                 }
+<<<<<<< HEAD
 
             }
 
@@ -177,6 +205,9 @@ namespace ASPProject.ProdQRCodeMaster
             {
                 XtraMessageBox.Show("Không đúng model, vui lòng kiểm tra lại!");
                 return;
+=======
+                
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             }
 
             qrDao.InsertEngASM2ScanQRCode(qrLogDto);
@@ -211,7 +242,11 @@ namespace ASPProject.ProdQRCodeMaster
             DataTable dt = new DataTable();
             dt = _sqlHelper.ExecProcedureDataAsDataTable("sp_ASPCheckEngASM2ScanQRCode", dicParams);
 
+<<<<<<< HEAD
             if (dt.Rows.Count > 0)
+=======
+            if (dt.Rows.Count > 0 )
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             {
                 DataRow dr = dt.Rows[0];
 
@@ -284,6 +319,7 @@ namespace ASPProject.ProdQRCodeMaster
         #region Event
         private void BtXoa_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             try
             {
                 for (int i = 0; i <= gridQRCodeView.GetSelectedRows().Length - 1; i++)
@@ -357,6 +393,28 @@ namespace ASPProject.ProdQRCodeMaster
             }
         }
 
+=======
+            DataRow dr = ((DataRowView)bdsProdScanQRCode.Current).Row;
+
+            if (dr != null)
+            {
+                var dicParams = new Dictionary<string, object>()
+                {
+                    { "@LogID",  (string)dr["LogID"]}
+                };
+
+                _sqlHelper.ExecQueryNonData("DELETE FROM ASPEngASM2ScanQRCode WHERE LogTime = (SELECT MAX(LogTime) FROM ASPEngASM2ScanQRCode)", dicParams);
+
+                FillData();
+
+                XtraMessageBox.Show("Đã xoá thành công");
+            }
+            else
+            {
+                XtraMessageBox.Show("Vui lòng chọn dòng cần xoá");
+            }
+        }
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         #endregion
     }
 }

@@ -53,5 +53,6 @@ namespace ASPData.PlanningDTO
         public double D29 { get; set; }
         public double D30 { get; set; }
         public double D31 { get; set; }
+        public string ProdType { get; set; }
     }
 }

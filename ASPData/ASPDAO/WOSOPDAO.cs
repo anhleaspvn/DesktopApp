@@ -164,11 +164,12 @@ namespace ASPData.ASPDAO
                 { "@CycleTime", woDto.CycleTime },
                 { "@UsageBom", woDto.UsageBom },
                 { "@ManPower", woDto.ManPower },
+                { "@SkillID", woDto.SkillID },
                 { "@CreatedBy", woDto.CreatedBy },
                 { "@CreatedDate", woDto.CreatedDate }
             };
 
-            _sqlhelper.ExecProcedureNonData("sp_ASPImportExcelSOP", dicParams);
+            _sqlhelper.ExecProcedureNonData("sp_ASPImportExcelSOPV2", dicParams);
         }
 
         public void LoadDataDetailSOPAll(WOSOPDTO woDto)
@@ -178,7 +179,7 @@ namespace ASPData.ASPDAO
                 { "@EmpHeaderID", woDto.EmpHeaderID }
             };
 
-            _sqlhelper.ExecProcedureNonData("sp_ASPLoadDataDetailSOPAll", dicParams);
+            _sqlhelper.ExecProcedureNonData("sp_ASPLoadDataDetailSOPAll_V2", dicParams);
         }
 
         public DataTable LoadEmpByStageReport(WOSOPDTO woDto)

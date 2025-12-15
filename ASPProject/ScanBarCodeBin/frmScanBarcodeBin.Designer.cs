@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.btExport2 = new DevExpress.XtraEditors.SimpleButton();
             this.btExport1 = new DevExpress.XtraEditors.SimpleButton();
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.btGetLinkQData = new DevExpress.XtraEditors.SimpleButton();
             this.btTransLine = new DevExpress.XtraEditors.SimpleButton();
             this.btImport2 = new DevExpress.XtraEditors.SimpleButton();
@@ -54,8 +57,20 @@
             this.colSBDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPOText = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPOCode = new DevExpress.XtraGrid.Columns.GridColumn();
+<<<<<<< HEAD
             this.colIsLinkQ = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOriginalMaterial = new DevExpress.XtraGrid.Columns.GridColumn();
+=======
+            this.colN5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colN25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colN100 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colN250 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colN500 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col1N25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col1N100 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col1N250 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col1N500 = new DevExpress.XtraGrid.Columns.GridColumn();
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.gridScanBarcodeBinV2 = new DevExpress.XtraGrid.GridControl();
             this.gridScanBarcodeBinV2View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.CusID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -69,8 +84,20 @@
             this.PkgGwt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Desc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MadeInVN = new DevExpress.XtraGrid.Columns.GridColumn();
+<<<<<<< HEAD
             this.IsLinkQ = new DevExpress.XtraGrid.Columns.GridColumn();
             this.OriginalMaterial = new DevExpress.XtraGrid.Columns.GridColumn();
+=======
+            this.N5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.N25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.N100 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.N250 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.N500 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.N125 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.N1100 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.N1250 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.N1500 = new DevExpress.XtraGrid.Columns.GridColumn();
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
@@ -86,8 +113,11 @@
             // 
             // panel1
             // 
+<<<<<<< HEAD
             this.panel1.Controls.Add(this.btExport2);
             this.panel1.Controls.Add(this.btExport1);
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.panel1.Controls.Add(this.btGetLinkQData);
             this.panel1.Controls.Add(this.btTransLine);
             this.panel1.Controls.Add(this.btImport2);
@@ -97,6 +127,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 600);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
+<<<<<<< HEAD
             this.panel1.Size = new System.Drawing.Size(1498, 62);
             this.panel1.TabIndex = 0;
             // 
@@ -124,6 +155,15 @@
             // 
             this.btGetLinkQData.ImageOptions.Image = global::ASPProject.Properties.Resources.money;
             this.btGetLinkQData.Location = new System.Drawing.Point(1086, 14);
+=======
+            this.panel1.Size = new System.Drawing.Size(1149, 62);
+            this.panel1.TabIndex = 0;
+            // 
+            // btGetLinkQData
+            // 
+            this.btGetLinkQData.ImageOptions.Image = global::ASPProject.Properties.Resources.money;
+            this.btGetLinkQData.Location = new System.Drawing.Point(624, 14);
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.btGetLinkQData.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btGetLinkQData.Name = "btGetLinkQData";
             this.btGetLinkQData.Size = new System.Drawing.Size(185, 34);
@@ -133,7 +173,11 @@
             // btTransLine
             // 
             this.btTransLine.ImageOptions.Image = global::ASPProject.Properties.Resources.export;
+<<<<<<< HEAD
             this.btTransLine.Location = new System.Drawing.Point(910, 14);
+=======
+            this.btTransLine.Location = new System.Drawing.Point(411, 14);
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.btTransLine.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btTransLine.Name = "btTransLine";
             this.btTransLine.Size = new System.Drawing.Size(161, 34);
@@ -153,7 +197,11 @@
             // btDelete
             // 
             this.btDelete.ImageOptions.Image = global::ASPProject.Properties.Resources.cancel;
+<<<<<<< HEAD
             this.btDelete.Location = new System.Drawing.Point(1309, 14);
+=======
+            this.btDelete.Location = new System.Drawing.Point(964, 15);
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.btDelete.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(161, 34);
@@ -187,8 +235,13 @@
             // 
             this.splitContainerControl1.Panel2.Controls.Add(this.gridScanBarcodeBinV2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
+<<<<<<< HEAD
             this.splitContainerControl1.Size = new System.Drawing.Size(1498, 600);
             this.splitContainerControl1.SplitterPosition = 413;
+=======
+            this.splitContainerControl1.Size = new System.Drawing.Size(1149, 600);
+            this.splitContainerControl1.SplitterPosition = 263;
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.splitContainerControl1.TabIndex = 7;
             // 
             // gridScanBarcodeBin
@@ -199,7 +252,11 @@
             this.gridScanBarcodeBin.MainView = this.gridScanBarcodeBinView;
             this.gridScanBarcodeBin.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.gridScanBarcodeBin.Name = "gridScanBarcodeBin";
+<<<<<<< HEAD
             this.gridScanBarcodeBin.Size = new System.Drawing.Size(1498, 413);
+=======
+            this.gridScanBarcodeBin.Size = new System.Drawing.Size(1149, 263);
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.gridScanBarcodeBin.TabIndex = 5;
             this.gridScanBarcodeBin.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridScanBarcodeBinView});
@@ -222,8 +279,20 @@
             this.colSBDate,
             this.colPOText,
             this.colPOCode,
+<<<<<<< HEAD
             this.colIsLinkQ,
             this.colOriginalMaterial});
+=======
+            this.colN5,
+            this.colN25,
+            this.colN100,
+            this.colN250,
+            this.colN500,
+            this.col1N25,
+            this.col1N100,
+            this.col1N250,
+            this.col1N500});
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.gridScanBarcodeBinView.GridControl = this.gridScanBarcodeBin;
             this.gridScanBarcodeBinView.Name = "gridScanBarcodeBinView";
             this.gridScanBarcodeBinView.OptionsBehavior.Editable = false;
@@ -294,7 +363,10 @@
             this.colCartNo.Name = "colCartNo";
             this.colCartNo.Visible = true;
             this.colCartNo.VisibleIndex = 6;
+<<<<<<< HEAD
             this.colCartNo.Width = 200;
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             // 
             // colLotNo
             // 
@@ -379,6 +451,7 @@
             this.colPOCode.VisibleIndex = 15;
             this.colPOCode.Width = 94;
             // 
+<<<<<<< HEAD
             // colIsLinkQ
             // 
             this.colIsLinkQ.Caption = "Từ LinkQ";
@@ -398,6 +471,106 @@
             this.colOriginalMaterial.Visible = true;
             this.colOriginalMaterial.VisibleIndex = 16;
             this.colOriginalMaterial.Width = 94;
+=======
+            // colN5
+            // 
+            this.colN5.Caption = "N-5";
+            this.colN5.DisplayFormat.FormatString = "{0:#0}";
+            this.colN5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colN5.FieldName = "N-5";
+            this.colN5.MinWidth = 23;
+            this.colN5.Name = "colN5";
+            this.colN5.Visible = true;
+            this.colN5.VisibleIndex = 16;
+            // 
+            // colN25
+            // 
+            this.colN25.Caption = "N-25";
+            this.colN25.DisplayFormat.FormatString = "{0:#0}";
+            this.colN25.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colN25.FieldName = "N-25";
+            this.colN25.MinWidth = 23;
+            this.colN25.Name = "colN25";
+            this.colN25.Visible = true;
+            this.colN25.VisibleIndex = 17;
+            // 
+            // colN100
+            // 
+            this.colN100.Caption = "N-100";
+            this.colN100.DisplayFormat.FormatString = "{0:#0}";
+            this.colN100.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colN100.FieldName = "N-100";
+            this.colN100.MinWidth = 23;
+            this.colN100.Name = "colN100";
+            this.colN100.Visible = true;
+            this.colN100.VisibleIndex = 18;
+            // 
+            // colN250
+            // 
+            this.colN250.Caption = "N-250";
+            this.colN250.DisplayFormat.FormatString = "{0:#0}";
+            this.colN250.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colN250.FieldName = "N-250";
+            this.colN250.MinWidth = 23;
+            this.colN250.Name = "colN250";
+            this.colN250.Visible = true;
+            this.colN250.VisibleIndex = 19;
+            // 
+            // colN500
+            // 
+            this.colN500.Caption = "N-500";
+            this.colN500.DisplayFormat.FormatString = "{0:#0}";
+            this.colN500.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colN500.FieldName = "N-500";
+            this.colN500.MinWidth = 23;
+            this.colN500.Name = "colN500";
+            this.colN500.Visible = true;
+            this.colN500.VisibleIndex = 20;
+            // 
+            // col1N25
+            // 
+            this.col1N25.Caption = "1-N-25";
+            this.col1N25.DisplayFormat.FormatString = "{0:#0}";
+            this.col1N25.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.col1N25.FieldName = "1-N-25";
+            this.col1N25.MinWidth = 23;
+            this.col1N25.Name = "col1N25";
+            this.col1N25.Visible = true;
+            this.col1N25.VisibleIndex = 21;
+            // 
+            // col1N100
+            // 
+            this.col1N100.Caption = "1-N-100";
+            this.col1N100.DisplayFormat.FormatString = "{0:#0}";
+            this.col1N100.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.col1N100.FieldName = "1-N-100";
+            this.col1N100.MinWidth = 23;
+            this.col1N100.Name = "col1N100";
+            this.col1N100.Visible = true;
+            this.col1N100.VisibleIndex = 22;
+            // 
+            // col1N250
+            // 
+            this.col1N250.Caption = "1-N-250";
+            this.col1N250.DisplayFormat.FormatString = "{0:#0}";
+            this.col1N250.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.col1N250.FieldName = "1-N-250";
+            this.col1N250.MinWidth = 23;
+            this.col1N250.Name = "col1N250";
+            this.col1N250.Visible = true;
+            this.col1N250.VisibleIndex = 23;
+            // 
+            // col1N500
+            // 
+            this.col1N500.Caption = "1-N-500";
+            this.col1N500.DisplayFormat.FormatString = "{0:#0}";
+            this.col1N500.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.col1N500.FieldName = "1-N-500";
+            this.col1N500.MinWidth = 23;
+            this.col1N500.Name = "col1N500";
+            this.col1N500.Visible = true;
+            this.col1N500.VisibleIndex = 24;
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             // 
             // gridScanBarcodeBinV2
             // 
@@ -407,7 +580,11 @@
             this.gridScanBarcodeBinV2.MainView = this.gridScanBarcodeBinV2View;
             this.gridScanBarcodeBinV2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.gridScanBarcodeBinV2.Name = "gridScanBarcodeBinV2";
+<<<<<<< HEAD
             this.gridScanBarcodeBinV2.Size = new System.Drawing.Size(1498, 180);
+=======
+            this.gridScanBarcodeBinV2.Size = new System.Drawing.Size(1149, 330);
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.gridScanBarcodeBinV2.TabIndex = 5;
             this.gridScanBarcodeBinV2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridScanBarcodeBinV2View});
@@ -426,8 +603,20 @@
             this.PkgGwt,
             this.Desc,
             this.MadeInVN,
+<<<<<<< HEAD
             this.IsLinkQ,
             this.OriginalMaterial});
+=======
+            this.N5,
+            this.N25,
+            this.N100,
+            this.N250,
+            this.N500,
+            this.N125,
+            this.N1100,
+            this.N1250,
+            this.N1500});
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.gridScanBarcodeBinV2View.GridControl = this.gridScanBarcodeBinV2;
             this.gridScanBarcodeBinV2View.Name = "gridScanBarcodeBinV2View";
             this.gridScanBarcodeBinV2View.OptionsBehavior.Editable = false;
@@ -538,6 +727,7 @@
             this.MadeInVN.Visible = true;
             this.MadeInVN.VisibleIndex = 11;
             // 
+<<<<<<< HEAD
             // IsLinkQ
             // 
             this.IsLinkQ.Caption = "Từ LinkQ";
@@ -557,12 +747,116 @@
             this.OriginalMaterial.Visible = true;
             this.OriginalMaterial.VisibleIndex = 12;
             this.OriginalMaterial.Width = 94;
+=======
+            // N5
+            // 
+            this.N5.Caption = "N-5";
+            this.N5.DisplayFormat.FormatString = "{0:#0}";
+            this.N5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.N5.FieldName = "N-5";
+            this.N5.MinWidth = 23;
+            this.N5.Name = "N5";
+            this.N5.Visible = true;
+            this.N5.VisibleIndex = 12;
+            // 
+            // N25
+            // 
+            this.N25.Caption = "N-25";
+            this.N25.DisplayFormat.FormatString = "{0:#0}";
+            this.N25.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.N25.FieldName = "N-25";
+            this.N25.MinWidth = 23;
+            this.N25.Name = "N25";
+            this.N25.Visible = true;
+            this.N25.VisibleIndex = 13;
+            // 
+            // N100
+            // 
+            this.N100.Caption = "N-100";
+            this.N100.DisplayFormat.FormatString = "{0:#0}";
+            this.N100.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.N100.FieldName = "N-100";
+            this.N100.MinWidth = 23;
+            this.N100.Name = "N100";
+            this.N100.Visible = true;
+            this.N100.VisibleIndex = 14;
+            // 
+            // N250
+            // 
+            this.N250.Caption = "N-250";
+            this.N250.DisplayFormat.FormatString = "{0:#0}";
+            this.N250.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.N250.FieldName = "N-250";
+            this.N250.MinWidth = 23;
+            this.N250.Name = "N250";
+            this.N250.Visible = true;
+            this.N250.VisibleIndex = 15;
+            // 
+            // N500
+            // 
+            this.N500.Caption = "N-500";
+            this.N500.DisplayFormat.FormatString = "{0:#0}";
+            this.N500.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.N500.FieldName = "N-500";
+            this.N500.MinWidth = 23;
+            this.N500.Name = "N500";
+            this.N500.Visible = true;
+            this.N500.VisibleIndex = 16;
+            // 
+            // N125
+            // 
+            this.N125.Caption = "1-N-25";
+            this.N125.DisplayFormat.FormatString = "{0:#0}";
+            this.N125.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.N125.FieldName = "1-N-25";
+            this.N125.MinWidth = 23;
+            this.N125.Name = "N125";
+            this.N125.Visible = true;
+            this.N125.VisibleIndex = 17;
+            // 
+            // N1100
+            // 
+            this.N1100.Caption = "1-N-100";
+            this.N1100.DisplayFormat.FormatString = "{0:#0}";
+            this.N1100.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.N1100.FieldName = "1-N-100";
+            this.N1100.MinWidth = 23;
+            this.N1100.Name = "N1100";
+            this.N1100.Visible = true;
+            this.N1100.VisibleIndex = 18;
+            // 
+            // N1250
+            // 
+            this.N1250.Caption = "1-N-250";
+            this.N1250.DisplayFormat.FormatString = "{0:#0}";
+            this.N1250.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.N1250.FieldName = "1-N-250";
+            this.N1250.MinWidth = 23;
+            this.N1250.Name = "N1250";
+            this.N1250.Visible = true;
+            this.N1250.VisibleIndex = 19;
+            // 
+            // N1500
+            // 
+            this.N1500.Caption = "1-N-500";
+            this.N1500.DisplayFormat.FormatString = "{0:#0}";
+            this.N1500.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.N1500.FieldName = "1-N-500";
+            this.N1500.MinWidth = 23;
+            this.N1500.Name = "N1500";
+            this.N1500.Visible = true;
+            this.N1500.VisibleIndex = 20;
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             // 
             // frmScanBarcodeBin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1498, 662);
+=======
+            this.ClientSize = new System.Drawing.Size(1149, 662);
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -603,6 +897,18 @@
         private DevExpress.XtraGrid.Columns.GridColumn colULStamp;
         private DevExpress.XtraGrid.Columns.GridColumn colUL2Stamp;
         private DevExpress.XtraGrid.Columns.GridColumn colSBDate;
+<<<<<<< HEAD
+=======
+        private DevExpress.XtraGrid.Columns.GridColumn colN5;
+        private DevExpress.XtraGrid.Columns.GridColumn colN25;
+        private DevExpress.XtraGrid.Columns.GridColumn colN100;
+        private DevExpress.XtraGrid.Columns.GridColumn colN250;
+        private DevExpress.XtraGrid.Columns.GridColumn colN500;
+        private DevExpress.XtraGrid.Columns.GridColumn col1N25;
+        private DevExpress.XtraGrid.Columns.GridColumn col1N100;
+        private DevExpress.XtraGrid.Columns.GridColumn col1N250;
+        private DevExpress.XtraGrid.Columns.GridColumn col1N500;
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         private DevExpress.XtraGrid.GridControl gridScanBarcodeBinV2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridScanBarcodeBinV2View;
         private DevExpress.XtraGrid.Columns.GridColumn CusID;
@@ -616,6 +922,18 @@
         private DevExpress.XtraGrid.Columns.GridColumn PkgGwt;
         private DevExpress.XtraGrid.Columns.GridColumn Desc;
         private DevExpress.XtraGrid.Columns.GridColumn MadeInVN;
+<<<<<<< HEAD
+=======
+        private DevExpress.XtraGrid.Columns.GridColumn N5;
+        private DevExpress.XtraGrid.Columns.GridColumn N25;
+        private DevExpress.XtraGrid.Columns.GridColumn N100;
+        private DevExpress.XtraGrid.Columns.GridColumn N250;
+        private DevExpress.XtraGrid.Columns.GridColumn N500;
+        private DevExpress.XtraGrid.Columns.GridColumn N125;
+        private DevExpress.XtraGrid.Columns.GridColumn N1100;
+        private DevExpress.XtraGrid.Columns.GridColumn N1250;
+        private DevExpress.XtraGrid.Columns.GridColumn N1500;
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         private DevExpress.XtraEditors.SimpleButton btDelete;
         private DevExpress.XtraEditors.SimpleButton btImportExcel;
         private DevExpress.XtraEditors.SimpleButton btImport2;
@@ -623,11 +941,14 @@
         private DevExpress.XtraEditors.SimpleButton btGetLinkQData;
         private DevExpress.XtraGrid.Columns.GridColumn colPOText;
         private DevExpress.XtraGrid.Columns.GridColumn colPOCode;
+<<<<<<< HEAD
         private DevExpress.XtraGrid.Columns.GridColumn colIsLinkQ;
         private DevExpress.XtraGrid.Columns.GridColumn IsLinkQ;
         private DevExpress.XtraEditors.SimpleButton btExport2;
         private DevExpress.XtraEditors.SimpleButton btExport1;
         private DevExpress.XtraGrid.Columns.GridColumn colOriginalMaterial;
         private DevExpress.XtraGrid.Columns.GridColumn OriginalMaterial;
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
     }
 }

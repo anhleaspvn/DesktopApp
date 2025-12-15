@@ -62,11 +62,14 @@
             this.Desc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MadeInVN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.btFilter = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.dtToDate = new DevExpress.XtraEditors.DateEdit();
             this.dtFromDate = new DevExpress.XtraEditors.DateEdit();
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.btExcel1 = new DevExpress.XtraEditors.SimpleButton();
             this.btCopy1 = new DevExpress.XtraEditors.SimpleButton();
             this.btInput = new DevExpress.XtraEditors.SimpleButton();
@@ -119,10 +122,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridScanBarcodeBinLineV2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridScanBarcodeBinLineV2View)).BeginInit();
             this.panel1.SuspendLayout();
+<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties)).BeginInit();
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel1)).BeginInit();
@@ -506,11 +512,14 @@
             // 
             // panel1
             // 
+<<<<<<< HEAD
             this.panel1.Controls.Add(this.btFilter);
             this.panel1.Controls.Add(this.labelControl3);
             this.panel1.Controls.Add(this.labelControl4);
             this.panel1.Controls.Add(this.dtToDate);
             this.panel1.Controls.Add(this.dtFromDate);
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.panel1.Controls.Add(this.btExcel1);
             this.panel1.Controls.Add(this.btCopy1);
             this.panel1.Controls.Add(this.btInput);
@@ -522,6 +531,7 @@
             this.panel1.Size = new System.Drawing.Size(1431, 62);
             this.panel1.TabIndex = 10;
             // 
+<<<<<<< HEAD
             // btFilter
             // 
             this.btFilter.ImageOptions.Image = global::ASPProject.Properties.Resources.preview_file;
@@ -584,6 +594,8 @@
             this.dtFromDate.Size = new System.Drawing.Size(166, 23);
             this.dtFromDate.TabIndex = 21;
             // 
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             // btExcel1
             // 
             this.btExcel1.ImageOptions.Image = global::ASPProject.Properties.Resources.export_to_file;
@@ -720,8 +732,11 @@
             // QuantityCol
             // 
             this.QuantityCol.Caption = "Quantity";
+<<<<<<< HEAD
             this.QuantityCol.DisplayFormat.FormatString = "{0:#0}";
             this.QuantityCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.QuantityCol.FieldName = "Quantity";
             this.QuantityCol.MinWidth = 23;
             this.QuantityCol.Name = "QuantityCol";
@@ -731,8 +746,11 @@
             // NWCol
             // 
             this.NWCol.Caption = "NW";
+<<<<<<< HEAD
             this.NWCol.DisplayFormat.FormatString = "{0:#0.00}";
             this.NWCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.NWCol.FieldName = "NW";
             this.NWCol.MinWidth = 23;
             this.NWCol.Name = "NWCol";
@@ -742,8 +760,11 @@
             // GWCol
             // 
             this.GWCol.Caption = "GW";
+<<<<<<< HEAD
             this.GWCol.DisplayFormat.FormatString = "{0:#0.00}";
             this.GWCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.GWCol.FieldName = "GW";
             this.GWCol.MinWidth = 23;
             this.GWCol.Name = "GWCol";
@@ -1033,11 +1054,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridScanBarcodeBinLineV2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridScanBarcodeBinLineV2View)).EndInit();
             this.panel1.ResumeLayout(false);
+<<<<<<< HEAD
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties)).EndInit();
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel1)).EndInit();
             this.splitContainerControl2.Panel1.ResumeLayout(false);
@@ -1129,10 +1153,13 @@
         private DevExpress.XtraEditors.SimpleButton btInput;
         private DevExpress.XtraEditors.SimpleButton btTrans1;
         private DevExpress.XtraEditors.SimpleButton btExcel1;
+<<<<<<< HEAD
         private DevExpress.XtraEditors.SimpleButton btFilter;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.DateEdit dtToDate;
         private DevExpress.XtraEditors.DateEdit dtFromDate;
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
     }
 }

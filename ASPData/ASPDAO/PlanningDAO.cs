@@ -41,6 +41,21 @@ namespace ASPData.ASPDAO
             return dt;
         }
 
+        public DataTable GetPlanningData(PlanningDTO.PlanningDTO planDto)
+        {
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@Month", planDto.Month },
+                { "@Year", planDto.Year },
+                { "@ProdType", planDto.ProdType }
+            };
+
+            DataTable dt = new DataTable();
+            dt = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPGetPlanningData", dicParams);
+
+            return dt;
+        }
+
         public void PlanningImportByMonth(PlanningDTO.PlanningDTO planDto)
         {
             var dicParams = new Dictionary<string, object>()

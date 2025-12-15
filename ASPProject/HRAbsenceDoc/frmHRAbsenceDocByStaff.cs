@@ -44,13 +44,23 @@ namespace ASPProject.HRAbsenceDoc
             lblStatus.Visible = false;
             lblTongPTN.Visible = false;
             lblTongPTH.Visible = false;
+            lblTongPTon.Visible = false;
+            lbKhauTruTet.Visible = false;
+            lblTongNam.Visible = false;
 
             this.Load += FrmHRAbsenceDocByStaff_Load;
             btFilter.Click += BtFilter_Click;
             
         }
 
+       
+
         private void FrmHRAbsenceDocByStaff_Load(object sender, EventArgs e)
+        {
+            this.LoadData();
+        }
+
+        private void LoadData()
         {
             lkeEmpID.Properties.DataSource = hrDao.GetHREmployeeListV2(userName);
             lkeEmpID.Properties.ValueMember = "Ma_CbNv";
@@ -58,11 +68,6 @@ namespace ASPProject.HRAbsenceDoc
             lkeEmpID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             lkeEmpID.Properties.PopupFilterMode = PopupFilterMode.Contains;
 
-            this.LoadData();
-        }
-
-        private void LoadData()
-        {
             hrDto.FromDate = Convert.ToDateTime(dtpFromDate.EditValue);
             hrDto.ToDate = Convert.ToDateTime(dtpToDate.EditValue);
             hrDto.EmpID = Convert.ToString(lkeEmpID.EditValue);
@@ -83,7 +88,7 @@ namespace ASPProject.HRAbsenceDoc
 
             try
             {
-                DataTable dtEmpID = sqlhelper.ExecProcedureDataAsDataTable("sp_ASPGetHRAbsenceStaffInfo", dicParams);
+                DataTable dtEmpID = sqlhelper.ExecProcedureDataAsDataTable("sp_ASPGetHRAbsenceStaffInfoV2", dicParams);
 
                 if (dtEmpID.Rows.Count > 0)
                 {
@@ -94,6 +99,9 @@ namespace ASPProject.HRAbsenceDoc
                     lblStatus.Visible = true;
                     lblTongPTN.Visible = true;
                     lblTongPTH.Visible = true;
+                    lblTongPTon.Visible = true;
+                    lbKhauTruTet.Visible = true;
+                    lblTongNam.Visible = true;
 
                     lblEmpName.Text = dtEmpID.Rows[0]["Ten_CbNv"].ToString();
                     lblDepName.Text = dtEmpID.Rows[0]["Ten_Bp"].ToString();
@@ -102,6 +110,9 @@ namespace ASPProject.HRAbsenceDoc
                     lblStatus.Text = dtEmpID.Rows[0]["Status_CBNV"].ToString();
                     lblTongPTN.Text = dtEmpID.Rows[0]["Phep_Chuan"].ToString();
                     lblTongPTH.Text = dtEmpID.Rows[0]["Phep_Thuong"].ToString();
+                    lblTongPTon.Text = dtEmpID.Rows[0]["Phep_Ton"].ToString();
+                    lbKhauTruTet.Text = dtEmpID.Rows[0]["KhauTruTet"].ToString();
+                    lblTongNam.Text = dtEmpID.Rows[0]["Phep_ThuongNien"].ToString();
                 }
             }
             catch { }

@@ -82,7 +82,10 @@
             this.txtBinQuantitySum.Location = new System.Drawing.Point(158, 95);
             this.txtBinQuantitySum.Margin = new System.Windows.Forms.Padding(4);
             this.txtBinQuantitySum.Name = "txtBinQuantitySum";
+<<<<<<< HEAD
             this.txtBinQuantitySum.Properties.DisplayFormat.FormatString = "#.##";
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.txtBinQuantitySum.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtBinQuantitySum.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtBinQuantitySum.Properties.UseMaskAsDisplayFormat = true;
@@ -132,7 +135,10 @@
             this.txtBinQuantity.Location = new System.Drawing.Point(158, 61);
             this.txtBinQuantity.Margin = new System.Windows.Forms.Padding(4);
             this.txtBinQuantity.Name = "txtBinQuantity";
+<<<<<<< HEAD
             this.txtBinQuantity.Properties.DisplayFormat.FormatString = "#.##";
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.txtBinQuantity.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtBinQuantity.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtBinQuantity.Properties.UseMaskAsDisplayFormat = true;
@@ -153,7 +159,10 @@
             this.txtQuantity.Location = new System.Drawing.Point(158, 27);
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuantity.Name = "txtQuantity";
+<<<<<<< HEAD
             this.txtQuantity.Properties.DisplayFormat.FormatString = "#.##";
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.txtQuantity.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtQuantity.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtQuantity.Properties.UseMaskAsDisplayFormat = true;

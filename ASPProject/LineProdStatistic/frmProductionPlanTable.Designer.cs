@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductionPlanTable));
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.btExport = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dtToDate = new DevExpress.XtraEditors.DateEdit();
@@ -60,7 +61,22 @@
             this.DateOfReqMaterial = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DateOfFinMaterial = new DevExpress.XtraGrid.Columns.GridColumn();
             this.OTD = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btExport = new DevExpress.XtraEditors.SimpleButton();
+            this.SumDefects = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SumReworkOK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SumNG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.YieldRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ScrapRate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ParentWODocNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ParChildWorkTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ParChildORVN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ParChildProductivity = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MaterialReason = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ManReason = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MachineReason = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MethodReason = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Thanh_Tien_ThucDung = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Thanh_Tien_ChenhLech_ThucDung_BOM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Ty_Le_HaoHut_Vuot_DinhMuc = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
             this.splitContainerControl1.Panel1.SuspendLayout();
@@ -96,9 +112,18 @@
             // 
             this.splitContainerControl1.Panel2.Controls.Add(this.gridAttMonth);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1102, 615);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1579, 686);
             this.splitContainerControl1.SplitterPosition = 48;
             this.splitContainerControl1.TabIndex = 0;
+            // 
+            // btExport
+            // 
+            this.btExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btExport.ImageOptions.Image")));
+            this.btExport.Location = new System.Drawing.Point(472, 10);
+            this.btExport.Name = "btExport";
+            this.btExport.Size = new System.Drawing.Size(143, 29);
+            this.btExport.TabIndex = 15;
+            this.btExport.Text = "Xuất dữ liệu";
             // 
             // labelControl2
             // 
@@ -165,7 +190,7 @@
             this.gridAttMonth.Location = new System.Drawing.Point(0, 0);
             this.gridAttMonth.MainView = this.gridAttMonthView;
             this.gridAttMonth.Name = "gridAttMonth";
-            this.gridAttMonth.Size = new System.Drawing.Size(1102, 560);
+            this.gridAttMonth.Size = new System.Drawing.Size(1579, 633);
             this.gridAttMonth.TabIndex = 2;
             this.gridAttMonth.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridAttMonthView});
@@ -195,12 +220,29 @@
             this.DateOfMaterial,
             this.DateOfReqMaterial,
             this.DateOfFinMaterial,
-            this.OTD});
+            this.OTD,
+            this.SumDefects,
+            this.SumReworkOK,
+            this.SumNG,
+            this.YieldRate,
+            this.ScrapRate,
+            this.ParentWODocNo,
+            this.ParChildWorkTime,
+            this.ParChildORVN,
+            this.ParChildProductivity,
+            this.MaterialReason,
+            this.ManReason,
+            this.MachineReason,
+            this.MethodReason,
+            this.Thanh_Tien_ThucDung,
+            this.Thanh_Tien_ChenhLech_ThucDung_BOM,
+            this.Ty_Le_HaoHut_Vuot_DinhMuc});
             this.gridAttMonthView.GridControl = this.gridAttMonth;
             this.gridAttMonthView.Name = "gridAttMonthView";
             this.gridAttMonthView.OptionsBehavior.ReadOnly = true;
             this.gridAttMonthView.OptionsFilter.AllowAutoFilterConditionChange = DevExpress.Utils.DefaultBoolean.False;
             this.gridAttMonthView.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Full;
+            this.gridAttMonthView.OptionsView.ColumnAutoWidth = false;
             this.gridAttMonthView.OptionsView.ShowAutoFilterRow = true;
             this.gridAttMonthView.OptionsView.ShowFooter = true;
             this.gridAttMonthView.OptionsView.ShowGroupPanel = false;
@@ -461,20 +503,193 @@
             this.OTD.VisibleIndex = 22;
             this.OTD.Width = 94;
             // 
-            // btExport
+            // SumDefects
             // 
-            this.btExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btExport.Location = new System.Drawing.Point(472, 10);
-            this.btExport.Name = "btExport";
-            this.btExport.Size = new System.Drawing.Size(143, 29);
-            this.btExport.TabIndex = 15;
-            this.btExport.Text = "Xuất dữ liệu";
+            this.SumDefects.Caption = "Tổng SL lỗi";
+            this.SumDefects.DisplayFormat.FormatString = "#.#";
+            this.SumDefects.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.SumDefects.FieldName = "SumDefects";
+            this.SumDefects.MinWidth = 25;
+            this.SumDefects.Name = "SumDefects";
+            this.SumDefects.Visible = true;
+            this.SumDefects.VisibleIndex = 23;
+            this.SumDefects.Width = 94;
+            // 
+            // SumReworkOK
+            // 
+            this.SumReworkOK.Caption = "Số lượng RW OK";
+            this.SumReworkOK.DisplayFormat.FormatString = "#.#";
+            this.SumReworkOK.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.SumReworkOK.FieldName = "SumReworkOK";
+            this.SumReworkOK.MinWidth = 25;
+            this.SumReworkOK.Name = "SumReworkOK";
+            this.SumReworkOK.Visible = true;
+            this.SumReworkOK.VisibleIndex = 24;
+            this.SumReworkOK.Width = 94;
+            // 
+            // SumNG
+            // 
+            this.SumNG.Caption = "Số lượng Scrap";
+            this.SumNG.DisplayFormat.FormatString = "#.#";
+            this.SumNG.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.SumNG.FieldName = "SumNG";
+            this.SumNG.MinWidth = 25;
+            this.SumNG.Name = "SumNG";
+            this.SumNG.Visible = true;
+            this.SumNG.VisibleIndex = 25;
+            this.SumNG.Width = 94;
+            // 
+            // YieldRate
+            // 
+            this.YieldRate.Caption = "Tỷ lệ Yield (%)";
+            this.YieldRate.DisplayFormat.FormatString = "#.#";
+            this.YieldRate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.YieldRate.FieldName = "YieldRate";
+            this.YieldRate.MinWidth = 25;
+            this.YieldRate.Name = "YieldRate";
+            this.YieldRate.Visible = true;
+            this.YieldRate.VisibleIndex = 26;
+            this.YieldRate.Width = 94;
+            // 
+            // ScrapRate
+            // 
+            this.ScrapRate.Caption = "Tỷ lệ Scrap (%)";
+            this.ScrapRate.DisplayFormat.FormatString = "#.#";
+            this.ScrapRate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.ScrapRate.FieldName = "ScrapRate";
+            this.ScrapRate.MinWidth = 25;
+            this.ScrapRate.Name = "ScrapRate";
+            this.ScrapRate.Visible = true;
+            this.ScrapRate.VisibleIndex = 27;
+            this.ScrapRate.Width = 94;
+            // 
+            // ParentWODocNo
+            // 
+            this.ParentWODocNo.Caption = "Lệnh sản xuất mẹ";
+            this.ParentWODocNo.FieldName = "ParentWODocNo";
+            this.ParentWODocNo.MinWidth = 25;
+            this.ParentWODocNo.Name = "ParentWODocNo";
+            this.ParentWODocNo.Visible = true;
+            this.ParentWODocNo.VisibleIndex = 28;
+            this.ParentWODocNo.Width = 94;
+            // 
+            // ParChildWorkTime
+            // 
+            this.ParChildWorkTime.Caption = "Tổng giờ công mẹ con";
+            this.ParChildWorkTime.DisplayFormat.FormatString = "n2";
+            this.ParChildWorkTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.ParChildWorkTime.FieldName = "ParChildWorkTime";
+            this.ParChildWorkTime.MinWidth = 25;
+            this.ParChildWorkTime.Name = "ParChildWorkTime";
+            this.ParChildWorkTime.Visible = true;
+            this.ParChildWorkTime.VisibleIndex = 29;
+            this.ParChildWorkTime.Width = 94;
+            // 
+            // ParChildORVN
+            // 
+            this.ParChildORVN.Caption = "ORVN mẹ con";
+            this.ParChildORVN.DisplayFormat.FormatString = "n2";
+            this.ParChildORVN.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.ParChildORVN.FieldName = "ParChildORVN";
+            this.ParChildORVN.MinWidth = 25;
+            this.ParChildORVN.Name = "ParChildORVN";
+            this.ParChildORVN.Visible = true;
+            this.ParChildORVN.VisibleIndex = 30;
+            this.ParChildORVN.Width = 94;
+            // 
+            // ParChildProductivity
+            // 
+            this.ParChildProductivity.Caption = "Năng suất mẹ con";
+            this.ParChildProductivity.DisplayFormat.FormatString = "n2";
+            this.ParChildProductivity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.ParChildProductivity.FieldName = "ParChildProductivity";
+            this.ParChildProductivity.MinWidth = 25;
+            this.ParChildProductivity.Name = "ParChildProductivity";
+            this.ParChildProductivity.Visible = true;
+            this.ParChildProductivity.VisibleIndex = 31;
+            this.ParChildProductivity.Width = 94;
+            // 
+            // MaterialReason
+            // 
+            this.MaterialReason.Caption = "Material";
+            this.MaterialReason.FieldName = "MaterialReason";
+            this.MaterialReason.MinWidth = 25;
+            this.MaterialReason.Name = "MaterialReason";
+            this.MaterialReason.Visible = true;
+            this.MaterialReason.VisibleIndex = 32;
+            this.MaterialReason.Width = 94;
+            // 
+            // ManReason
+            // 
+            this.ManReason.Caption = "Man";
+            this.ManReason.FieldName = "ManReason";
+            this.ManReason.MinWidth = 25;
+            this.ManReason.Name = "ManReason";
+            this.ManReason.Visible = true;
+            this.ManReason.VisibleIndex = 33;
+            this.ManReason.Width = 94;
+            // 
+            // MachineReason
+            // 
+            this.MachineReason.Caption = "Machine";
+            this.MachineReason.FieldName = "MachineReason";
+            this.MachineReason.MinWidth = 25;
+            this.MachineReason.Name = "MachineReason";
+            this.MachineReason.Visible = true;
+            this.MachineReason.VisibleIndex = 34;
+            this.MachineReason.Width = 94;
+            // 
+            // MethodReason
+            // 
+            this.MethodReason.Caption = "Method";
+            this.MethodReason.FieldName = "MethodReason";
+            this.MethodReason.MinWidth = 25;
+            this.MethodReason.Name = "MethodReason";
+            this.MethodReason.Visible = true;
+            this.MethodReason.VisibleIndex = 35;
+            this.MethodReason.Width = 94;
+            // 
+            // Thanh_Tien_ThucDung
+            // 
+            this.Thanh_Tien_ThucDung.Caption = "Thành tiền thực dùng";
+            this.Thanh_Tien_ThucDung.DisplayFormat.FormatString = "#.##";
+            this.Thanh_Tien_ThucDung.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Thanh_Tien_ThucDung.FieldName = "Thanh_Tien_ThucDung";
+            this.Thanh_Tien_ThucDung.MinWidth = 25;
+            this.Thanh_Tien_ThucDung.Name = "Thanh_Tien_ThucDung";
+            this.Thanh_Tien_ThucDung.Visible = true;
+            this.Thanh_Tien_ThucDung.VisibleIndex = 36;
+            this.Thanh_Tien_ThucDung.Width = 94;
+            // 
+            // Thanh_Tien_ChenhLech_ThucDung_BOM
+            // 
+            this.Thanh_Tien_ChenhLech_ThucDung_BOM.Caption = "Thành tiền CL Thực dùng - BOM";
+            this.Thanh_Tien_ChenhLech_ThucDung_BOM.DisplayFormat.FormatString = "#.##";
+            this.Thanh_Tien_ChenhLech_ThucDung_BOM.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Thanh_Tien_ChenhLech_ThucDung_BOM.FieldName = "Thanh_Tien_ChenhLech_ThucDung_BOM";
+            this.Thanh_Tien_ChenhLech_ThucDung_BOM.MinWidth = 25;
+            this.Thanh_Tien_ChenhLech_ThucDung_BOM.Name = "Thanh_Tien_ChenhLech_ThucDung_BOM";
+            this.Thanh_Tien_ChenhLech_ThucDung_BOM.Visible = true;
+            this.Thanh_Tien_ChenhLech_ThucDung_BOM.VisibleIndex = 37;
+            this.Thanh_Tien_ChenhLech_ThucDung_BOM.Width = 94;
+            // 
+            // Ty_Le_HaoHut_Vuot_DinhMuc
+            // 
+            this.Ty_Le_HaoHut_Vuot_DinhMuc.Caption = "Tỷ lệ hao hụt vượt định mức";
+            this.Ty_Le_HaoHut_Vuot_DinhMuc.DisplayFormat.FormatString = "#.##";
+            this.Ty_Le_HaoHut_Vuot_DinhMuc.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.Ty_Le_HaoHut_Vuot_DinhMuc.FieldName = "Ty_Le_HaoHut_Vuot_DinhMuc";
+            this.Ty_Le_HaoHut_Vuot_DinhMuc.MinWidth = 25;
+            this.Ty_Le_HaoHut_Vuot_DinhMuc.Name = "Ty_Le_HaoHut_Vuot_DinhMuc";
+            this.Ty_Le_HaoHut_Vuot_DinhMuc.Visible = true;
+            this.Ty_Le_HaoHut_Vuot_DinhMuc.VisibleIndex = 38;
+            this.Ty_Le_HaoHut_Vuot_DinhMuc.Width = 94;
             // 
             // frmProductionPlanTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 615);
+            this.ClientSize = new System.Drawing.Size(1579, 686);
             this.Controls.Add(this.splitContainerControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProductionPlanTable";
@@ -530,5 +745,21 @@
         private DevExpress.XtraGrid.Columns.GridColumn DateOfFinMaterial;
         private DevExpress.XtraGrid.Columns.GridColumn OTD;
         private DevExpress.XtraEditors.SimpleButton btExport;
+        private DevExpress.XtraGrid.Columns.GridColumn SumDefects;
+        private DevExpress.XtraGrid.Columns.GridColumn SumReworkOK;
+        private DevExpress.XtraGrid.Columns.GridColumn SumNG;
+        private DevExpress.XtraGrid.Columns.GridColumn YieldRate;
+        private DevExpress.XtraGrid.Columns.GridColumn ScrapRate;
+        private DevExpress.XtraGrid.Columns.GridColumn ParentWODocNo;
+        private DevExpress.XtraGrid.Columns.GridColumn ParChildWorkTime;
+        private DevExpress.XtraGrid.Columns.GridColumn ParChildORVN;
+        private DevExpress.XtraGrid.Columns.GridColumn ParChildProductivity;
+        private DevExpress.XtraGrid.Columns.GridColumn MaterialReason;
+        private DevExpress.XtraGrid.Columns.GridColumn ManReason;
+        private DevExpress.XtraGrid.Columns.GridColumn MachineReason;
+        private DevExpress.XtraGrid.Columns.GridColumn MethodReason;
+        private DevExpress.XtraGrid.Columns.GridColumn Thanh_Tien_ThucDung;
+        private DevExpress.XtraGrid.Columns.GridColumn Thanh_Tien_ChenhLech_ThucDung_BOM;
+        private DevExpress.XtraGrid.Columns.GridColumn Ty_Le_HaoHut_Vuot_DinhMuc;
     }
 }

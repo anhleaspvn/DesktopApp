@@ -416,6 +416,7 @@ namespace ASPData.ASPDAO
                 { "@ProductID", plineDto.ProductID },
                 { "@StageID", plineDto.StageID },
                 { "@MachineID", plineDto.MachineID },
+                { "@BladeID", plineDto.BladeID },
                 { "@RequiredStatus", plineDto.RequiredStatus },
                 { "@MaterialID", plineDto.MaterialID },
                 { "@MaterialQuantity", plineDto.MaterialQuantity },
@@ -423,10 +424,11 @@ namespace ASPData.ASPDAO
                 { "@CreatedBy", plineDto.CreatedBy },
                 { "@CreatedDate", plineDto.CreatedDate },
                 { "@LastModifiedBy", plineDto.LastModifiedBy },
-                { "@LastModifiedDate", plineDto.LastModifiedDate }
+                { "@LastModifiedDate", plineDto.LastModifiedDate },
+                { "@Notes", plineDto.Notes }
             };
 
-            _sqlhelper.ExecProcedureNonData("sp_ASPInsertPLineMachineInsV2", dicParams);
+            _sqlhelper.ExecProcedureNonData("sp_ASPInsertPLineMachineInsV4", dicParams);
         }
 
         public void UpdatePLineMachineIns(ProdStatisticDTO.PLineMachineIns plineDto)
@@ -447,10 +449,11 @@ namespace ASPData.ASPDAO
                 { "@CreatedBy", plineDto.CreatedBy },
                 { "@CreatedDate", plineDto.CreatedDate },
                 { "@LastModifiedBy", plineDto.LastModifiedBy },
-                { "@LastModifiedDate", plineDto.LastModifiedDate }
+                { "@LastModifiedDate", plineDto.LastModifiedDate },
+                { "@Notes", plineDto.Notes }
             };
 
-            _sqlhelper.ExecProcedureNonData("sp_ASPUpdatePLineMachineInsV2", dicParams);
+            _sqlhelper.ExecProcedureNonData("sp_ASPUpdatePLineMachineInsV3", dicParams);
         }
 
         //add, edit header
@@ -501,10 +504,14 @@ namespace ASPData.ASPDAO
                 { "@ProdStatisticQuantity", prodStatisticDTO.ProdStatisticQuantity },
                 { "@ProdStatisticEmpQuantity", prodStatisticDTO.ProdStatisticEmpQuantity },
                 { "@LastModifiedBy", prodStatisticDTO.LastModifiedBy },
-                { "@LastModifiedDate", prodStatisticDTO.LastModifiedDate }
+                { "@LastModifiedDate", prodStatisticDTO.LastModifiedDate },
+                { "@MaterialReason", prodStatisticDTO.MaterialReason },
+                { "@ManReason", prodStatisticDTO.ManReason },
+                { "@MachineReason", prodStatisticDTO.MachineReason },
+                { "@MethodReason", prodStatisticDTO.MethodReason }
             };
 
-            var sqlExec = _sqlhelper.ExecProcedureNonData("sp_ASPUpdateProdStatHeader", dicParams);
+            var sqlExec = _sqlhelper.ExecProcedureNonData("sp_ASPUpdateProdStatHeaderV2", dicParams);
         }
 
         //detail employee
@@ -1387,7 +1394,10 @@ namespace ASPData.ASPDAO
                 { "@CreatedBy", prodDto.CreatedBy },
                 { "@CreatedDate", prodDto.CreatedDate },
                 { "@LastModifiedBy", prodDto.LastModifiedBy },
-                { "@LastModifiedDate", prodDto.LastModifiedDate }
+                { "@LastModifiedDate", prodDto.LastModifiedDate },
+                { "@Supplier", prodDto.Supplier },
+                { "@ENGLevel", prodDto.ENGLevel },
+                { "@PartNo0", prodDto.PartNo0 }
             };
 
             _sqlhelper.ExecProcedureNonData("sp_ASPImportScanBarcodeBin", dicParams);
@@ -1448,10 +1458,15 @@ namespace ASPData.ASPDAO
                 { "@CreatedDate", prodDto.CreatedDate },
                 { "@LastModifiedBy", prodDto.LastModifiedBy },
                 { "@LastModifiedDate", prodDto.LastModifiedDate },
-                { "@IsOriginal", false }
+                { "@IsOriginal", false },
+                { "@Supplier", prodDto.Supplier },
+                { "@ENGLevel", prodDto.ENGLevel },
+                { "@PartNo0", prodDto.PartNo0 },
+                { "@POText", prodDto.POText },
+                { "@POCode", prodDto.POCode }
             };
 
-            _sqlhelper.ExecProcedureNonData("sp_ASPCopyScanBarcodeBin", dicParams);
+            _sqlhelper.ExecProcedureNonData("sp_ASPCopyScanBarcodeBinVersion2", dicParams);
         }
 
         public void TransScanBarcodeBinLine(ProdStatisticDTO.PSScanBarcodeBin prodDto)
@@ -1477,10 +1492,15 @@ namespace ASPData.ASPDAO
                 { "@LastModifiedDate", prodDto.LastModifiedDate },
                 { "@IsOriginal", false },
                 { "@AutoID", prodDto.AutoID },
-                { "@IntType", prodDto.IntType }
+                { "@IntType", prodDto.IntType },
+                { "@Supplier", prodDto.Supplier },
+                { "@ENGLevel", prodDto.ENGLevel },
+                { "@PartNo0", prodDto.PartNo0 },
+                { "@POCode", prodDto.POCode },
+                { "@POText", prodDto.POText }
             };
 
-            _sqlhelper.ExecProcedureNonData("sp_ASPTransScanBarcodeBinLine", dicParams);
+            _sqlhelper.ExecProcedureNonData("sp_ASPTransScanBarcodeBinLine_V2", dicParams);
         }
 
         public void TransScanBinQCApproval(ProdStatisticDTO.PSScanBarcodeBin prodDto)
@@ -1525,7 +1545,10 @@ namespace ASPData.ASPDAO
                 { "@CreatedBy", prodDto.CreatedBy },
                 { "@CreatedDate", prodDto.CreatedDate },
                 { "@LastModifiedBy", prodDto.LastModifiedBy },
-                { "@LastModifiedDate", prodDto.LastModifiedDate }
+                { "@LastModifiedDate", prodDto.LastModifiedDate },
+                { "@Supplier", prodDto.Supplier },
+                { "@ENGLevel", prodDto.ENGLevel },
+                { "@PartNo0", prodDto.PartNo0 }
             };
 
             _sqlhelper.ExecProcedureNonData("sp_ASPTransScanBinLineQCApproval", dicParams);
@@ -1623,10 +1646,12 @@ namespace ASPData.ASPDAO
                 { "@WO", prodDto.WO },
                 { "@SBDate", prodDto.SBDate },
                 { "@BinSize", prodDto.BinSize },
-                { "@AutoID", prodDto.AutoID }
+                { "@AutoID", prodDto.AutoID },
+                { "@POCode", prodDto.POCode },
+                { "@POText", prodDto.POText }
             };
 
-            _sqlhelper.ExecProcedureNonData("sp_ASPUpdateScanBarCodeBinLine_V2", dicParams);
+            _sqlhelper.ExecProcedureNonData("sp_ASPUpdateScanBarCodeBinLine_V3", dicParams);
         }
 
         public void UpdateScanBarCodeBinLineV2(ProdStatisticDTO.PSScanBarcodeBin prodDto)
@@ -1859,6 +1884,34 @@ namespace ASPData.ASPDAO
             dt = _sqlhelper.ExecQueryDataAsDataTable("SELECT * FROM ASPProdScanQRCodeStage");
 
             return dt;
+        }
+
+        public DataSet TraceabilityWO(string WODocNo)
+        {
+            DataSet ds = new DataSet();
+
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@WODocNo", WODocNo }
+            };
+
+            ds = _sqlhelper.ExecProcedureDataAsDataSet("sp_ASPTraceabilityWO", dicParams);
+
+            return ds;
+        }
+
+        public DataSet TraceabilityWOV2(string WODocNo)
+        {
+            DataSet ds = new DataSet();
+
+            var dicParams = new Dictionary<string, object>()
+            {
+                { "@WODocNo", WODocNo }
+            };
+
+            ds = _sqlhelper.ExecProcedureDataAsDataSet("sp_ASPTraceabilityWOV2", dicParams);
+
+            return ds;
         }
     }
 }

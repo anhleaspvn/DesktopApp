@@ -57,6 +57,11 @@
             this.txtLineID = new DevExpress.XtraEditors.TextEdit();
             this.txtProductID = new DevExpress.XtraEditors.TextEdit();
             this.chkPriority = new DevExpress.XtraEditors.CheckEdit();
+            this.lkeBladeID = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.rtxtNotes = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lkeWO.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeStageID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeMachineID.Properties)).BeginInit();
@@ -68,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtLineID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkPriority.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeBladeID.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl5
@@ -241,7 +247,7 @@
             // lkeRequireStatus
             // 
             this.lkeRequireStatus.EditValue = "";
-            this.lkeRequireStatus.Location = new System.Drawing.Point(192, 238);
+            this.lkeRequireStatus.Location = new System.Drawing.Point(192, 271);
             this.lkeRequireStatus.Name = "lkeRequireStatus";
             this.lkeRequireStatus.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.lkeRequireStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -256,7 +262,7 @@
             this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl11.Appearance.Options.UseBackColor = true;
             this.labelControl11.Appearance.Options.UseForeColor = true;
-            this.labelControl11.Location = new System.Drawing.Point(154, 244);
+            this.labelControl11.Location = new System.Drawing.Point(154, 277);
             this.labelControl11.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(18, 16);
@@ -265,7 +271,7 @@
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(59, 244);
+            this.labelControl13.Location = new System.Drawing.Point(59, 277);
             this.labelControl13.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(78, 16);
@@ -275,7 +281,7 @@
             // btCancel
             // 
             this.btCancel.ImageOptions.Image = global::ASPProject.Properties.Resources.close__2_;
-            this.btCancel.Location = new System.Drawing.Point(277, 399);
+            this.btCancel.Location = new System.Drawing.Point(277, 518);
             this.btCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(144, 49);
@@ -285,7 +291,7 @@
             // btSave
             // 
             this.btSave.ImageOptions.Image = global::ASPProject.Properties.Resources.save1;
-            this.btSave.Location = new System.Drawing.Point(98, 399);
+            this.btSave.Location = new System.Drawing.Point(98, 518);
             this.btSave.Margin = new System.Windows.Forms.Padding(4);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(145, 49);
@@ -295,7 +301,7 @@
             // lkeMaterialID
             // 
             this.lkeMaterialID.EditValue = "";
-            this.lkeMaterialID.Location = new System.Drawing.Point(192, 272);
+            this.lkeMaterialID.Location = new System.Drawing.Point(192, 391);
             this.lkeMaterialID.Name = "lkeMaterialID";
             this.lkeMaterialID.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.lkeMaterialID.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -310,7 +316,7 @@
             this.labelControl14.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl14.Appearance.Options.UseBackColor = true;
             this.labelControl14.Appearance.Options.UseForeColor = true;
-            this.labelControl14.Location = new System.Drawing.Point(154, 278);
+            this.labelControl14.Location = new System.Drawing.Point(154, 397);
             this.labelControl14.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(18, 16);
@@ -319,7 +325,7 @@
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(59, 278);
+            this.labelControl15.Location = new System.Drawing.Point(59, 397);
             this.labelControl15.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(43, 16);
@@ -328,7 +334,7 @@
             // 
             // txtQuantityMat
             // 
-            this.txtQuantityMat.Location = new System.Drawing.Point(192, 306);
+            this.txtQuantityMat.Location = new System.Drawing.Point(192, 425);
             this.txtQuantityMat.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuantityMat.Name = "txtQuantityMat";
             this.txtQuantityMat.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -339,7 +345,7 @@
             // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(59, 312);
+            this.labelControl16.Location = new System.Drawing.Point(59, 431);
             this.labelControl16.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(77, 16);
@@ -378,7 +384,7 @@
             // 
             // chkPriority
             // 
-            this.chkPriority.Location = new System.Drawing.Point(198, 347);
+            this.chkPriority.Location = new System.Drawing.Point(198, 466);
             this.chkPriority.Name = "chkPriority";
             this.chkPriority.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkPriority.Properties.Appearance.Options.UseFont = true;
@@ -386,11 +392,67 @@
             this.chkPriority.Size = new System.Drawing.Size(94, 28);
             this.chkPriority.TabIndex = 126;
             // 
+            // lkeBladeID
+            // 
+            this.lkeBladeID.EditValue = "";
+            this.lkeBladeID.Location = new System.Drawing.Point(192, 237);
+            this.lkeBladeID.Name = "lkeBladeID";
+            this.lkeBladeID.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.lkeBladeID.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkeBladeID.Properties.NullText = "";
+            this.lkeBladeID.Size = new System.Drawing.Size(266, 23);
+            this.lkeBladeID.TabIndex = 127;
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl17.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl17.Appearance.Options.UseBackColor = true;
+            this.labelControl17.Appearance.Options.UseForeColor = true;
+            this.labelControl17.Location = new System.Drawing.Point(154, 243);
+            this.labelControl17.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(18, 16);
+            this.labelControl17.TabIndex = 128;
+            this.labelControl17.Text = "(*)";
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Location = new System.Drawing.Point(59, 243);
+            this.labelControl18.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(42, 16);
+            this.labelControl18.TabIndex = 129;
+            this.labelControl18.Text = "Mã dao";
+            // 
+            // labelControl19
+            // 
+            this.labelControl19.Location = new System.Drawing.Point(57, 311);
+            this.labelControl19.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Size = new System.Drawing.Size(42, 16);
+            this.labelControl19.TabIndex = 130;
+            this.labelControl19.Text = "Ghi chú";
+            // 
+            // rtxtNotes
+            // 
+            this.rtxtNotes.Location = new System.Drawing.Point(192, 308);
+            this.rtxtNotes.Name = "rtxtNotes";
+            this.rtxtNotes.Size = new System.Drawing.Size(356, 70);
+            this.rtxtNotes.TabIndex = 131;
+            this.rtxtNotes.Text = "";
+            // 
             // frmPLineMachineInsRequireEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 471);
+            this.ClientSize = new System.Drawing.Size(671, 608);
+            this.Controls.Add(this.rtxtNotes);
+            this.Controls.Add(this.labelControl19);
+            this.Controls.Add(this.lkeBladeID);
+            this.Controls.Add(this.labelControl17);
+            this.Controls.Add(this.labelControl18);
             this.Controls.Add(this.chkPriority);
             this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.txtLineID);
@@ -433,6 +495,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtLineID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkPriority.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeBladeID.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,5 +532,10 @@
         private DevExpress.XtraEditors.TextEdit txtLineID;
         private DevExpress.XtraEditors.TextEdit txtProductID;
         private DevExpress.XtraEditors.CheckEdit chkPriority;
+        private DevExpress.XtraEditors.LookUpEdit lkeBladeID;
+        private DevExpress.XtraEditors.LabelControl labelControl17;
+        private DevExpress.XtraEditors.LabelControl labelControl18;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private System.Windows.Forms.RichTextBox rtxtNotes;
     }
 }

@@ -58,6 +58,15 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.chkQRStart = new DevExpress.XtraEditors.CheckEdit();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.rtMaterial = new System.Windows.Forms.RichTextBox();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.rtMan = new System.Windows.Forms.RichTextBox();
+            this.rtMachine = new System.Windows.Forms.RichTextBox();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.rtMethod = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.barAndDockingController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeWO.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeFieldID.Properties)).BeginInit();
@@ -70,6 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpProdBeginDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpProdBeginDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkQRStart.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelControl19
@@ -78,7 +89,7 @@
             this.labelControl19.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl19.Appearance.Options.UseBackColor = true;
             this.labelControl19.Appearance.Options.UseForeColor = true;
-            this.labelControl19.Location = new System.Drawing.Point(65, 223);
+            this.labelControl19.Location = new System.Drawing.Point(34, 544);
             this.labelControl19.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(18, 16);
@@ -87,7 +98,7 @@
             // 
             // lbchuy
             // 
-            this.lbchuy.Location = new System.Drawing.Point(88, 223);
+            this.lbchuy.Location = new System.Drawing.Point(73, 544);
             this.lbchuy.Margin = new System.Windows.Forms.Padding(4);
             this.lbchuy.Name = "lbchuy";
             this.lbchuy.Size = new System.Drawing.Size(297, 16);
@@ -97,7 +108,7 @@
             // btCancel
             // 
             this.btCancel.ImageOptions.Image = global::ASPProject.Properties.Resources.close__2_;
-            this.btCancel.Location = new System.Drawing.Point(465, 259);
+            this.btCancel.Location = new System.Drawing.Point(580, 527);
             this.btCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(144, 49);
@@ -107,7 +118,7 @@
             // btSave
             // 
             this.btSave.ImageOptions.Image = global::ASPProject.Properties.Resources.save1;
-            this.btSave.Location = new System.Drawing.Point(286, 259);
+            this.btSave.Location = new System.Drawing.Point(401, 527);
             this.btSave.Margin = new System.Windows.Forms.Padding(4);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(145, 49);
@@ -383,7 +394,7 @@
             // 
             // chkQRStart
             // 
-            this.chkQRStart.Location = new System.Drawing.Point(154, 172);
+            this.chkQRStart.Location = new System.Drawing.Point(769, 551);
             this.chkQRStart.Name = "chkQRStart";
             this.chkQRStart.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkQRStart.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
@@ -393,11 +404,96 @@
             this.chkQRStart.Size = new System.Drawing.Size(188, 25);
             this.chkQRStart.TabIndex = 112;
             // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.rtMethod);
+            this.groupControl1.Controls.Add(this.labelControl17);
+            this.groupControl1.Controls.Add(this.rtMachine);
+            this.groupControl1.Controls.Add(this.labelControl16);
+            this.groupControl1.Controls.Add(this.rtMan);
+            this.groupControl1.Controls.Add(this.labelControl15);
+            this.groupControl1.Controls.Add(this.rtMaterial);
+            this.groupControl1.Controls.Add(this.labelControl10);
+            this.groupControl1.Location = new System.Drawing.Point(21, 177);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(1190, 322);
+            this.groupControl1.TabIndex = 113;
+            this.groupControl1.Text = "NGUYÊN NHÂN KHÔNG ĐẠT";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(13, 67);
+            this.labelControl10.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(59, 16);
+            this.labelControl10.TabIndex = 94;
+            this.labelControl10.Text = "MATERIAL";
+            // 
+            // rtMaterial
+            // 
+            this.rtMaterial.Location = new System.Drawing.Point(79, 30);
+            this.rtMaterial.Name = "rtMaterial";
+            this.rtMaterial.Size = new System.Drawing.Size(474, 121);
+            this.rtMaterial.TabIndex = 95;
+            this.rtMaterial.Text = "";
+            // 
+            // labelControl15
+            // 
+            this.labelControl15.Location = new System.Drawing.Point(624, 67);
+            this.labelControl15.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(26, 16);
+            this.labelControl15.TabIndex = 96;
+            this.labelControl15.Text = "MAN";
+            // 
+            // rtMan
+            // 
+            this.rtMan.Location = new System.Drawing.Point(693, 30);
+            this.rtMan.Name = "rtMan";
+            this.rtMan.Size = new System.Drawing.Size(474, 121);
+            this.rtMan.TabIndex = 97;
+            this.rtMan.Text = "";
+            // 
+            // rtMachine
+            // 
+            this.rtMachine.Location = new System.Drawing.Point(77, 184);
+            this.rtMachine.Name = "rtMachine";
+            this.rtMachine.Size = new System.Drawing.Size(474, 115);
+            this.rtMachine.TabIndex = 99;
+            this.rtMachine.Text = "";
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Location = new System.Drawing.Point(8, 221);
+            this.labelControl16.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Size = new System.Drawing.Size(53, 16);
+            this.labelControl16.TabIndex = 98;
+            this.labelControl16.Text = "MACHINE";
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Location = new System.Drawing.Point(624, 221);
+            this.labelControl17.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(50, 16);
+            this.labelControl17.TabIndex = 100;
+            this.labelControl17.Text = "METHOD";
+            // 
+            // rtMethod
+            // 
+            this.rtMethod.Location = new System.Drawing.Point(693, 184);
+            this.rtMethod.Name = "rtMethod";
+            this.rtMethod.Size = new System.Drawing.Size(474, 121);
+            this.rtMethod.TabIndex = 101;
+            this.rtMethod.Text = "";
+            // 
             // frmProdStatisticEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1133, 331);
+            this.ClientSize = new System.Drawing.Size(1380, 600);
+            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.chkQRStart);
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.dtpProdBeginDate);
@@ -440,6 +536,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpProdBeginDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpProdBeginDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkQRStart.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,5 +574,14 @@
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.CheckEdit chkQRStart;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private System.Windows.Forms.RichTextBox rtMan;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private System.Windows.Forms.RichTextBox rtMaterial;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private System.Windows.Forms.RichTextBox rtMethod;
+        private DevExpress.XtraEditors.LabelControl labelControl17;
+        private System.Windows.Forms.RichTextBox rtMachine;
+        private DevExpress.XtraEditors.LabelControl labelControl16;
     }
 }

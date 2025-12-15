@@ -43,6 +43,7 @@
             this.colProductID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStageName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMachineID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMachineGroup = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRequiredStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaterialID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaterialQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -58,12 +59,13 @@
             this.colSumWaitingTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSumTimeSetup = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIsCompleteName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colJigID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btExport = new DevExpress.XtraEditors.SimpleButton();
             this.btEdit = new DevExpress.XtraEditors.SimpleButton();
             this.btDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.colMachineGroup = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNotes = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
             this.splitContainerControl1.Panel1.SuspendLayout();
@@ -204,7 +206,9 @@
             this.colSumReceivedTime,
             this.colSumWaitingTime,
             this.colSumTimeSetup,
-            this.colIsCompleteName});
+            this.colIsCompleteName,
+            this.colJigID,
+            this.colNotes});
             this.gridMachineInsView.DetailHeight = 1081;
             this.gridMachineInsView.GridControl = this.gridMachineIns;
             this.gridMachineInsView.Name = "gridMachineInsView";
@@ -278,6 +282,16 @@
             this.colMachineID.VisibleIndex = 5;
             this.colMachineID.Width = 94;
             // 
+            // colMachineGroup
+            // 
+            this.colMachineGroup.Caption = "Nhóm máy";
+            this.colMachineGroup.FieldName = "MachineGroup";
+            this.colMachineGroup.MinWidth = 25;
+            this.colMachineGroup.Name = "colMachineGroup";
+            this.colMachineGroup.Visible = true;
+            this.colMachineGroup.VisibleIndex = 7;
+            this.colMachineGroup.Width = 94;
+            // 
             // colRequiredStatus
             // 
             this.colRequiredStatus.Caption = "Trạng thái yêu cầu";
@@ -285,7 +299,7 @@
             this.colRequiredStatus.MinWidth = 25;
             this.colRequiredStatus.Name = "colRequiredStatus";
             this.colRequiredStatus.Visible = true;
-            this.colRequiredStatus.VisibleIndex = 7;
+            this.colRequiredStatus.VisibleIndex = 8;
             this.colRequiredStatus.Width = 94;
             // 
             // colMaterialID
@@ -295,7 +309,7 @@
             this.colMaterialID.MinWidth = 25;
             this.colMaterialID.Name = "colMaterialID";
             this.colMaterialID.Visible = true;
-            this.colMaterialID.VisibleIndex = 8;
+            this.colMaterialID.VisibleIndex = 9;
             this.colMaterialID.Width = 94;
             // 
             // colMaterialQuantity
@@ -305,7 +319,7 @@
             this.colMaterialQuantity.MinWidth = 25;
             this.colMaterialQuantity.Name = "colMaterialQuantity";
             this.colMaterialQuantity.Visible = true;
-            this.colMaterialQuantity.VisibleIndex = 9;
+            this.colMaterialQuantity.VisibleIndex = 10;
             this.colMaterialQuantity.Width = 94;
             // 
             // colCreatedDate
@@ -317,7 +331,7 @@
             this.colCreatedDate.MinWidth = 25;
             this.colCreatedDate.Name = "colCreatedDate";
             this.colCreatedDate.Visible = true;
-            this.colCreatedDate.VisibleIndex = 10;
+            this.colCreatedDate.VisibleIndex = 11;
             this.colCreatedDate.Width = 94;
             // 
             // colIsPriority
@@ -327,7 +341,7 @@
             this.colIsPriority.MinWidth = 25;
             this.colIsPriority.Name = "colIsPriority";
             this.colIsPriority.Visible = true;
-            this.colIsPriority.VisibleIndex = 11;
+            this.colIsPriority.VisibleIndex = 12;
             this.colIsPriority.Width = 94;
             // 
             // colTechName
@@ -337,7 +351,7 @@
             this.colTechName.MinWidth = 25;
             this.colTechName.Name = "colTechName";
             this.colTechName.Visible = true;
-            this.colTechName.VisibleIndex = 12;
+            this.colTechName.VisibleIndex = 13;
             this.colTechName.Width = 94;
             // 
             // colTechApprovalName
@@ -347,7 +361,7 @@
             this.colTechApprovalName.MinWidth = 25;
             this.colTechApprovalName.Name = "colTechApprovalName";
             this.colTechApprovalName.Visible = true;
-            this.colTechApprovalName.VisibleIndex = 13;
+            this.colTechApprovalName.VisibleIndex = 14;
             this.colTechApprovalName.Width = 94;
             // 
             // colStartTime
@@ -359,7 +373,7 @@
             this.colStartTime.MinWidth = 25;
             this.colStartTime.Name = "colStartTime";
             this.colStartTime.Visible = true;
-            this.colStartTime.VisibleIndex = 14;
+            this.colStartTime.VisibleIndex = 15;
             this.colStartTime.Width = 94;
             // 
             // colEndTime
@@ -371,7 +385,7 @@
             this.colEndTime.MinWidth = 25;
             this.colEndTime.Name = "colEndTime";
             this.colEndTime.Visible = true;
-            this.colEndTime.VisibleIndex = 15;
+            this.colEndTime.VisibleIndex = 16;
             this.colEndTime.Width = 94;
             // 
             // colTechApprovalTime
@@ -383,7 +397,7 @@
             this.colTechApprovalTime.MinWidth = 25;
             this.colTechApprovalTime.Name = "colTechApprovalTime";
             this.colTechApprovalTime.Visible = true;
-            this.colTechApprovalTime.VisibleIndex = 16;
+            this.colTechApprovalTime.VisibleIndex = 17;
             this.colTechApprovalTime.Width = 94;
             // 
             // colSumTime
@@ -395,7 +409,7 @@
             this.colSumTime.MinWidth = 25;
             this.colSumTime.Name = "colSumTime";
             this.colSumTime.Visible = true;
-            this.colSumTime.VisibleIndex = 17;
+            this.colSumTime.VisibleIndex = 18;
             this.colSumTime.Width = 94;
             // 
             // colSumReceivedTime
@@ -407,7 +421,7 @@
             this.colSumReceivedTime.MinWidth = 25;
             this.colSumReceivedTime.Name = "colSumReceivedTime";
             this.colSumReceivedTime.Visible = true;
-            this.colSumReceivedTime.VisibleIndex = 18;
+            this.colSumReceivedTime.VisibleIndex = 19;
             this.colSumReceivedTime.Width = 94;
             // 
             // colSumWaitingTime
@@ -419,7 +433,7 @@
             this.colSumWaitingTime.MinWidth = 25;
             this.colSumWaitingTime.Name = "colSumWaitingTime";
             this.colSumWaitingTime.Visible = true;
-            this.colSumWaitingTime.VisibleIndex = 19;
+            this.colSumWaitingTime.VisibleIndex = 20;
             this.colSumWaitingTime.Width = 94;
             // 
             // colSumTimeSetup
@@ -431,7 +445,7 @@
             this.colSumTimeSetup.MinWidth = 25;
             this.colSumTimeSetup.Name = "colSumTimeSetup";
             this.colSumTimeSetup.Visible = true;
-            this.colSumTimeSetup.VisibleIndex = 20;
+            this.colSumTimeSetup.VisibleIndex = 21;
             this.colSumTimeSetup.Width = 94;
             // 
             // colIsCompleteName
@@ -441,8 +455,18 @@
             this.colIsCompleteName.MinWidth = 25;
             this.colIsCompleteName.Name = "colIsCompleteName";
             this.colIsCompleteName.Visible = true;
-            this.colIsCompleteName.VisibleIndex = 21;
+            this.colIsCompleteName.VisibleIndex = 22;
             this.colIsCompleteName.Width = 94;
+            // 
+            // colJigID
+            // 
+            this.colJigID.Caption = "Mã dao";
+            this.colJigID.FieldName = "JigID";
+            this.colJigID.MinWidth = 25;
+            this.colJigID.Name = "colJigID";
+            this.colJigID.Visible = true;
+            this.colJigID.VisibleIndex = 6;
+            this.colJigID.Width = 94;
             // 
             // panelControl1
             // 
@@ -493,15 +517,15 @@
             this.btAdd.TabIndex = 3;
             this.btAdd.Text = "Thêm";
             // 
-            // colMachineGroup
+            // colNotes
             // 
-            this.colMachineGroup.Caption = "Nhóm máy";
-            this.colMachineGroup.FieldName = "MachineGroup";
-            this.colMachineGroup.MinWidth = 25;
-            this.colMachineGroup.Name = "colMachineGroup";
-            this.colMachineGroup.Visible = true;
-            this.colMachineGroup.VisibleIndex = 6;
-            this.colMachineGroup.Width = 94;
+            this.colNotes.Caption = "Ghi chú";
+            this.colNotes.FieldName = "Notes";
+            this.colNotes.MinWidth = 25;
+            this.colNotes.Name = "colNotes";
+            this.colNotes.Visible = true;
+            this.colNotes.VisibleIndex = 23;
+            this.colNotes.Width = 94;
             // 
             // frmPLineMachineInsRequire
             // 
@@ -569,5 +593,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTechApprovalTime;
         private DevExpress.XtraGrid.Columns.GridColumn colSumReceivedTime;
         private DevExpress.XtraGrid.Columns.GridColumn colMachineGroup;
+        private DevExpress.XtraGrid.Columns.GridColumn colJigID;
+        private DevExpress.XtraGrid.Columns.GridColumn colNotes;
     }
 }

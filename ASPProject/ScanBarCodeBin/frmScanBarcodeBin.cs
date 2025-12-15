@@ -50,6 +50,7 @@ namespace ASPProject.ScanBarCodeBin
             btImport2.Click += BtImport2_Click;
             btTransLine.Click += BtTransLine_Click;
             btGetLinkQData.Click += BtGetLinkQData_Click;
+<<<<<<< HEAD
             gridScanBarcodeBinView.RowCellStyle += GridScanBarcodeBinView_RowCellStyle;
             gridScanBarcodeBinV2View.RowCellStyle += GridScanBarcodeBinV2View_RowCellStyle;
             btExport1.Click += BtExport1_Click;
@@ -98,10 +99,13 @@ namespace ASPProject.ScanBarCodeBin
             {
                 e.Appearance.ForeColor = Color.Green;
             }
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         }
 
         private void BtGetLinkQData_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             try
             {
                 var dicParams = new Dictionary<string, object>()
@@ -118,6 +122,9 @@ namespace ASPProject.ScanBarCodeBin
             catch (Exception ex) {
                 throw ex;
             } 
+=======
+            
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         }
 
         #endregion
@@ -125,10 +132,13 @@ namespace ASPProject.ScanBarCodeBin
         #region load
         private void FrmScanBarcodeBin_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (userName == "INTEM")
             {
                 btDelete.Visible = btExport1.Visible = btExport2.Visible = btGetLinkQData.Visible = btImportExcel.Visible = btImport2.Visible = false;
             }
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             FillData();
         }
 
@@ -158,6 +168,7 @@ namespace ASPProject.ScanBarCodeBin
 
         private void BtDelete_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             int[] arrIntDr = gridScanBarcodeBinView.GetSelectedRows();
             int[] arrIntDr2 = gridScanBarcodeBinV2View.GetSelectedRows();
 
@@ -185,6 +196,14 @@ namespace ASPProject.ScanBarCodeBin
 
                     prodStatisticDAO.DeleteScanBarcodeBin(prodStatisticDTO, 2);
                 }
+=======
+            if (XtraMessageBox.Show("Bạn có muốn xoá dữ liệu barcode này không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                prodStatisticDTO.FromDate = DateTime.Now;
+                prodStatisticDTO.ToDate = DateTime.Now;
+
+                prodStatisticDAO.DeleteScanBarcodeBin(prodStatisticDTO);
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
 
                 FillData();
             }
@@ -205,7 +224,11 @@ namespace ASPProject.ScanBarCodeBin
                     List<string> arrProd = new List<string>();
                     ASPExcelDataProcess.ASPExcelDataProcess excel = new ASPExcelDataProcess.ASPExcelDataProcess();
                     DataTable dtExcel = new DataTable();
+<<<<<<< HEAD
                     dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet2", "A1:U10000");
+=======
+                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet2", "A1:T10000");
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
 
                     foreach (DataRow dr in dtExcel.Rows)
                     {
@@ -238,7 +261,10 @@ namespace ASPProject.ScanBarCodeBin
                         psScanBin.N1_100 = Convert.ToDouble(dr["1-N-100"]);
                         psScanBin.N1_250 = Convert.ToDouble(dr["1-N-250"]);
                         psScanBin.N1_500 = Convert.ToDouble(dr["1-N-500"]);
+<<<<<<< HEAD
                         psScanBin.OriginalMaterial = Convert.ToString(dr["OriginalMaterial"]);
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
                         psScanBin.CreatedBy = userName;
                         psScanBin.CreatedDate = DateTime.Now;
                         psScanBin.LastModifiedBy = userName;
@@ -309,7 +335,11 @@ namespace ASPProject.ScanBarCodeBin
                     List<string> arrProd = new List<string>();
                     ASPExcelDataProcess.ASPExcelDataProcess excel = new ASPExcelDataProcess.ASPExcelDataProcess();
                     DataTable dtExcel = new DataTable();
+<<<<<<< HEAD
                     dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:Y10000");
+=======
+                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:X10000");
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
 
                     foreach (DataRow dr in dtExcel.Rows)
                     {
@@ -347,7 +377,10 @@ namespace ASPProject.ScanBarCodeBin
                         psScanBin.N1_100 = Convert.ToDouble(dr["1-N-100"]);
                         psScanBin.N1_250 = Convert.ToDouble(dr["1-N-250"]);
                         psScanBin.N1_500 = Convert.ToDouble(dr["1-N-500"]);
+<<<<<<< HEAD
                         psScanBin.OriginalMaterial = Convert.ToString(dr["OriginalMaterial"]);
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
                         psScanBin.CreatedBy = userName;
                         psScanBin.CreatedDate = DateTime.Now;
                         psScanBin.LastModifiedBy = userName;

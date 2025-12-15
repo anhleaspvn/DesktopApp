@@ -18,6 +18,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection.Emit;
 using System.Security.Principal;
 using System.Text;
 using System.Threading;
@@ -54,7 +55,7 @@ namespace ASPProject.LineProdStatistic
         public int curIndex, empIndexCur, defectIndexCur, machineIndexCur, moldIndexCur, losstimeIndexCur, exWorkIndexCur, wosopIndexCur, curDFStage;
 
         public long HeaderID;
-        public string fieldID, shift, WODocNo, productID, prodStatus;
+        public string fieldID, shift, WODocNo, productID, prodStatus, materialReason, manReason, machineReason, methoReason;
         public double prodStatisticQuantity, prodStatisticEmpQuantity;
         public Boolean QRStart;
         private double outputRateVN = 0;
@@ -500,7 +501,7 @@ namespace ASPProject.LineProdStatistic
             saveFileDialog1.ShowDialog();
             if (saveFileDialog1.FileName != "")
             {
-                gridLosstime.ExportToXlsx(saveFileDialog1.FileName);
+                gridProdStatView.ExportToXlsx(saveFileDialog1.FileName);
             }
         }
 
@@ -546,6 +547,10 @@ namespace ASPProject.LineProdStatistic
                 th.prodStatisticEmpQuantity = prodStatisticEmpQuantity;
                 th.WODocNo = WODocNo;
                 th.IschkQRStart = QRStart;
+                th.materialReason = materialReason;
+                th.manReason = manReason;
+                th.machineReason = machineReason;
+                th.methodReason = methoReason;
                 th.ShowDialog();
                 LoadData();
             }
@@ -572,6 +577,10 @@ namespace ASPProject.LineProdStatistic
             prodStatisticEmpQuantity = Convert.ToDouble(drCurrent["ProdStatisticEmpQuantity"]);
             WODocNo = Convert.ToString(drCurrent["WODocNo"]);
             QRStart = Convert.ToBoolean(drCurrent["QRStart"]);
+            materialReason = Convert.ToString(drCurrent["MaterialReason"]);
+            manReason = Convert.ToString(drCurrent["ManReason"]);
+            machineReason = Convert.ToString(drCurrent["MachineReason"]);
+            methoReason = Convert.ToString(drCurrent["MethodReason"]);
         }
 
         private void GridProdStatView_DoubleClick(object sender, EventArgs e)

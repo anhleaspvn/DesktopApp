@@ -18,7 +18,11 @@ namespace ASPProject.ScanBarCodeBin
         public int type;
         ProdStatisticDAO prodStatisticDAO = new ProdStatisticDAO();
         PSScanBarcodeBin psScanBin = new PSScanBarcodeBin();
+<<<<<<< HEAD
         public string Quantity, NW, GW, LotNo, WO, SBDate, BinSize;
+=======
+        public string Quantity, NW, GW, LotNo, WO;
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         public long AutoID;
         public bool isAccept;
         public frmScanBarcodeBinEdit1()
@@ -44,8 +48,11 @@ namespace ASPProject.ScanBarCodeBin
             psScanBin.GW = Convert.ToDouble(txtGW.Text);
             psScanBin.LotNo = txtLotNo.Text.Trim();
             psScanBin.WO = txtWO.Text.Trim();
+<<<<<<< HEAD
             psScanBin.SBDate = txtSBDate.Text.Trim();
             psScanBin.BinSize = txtBinSize.Text.Trim();
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             psScanBin.AutoID = (long)Convert.ToDouble(AutoID);
 
             prodStatisticDAO.UpdateScanBarCodeBinLine(psScanBin);
@@ -62,8 +69,11 @@ namespace ASPProject.ScanBarCodeBin
             txtGW.Text = GW;
             txtLotNo.Text = LotNo;
             txtWO.Text = WO;
+<<<<<<< HEAD
             txtSBDate.Text = SBDate;
             txtBinSize.Text = BinSize;
+=======
+>>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
 
             this.Show();
         }

@@ -24,7 +24,7 @@ namespace ASPProject.LineProdStatistic
         public long autoID;
         public int editType; public double requireQuantity;
         public DateTime docDate;
-        public string userName, lineID, woDocNo, productID, stageID, machineID, requireStatus, materialID;
+        public string userName, lineID, woDocNo, productID, stageID, machineID, requireStatus, materialID, bladeID, notes;
         public bool isPriority = false;
 
         PLineMachineIns prodDto = new PLineMachineIns();
@@ -48,6 +48,7 @@ namespace ASPProject.LineProdStatistic
             txtLineID.Text = Convert.ToString(_sqlHelper.ExecQuerySacalar("SELECT LineID FROM ASPEmployee WHERE EmpID = '" + userName + "'"));
             //lkeLineID.Text = Convert.ToString(_sqlHelper.ExecQuerySacalar("SELECT LineID FROM ASPEmployee WHERE EmpID = '" + userName + "'"));
             DataTable dtMachine = new DataTable();
+            DataTable dtBlade = new DataTable();
             DataTable dtMat = new DataTable();
             if (editType == 0) //chinh sua
             {
@@ -56,15 +57,18 @@ namespace ASPProject.LineProdStatistic
                 txtProductID.EditValue = productID;
                 lkeStageID.EditValue = stageID;
                 lkeMachineID.EditValue = machineID;
+                lkeBladeID.EditValue = bladeID;
                 lkeRequireStatus.EditValue = requireStatus;
                 lkeMaterialID.EditValue= materialID;
                 txtQuantityMat.EditValue = requireQuantity > 0 ? Convert.ToString(requireQuantity) : string.Empty;
                 chkPriority.Checked = isPriority;
+                rtxtNotes.Text = notes;
             }
             else //tao moi
             {
                 dtpDocDate.EditValue = DateTime.Now;
                 lkeMachineID.EditValue = string.Empty;
+                lkeBladeID.EditValue = string.Empty;
                 lkeMaterialID.EditValue = string.Empty;
                 chkPriority.Checked = false;
             }
@@ -90,8 +94,8 @@ namespace ASPProject.LineProdStatistic
             lkeRequireStatus.Properties.DataSource = dtReqStatus;
             lkeRequireStatus.Properties.DisplayMember = "RequiredStatus";
             lkeRequireStatus.Properties.ValueMember = "RequiredStatus";
-            lkeRequireStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            lkeRequireStatus.Properties.PopupFilterMode = PopupFilterMode.Contains;
+            //lkeRequireStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            //lkeRequireStatus.Properties.PopupFilterMode = PopupFilterMode.Contains;
 
             var dicParams = new Dictionary<string, object>()
             {
@@ -106,13 +110,21 @@ namespace ASPProject.LineProdStatistic
             lkeStageID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             lkeStageID.Properties.PopupFilterMode = PopupFilterMode.Contains;
 
-            dtMachine = _sqlHelper.ExecQueryDataAsDataTable("SELECT MachineID, MachineName FROM ASPMachine");
+            dtMachine = _sqlHelper.ExecQueryDataAsDataTable("SELECT MachineID, MachineName FROM ASPMachine WHERE TypeID = 'Machine'");
 
             lkeMachineID.Properties.DataSource = dtMachine;
             lkeMachineID.Properties.DisplayMember = "MachineID";
             lkeMachineID.Properties.ValueMember = "MachineID";
             lkeMachineID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             lkeMachineID.Properties.PopupFilterMode = PopupFilterMode.Contains;
+
+            dtBlade = _sqlHelper.ExecQueryDataAsDataTable("SELECT MachineID, MachineName FROM ASPMachine WHERE TypeID = 'Blade'");
+
+            lkeBladeID.Properties.DataSource = dtMachine;
+            lkeBladeID.Properties.DisplayMember = "MachineID";
+            lkeBladeID.Properties.ValueMember = "MachineID";
+            lkeBladeID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            lkeBladeID.Properties.PopupFilterMode = PopupFilterMode.Contains;
 
             dicParams = new Dictionary<string, object>()
             {
@@ -166,6 +178,11 @@ namespace ASPProject.LineProdStatistic
 
         private void BtSave_Click(object sender, EventArgs e)
         {
+            if (!FormCheckValid())
+            {
+                XtraMessageBox.Show("Vui lòng nhập đầy đủ thông tin như mã NVL, số lượng NVL v.v...");
+                return;
+            }
             if (editType == 1) //tao moi
             {
                 prodDto.DocDate = Convert.ToDateTime(dtpDocDate.EditValue).Date;
@@ -174,6 +191,7 @@ namespace ASPProject.LineProdStatistic
                 prodDto.ProductID = Convert.ToString(txtProductID.Text);
                 prodDto.StageID = Convert.ToString(lkeStageID.EditValue);
                 prodDto.MachineID = Convert.ToString(lkeMachineID.EditValue);
+                prodDto.BladeID = Convert.ToString(lkeBladeID.EditValue);
                 prodDto.RequiredStatus = Convert.ToString(lkeRequireStatus.EditValue);
                 prodDto.MaterialID = Convert.ToString(lkeMaterialID.EditValue);
                 prodDto.MaterialQuantity = !string.IsNullOrEmpty(txtQuantityMat.Text) ? Convert.ToDouble(txtQuantityMat.Text) : 0;
@@ -182,6 +200,7 @@ namespace ASPProject.LineProdStatistic
                 prodDto.CreatedDate = DateTime.Now;
                 prodDto.LastModifiedBy = userName;
                 prodDto.LastModifiedDate = DateTime.Now;
+                prodDto.Notes = rtxtNotes.Text;
 
                 prodDao.InsertPLineMachineIns(prodDto);
 
@@ -196,6 +215,7 @@ namespace ASPProject.LineProdStatistic
                 prodDto.ProductID = Convert.ToString(txtProductID.Text);
                 prodDto.StageID = Convert.ToString(lkeStageID.EditValue);
                 prodDto.MachineID = Convert.ToString(lkeMachineID.EditValue);
+                prodDto.BladeID = Convert.ToString(lkeBladeID.EditValue);
                 prodDto.RequiredStatus = Convert.ToString(lkeRequireStatus.EditValue);
                 prodDto.MaterialID = Convert.ToString(lkeMaterialID.EditValue);
                 prodDto.MaterialQuantity = !string.IsNullOrEmpty(txtQuantityMat.Text) ? Convert.ToDouble(txtQuantityMat.Text) : 0;
@@ -204,6 +224,7 @@ namespace ASPProject.LineProdStatistic
                 prodDto.CreatedDate = DateTime.Now;
                 prodDto.LastModifiedBy = userName;
                 prodDto.LastModifiedDate = DateTime.Now;
+                prodDto.Notes = rtxtNotes.Text;
 
                 prodDao.UpdatePLineMachineIns(prodDto);
             }
@@ -211,6 +232,16 @@ namespace ASPProject.LineProdStatistic
             this.Close();
         }
 
+        bool FormCheckValid()
+        {
+            if (
+                    string.IsNullOrEmpty(lkeMaterialID.EditValue.ToString()) 
+                        //|| string.IsNullOrEmpty(txtQuantityMat.Text)
+                        )
+                return false;
+
+            return true;
+        }
         private void BtCancel_Click(object sender, EventArgs e)
         {
             this.Close();
