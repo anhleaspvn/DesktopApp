@@ -14,6 +14,7 @@ namespace ASPControl
         public void CreateWaitDialog()
         {
             dlg = new DevExpress.Utils.WaitDialogForm("Xin vui lòng chờ đợi");
+            dlg.TopMost = false;
         }
         public void SetWaitDialogCaption(string fCaption)
         {
@@ -25,7 +26,20 @@ namespace ASPControl
 
         public void simpleCloseWait()
         {
-            dlg.Close();
+            if (dlg == null) return;
+            try
+            {
+                dlg.Close();
+                dlg.Dispose();
+            }
+            catch
+            {
+                // already closed
+            }
+            finally
+            {
+                dlg = null;
+            }
         }
 
     }

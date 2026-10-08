@@ -76,6 +76,7 @@ namespace ASPGoogleSheet
 
             int rowCounter = 0;
             IList<IList<Object>> values = response.Values;
+
             if (values != null && values.Count > 0)
             {
                 foreach (var row in values)
@@ -84,20 +85,42 @@ namespace ASPGoogleSheet
                     {
                         for (var i = 0; i <= numberOfColumns; i++)
                         {
-                            columnNames.Add(row[i].ToString());
+                            var columnName = row[i].ToString();
+
+                            var originalName = columnName;
+                            int duplicateCounter = 1;
+
+                            while (columnNames.Contains(columnName))
+                            {
+                                columnName = $"{originalName}_{duplicateCounter}";
+                                duplicateCounter++;
+                            }
+
+                            columnNames.Add(columnName);
                         }
+
                         rowCounter++;
                         continue;
                     }
 
                     var expando = new ExpandoObject();
-                    var expandoDict = expando as IDictionary<String, object>;
+                    var expandoDict = expando as IDictionary<string, object>;
+
                     var columnCounter = 0;
+
                     foreach (var columnName in columnNames)
                     {
-                        expandoDict.Add(columnName, row[columnCounter].ToString());
+                        object value = "";
+
+                        if (columnCounter < row.Count)
+                        {
+                            value = row[columnCounter];
+                        }
+
+                        expandoDict[columnName] = value?.ToString();
                         columnCounter++;
                     }
+
                     returnValues.Add(expando);
                     rowCounter++;
                 }

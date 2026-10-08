@@ -23,7 +23,8 @@ namespace ASPProject.ExternalIQC
         public int editType;
         public int iNgonNgu;
         public long HeaderID;
-        public string factoryID, WODocNo = string.Empty, qcID, productID, prodStatus, checkState, stageOfChecking, userName, passWord;
+        public string factoryID, lineID, WODocNo = string.Empty, qcID, productID, customerID, prodStatus, checkState, stageOfChecking, userName, passWord;
+        public double prodReqQuantity;
         public DateTime docDate;
         private List<string> lstProdStatus = new List<string>();
         private List<string> lstCheckState = new List<string>();
@@ -71,6 +72,10 @@ namespace ASPProject.ExternalIQC
 
             if (editType == 0)
             {
+                LineID = lineID;
+                ProductID = productID;
+                CustomerID = customerID;
+                ProdReqQuantity = prodReqQuantity;
                 lkeWO.ReadOnly = true;
                 lkeWO.EditValue = WODocNo;
                 lkeStatus.EditValue = prodStatus;
@@ -88,7 +93,7 @@ namespace ASPProject.ExternalIQC
             }
 
             //WO List
-            dtWODocNoList = iqcCheckingDao.GetWODocNoListByLine(Convert.ToString(lkeLine.EditValue), WODocNo, editType);
+            dtWODocNoList = iqcCheckingDao.GetWODocNoListByLine(LineID, WODocNo, editType);
 
             lkeWO.Properties.DataSource = dtWODocNoList;
             lkeWO.Properties.DisplayMember = "So_Ct";
@@ -127,6 +132,11 @@ namespace ASPProject.ExternalIQC
             lkeLine.Properties.ValueMember = "Ma_Day_Chuyen";
             lkeLine.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             lkeLine.Properties.PopupFilterMode = PopupFilterMode.Contains;
+
+            if (editType == 0)
+            {
+                lkeLine.EditValue = LineID;
+            }
         }
 
         public void LoadTV()
@@ -157,6 +167,51 @@ namespace ASPProject.ExternalIQC
 
         private bool FormCheckValid()
         {
+            LineID = !string.IsNullOrEmpty(Convert.ToString(lkeLine.EditValue)) ? Convert.ToString(lkeLine.EditValue) : LineID;
+            WODocNo = Convert.ToString(lkeWO.EditValue);
+
+            if (string.IsNullOrEmpty(Convert.ToString(dtpDocDate.EditValue)) || Convert.ToDateTime(dtpDocDate.EditValue).Year < 2000)
+            {
+                XtraMessageBox.Show("Vui long nhap ngay nhap dung.", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(Convert.ToString(lkeFactoryID.EditValue)))
+            {
+                XtraMessageBox.Show("Vui long chon nha may.", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(LineID))
+            {
+                XtraMessageBox.Show("Vui long chon Ma Line.", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(Convert.ToString(lkeWO.EditValue)))
+            {
+                XtraMessageBox.Show("Vui long chon lenh san xuat.", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtIDQC.Text))
+            {
+                XtraMessageBox.Show("Vui long nhap ID of QC.", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(Convert.ToString(lkeStatus.EditValue)))
+            {
+                XtraMessageBox.Show("Vui long chon tinh trang san xuat.", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(Convert.ToString(lkeCheckState.EditValue)))
+            {
+                XtraMessageBox.Show("Vui long chon trang thai kiem tra.", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+
             return true;
         }
         #endregion
@@ -218,23 +273,30 @@ namespace ASPProject.ExternalIQC
             }
             catch (Exception ex)
             {
-                throw ex;
+                XtraMessageBox.Show(ex.Message, "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void LkeWO_EditValueChanged(object sender, EventArgs e)
         {
-            string WODocNo = Convert.ToString(lkeWO.EditValue);
-            dtWODocNoList = iqcCheckingDao.GetWODocNoListByLine(Convert.ToString(lkeLine.EditValue), WODocNo, editType);
+            string selectedWODocNo = Convert.ToString(lkeWO.EditValue);
+            string selectedLineID = !string.IsNullOrEmpty(Convert.ToString(lkeLine.EditValue)) ? Convert.ToString(lkeLine.EditValue) : LineID;
+            dtWODocNoList = iqcCheckingDao.GetWODocNoListByLine(selectedLineID, selectedWODocNo, editType);
             try
             {
-                if (!string.IsNullOrEmpty(WODocNo))
+                if (!string.IsNullOrEmpty(selectedWODocNo))
                 {
-                    var row = dtWODocNoList.AsEnumerable().Where(myRow => myRow.Field<string>("So_Ct") == WODocNo);
-                    this.WODocNo = WODocNo;
-                    LineID = row.Select(x => x.Field<string>("Ma_Day_Chuyen")).FirstOrDefault();
-                    ProductID = row.Select(s => s.Field<string>("Ma_Sp")).FirstOrDefault();
-                    ProdReqQuantity = Convert.ToDouble(row.Select(s => s.Field<decimal>("So_Luong9")).FirstOrDefault());
-                    CustomerID = row.Select(s => s.Field<string>("Ma_Dt_Kh")).FirstOrDefault();
+                    var row = dtWODocNoList.AsEnumerable().FirstOrDefault(myRow => myRow.Field<string>("So_Ct") == selectedWODocNo);
+
+                    this.WODocNo = selectedWODocNo;
+
+                    if (row == null)
+                        return;
+
+                    string woLineID = Convert.ToString(row["Ma_Day_Chuyen"]);
+                    LineID = !string.IsNullOrEmpty(woLineID) ? woLineID : selectedLineID;
+                    ProductID = Convert.ToString(row["Ma_Sp"]);
+                    ProdReqQuantity = row["So_Luong9"] != DBNull.Value ? Convert.ToDouble(row["So_Luong9"]) : 0;
+                    CustomerID = Convert.ToString(row["Ma_Dt_Kh"]);
                 }
             }
             catch (Exception ex)
@@ -245,14 +307,20 @@ namespace ASPProject.ExternalIQC
 
         private void LkeLine_EditValueChanged(object sender, EventArgs e)
         {
-            string LineID = Convert.ToString(lkeLine.EditValue);
-            dtWODocNoList = iqcCheckingDao.GetWODocNoListByLine(LineID, string.Empty, editType);
+            LineID = Convert.ToString(lkeLine.EditValue);
+            string selectedWODocNo = editType == 0 ? WODocNo : string.Empty;
+            dtWODocNoList = iqcCheckingDao.GetWODocNoListByLine(LineID, selectedWODocNo, editType);
 
             lkeWO.Properties.DataSource = dtWODocNoList;
             lkeWO.Properties.DisplayMember = "So_Ct";
             lkeWO.Properties.ValueMember = "So_Ct";
             lkeWO.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             lkeWO.Properties.PopupFilterMode = PopupFilterMode.Contains;
+
+            if (editType == 0 && !string.IsNullOrEmpty(WODocNo))
+            {
+                lkeWO.EditValue = WODocNo;
+            }
         }
         #endregion
     }

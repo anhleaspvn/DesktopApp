@@ -39,6 +39,9 @@
             this.colMachineName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaintenanceMonth = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMachineGroup = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colACCID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colWarehouseEntryDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMachineOrigin = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMachine)).BeginInit();
@@ -52,7 +55,7 @@
             this.panelControl1.Controls.Add(this.btImportExcel);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl1.Location = new System.Drawing.Point(0, 339);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(5);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(744, 54);
             this.panelControl1.TabIndex = 0;
@@ -82,7 +85,7 @@
             // 
             this.btImportExcel.ImageOptions.Image = global::ASPProject.Properties.Resources.excel;
             this.btImportExcel.Location = new System.Drawing.Point(14, 7);
-            this.btImportExcel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btImportExcel.Margin = new System.Windows.Forms.Padding(5);
             this.btImportExcel.Name = "btImportExcel";
             this.btImportExcel.Size = new System.Drawing.Size(152, 38);
             this.btImportExcel.TabIndex = 8;
@@ -91,10 +94,10 @@
             // gridMachine
             // 
             this.gridMachine.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridMachine.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gridMachine.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(6);
             this.gridMachine.Location = new System.Drawing.Point(0, 0);
             this.gridMachine.MainView = this.gridMachineView;
-            this.gridMachine.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gridMachine.Margin = new System.Windows.Forms.Padding(6);
             this.gridMachine.Name = "gridMachine";
             this.gridMachine.Size = new System.Drawing.Size(744, 339);
             this.gridMachine.TabIndex = 6;
@@ -107,7 +110,10 @@
             this.colMachineID,
             this.colMachineName,
             this.colMaintenanceMonth,
-            this.colMachineGroup});
+            this.colMachineGroup,
+            this.colACCID,
+            this.colWarehouseEntryDate,
+            this.colMachineOrigin});
             this.gridMachineView.DetailHeight = 682;
             this.gridMachineView.GridControl = this.gridMachine;
             this.gridMachineView.Name = "gridMachineView";
@@ -158,6 +164,36 @@
             this.colMachineGroup.VisibleIndex = 3;
             this.colMachineGroup.Width = 117;
             // 
+            // colACCID
+            // 
+            this.colACCID.Caption = "Mã kế toán";
+            this.colACCID.FieldName = "ACCID";
+            this.colACCID.MinWidth = 25;
+            this.colACCID.Name = "colACCID";
+            this.colACCID.Visible = true;
+            this.colACCID.VisibleIndex = 4;
+            this.colACCID.Width = 94;
+            // 
+            // colWarehouseEntryDate
+            // 
+            this.colWarehouseEntryDate.Caption = "Ngày nhập kho";
+            this.colWarehouseEntryDate.FieldName = "WarehouseEntryDate";
+            this.colWarehouseEntryDate.MinWidth = 25;
+            this.colWarehouseEntryDate.Name = "colWarehouseEntryDate";
+            this.colWarehouseEntryDate.Visible = true;
+            this.colWarehouseEntryDate.VisibleIndex = 5;
+            this.colWarehouseEntryDate.Width = 94;
+            // 
+            // colMachineOrigin
+            // 
+            this.colMachineOrigin.Caption = "Nguồn gốc";
+            this.colMachineOrigin.FieldName = "MachineOrigin";
+            this.colMachineOrigin.MinWidth = 25;
+            this.colMachineOrigin.Name = "colMachineOrigin";
+            this.colMachineOrigin.Visible = true;
+            this.colMachineOrigin.VisibleIndex = 6;
+            this.colMachineOrigin.Width = 94;
+            // 
             // frmMachine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -189,5 +225,8 @@
         private DevExpress.XtraEditors.SimpleButton btImportExcel;
         private DevExpress.XtraEditors.SimpleButton btExport;
         private DevExpress.XtraEditors.SimpleButton btDelete;
+        private DevExpress.XtraGrid.Columns.GridColumn colACCID;
+        private DevExpress.XtraGrid.Columns.GridColumn colWarehouseEntryDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colMachineOrigin;
     }
 }

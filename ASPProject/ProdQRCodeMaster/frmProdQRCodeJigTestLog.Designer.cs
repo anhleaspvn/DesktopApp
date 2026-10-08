@@ -38,6 +38,7 @@
             this.colLogTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQRCodeData = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btExcel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
             this.splitContainerControl1.Panel1.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             // splitContainerControl1.Panel1
             // 
+            this.splitContainerControl1.Panel1.Controls.Add(this.btExcel);
             this.splitContainerControl1.Panel1.Controls.Add(this.txtQRCodeData);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             // 
@@ -173,6 +175,16 @@
             this.colQuantity.VisibleIndex = 5;
             this.colQuantity.Width = 94;
             // 
+            // btExcel
+            // 
+            this.btExcel.ImageOptions.Image = global::ASPProject.Properties.Resources.excel;
+            this.btExcel.Location = new System.Drawing.Point(945, 11);
+            this.btExcel.Margin = new System.Windows.Forms.Padding(5);
+            this.btExcel.Name = "btExcel";
+            this.btExcel.Size = new System.Drawing.Size(181, 50);
+            this.btExcel.TabIndex = 127;
+            this.btExcel.Text = "Export Excel";
+            // 
             // frmProdQRCodeJigTestLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -207,5 +219,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colLogTime;
         private DevExpress.XtraGrid.Columns.GridColumn colQRCodeData;
         private DevExpress.XtraGrid.Columns.GridColumn colQuantity;
+        private DevExpress.XtraEditors.SimpleButton btExcel;
     }
 }

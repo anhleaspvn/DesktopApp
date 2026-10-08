@@ -1,4 +1,4 @@
-﻿namespace ASPProject.ExternalIQC
+namespace ASPProject.ExternalIQC
 {
     partial class frmExternalIQCDetailContentEdit
     {
@@ -41,6 +41,8 @@
             this.txtIQCCheckCont = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtIQCPeriodTime = new DevExpress.XtraEditors.TextEdit();
+            this.cboCheckState = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControlCheckState = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtIQCTemplateQuantity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeIQCCheckID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEvalueResult.Properties)).BeginInit();
@@ -183,11 +185,56 @@
             this.txtIQCPeriodTime.Size = new System.Drawing.Size(270, 23);
             this.txtIQCPeriodTime.TabIndex = 131;
             // 
+            // cboCheckState
+            // 
+            this.cboCheckState.Location = new System.Drawing.Point(221, 199);
+            this.cboCheckState.Name = "cboCheckState";
+            this.cboCheckState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboCheckState.Properties.Items.AddRange(new object[] {
+            "",
+            "SC",
+            "CC",
+            "HI",
+            "OS"});
+            this.cboCheckState.Size = new System.Drawing.Size(270, 23);
+            this.cboCheckState.TabIndex = 132;
+            // 
+            // labelControlCheckState
+            // 
+            this.labelControlCheckState.Location = new System.Drawing.Point(37, 202);
+            this.labelControlCheckState.Name = "labelControlCheckState";
+            this.labelControlCheckState.Size = new System.Drawing.Size(78, 16);
+            this.labelControlCheckState.TabIndex = 133;
+            this.labelControlCheckState.Text = "Trạng thái KT";
+            // 
+            // btCancel
+            // 
+            this.btCancel.ImageOptions.Image = global::ASPProject.Properties.Resources.close__2_;
+            this.btCancel.Location = new System.Drawing.Point(284, 257);
+            this.btCancel.Margin = new System.Windows.Forms.Padding(5);
+            this.btCancel.Name = "btCancel";
+            this.btCancel.Size = new System.Drawing.Size(180, 61);
+            this.btCancel.TabIndex = 124;
+            this.btCancel.Text = "Đóng";
+            // 
+            // btSave
+            // 
+            this.btSave.ImageOptions.Image = global::ASPProject.Properties.Resources.save1;
+            this.btSave.Location = new System.Drawing.Point(61, 257);
+            this.btSave.Margin = new System.Windows.Forms.Padding(5);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(181, 61);
+            this.btSave.TabIndex = 123;
+            this.btSave.Text = "Lưu";
+            // 
             // frmExternalIQCDetailContentEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 325);
+            this.ClientSize = new System.Drawing.Size(587, 356);
+            this.Controls.Add(this.cboCheckState);
+            this.Controls.Add(this.labelControlCheckState);
             this.Controls.Add(this.txtIQCPeriodTime);
             this.Controls.Add(this.txtIQCCheckCont);
             this.Controls.Add(this.labelControl4);
@@ -209,6 +256,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEvalueResult.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIQCCheckCont.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIQCPeriodTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboCheckState.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,5 +277,7 @@
         private DevExpress.XtraEditors.TextEdit txtIQCCheckCont;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit txtIQCPeriodTime;
+        private DevExpress.XtraEditors.ComboBoxEdit cboCheckState;
+        private DevExpress.XtraEditors.LabelControl labelControlCheckState;
     }
 }

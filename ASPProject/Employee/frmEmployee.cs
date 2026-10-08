@@ -173,7 +173,7 @@ namespace ASPProject
                     List<string> arrProd = new List<string>();
                     ASPExcelDataProcess.ASPExcelDataProcess excel = new ASPExcelDataProcess.ASPExcelDataProcess();
                     DataTable dtExcel = new DataTable();
-                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:G10000");
+                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:I10000");
 
                     foreach (DataRow dr in dtExcel.Rows)
                     {
@@ -192,7 +192,9 @@ namespace ASPProject
                         empDto.LineID = Convert.ToString(dr["LineID"]);
                         empDto.IsOfficialEmp = Convert.ToBoolean(dr["IsOfficialEmp"]);
                         empDto.HREmpID = Convert.ToString(dr["HREmpID"]);
-                        
+                        empDto.HRSex = Convert.ToString(dr["HRSex"]);
+                        empDto.HRBeginWorkingDate = Convert.ToDateTime(dr["HRBeginWorkingDate"]);
+
                         empDao.ImportExcelEmpID(empDto);
                     }
 

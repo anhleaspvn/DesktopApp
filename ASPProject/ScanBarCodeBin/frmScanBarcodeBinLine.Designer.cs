@@ -48,6 +48,9 @@
             this.colSBDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPOText = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPOCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSupplier = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colENGLevel = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPartNo0 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridScanBarcodeBinLineV2 = new DevExpress.XtraGrid.GridControl();
             this.gridScanBarcodeBinLineV2View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.CusID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -62,14 +65,11 @@
             this.Desc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MadeInVN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-<<<<<<< HEAD
             this.btFilter = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.dtToDate = new DevExpress.XtraEditors.DateEdit();
             this.dtFromDate = new DevExpress.XtraEditors.DateEdit();
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.btExcel1 = new DevExpress.XtraEditors.SimpleButton();
             this.btCopy1 = new DevExpress.XtraEditors.SimpleButton();
             this.btInput = new DevExpress.XtraEditors.SimpleButton();
@@ -109,6 +109,8 @@
             this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Supplier = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ENGLevel = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -122,13 +124,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridScanBarcodeBinLineV2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridScanBarcodeBinLineV2View)).BeginInit();
             this.panel1.SuspendLayout();
-<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties)).BeginInit();
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel1)).BeginInit();
@@ -217,7 +216,10 @@
             this.colUL2Stamp,
             this.colSBDate,
             this.colPOText,
-            this.colPOCode});
+            this.colPOCode,
+            this.colSupplier,
+            this.colENGLevel,
+            this.colPartNo0});
             this.gridScanBarcodeBinLineView.GridControl = this.gridScanBarcodeBinLine;
             this.gridScanBarcodeBinLineView.Name = "gridScanBarcodeBinLineView";
             this.gridScanBarcodeBinLineView.OptionsBehavior.Editable = false;
@@ -369,8 +371,38 @@
             this.colPOCode.MinWidth = 25;
             this.colPOCode.Name = "colPOCode";
             this.colPOCode.Visible = true;
-            this.colPOCode.VisibleIndex = 15;
+            this.colPOCode.VisibleIndex = 18;
             this.colPOCode.Width = 94;
+            // 
+            // colSupplier
+            // 
+            this.colSupplier.Caption = "Supplier";
+            this.colSupplier.FieldName = "Supplier";
+            this.colSupplier.MinWidth = 25;
+            this.colSupplier.Name = "colSupplier";
+            this.colSupplier.Visible = true;
+            this.colSupplier.VisibleIndex = 15;
+            this.colSupplier.Width = 94;
+            // 
+            // colENGLevel
+            // 
+            this.colENGLevel.Caption = "ENGLevel";
+            this.colENGLevel.FieldName = "ENGLevel";
+            this.colENGLevel.MinWidth = 25;
+            this.colENGLevel.Name = "colENGLevel";
+            this.colENGLevel.Visible = true;
+            this.colENGLevel.VisibleIndex = 16;
+            this.colENGLevel.Width = 94;
+            // 
+            // colPartNo0
+            // 
+            this.colPartNo0.Caption = "PartNo0";
+            this.colPartNo0.FieldName = "PartNo0";
+            this.colPartNo0.MinWidth = 25;
+            this.colPartNo0.Name = "colPartNo0";
+            this.colPartNo0.Visible = true;
+            this.colPartNo0.VisibleIndex = 17;
+            this.colPartNo0.Width = 94;
             // 
             // gridScanBarcodeBinLineV2
             // 
@@ -512,14 +544,11 @@
             // 
             // panel1
             // 
-<<<<<<< HEAD
             this.panel1.Controls.Add(this.btFilter);
             this.panel1.Controls.Add(this.labelControl3);
             this.panel1.Controls.Add(this.labelControl4);
             this.panel1.Controls.Add(this.dtToDate);
             this.panel1.Controls.Add(this.dtFromDate);
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.panel1.Controls.Add(this.btExcel1);
             this.panel1.Controls.Add(this.btCopy1);
             this.panel1.Controls.Add(this.btInput);
@@ -531,7 +560,6 @@
             this.panel1.Size = new System.Drawing.Size(1431, 62);
             this.panel1.TabIndex = 10;
             // 
-<<<<<<< HEAD
             // btFilter
             // 
             this.btFilter.ImageOptions.Image = global::ASPProject.Properties.Resources.preview_file;
@@ -594,8 +622,6 @@
             this.dtFromDate.Size = new System.Drawing.Size(166, 23);
             this.dtFromDate.TabIndex = 21;
             // 
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             // btExcel1
             // 
             this.btExcel1.ImageOptions.Image = global::ASPProject.Properties.Resources.export_to_file;
@@ -699,7 +725,9 @@
             this.ULStamp2Col,
             this.SBDateCol,
             this.POTextCol,
-            this.POCodeCol});
+            this.POCodeCol,
+            this.Supplier,
+            this.ENGLevel});
             this.gridScanBarcodeBinLine_FView.GridControl = this.gridScanBarcodeBinLine_F;
             this.gridScanBarcodeBinLine_FView.Name = "gridScanBarcodeBinLine_FView";
             this.gridScanBarcodeBinLine_FView.OptionsBehavior.Editable = false;
@@ -732,11 +760,8 @@
             // QuantityCol
             // 
             this.QuantityCol.Caption = "Quantity";
-<<<<<<< HEAD
             this.QuantityCol.DisplayFormat.FormatString = "{0:#0}";
             this.QuantityCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.QuantityCol.FieldName = "Quantity";
             this.QuantityCol.MinWidth = 23;
             this.QuantityCol.Name = "QuantityCol";
@@ -746,11 +771,8 @@
             // NWCol
             // 
             this.NWCol.Caption = "NW";
-<<<<<<< HEAD
             this.NWCol.DisplayFormat.FormatString = "{0:#0.00}";
             this.NWCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.NWCol.FieldName = "NW";
             this.NWCol.MinWidth = 23;
             this.NWCol.Name = "NWCol";
@@ -760,11 +782,8 @@
             // GWCol
             // 
             this.GWCol.Caption = "GW";
-<<<<<<< HEAD
             this.GWCol.DisplayFormat.FormatString = "{0:#0.00}";
             this.GWCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.GWCol.FieldName = "GW";
             this.GWCol.MinWidth = 23;
             this.GWCol.Name = "GWCol";
@@ -860,7 +879,7 @@
             this.POCodeCol.MinWidth = 25;
             this.POCodeCol.Name = "POCodeCol";
             this.POCodeCol.Visible = true;
-            this.POCodeCol.VisibleIndex = 15;
+            this.POCodeCol.VisibleIndex = 17;
             this.POCodeCol.Width = 94;
             // 
             // panel2
@@ -1032,6 +1051,26 @@
             this.gridColumn26.VisibleIndex = 11;
             this.gridColumn26.Width = 94;
             // 
+            // Supplier
+            // 
+            this.Supplier.Caption = "Supplier";
+            this.Supplier.FieldName = "Supplier";
+            this.Supplier.MinWidth = 25;
+            this.Supplier.Name = "Supplier";
+            this.Supplier.Visible = true;
+            this.Supplier.VisibleIndex = 15;
+            this.Supplier.Width = 94;
+            // 
+            // ENGLevel
+            // 
+            this.ENGLevel.Caption = "ENGLevel";
+            this.ENGLevel.FieldName = "ENGLevel";
+            this.ENGLevel.MinWidth = 25;
+            this.ENGLevel.Name = "ENGLevel";
+            this.ENGLevel.Visible = true;
+            this.ENGLevel.VisibleIndex = 16;
+            this.ENGLevel.Width = 94;
+            // 
             // frmScanBarcodeBinLine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1054,14 +1093,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridScanBarcodeBinLineV2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridScanBarcodeBinLineV2View)).EndInit();
             this.panel1.ResumeLayout(false);
-<<<<<<< HEAD
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties)).EndInit();
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel1)).EndInit();
             this.splitContainerControl2.Panel1.ResumeLayout(false);
@@ -1153,13 +1189,15 @@
         private DevExpress.XtraEditors.SimpleButton btInput;
         private DevExpress.XtraEditors.SimpleButton btTrans1;
         private DevExpress.XtraEditors.SimpleButton btExcel1;
-<<<<<<< HEAD
         private DevExpress.XtraEditors.SimpleButton btFilter;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.DateEdit dtToDate;
         private DevExpress.XtraEditors.DateEdit dtFromDate;
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+        private DevExpress.XtraGrid.Columns.GridColumn colSupplier;
+        private DevExpress.XtraGrid.Columns.GridColumn colENGLevel;
+        private DevExpress.XtraGrid.Columns.GridColumn colPartNo0;
+        private DevExpress.XtraGrid.Columns.GridColumn Supplier;
+        private DevExpress.XtraGrid.Columns.GridColumn ENGLevel;
     }
 }

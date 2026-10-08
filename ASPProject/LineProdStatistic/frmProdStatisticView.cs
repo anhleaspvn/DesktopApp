@@ -8,11 +8,13 @@ using DevExpress.Utils.MVVM;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -51,6 +53,7 @@ namespace ASPProject.LineProdStatistic
         private BindingSource bdsPSDetailExWork = new BindingSource();
         private BindingSource bdsPSDetailWOSOP = new BindingSource();
         private BindingSource bdsPSDetailDFStage = new BindingSource();
+        private BindingSource bdsSNNG = new BindingSource();
         private DataRow drCurrent, drEmpCurrent, drDefectCurrent, drMachineCurrent, drMoldCurrent, drLosstimeCurrent, drExWorkCurrent, drWOSOP, drDFStage;
         public int curIndex, empIndexCur, defectIndexCur, machineIndexCur, moldIndexCur, losstimeIndexCur, exWorkIndexCur, wosopIndexCur, curDFStage;
 
@@ -61,6 +64,7 @@ namespace ASPProject.LineProdStatistic
         private double outputRateVN = 0;
         private double outputRateDG = 0;
         public DateTime statisticDate, prodBeginDate;
+        private DataTable _dtSNNG;
         List<int> lstGridEmpSelect = new List<int>();
         List<int> lstGridMaChine = new List<int>();
         List<int> lstGridMold = new List<int>();
@@ -79,6 +83,7 @@ namespace ASPProject.LineProdStatistic
         TimekeepingDAO timekeepDao = new TimekeepingDAO();
         WOSOPDTO wosoDto = new WOSOPDTO();
         WOSOPDAO wosoDao = new WOSOPDAO();
+        ASPData.ASPData data = new ASPData.ASPData();
         ASPExcelDataProcess.ASPExcelDataProcess excel = new ASPExcelDataProcess.ASPExcelDataProcess();
         #endregion
 
@@ -98,7 +103,22 @@ namespace ASPProject.LineProdStatistic
             new GridviewCheckbox(gridLosstimeView, this, gridLosstimeView.GetSelectedRows().ToList());
 
             gridProdStatView.BestFitColumns();
+
+            
         }
+
+        private void GridSNNGView_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+            if (gridSNNGView.FocusedColumn.FieldName == "NGDescription")
+            {
+                if (!int.TryParse(e.Value?.ToString(), out int val) || val < 0)
+                {
+                    e.Valid = false;
+                    e.ErrorText = "NGDescription phải là số >= 0";
+                }
+            }
+        }
+
         public frmProdStatisticView()
         {
             InitializeComponent();
@@ -176,7 +196,126 @@ namespace ASPProject.LineProdStatistic
             this.bdsPSDetailDF.PositionChanged += BdsPSDetailDF_PositionChanged;
             this.btStageRefresh.Click += BtStageRefresh_Click;
             this.btReportDaily.Click += BtReportDaily_Click;
+
+            gridSNNGView.OptionsBehavior.Editable = true;
+            gridSNNGView.OptionsView.NewItemRowPosition = NewItemRowPosition.Top;
+            gridSNNGView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            gridSNNGView.OptionsBehavior.EditorShowMode =
+                DevExpress.Utils.EditorShowMode.Click;
+
+            gridSNNGView.InitNewRow += GridSNNGView_InitNewRow;
+            gridSNNGView.ValidatingEditor += GridSNNGView_ValidatingEditor1;
+            gridSNNGView.ValidateRow += GridSNNGView_ValidateRow;
+            gridSNNGView.RowUpdated += GridSNNGView_RowUpdated;
+
         }
+
+        private void GridSNNGView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.SetRowCellValue(e.RowHandle, "NGDescription", 0);
+        }
+
+        private void GridSNNGView_ValidatingEditor1(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+            GridView view = sender as GridView;
+
+            //if (view.FocusedColumn.FieldName == "NGDescription")
+            //{
+            //    if (!int.TryParse(e.Value?.ToString(), out int v) || v < 0)
+            //    {
+            //        e.Valid = false;
+            //        e.ErrorText = "NGDescription phải là số ≥ 0";
+            //    }
+            //}
+        }
+
+        private void GridSNNGView_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            GridView view = (GridView)sender;
+
+            string serialCode;
+
+            if (view.FocusedColumn.FieldName == "SerialCode" && view.ActiveEditor != null)
+            {
+                serialCode = view.ActiveEditor.EditValue?.ToString();
+            }
+            else
+            {
+                serialCode = view.GetRowCellValue(e.RowHandle, "SerialCode")?.ToString();
+            }
+
+            if (string.IsNullOrWhiteSpace(serialCode))
+            {
+                e.Valid = false;
+                e.ErrorText = "SerialCode không được để trống";
+            }
+
+            if (serialCode.Length != 12 || !serialCode.Contains("G"))
+            {
+                e.Valid = false;
+                e.ErrorText = "SerialCode không hợp lệ";
+            }
+        }
+
+
+        private void GridSNNGView_RowUpdated(object sender, RowObjectEventArgs e)
+        {
+            DataRowView drv = e.Row as DataRowView;
+            if (drv == null) return;
+
+            string serialCode = drv["SerialCode"]?.ToString();
+          
+            string NGDescription = Convert.ToString(drv["NGDescription"] ?? string.Empty);
+
+            DataRow drCur = ((DataRowView)bdsPSHeader.Current).Row;
+
+            if (drCur == null) return;
+
+            double headerId = (long)Convert.ToDouble(drCur["HeaderID"]);
+
+            if (string.IsNullOrWhiteSpace(serialCode))
+                return;
+
+            SaveRowToDb(headerId, serialCode, NGDescription);
+        }
+
+
+
+        private void SaveRowToDb(double headerId, string serialCode, string NGDescription)
+        {
+            using (SqlConnection conn = new SqlConnection(
+                data.ASPDecrypt(ASPData.configDatabase.CONNECTION_STRINGS)))
+            {
+                string sql = @"
+                                MERGE ASPPSSerialCodeNG AS tgt
+                                USING (
+                                    SELECT 
+                                        @HeaderID   AS HeaderID,
+                                        @SerialCode AS SerialCode,
+                                        @NGDescription AS NGDescription
+                                ) src
+                                ON  tgt.HeaderID   = src.HeaderID
+                                AND tgt.SerialCode = src.SerialCode
+                                WHEN MATCHED THEN
+                                    UPDATE SET NGDescription = src.NGDescription
+                                WHEN NOT MATCHED THEN
+                                    INSERT (HeaderID, SerialCode, NGDescription)
+                                    VALUES (src.HeaderID, src.SerialCode, src.NGDescription);";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("@HeaderID", SqlDbType.Float).Value = headerId;
+                    cmd.Parameters.Add("@SerialCode", SqlDbType.NVarChar, 50).Value = serialCode;
+                    cmd.Parameters.Add("@NGDescription", SqlDbType.NVarChar, 400).Value = NGDescription;
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
         #endregion
 
         #region Load
@@ -205,7 +344,22 @@ namespace ASPProject.LineProdStatistic
                 btStatDelete.Visible = false;
             }
         }
+        private void LoadSNNG()
+        {
+            //using (SqlConnection conn = new SqlConnection(_connStr))
+            //{
+            string sql = "SELECT SerialCode, NGDescription FROM ASPPSSerialCodeNG";
+            //    SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+            //    _dtSNNG = new DataTable();
+            //    da.Fill(_dtSNNG);
 
+            //    gridControlSNNG.DataSource = _dtSNNG;
+            //}
+            DataTable dt = new DataTable();
+            dt = _sqlHelper.ExecQueryDataAsDataTable(sql);
+            bdsSNNG.DataSource = dt;
+            gridSNNG.DataSource = bdsSNNG;
+        }
         public void LoadTV()
         {
             iNgonNgu = 0;
@@ -232,6 +386,8 @@ namespace ASPProject.LineProdStatistic
             }
 
             gridProdStatView.SelectRow(curIndex);
+
+            LoadSNNG();
         }
 
         private void LoadDataDetail(long HeaderID)
@@ -361,10 +517,45 @@ namespace ASPProject.LineProdStatistic
 
             drCurrent = ((DataRowView)bdsPSHeader.Current).Row;
 
-            LoadDataDetail(Convert.ToInt32(drCurrent["HeaderID"]));
+            double headerId = (long)Convert.ToDouble(drCurrent["HeaderID"]);
 
+            LoadDataDetail(Convert.ToInt32(drCurrent["HeaderID"]));
             BdsEmpScan_PositionChanged(sender, e);
+
+            LoadSerialByHeaderID(headerId);
         }
+
+        private void LoadSerialByHeaderID(double headerId)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(
+                data.ASPDecrypt(ASPData.configDatabase.CONNECTION_STRINGS)))
+            {
+                string sql = @"
+SELECT 
+    HeaderID,
+    SerialCode,
+    NGDescription
+FROM ASPPSSerialCodeNG
+WHERE HeaderID = @HeaderID
+ORDER BY SerialCode;";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("@HeaderID", SqlDbType.Float).Value = headerId;
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+
+            bdsSNNG.DataSource = dt;
+            gridSNNG.DataSource = bdsSNNG;
+        }
+
 
         private void BdsEmpScan_PositionChanged(object sender, EventArgs e)
         {

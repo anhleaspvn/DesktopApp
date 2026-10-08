@@ -40,23 +40,27 @@
             this.txtLotNo = new DevExpress.XtraEditors.TextEdit();
             this.txtWO = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-<<<<<<< HEAD
-            this.txtSBDate = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtBinSize = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.txtPOCode = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.txtPOText = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.txtPartNo0 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.txtSBDate = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNW.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGW.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLotNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWO.Properties)).BeginInit();
-<<<<<<< HEAD
-            ((System.ComponentModel.ISupportInitialize)(this.txtSBDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBinSize.Properties)).BeginInit();
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            ((System.ComponentModel.ISupportInitialize)(this.txtPOCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPOText.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPartNo0.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSBDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSBDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtQuantity
@@ -64,17 +68,12 @@
             this.txtQuantity.Location = new System.Drawing.Point(132, 41);
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuantity.Name = "txtQuantity";
-<<<<<<< HEAD
             this.txtQuantity.Properties.DisplayFormat.FormatString = "0";
             this.txtQuantity.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.txtQuantity.Properties.EditFormat.FormatString = "0";
             this.txtQuantity.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.txtQuantity.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtQuantity.Properties.MaskSettings.Set("mask", "n0");
-=======
-            this.txtQuantity.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtQuantity.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.txtQuantity.Properties.UseMaskAsDisplayFormat = true;
             this.txtQuantity.Size = new System.Drawing.Size(266, 23);
             this.txtQuantity.TabIndex = 104;
@@ -93,17 +92,12 @@
             this.txtNW.Location = new System.Drawing.Point(132, 75);
             this.txtNW.Margin = new System.Windows.Forms.Padding(4);
             this.txtNW.Name = "txtNW";
-<<<<<<< HEAD
             this.txtNW.Properties.DisplayFormat.FormatString = "0";
             this.txtNW.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtNW.Properties.EditFormat.FormatString = "0";
             this.txtNW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtNW.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtNW.Properties.MaskSettings.Set("mask", "n2");
-=======
-            this.txtNW.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtNW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.txtNW.Properties.UseMaskAsDisplayFormat = true;
             this.txtNW.Size = new System.Drawing.Size(266, 23);
             this.txtNW.TabIndex = 106;
@@ -129,11 +123,7 @@
             // btCancel
             // 
             this.btCancel.ImageOptions.Image = global::ASPProject.Properties.Resources.close__2_;
-<<<<<<< HEAD
-            this.btCancel.Location = new System.Drawing.Point(220, 305);
-=======
-            this.btCancel.Location = new System.Drawing.Point(220, 235);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.btCancel.Location = new System.Drawing.Point(220, 432);
             this.btCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(144, 49);
@@ -143,11 +133,7 @@
             // btSave
             // 
             this.btSave.ImageOptions.Image = global::ASPProject.Properties.Resources.save1;
-<<<<<<< HEAD
-            this.btSave.Location = new System.Drawing.Point(41, 305);
-=======
-            this.btSave.Location = new System.Drawing.Point(41, 235);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.btSave.Location = new System.Drawing.Point(41, 432);
             this.btSave.Margin = new System.Windows.Forms.Padding(4);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(145, 49);
@@ -159,17 +145,12 @@
             this.txtGW.Location = new System.Drawing.Point(132, 109);
             this.txtGW.Margin = new System.Windows.Forms.Padding(4);
             this.txtGW.Name = "txtGW";
-<<<<<<< HEAD
             this.txtGW.Properties.DisplayFormat.FormatString = "0";
             this.txtGW.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtGW.Properties.EditFormat.FormatString = "0";
             this.txtGW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtGW.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtGW.Properties.MaskSettings.Set("mask", "n2");
-=======
-            this.txtGW.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtGW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.txtGW.Properties.UseMaskAsDisplayFormat = true;
             this.txtGW.Size = new System.Drawing.Size(266, 23);
             this.txtGW.TabIndex = 114;
@@ -210,16 +191,6 @@
             this.labelControl3.TabIndex = 185;
             this.labelControl3.Text = "WO";
             // 
-<<<<<<< HEAD
-            // txtSBDate
-            // 
-            this.txtSBDate.Location = new System.Drawing.Point(132, 212);
-            this.txtSBDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.txtSBDate.Name = "txtSBDate";
-            this.txtSBDate.Properties.UseMaskAsDisplayFormat = true;
-            this.txtSBDate.Size = new System.Drawing.Size(266, 23);
-            this.txtSBDate.TabIndex = 188;
-            // 
             // labelControl4
             // 
             this.labelControl4.Location = new System.Drawing.Point(21, 219);
@@ -247,21 +218,91 @@
             this.labelControl5.TabIndex = 189;
             this.labelControl5.Text = "Bin Size";
             // 
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            // txtPOCode
+            // 
+            this.txtPOCode.Location = new System.Drawing.Point(132, 285);
+            this.txtPOCode.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtPOCode.Name = "txtPOCode";
+            this.txtPOCode.Properties.UseMaskAsDisplayFormat = true;
+            this.txtPOCode.Size = new System.Drawing.Size(266, 23);
+            this.txtPOCode.TabIndex = 192;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(21, 292);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(49, 16);
+            this.labelControl6.TabIndex = 191;
+            this.labelControl6.Text = "PO Code";
+            // 
+            // txtPOText
+            // 
+            this.txtPOText.Location = new System.Drawing.Point(132, 322);
+            this.txtPOText.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtPOText.Name = "txtPOText";
+            this.txtPOText.Properties.UseMaskAsDisplayFormat = true;
+            this.txtPOText.Size = new System.Drawing.Size(266, 23);
+            this.txtPOText.TabIndex = 194;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(21, 329);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(45, 16);
+            this.labelControl7.TabIndex = 193;
+            this.labelControl7.Text = "PO Text";
+            // 
+            // txtPartNo0
+            // 
+            this.txtPartNo0.Location = new System.Drawing.Point(132, 359);
+            this.txtPartNo0.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtPartNo0.Name = "txtPartNo0";
+            this.txtPartNo0.Properties.UseMaskAsDisplayFormat = true;
+            this.txtPartNo0.Size = new System.Drawing.Size(266, 23);
+            this.txtPartNo0.TabIndex = 196;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(21, 366);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(53, 16);
+            this.labelControl9.TabIndex = 195;
+            this.labelControl9.Text = "Part No 0";
+            // 
+            // txtSBDate
+            // 
+            this.txtSBDate.EditValue = null;
+            this.txtSBDate.Location = new System.Drawing.Point(132, 212);
+            this.txtSBDate.Name = "txtSBDate";
+            this.txtSBDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtSBDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtSBDate.Properties.DisplayFormat.FormatString = "MM-dd-yyyy";
+            this.txtSBDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtSBDate.Properties.EditFormat.FormatString = "MM-dd-yyyy";
+            this.txtSBDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtSBDate.Size = new System.Drawing.Size(266, 23);
+            this.txtSBDate.TabIndex = 197;
+            // 
             // frmScanBarcodeBinEdit1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(549, 395);
+            this.ClientSize = new System.Drawing.Size(549, 521);
+            this.Controls.Add(this.txtSBDate);
+            this.Controls.Add(this.txtPartNo0);
+            this.Controls.Add(this.labelControl9);
+            this.Controls.Add(this.txtPOText);
+            this.Controls.Add(this.labelControl7);
+            this.Controls.Add(this.txtPOCode);
+            this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.txtBinSize);
             this.Controls.Add(this.labelControl5);
-            this.Controls.Add(this.txtSBDate);
             this.Controls.Add(this.labelControl4);
-=======
-            this.ClientSize = new System.Drawing.Size(549, 317);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.Controls.Add(this.txtWO);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.txtLotNo);
@@ -283,11 +324,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtGW.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLotNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWO.Properties)).EndInit();
-<<<<<<< HEAD
-            ((System.ComponentModel.ISupportInitialize)(this.txtSBDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBinSize.Properties)).EndInit();
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            ((System.ComponentModel.ISupportInitialize)(this.txtPOCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPOText.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPartNo0.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSBDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSBDate.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,12 +349,15 @@
         private DevExpress.XtraEditors.TextEdit txtLotNo;
         private DevExpress.XtraEditors.TextEdit txtWO;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-<<<<<<< HEAD
-        private DevExpress.XtraEditors.TextEdit txtSBDate;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit txtBinSize;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+        private DevExpress.XtraEditors.TextEdit txtPOCode;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.TextEdit txtPOText;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.TextEdit txtPartNo0;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.DateEdit txtSBDate;
     }
 }

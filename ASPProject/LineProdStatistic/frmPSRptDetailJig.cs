@@ -38,8 +38,6 @@ namespace ASPProject.LineProdStatistic
             this.btFilter.Click += BtFilter_Click;
             this.btExport.Click += BtExport_Click;
             this.btRestart.Click += BtRestart_Click;
-
-
         }
 
 
@@ -201,82 +199,6 @@ namespace ASPProject.LineProdStatistic
                     break;
             }
         }
-
-        //private void GridRptJigView_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
-        //{
-        //    DataRow drJig = ((DataRowView)bdsRptJig.Current).Row;
-
-        //    switch (e.Column.Name)
-        //    {
-        //        case "colIsChecked":
-        //            if (XtraMessageBox.Show("Bạn có muốn hoàn thành kiểm tra Jig này không ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
-        //                return;
-
-        //            if (Convert.ToDouble(drJig["Quantity"]) < Convert.ToDouble(drJig["QuotaQuantity"]))
-        //            {
-        //                XtraMessageBox.Show("Bạn chưa được hoàn thành kiểm tra Jig này.", "Thông báo", MessageBoxButtons.OK);
-        //                return;
-        //            }
-
-        //            bool isChecked = (bool)drJig["IsChecked"];
-        //            string strJigID = (string)drJig["JigID"];
-
-        //            var dicParams = new Dictionary<string, object>()
-        //            {
-        //                { "@IsChecked", !isChecked },
-        //                { "@JigID", strJigID },
-        //                { "@TypeUpdate", 0 }
-        //            };
-
-        //            sqlHelper.ExecProcedureNonData("sp_ASPUpdateJigSummary", dicParams);
-
-        //            drJig["IsChecked"] = !isChecked;
-
-        //            break;
-        //        case "colIsRestart":
-        //            if (XtraMessageBox.Show("Bạn có muốn bắt đầu lại Jig này không ?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
-        //                return;
-
-        //            bool isRestart = (bool)drJig["IsRestart"];
-        //            isChecked = (bool)drJig["IsChecked"];
-
-        //            if (isChecked == false)
-        //            {
-        //                XtraMessageBox.Show("Bạn chưa được bắt đầu lại Jig này.", "Thông báo", MessageBoxButtons.OK);
-        //                return;
-        //            }
-
-        //            if (isRestart == false)
-        //            {
-        //                strJigID = (string)drJig["JigID"];
-        //                dicParams = new Dictionary<string, object>()
-        //                {
-        //                    { "@IsChecked", false },
-        //                    { "@IsRestart", !isRestart },
-        //                    { "@JigID", strJigID },
-        //                    { "@TypeUpdate", 1 }
-        //                };
-
-        //                sqlHelper.ExecProcedureNonData("sp_ASPUpdateJigSummary", dicParams);
-
-        //                drJig["IsRestart"] = !isRestart;
-        //            }
-
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //}
-
-        //private void GridRptJigView_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
-        //{
-        //    double diffNum = Convert.ToDouble(gridRptJigView.GetRowCellValue(e.RowHandle, "DifferenceNum"));
-
-        //    if (diffNum < 0)
-        //    {
-        //        e.Appearance.ForeColor = Color.DarkOrange;
-        //    }
-        //}
 
         private bool FormCheckValid()
         {

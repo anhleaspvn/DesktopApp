@@ -6,6 +6,7 @@ using DevExpress.XtraBars.Customization;
 using DevExpress.XtraEditors;
 using DevExpress.XtraWaitForm;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
@@ -55,6 +56,7 @@ namespace ASPProject.AttendanceEmployee
             this.dtpAttendanceDate.EditValueChanged += DtpAttendanceDate_EditValueChanged;
             this.btSummary.Click += BtSummary_Click;
             this.gridAttendanceView.RowCellStyle += GridAttendanceView_RowCellStyle;
+            //this.btASM3Meal.Click += BtASM3Meal_Click;
         }
         #endregion
 
@@ -78,6 +80,20 @@ namespace ASPProject.AttendanceEmployee
             lkeDinnerTime.Properties.ValueMember = "TimeFrame";
             lkeDinnerTime.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             lkeDinnerTime.Properties.PopupFilterMode = PopupFilterMode.Contains;
+
+            DataTable dtLine = new DataTable();
+            dtLine = _sqlHelpter.ExecQueryDataAsDataTable("SELECT Ma_Day_Chuyen, HQ, SQ FROM L81DMDAYCHUYENASP WHERE Ma_Day_Chuyen = '" + lblLineID.Text + "'");
+
+            if (dtLine.Rows.Count > 0)
+            {
+                //string HQ = (string)dtLine.Rows[0]["HQ"];
+                string SQ = (string)dtLine.Rows[0]["SQ"];
+
+                labelControl4.Text = "SL chay chiều " + SQ;
+                labelControl5.Text = "SL chay sáng " + SQ;
+                labelControl6.Text = "SL mặn chiều " + SQ;
+                labelControl7.Text = "SL mặn sáng " + SQ;
+            }
 
             LoadData();
 
@@ -114,6 +130,11 @@ namespace ASPProject.AttendanceEmployee
             {
                 txtMorVege.Text =   Convert.ToDouble(dtAttendance.Rows[0]["MorVege"]) > 0 ? Convert.ToString(dtAttendance.Rows[0]["MorVege"]) : string.Empty;
                 txtEveVege.Text = Convert.ToDouble(dtAttendance.Rows[0]["EveVege"]) > 0 ? Convert.ToString(dtAttendance.Rows[0]["EveVege"]) : string.Empty;
+
+                txtMorVege_1.Text = Convert.ToDouble(dtAttendance.Rows[0]["MorVege_1"]) > 0 ? Convert.ToString(dtAttendance.Rows[0]["MorVege_1"]) : string.Empty;
+                txtEveVege_1.Text = Convert.ToDouble(dtAttendance.Rows[0]["EveVege_1"]) > 0 ? Convert.ToString(dtAttendance.Rows[0]["EveVege_1"]) : string.Empty;
+                txtMorSalt_1.Text = Convert.ToDouble(dtAttendance.Rows[0]["MorSalt_1"]) > 0 ? Convert.ToString(dtAttendance.Rows[0]["MorSalt_1"]) : string.Empty;
+                txtEveSalt_1.Text = Convert.ToDouble(dtAttendance.Rows[0]["EveSalt_1"]) > 0 ? Convert.ToString(dtAttendance.Rows[0]["EveSalt_1"]) : string.Empty;
 
                 lkeLunchTime.EditValue = Convert.ToString(dtAttendance.Rows[0]["LunchTime"]);
                 lkeDinnerTime.EditValue = Convert.ToString(dtAttendance.Rows[0]["DinnerTime"]);
@@ -180,6 +201,10 @@ namespace ASPProject.AttendanceEmployee
             editForm.timeKeeping = Convert.ToString(drCurrent["Timekeeping"]);
             editForm.morVege = !string.IsNullOrEmpty(txtMorVege.Text) ? Convert.ToInt32(txtMorVege.Text) : 0;
             editForm.eveVege = !string.IsNullOrEmpty(txtEveVege.Text) ? Convert.ToInt32(txtEveVege.Text) : 0;
+            editForm.morVege_1 = !string.IsNullOrEmpty(txtMorVege_1.Text) ? Convert.ToInt32(txtMorVege_1.Text) : 0;
+            editForm.eveVege_1 = !string.IsNullOrEmpty(txtEveVege_1.Text) ? Convert.ToInt32(txtEveVege_1.Text) : 0;
+            editForm.morSalt_1 = !string.IsNullOrEmpty(txtMorSalt_1.Text) ? Convert.ToInt32(txtMorSalt_1.Text) : 0;
+            editForm.eveSalt_1 = !string.IsNullOrEmpty(txtEveSalt_1.Text) ? Convert.ToInt32(txtEveSalt_1.Text) : 0;
             editForm.dateBeginTime = TimeSpan.Parse(Convert.ToString(drCurrent["DateBeginTime"]));
             editForm.dateEndTime = TimeSpan.Parse(Convert.ToString(drCurrent["DateEndTime"]));
 
@@ -229,6 +254,10 @@ namespace ASPProject.AttendanceEmployee
                     attendEmpDTO.Timekeeping = Convert.ToString(iDr["Timekeeping"]).Replace("-X-", "X");
                     attendEmpDTO.MorVege = Convert.ToDouble(!string.IsNullOrEmpty(txtMorVege.Text) ? txtMorVege.Text : "0");
                     attendEmpDTO.EveVege = Convert.ToDouble(!string.IsNullOrEmpty(txtEveVege.Text) ? txtEveVege.Text : "0");
+                    attendEmpDTO.MorVege_1 = Convert.ToDouble(!string.IsNullOrEmpty(txtMorVege_1.Text) ? txtMorVege_1.Text : "0");
+                    attendEmpDTO.EveVege_1 = Convert.ToDouble(!string.IsNullOrEmpty(txtEveVege_1.Text) ? txtEveVege_1.Text : "0");
+                    attendEmpDTO.MorSalt_1 = Convert.ToDouble(!string.IsNullOrEmpty(txtMorSalt_1.Text) ? txtMorSalt_1.Text : "0");
+                    attendEmpDTO.EveSalt_1 = Convert.ToDouble(!string.IsNullOrEmpty(txtEveSalt_1.Text) ? txtEveSalt_1.Text : "0");
                     attendEmpDTO.LunchTime = !string.IsNullOrEmpty(lkeLunchTime.EditValue.ToString()) ? lkeLunchTime.EditValue.ToString(): null;
                     attendEmpDTO.Dinnertime = !string.IsNullOrEmpty(lkeDinnerTime.EditValue.ToString()) ? lkeDinnerTime.EditValue.ToString() : null;
                     attendEmpDTO.DateBeginTime = TimeSpan.Parse(Convert.ToDateTime(iDr["AttendanceDate"]).AddHours(8).ToString("HH:mm:ss"));
@@ -303,6 +332,10 @@ namespace ASPProject.AttendanceEmployee
             editForm.userName = userName;
             editForm.morVege = !string.IsNullOrEmpty(txtMorVege.Text) ? Convert.ToInt32(txtMorVege.Text) : 0;
             editForm.eveVege = !string.IsNullOrEmpty(txtEveVege.Text) ? Convert.ToInt32(txtEveVege.Text) : 0;
+            editForm.morVege_1 = !string.IsNullOrEmpty(txtMorVege_1.Text) ? Convert.ToInt32(txtMorVege_1.Text) : 0;
+            editForm.eveVege_1 = !string.IsNullOrEmpty(txtEveVege_1.Text) ? Convert.ToInt32(txtEveVege_1.Text) : 0;
+            editForm.morSalt_1 = !string.IsNullOrEmpty(txtMorSalt_1.Text) ? Convert.ToInt32(txtMorSalt_1.Text) : 0;
+            editForm.eveSalt_1 = !string.IsNullOrEmpty(txtEveSalt_1.Text) ? Convert.ToInt32(txtEveSalt_1.Text) : 0;
             editForm.attendanceDate = Convert.ToDateTime(dtpAttendanceDate.EditValue);
             editForm.dtSaveMulti = gridAttendanceView.GetDataRow(0).Table.Clone(); //gridEmpStatView.GetDataRow(gridEmpStatView.GetSelectedRows());
             foreach (var iRow in gridAttendanceView.GetSelectedRows())
@@ -366,6 +399,19 @@ namespace ASPProject.AttendanceEmployee
             if (Convert.ToString(value).Trim() == "P" || Convert.ToString(value).Trim() == "V")
                 e.Appearance.BackColor = Color.Yellow;
         }
+
+        //private void BtASM3Meal_Click(object sender, EventArgs e)
+        //{
+        //    var dicParams = new Dictionary<string, object>()
+        //    {
+        //        { "@Parameter_ID", "MEAL" }
+        //    };
+
+        //    object linkAsm3 = _sqlHelpter.ExecQuerySacalar("SELECT Parameter_Value FROM L00PARAMETERSASP WHERE Parameter_ID = @Parameter_ID", dicParams);
+
+           
+        //    System.Diagnostics.Process.Start(linkAsm3.ToString());
+        //}
         #endregion
     }
 }

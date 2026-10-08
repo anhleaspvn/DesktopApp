@@ -32,17 +32,20 @@
             this.btSave = new DevExpress.XtraEditors.SimpleButton();
             this.txtDefectQuantity = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.txtDefectDescription = new DevExpress.XtraEditors.MemoEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lkeDefectiD = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.lbLosstimeID = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtDefectQuantity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDefectDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeDefectiD.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btCancel
             // 
             this.btCancel.ImageOptions.Image = global::ASPProject.Properties.Resources.close__2_;
-            this.btCancel.Location = new System.Drawing.Point(305, 153);
+            this.btCancel.Location = new System.Drawing.Point(305, 215);
             this.btCancel.Margin = new System.Windows.Forms.Padding(5);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(180, 61);
@@ -52,7 +55,7 @@
             // btSave
             // 
             this.btSave.ImageOptions.Image = global::ASPProject.Properties.Resources.save1;
-            this.btSave.Location = new System.Drawing.Point(82, 153);
+            this.btSave.Location = new System.Drawing.Point(82, 215);
             this.btSave.Margin = new System.Windows.Forms.Padding(5);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(181, 61);
@@ -78,6 +81,21 @@
             this.labelControl3.Size = new System.Drawing.Size(51, 16);
             this.labelControl3.TabIndex = 131;
             this.labelControl3.Text = "Số lượng";
+            // 
+            // txtDefectDescription
+            // 
+            this.txtDefectDescription.Location = new System.Drawing.Point(241, 101);
+            this.txtDefectDescription.Name = "txtDefectDescription";
+            this.txtDefectDescription.Size = new System.Drawing.Size(270, 85);
+            this.txtDefectDescription.TabIndex = 129;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(56, 104);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(54, 16);
+            this.labelControl1.TabIndex = 132;
+            this.labelControl1.Text = "Mô tả lỗi";
             // 
             // lkeDefectiD
             // 
@@ -118,7 +136,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 283);
+            this.ClientSize = new System.Drawing.Size(573, 320);
+            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.txtDefectDescription);
             this.Controls.Add(this.txtDefectQuantity);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.lkeDefectiD);
@@ -130,6 +150,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmIQCDetailDefectEdit";
             ((System.ComponentModel.ISupportInitialize)(this.txtDefectQuantity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDefectDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeDefectiD.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -142,6 +163,8 @@
         private DevExpress.XtraEditors.SimpleButton btSave;
         private DevExpress.XtraEditors.TextEdit txtDefectQuantity;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.MemoEdit txtDefectDescription;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LookUpEdit lkeDefectiD;
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.LabelControl lbLosstimeID;

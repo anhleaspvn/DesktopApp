@@ -15,6 +15,8 @@ using ASPData.ASPDTO;
 using ASPData.ASPDAO;
 using DevExpress.LookAndFeel;
 using ASPProject.Load;
+using ASPProject.SkillMap;
+
 
 namespace ASPProject
 {
@@ -74,6 +76,8 @@ namespace ASPProject
             if (control.Text == null || control.Text.Trim().Length == 0) dxErrorProvider1.SetError(control, sThongBao, ErrorType.Critical);
             else dxErrorProvider1.SetError(control, "");
         }
+
+        // nút đăng nhập
         private void simpleButton1_Click(object sender, EventArgs e)
         {
 
@@ -105,9 +109,12 @@ namespace ASPProject
                     XtraMessageBox.Show("Please input password");
                     return;
                 }
-
             }
 
+
+           
+            
+            SessionMangerSkillMap.SetUser(txtTenTaiKhoan.Text);
             aspDto.UserName = txtTenTaiKhoan.Text;
 
             DataTable tbLogin = new DataTable();
@@ -123,9 +130,15 @@ namespace ASPProject
 
                 this.Hide();
                 frmLoad frm = new frmLoad();
+                // thêm vào
+                frmLoadDataHorizontal frmNVLine = new frmLoadDataHorizontal();
+               
                 frm.sTennv = tbLogin.Rows[0]["Ten_CbNv"].ToString();
                 frm.sBoPhan = tbLogin.Rows[0]["Ma_Bp"].ToString();
                 frm.sManv = tbLogin.Rows[0]["Username"].ToString();
+                // thêm vào
+                frmNVLine.UseNameLogin = tbLogin.Rows[0]["Username"].ToString();
+
                 frm.iNgonNgu = iNgonNgu;
                 frm.ShowDialog();
                 SaveRegistry();
@@ -198,7 +211,7 @@ namespace ASPProject
             iNgonNgu = 0;
             CultureInfo objCultureInfo = Thread.CurrentThread.CurrentCulture;
             btDangNhap.Text = resVietNam.DangNhap.ToString();
-            
+
             checkNho.Text = resVietNam.checkNho.ToString();
             this.Text = "Đăng nhập tài khoản";
         }
@@ -207,7 +220,7 @@ namespace ASPProject
             iNgonNgu = 1;
             CultureInfo objCultureInfo = Thread.CurrentThread.CurrentCulture;
             btDangNhap.Text = resEngLand.DangNhap.ToString();
-           
+
             checkNho.Text = resEngLand.checkNho.ToString();
             this.Text = "Login account";
 

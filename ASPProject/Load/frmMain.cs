@@ -1,28 +1,43 @@
-﻿using System;
-using System.Windows.Forms;
-using DevExpress.XtraBars;
-using DevComponents.DotNetBar;
-using System.IO;
-using DevExpress.XtraEditors;
-using ASPProject.DefectiveMode;
-using ASPProject.Losstime;
-using ASPProject.LineProdStatistic;
-using ASPProject.Timekeeping;
-using ASPProject.AttendanceEmployee;
-using ASPProject.ExLosstime;
 using ASPData.ASPDAO;
+using ASPGoogleSheet;
+using ASPMachineMonitor;
+using ASPProject.AppTemplateSkillMap;
+using ASPProject.AppTemplateSkillMapV2;
+using ASPProject.AttendanceEmployee;
+using ASPProject.DefectiveMode;
+using ASPProject.ExLosstime;
 using ASPProject.ExternalIQC;
 using ASPProject.HRAbsenceDoc;
-using ASPMachineMonitor;
-using ASPProject.SOPStage;
 using ASPProject.InternalAudit;
-using ASPProject.Properties;
-using DevExpress.XtraBars.Ribbon;
-using System.Drawing;
+using ASPProject.LineProdStatistic;
+using ASPProject.Losstime;
 using ASPProject.Machine;
-using ASPProject.ScanBarCodeBin;
 using ASPProject.PlaningMasterList;
 using ASPProject.ProdQRCodeMaster;
+using ASPProject.Properties;
+using ASPProject.ScanBarCodeBin;
+using ASPProject.SOPStage;
+using ASPProject.Timekeeping;
+using ASPProject.ASPAlternatingLevelSchedule;
+using ASPProject.AlternatingLeaveSchedule;
+using QRCoder;
+using System.Drawing.Imaging;
+using DevComponents.DotNetBar;
+using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
+using DevExpress.XtraRichEdit.Import.Html;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Dynamic;
+using System.Globalization;
+using System.IO;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ASPProject
 {
@@ -30,6 +45,7 @@ namespace ASPProject
     {
         public ASPControl.Loadingggg ld = new ASPControl.Loadingggg();
         private readonly ASPDAO aspDao = new ASPDAO();
+        private ASPData.ASPData data = new ASPData.ASPData();
 
         public frmMain()
         {
@@ -40,6 +56,7 @@ namespace ASPProject
             btDefectMode.ItemClick += BtDefectMode_ItemClick;
             btLosstime.ItemClick += BtLosstime_ItemClick;
             btProdStatistic.ItemClick += BtProdStatistic_ItemClick;
+            btProdStatisticASM2.ItemClick += BtProdStatisticASM2_ItemClick;
             btTimekeeping.ItemClick += BtTimekeeping_ItemClick;
             btAttendance.ItemClick += BtAttendance_ItemClick;
             btProdExLosstime.ItemClick += BtProdExLosstime_ItemClick;
@@ -68,14 +85,599 @@ namespace ASPProject
             btScanBarcodeBin.ItemClick += BtScanBarcodeBin_ItemClick;
             btQRCodeMaster.ItemClick += BtQRCodeMaster_ItemClick;
             btProdScanQRCodeLog.ItemClick += BtProdScanQRCodeLog_ItemClick;
-            btTracebility.ItemClick += BtTracebility_ItemClick;
+            btTraceability.ItemClick += BtTracebility_ItemClick;
             btScanQRCodeJig.ItemClick += BtScanQRCodeJig_ItemClick;
             btDetailTableJig.ItemClick += BtDetailTableJig_ItemClick;
             btSBLine.ItemClick += BtSBLine_ItemClick;
             btSumDataQRCode.ItemClick += BtSumDataQRCode_ItemClick;
             btBinQCApproval.ItemClick += BtBinQCApproval_ItemClick;
             btMachineIns.ItemClick += BtMachineIns_ItemClick;
+            btPlanning.ItemClick += BtPlanning_ItemClick;
+            btSkillmap.ItemClick += BtSkillmap_ItemClick;
+            btScanQR037.ItemClick += BtScanQR037_ItemClick;
+            btIPQCInspect.ItemClick += BtIPQCInspect_ItemClick;
+            btLineProductivity.ItemClick += BtLineProductivity_ItemClick;
+            btAlternative.ItemClick += BtAlternative_ItemClick;
+            btXuatQR.ItemClick += BtXuatQR_ItemClick;
         }
+
+        private void BtLineProductivity_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Bảng kế hoạch sản xuất";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Production planning table";
+            }
+
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabControl12.CreateTab(sTieuDe);
+                t.Name = "Line productivity";
+                frmLineProductivity frm = new frmLineProductivity();
+
+                frm.deDongTab = new frmLineProductivity._deDongTab(vDOngTab);
+                frm.frm = this;
+                frm.iNgonNgu = iNgonNgu;
+                frm.TopLevel = false;
+                frm.Dock = DockStyle.Fill;
+                frm.userName = this.sManv;
+                t.AttachedControl.Controls.Add(frm);
+                frm.Show();
+                tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            }
+
+            ld.simpleCloseWait();
+        }
+
+        public static void GenerateQr(string content, string savePath)
+        {
+            using (QRCodeGenerator qrGenerator = new QRCodeGenerator())
+            {
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(
+                    content,
+                    QRCodeGenerator.ECCLevel.Q
+                );
+
+                using (QRCode qrCode = new QRCode(qrCodeData))
+                using (Bitmap qrImage = qrCode.GetGraphic(10))
+                {
+                    qrImage.Save(savePath, ImageFormat.Png);
+                }
+            }
+        }
+
+        private void BtXuatQR_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var dic = new Dictionary<string, object>();
+
+            string sql = "SELECT * FROM TempQRCodeEmp WHERE QRType = 2";
+
+            ASPData.SQLHelper hp = new ASPData.SQLHelper();
+            DataTable dt = hp.ExecQueryDataAsDataTable(sql, dic);
+
+            string dir = Path.Combine(Application.StartupPath, "QROthers");
+            if (!Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                string empID = !string.IsNullOrEmpty(dr["EmpID"].ToString()) ? dr["EmpID"].ToString() : string.Empty;
+                string empName = !string.IsNullOrEmpty(dr["EmpName"].ToString()) ? dr["EmpName"].ToString() : string.Empty;
+                string deptName = !string.IsNullOrEmpty(dr["DeptName"].ToString()) ? dr["DeptName"].ToString() : string.Empty;
+                string factory = !string.IsNullOrEmpty(dr["Factory"].ToString()) ? dr["Factory"].ToString() : string.Empty;
+
+                string qrContent = empID + "-" + empName + "-" + deptName + "-" + factory;
+                string filePath = Path.Combine(dir, empName + ".png");
+
+                GenerateQr(qrContent, filePath);
+            }
+        }
+
+        private void BtAlternative_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Đăng ký lịch nghỉ luân phiên";
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Leaves Alternative";
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "Chart";
+
+            frmAlternatingLevelSchedule machineChart = new frmAlternatingLevelSchedule(sManv);
+            machineChart.TopLevel = false;
+
+            t.AttachedControl.Controls.Add(machineChart);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            machineChart.Show();
+            ld.simpleCloseWait();
+        }
+
+        private void BtIPQCInspect_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "IPQC Inspection";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "IPQC Inspection";
+
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "IPQC Inspection";
+
+            frmIPQCInspec prodQr = new frmIPQCInspec();
+
+            prodQr.TopLevel = false;
+            prodQr.Dock = DockStyle.Fill;
+            prodQr.userName = sManv;
+            prodQr.frm = this;
+            t.AttachedControl.Controls.Add(prodQr);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            prodQr.Show();
+
+            ld.simpleCloseWait();
+        }
+
+        private void BtScanQR037_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Scan QR Code P";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Scan QR Code P";
+
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "Scan QR Code P";
+
+            frmProdScanQRCodeLog prodQr = new frmProdScanQRCodeLog();
+
+            prodQr.TopLevel = false;
+            prodQr.Dock = DockStyle.Fill;
+            prodQr.userName = sManv;
+            prodQr.frm = this;
+            t.AttachedControl.Controls.Add(prodQr);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            prodQr.Show();
+
+            ld.simpleCloseWait();
+        }
+
+        //read data from GGS to write to DB
+        private void BtReadGGS_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SyncDashboardIndex();
+        }
+
+        public void SyncDashboardIndex()
+        {
+            try
+            {
+                SyncWHIndex();
+                SyncHRIndex();
+                SyncQCIndex();
+
+                MessageBox.Show("Đã cập nhật thành công!");
+            }
+            catch (Exception ex)
+            {
+                // lỗi hệ thống rất lớn (credential, config, app chết)
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void SyncWHIndex()
+        {
+            try
+            {
+                string credentialFile = "credentials.json";
+                string spreadSheetID = "1bn5kLlwrPGYR0iK2pC9ORlyCUNBNEPEx2fc97lUVoB8";
+
+                var ggs = new GoogleSheetsHelper(credentialFile, spreadSheetID);
+                var ggsParams = new GoogleSheetParameters
+                {
+                    SheetName = "Sheet1",
+                    FirstRowIsHeaders = true,
+                    RangeRowStart = 1,
+                    RangeColumnStart = 1,
+                    RangeColumnEnd = 3,
+                    RangeRowEnd = 10000
+                };
+
+                DataTable dt = GGSExtension.ToDataTable(ggs.GetDataFromSheet(ggsParams));
+
+                using (SqlConnection conn = new SqlConnection(
+                    data.ASPDecrypt(ASPData.configDatabase.CONNECTION_STRINGS)))
+                {
+                    conn.Open();
+                    using (SqlTransaction tran = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            new SqlCommand(
+                                "TRUNCATE TABLE dbo.ASPWHCSChartIndex", conn, tran
+                            ).ExecuteNonQuery();
+
+                            using (SqlBulkCopy bulk = new SqlBulkCopy(
+                                conn, SqlBulkCopyOptions.TableLock, tran))
+                            {
+                                bulk.DestinationTableName = "dbo.ASPWHCSChartIndex";
+                                bulk.BatchSize = 5000;
+                                bulk.BulkCopyTimeout = 0;
+
+                                bulk.ColumnMappings.Add("StatisticDate", "StatisticDate");
+                                bulk.ColumnMappings.Add("InventoryTurn", "InventoryTurn");
+                                bulk.ColumnMappings.Add("OTD", "OTD");
+
+                                bulk.WriteToServer(dt);
+                            }
+
+                            tran.Commit();
+                        }
+                        catch
+                        {
+                            tran.Rollback();
+                            throw;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        private void SyncHRIndex()
+        {
+            try
+            {
+                string credentialFile = "credentials.json";
+                string spreadSheetID = "1tjZC0xyQpwyc5pgDz1Cz_ksUrbx4_s_K1NrpK7R3kwI";
+
+                var ggs = new GoogleSheetsHelper(credentialFile, spreadSheetID);
+                var ggsParams = new GoogleSheetParameters
+                {
+                    SheetName = "Sheet1",
+                    FirstRowIsHeaders = true,
+                    RangeRowStart = 1,
+                    RangeColumnStart = 1,
+                    RangeColumnEnd = 6,
+                    RangeRowEnd = 10000
+                };
+
+                DataTable dt = GGSExtension.ToDataTable(ggs.GetDataFromSheet(ggsParams));
+
+                dt.Columns.Add("TempDate", typeof(DateTime));
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (!DateTime.TryParseExact(
+                        Convert.ToString(dr["StatisticDate"]),
+                        new[] { "dd/MM/yyyy", "d/MM/yyyy", "d/M/yyyy", "MM/dd/yyyy", "yyyy-MM-dd", "yyyy/MM/dd" },
+                        CultureInfo.InvariantCulture,
+                        DateTimeStyles.None,
+                        out DateTime parsedDate))
+                    {
+                        parsedDate = new DateTime(1900, 1, 1);
+                    }
+
+                    dr["TempDate"] = parsedDate;
+                }
+
+                using (SqlConnection conn = new SqlConnection(
+                    data.ASPDecrypt(ASPData.configDatabase.CONNECTION_STRINGS)))
+                {
+                    conn.Open();
+                    using (SqlTransaction tran = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            new SqlCommand(
+                                "TRUNCATE TABLE dbo.ASPHRChartIndex", conn, tran
+                            ).ExecuteNonQuery();
+
+                            using (SqlBulkCopy bulk = new SqlBulkCopy(
+                                conn, SqlBulkCopyOptions.TableLock, tran))
+                            {
+                                bulk.DestinationTableName = "dbo.ASPHRChartIndex";
+                                bulk.BatchSize = 5000;
+                                bulk.BulkCopyTimeout = 0;
+
+                                bulk.ColumnMappings.Add("TempDate", "StatisticDate");
+                                bulk.ColumnMappings.Add("DeptID", "DeptID");
+                                bulk.ColumnMappings.Add("FactoryID", "FactoryID");
+                                bulk.ColumnMappings.Add("IndexOf7S", "IndexOf7S");
+                                bulk.ColumnMappings.Add("IndexOfSAI", "IndexOfSAI");
+                                bulk.ColumnMappings.Add("IndexOfEII", "IndexOfEII");
+
+                                bulk.WriteToServer(dt);
+                            }
+
+                            tran.Commit();
+                        }
+                        catch
+                        {
+                            tran.Rollback();
+                            throw;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void SyncQCIndex()
+        {
+            try
+            {
+                string credentialFile = "credentials.json";
+                string spreadSheetID = "1rribSI6kLrffp0NAsvLUcWpaou5VV0dcFGJGn-YCosA";
+
+                var ggs = new GoogleSheetsHelper(credentialFile, spreadSheetID);
+                var ggsParams = new GoogleSheetParameters
+                {
+                    SheetName = "Sheet1",
+                    FirstRowIsHeaders = true,
+                    RangeRowStart = 2,
+                    RangeColumnStart = 1,
+                    RangeColumnEnd = 7,
+                    RangeRowEnd = 10000
+                };
+
+                DataTable dt = GGSExtension.ToDataTable(ggs.GetDataFromSheet(ggsParams));
+                dt.Columns.Add("TempDate", typeof(DateTime));
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (!DateTime.TryParseExact(
+                        Convert.ToString(dr["StatisticDate"]),
+                        new[] { "dd/MM/yyyy", "d/MM/yyyy", "d/M/yyyy", "MM/dd/yyyy", "yyyy-MM-dd", "yyyy/MM/dd" },
+                        CultureInfo.InvariantCulture,
+                        DateTimeStyles.None,
+                        out DateTime parsedDate))
+                    {
+                        parsedDate = new DateTime(1900, 1, 1);
+                    }
+
+                    dr["TempDate"] = parsedDate;
+                }
+
+                using (SqlConnection conn = new SqlConnection(
+                    data.ASPDecrypt(ASPData.configDatabase.CONNECTION_STRINGS)))
+                {
+                    conn.Open();
+                    using (SqlTransaction tran = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            new SqlCommand(
+                                "TRUNCATE TABLE dbo.ASPDashboardQAASM1", conn, tran
+                            ).ExecuteNonQuery();
+
+                            using (SqlBulkCopy bulk = new SqlBulkCopy(
+                                conn, SqlBulkCopyOptions.TableLock, tran))
+                            {
+                                bulk.DestinationTableName = "dbo.ASPDashboardQAASM1";
+                                bulk.BatchSize = 5000;
+                                bulk.BulkCopyTimeout = 0;
+
+                                bulk.ColumnMappings.Add("TempDate", "StatisticDate");
+                                bulk.ColumnMappings.Add("CusComplaintPPM", "CusComplaintPPM");
+                                bulk.ColumnMappings.Add("SampleComplaint", "SampleComplaint");
+                                bulk.ColumnMappings.Add("CarCloseRate", "CarCloseRate");
+                                bulk.ColumnMappings.Add("IQCLossRate", "IQCLossRate");
+                                bulk.ColumnMappings.Add("MonthlyPPMOQCLoss", "MonthlyPPMOQCLoss");
+                                bulk.ColumnMappings.Add("MonthlyOQCLoss", "MonthlyOQCLoss");
+
+                                bulk.WriteToServer(dt);
+                            }
+
+                            tran.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            throw ex;
+                            tran.Rollback();
+                            throw;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private DataTable CheckModulePermission(string username, string moduleName)
+        {
+            var dic = new Dictionary<string, object>
+            {
+                { "@username", username },
+                { "@moduleName", moduleName }
+            };
+            string sql = "SELECT TOP 1 Member_ID AS Counter FROM L00PERMISSIONASP WHERE Member_ID = @username AND [Object_ID] = @moduleName" +
+                "   UNION SELECT TOP 1 Member_ID AS Counter FROM L00MEMBERASP WHERE Member_ID = @username AND Is_Admin = 1";
+            ASPData.SQLHelper hp = new ASPData.SQLHelper();
+            DataTable dt = hp.ExecQueryDataAsDataTable(sql, dic);
+            return dt;
+        }
+
+        private void BtSkillmap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenSkillMapTab();
+        }
+
+        /// <summary>
+        /// Mở / focus tab Skill Map (V2). Idempotent theo t.Name = "Skill Map".
+        /// Non-admin: mở thẳng Horizontal; Admin: mở form quản trị frmSkillMapV2.
+        /// </summary>
+        public void OpenSkillMapTab()
+        {
+            string username = !string.IsNullOrWhiteSpace(this.sManv)
+                ? this.sManv
+                : ASPProject.SkillMap.SessionMangerSkillMap.Username ?? "";
+
+            var dao = new SkillMapV2DAO();
+            bool isAdmin = dao.IsSkillMapAdmin(username);
+
+            string tabName = isAdmin ? "Skill Map" : "Skill Map Horizontal";
+            string tabTitle = "Skill Map";
+
+            for (int i = 0; i < tabControl12.Tabs.Count; i++)
+            {
+                if (tabControl12.Tabs[i].Name == tabName)
+                {
+                    tabControl12.SelectedTabIndex = i;
+                    return;
+                }
+            }
+
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            TabItem t = tabControl12.CreateTab(tabTitle);
+            t.Name = tabName;
+
+            if (isAdmin)
+            {
+                var frmSkill = new frmSkillMapV2();
+                frmSkill.TopLevel = false;
+                frmSkill.Dock = DockStyle.Fill;
+                frmSkill.FormBorderStyle = FormBorderStyle.None;
+
+                t.AttachedControl.Controls.Add(frmSkill);
+                tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+
+                frmSkill.Show();
+            }
+            else
+            {
+                // Non-admin (WHA, LineSX, KTV): Mở thẳng Ma trận ngang Horizontal sạch sẽ
+                var frmH = new frmHorizontalV2(username, isAdmin: false, initialSkillType: null);
+                frmH.TopLevel = false;
+                frmH.Dock = DockStyle.Fill;
+                frmH.FormBorderStyle = FormBorderStyle.None;
+
+                t.AttachedControl.Controls.Add(frmH);
+                tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+
+                frmH.Show();
+            }
+
+            ld.simpleCloseWait();
+        }
+
+        /// <summary>
+        /// Mở / focus tab Horizontal (admin): Mode = SkillType từ config (LineSX/KTV/VPSX/…), không popup.
+        /// </summary>
+        /// <param name="initialSkillType">vd "LineSX", "KTV", "VPSX"; null = type đầu trong config</param>
+        public void OpenSkillMapHorizontalTab(string username, string initialSkillType = null)
+        {
+            const string tabName = "Skill Map Horizontal";
+            for (int i = 0; i < tabControl12.Tabs.Count; i++)
+            {
+                if (tabControl12.Tabs[i].Name != tabName) continue;
+
+                tabControl12.SelectedTabIndex = i;
+                foreach (Control c in tabControl12.Tabs[i].AttachedControl.Controls)
+                {
+                    if (c is frmHorizontalV2 h)
+                    {
+                        if (!string.IsNullOrWhiteSpace(initialSkillType))
+                            h.SetMode(initialSkillType);
+                        return;
+                    }
+                }
+                return;
+            }
+
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            TabItem t = tabControl12.CreateTab("Skill Map Horizontal");
+            t.Name = tabName;
+
+            // Admin horizontal tab: isAdmin=true, Mode load từ ASPSkillMapTypeConfig
+            var frmH = new frmHorizontalV2(username, isAdmin: true, initialSkillType: initialSkillType);
+            frmH.TopLevel = false;
+            frmH.Dock = DockStyle.Fill;
+            frmH.FormBorderStyle = FormBorderStyle.None;
+
+            t.AttachedControl.Controls.Add(frmH);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+
+            frmH.Show();
+            ld.simpleCloseWait();
+        }
+
+        private void BtPlanning_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Planning";
+
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Planning";
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "Planning";
+
+            frmPlanning frminsMachine = new frmPlanning();
+            //frminsMachine.userName = sManv;
+            frminsMachine.TopLevel = false;
+            frminsMachine.Dock = DockStyle.Fill;
+
+            t.AttachedControl.Controls.Add(frminsMachine);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+
+            frminsMachine.Show();
+            ld.simpleCloseWait();
+        }
+
         private void BtMachineIns_ItemClick(object sender, ItemClickEventArgs e)
         {
             ld.CreateWaitDialog();
@@ -129,7 +731,7 @@ namespace ASPProject
 
             qcApproval.TopLevel = false;
             qcApproval.Dock = DockStyle.Fill;
-           
+
             t.AttachedControl.Controls.Add(qcApproval);
             tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
 
@@ -285,7 +887,7 @@ namespace ASPProject
             TabItem t = tabControl12.CreateTab(sTieuDe);
             t.Name = "Scan QR Code";
 
-            frmProdScanQRCodeLog prodQr = new frmProdScanQRCodeLog();
+            frmQCScanQRCodeLog prodQr = new frmQCScanQRCodeLog();
 
             prodQr.TopLevel = false;
             prodQr.Dock = DockStyle.Fill;
@@ -364,11 +966,82 @@ namespace ASPProject
             ld.simpleCloseWait();
         }
 
+        private void InitializePrintLabelControl()
+        {
+            DevExpress.XtraBars.BarButtonItem btPrintLabelControl = new DevExpress.XtraBars.BarButtonItem();
+
+            btPrintLabelControl.Caption = (iNgonNgu == 0) ? "Kiểm soát in tem" : "Print Label Control";
+            btPrintLabelControl.Id = 999;
+            btPrintLabelControl.Name = "btPrintLabelControl";
+
+            // Icon lớn (thường dùng trên Ribbon)
+            btPrintLabelControl.ImageOptions.LargeImage = Properties.Resources.barcode;
+
+            // Hoặc icon nhỏ
+            btPrintLabelControl.ImageOptions.Image = Properties.Resources.barcode;
+
+            btPrintLabelControl.ItemClick += BtPrintLabelControl_ItemClick;
+
+            if (this.ribbon != null)
+            {
+                this.ribbon.Items.Add(btPrintLabelControl);
+            }
+
+            if (this.ribEMES_MRP_ASM1 != null)
+            {
+                int index = -1;
+                
+
+                if (index >= 0)
+                {
+                    this.ribEMES_MRP_ASM1.ItemLinks.Insert(index + 1, btPrintLabelControl);
+                }
+                else
+                {
+                    this.ribEMES_MRP_ASM1.ItemLinks.Add(btPrintLabelControl);
+                }
+            }
+        }
+
+        private void BtPrintLabelControl_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption(iNgonNgu == 0 ? "Đang tải dữ liệu - Vui Lòng Chờ" : "Loading data - Please wait...");
+
+            string sTieuDe = iNgonNgu == 0 ? "Kiểm soát in tem" : "Print Label Control";
+
+            foreach (TabItem item in tabControl12.Tabs)
+            {
+                if (item.Name == "PrintLabelControl")
+                {
+                    tabControl12.SelectedTab = item;
+                    ld.simpleCloseWait();
+                    return;
+                }
+            }
+
+            TabItem t = tabControl12.CreateTab(sTieuDe);
+            t.Name = "PrintLabelControl";
+
+            frmPrintLabelControl printCtrl = new frmPrintLabelControl();
+
+            printCtrl.TopLevel = false;
+            printCtrl.Dock = DockStyle.Fill;
+            printCtrl.userName = sManv;
+            printCtrl.iNgonNgu = iNgonNgu;
+            printCtrl.frm = this;
+            t.AttachedControl.Controls.Add(printCtrl);
+            tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            printCtrl.Show();
+
+            ld.simpleCloseWait();
+        }
+
         private void Ribbon_Paint(object sender, PaintEventArgs e)
         {
             Image image = Resources.asplogo128x128;
             Rectangle RibbonBounds = ribbon.Bounds;
-            Rectangle rect = new Rectangle(RibbonBounds.Right - 35, RibbonBounds.Y+49, image.Width, image.Height);
+            Rectangle rect = new Rectangle(RibbonBounds.Right - 35, RibbonBounds.Y + 49, image.Width, image.Height);
             rect.Offset(RibbonBounds.X - image.Width, 10);
             e.Graphics.DrawImage(image, rect);
         }
@@ -676,6 +1349,40 @@ namespace ASPProject
                 tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
             }
 
+
+            ld.simpleCloseWait();
+        }
+
+        private void BtProdStatisticASM2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ld.CreateWaitDialog();
+            ld.SetWaitDialogCaption("Đang tải dữ liệu - Vui Lòng Chờ");
+
+            sTieuDe = "";
+            if (iNgonNgu == 0)
+            {
+                sTieuDe = "Thống kê sản xuất NM2";
+            }
+            if (iNgonNgu == 1)
+            {
+                sTieuDe = "Production statistic (NM2)";
+            }
+
+            if (!checkOpenTabs(sTieuDe))
+            {
+                TabItem t = tabControl12.CreateTab(sTieuDe);
+                t.Name = "Production statistic (NM2)";
+                ASPProject.LineProdStatisticASM2.frmProdStatisticView prodStaFrm = new ASPProject.LineProdStatisticASM2.frmProdStatisticView();
+                prodStaFrm.deDongTab = new ASPProject.LineProdStatisticASM2.frmProdStatisticView._deDongTab(vDOngTab);
+                prodStaFrm.frm = this;
+                prodStaFrm.iNgonNgu = iNgonNgu;
+                prodStaFrm.TopLevel = false;
+                prodStaFrm.Dock = DockStyle.Fill;
+                prodStaFrm.userName = this.sManv;
+                t.AttachedControl.Controls.Add(prodStaFrm);
+                prodStaFrm.Show();
+                tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
+            }
 
             ld.simpleCloseWait();
         }
@@ -1209,7 +1916,7 @@ namespace ASPProject
                 frmHrDoc.iNgonNgu = iNgonNgu;
                 frmHrDoc.TopLevel = false;
                 frmHrDoc.Dock = DockStyle.Fill;
-               
+
                 t.AttachedControl.Controls.Add(frmHrDoc);
                 frmHrDoc.Show();
                 tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
@@ -1323,8 +2030,8 @@ namespace ASPProject
                 tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
             }
 
-            ld.simpleCloseWait(); 
-            
+            ld.simpleCloseWait();
+
         }
 
         private void BtSumDataQRCode_ItemClick(object sender, ItemClickEventArgs e)
@@ -1454,9 +2161,9 @@ namespace ASPProject
             {
                 TabItem t = tabControl12.CreateTab(sTieuDe);
                 t.Name = "Output Chart";
-                InventoryDashboardForm frmOutChart = new InventoryDashboardForm();
-                //frmProdStatisticChart frmOutChart = new frmProdStatisticChart();
-                //frmOutChart.username = this.sManv;
+                //InventoryDashboardForm frmOutChart = new InventoryDashboardForm();
+                frmProdStatisticChart frmOutChart = new frmProdStatisticChart();
+                frmOutChart.username = this.sManv;
                 //frmOutChart.deDongTab = new frmExLosstime._deDongTab(vDOngTab);
                 //frmOutChart.frm = this;
                 //frmOutChart.iNgonNgu = iNgonNgu;
@@ -1494,66 +2201,63 @@ namespace ASPProject
             return false;
         }
         public string sManv, sTennv, sBoPhan;
-        public void veditTypeDangNhap()
+        public void GetModulePermission()
         {
-            bool permit = aspDao.CheckPermission("ListControl", this.sManv);
-
-            if (!permit)
+            DataTable dtModulePermission = new DataTable();
+            dtModulePermission = CheckModulePermission(sManv, "EMES_HRM");
+            if (dtModulePermission.Rows.Count > 0)
             {
-                ribDanhMuc.Visible = false;
-                rbMachineTime.Visible = false;
-                btExportReportExcel.Visibility = BarItemVisibility.Never; ;
+                ribEMES_HRM.Visible = true;
+                ribbon.SelectedPage = ribEMES_HRM;
+                dtModulePermission = CheckModulePermission(sManv, "EMES_HRM_VP");
+                if (dtModulePermission.Rows.Count > 0)
+                {
+                    ribPageEMES_HRM_VP.Visible = true;
+                }
+                dtModulePermission = CheckModulePermission(sManv, "EMES_HRM_CN");
+                if (dtModulePermission.Rows.Count > 0)
+                {
+                    ribPageEMES_HRM_CN.Visible = true;
+                }
             }
 
-            permit = aspDao.CheckPermission("ProductionReport", this.sManv);
-
-            if (!permit)
+            dtModulePermission = CheckModulePermission(sManv, "EMES_MRP");
+            if (dtModulePermission.Rows.Count > 0)
             {
-                btProdReport.Visibility = BarItemVisibility.Never;
+                ribEMES_SX.Visible = true;
+                ribEMES_SX_INTEM.Visible = true;
+                ribEMES_MRP_ASM2.Visible = false;
+
+                ribbon.SelectedPage = ribEMES_SX;
             }
 
-            if (sBoPhan == "MABP00001")
+            dtModulePermission = CheckModulePermission(sManv, "EMES_MRP_2");
+            if (dtModulePermission.Rows.Count > 0)
             {
-                btNhapHang.Enabled = true;
-                btCongNoNCC.Enabled = true;
-                btHoaDonNhap.Enabled = true;
-                btXuatHang.Enabled = false;
-                btHoaDonXuat.Enabled = false;
-                btCongNoKH.Enabled = false;
-                ribNhanVien.Visible = false;
-            }
-            if (sBoPhan == "MABP00002")
-            {
+                ribEMES_SX.Visible = true;
+                ribEMES_SX_INTEM.Visible = false;
+                ribEMES_MRP_ASM1.Visible = false;
 
-                btXuatHang.Enabled = true;
-                btHoaDonXuat.Enabled = true;
-                btCongNoKH.Enabled = true;
-                btNhapHang.Enabled = false;
-                btCongNoNCC.Enabled = false;
-                btHoaDonNhap.Enabled = false;
-                ribNhanVien.Visible = false;
+                ribbon.SelectedPage = ribEMES_SX;
             }
 
-            if (sBoPhan == "MABP00004")
+            dtModulePermission = CheckModulePermission(sManv, "EMES_REPORT");
+            if (dtModulePermission.Rows.Count > 0)
             {
-                btNhapHang.Enabled = true;
-                btCongNoNCC.Enabled = true;
-                btHoaDonNhap.Enabled = true;
-                btXuatHang.Enabled = true;
-                btHoaDonXuat.Enabled = true;
-                btCongNoKH.Enabled = true;
-
-                ribNhanVien.Visible = true;
+                ribEMES_REPORT.Visible = true;
             }
-            if (sBoPhan == "MABP00003")
+
+            dtModulePermission = CheckModulePermission(sManv, "EMES_LIST");
+            if (dtModulePermission.Rows.Count > 0)
             {
-                btNhapHang.Enabled = true;
-                btCongNoNCC.Enabled = true;
-                btHoaDonNhap.Enabled = true;
-                btXuatHang.Enabled = true;
-                btHoaDonXuat.Enabled = true;
-                btCongNoKH.Enabled = true;
-                ribNhanVien.Visible = false;
+                ribEMES_List.Visible = true;
+            }
+
+            dtModulePermission = CheckModulePermission(sManv, "EMES_QA");
+            if (dtModulePermission.Rows.Count > 0)
+            {
+                ribEMES_QA.Visible = true;
+                ribbon.SelectedPage = ribEMES_QA;
             }
         }
         public void loadStatus()
@@ -1565,7 +2269,17 @@ namespace ASPProject
         int iNgonNgu;
         private void frmMain_Load(object sender, EventArgs e)
         {
-            veditTypeDangNhap();
+            ribEMES_List.Visible = false;
+            ribEMES_HRM.Visible = false;
+            ribEMES_SX.Visible = false;
+            ribEMES_QA.Visible = false; 
+            ribEMES_REPORT.Visible = false;
+            ribEMES_SX_INTEM.Visible = false;
+            ribPageEMES_HRM_VP.Visible = false;
+            ribPageEMES_HRM_CN.Visible = false;
+            //ribEMES_SYSTEM.Visible = false;
+
+            GetModulePermission();
 
             foreach (DevExpress.Skins.SkinContainer skin in DevExpress.Skins.SkinManager.Default.Skins)
             {
@@ -1607,6 +2321,7 @@ namespace ASPProject
             ld.simpleCloseWait();
             timer1.Enabled = true;
             //notifyIcon();
+            InitializePrintLabelControl();
         }
         void OnPaintStyleClick(object sender, ItemClickEventArgs e)
         {
@@ -1943,6 +2658,11 @@ namespace ASPProject
                 tabControl12.SelectedTabIndex = tabControl12.Tabs.Count - 1;
             }
             ld.simpleCloseWait();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
 
         private void btKetThuc_ItemClick(object sender, ItemClickEventArgs e)

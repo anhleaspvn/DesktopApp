@@ -78,43 +78,59 @@ namespace ASPExcelDataProcess
 
         public bool WriteDataIntoExcelFile(DataTable dtData, string fileName, string sheetName, string rangeName, string saveFolder)
         {
-            try
+            return WriteDataTablesIntoExcelFile(
+                new List<DataTable> { dtData },
+                fileName,
+                new List<string> { sheetName },
+                new List<string> { rangeName },
+                saveFolder);
+        }
+
+        public bool WriteDataTablesIntoExcelFile(
+            IList<DataTable> dataTables,
+            string fileName,
+            IList<string> sheetNames,
+            IList<string> rangeNames,
+            string saveFolder)
+        {
+            if (dataTables == null)
+                throw new ArgumentNullException(nameof(dataTables));
+            if (sheetNames == null)
+                throw new ArgumentNullException(nameof(sheetNames));
+            if (rangeNames == null)
+                throw new ArgumentNullException(nameof(rangeNames));
+            if (dataTables.Count == 0)
+                return false;
+            if (dataTables.Count != sheetNames.Count || dataTables.Count != rangeNames.Count)
+                throw new ArgumentException("Số bảng dữ liệu, sheet và vùng dữ liệu không khớp nhau.");
+
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (ExcelPackage excel = new ExcelPackage(new FileInfo(fileName)))
             {
-                // Creating an instance
-                // of ExcelPackage
-                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
-                ExcelPackage excel = new ExcelPackage(fileName);
-
-                // name of the sheet
-                var workSheet = excel.Workbook.Worksheets[sheetName];
-
-                if (workSheet == null)
-                    return false;
-
-                // setting the properties
-                // of the work sheet 
-              
-                // Setting the properties
-                // of the first row
-                workSheet.Cells[rangeName].ClearFormulaValues();
-                workSheet.Cells[rangeName].LoadFromDataTable(dtData);
-
-                foreach (var cell in workSheet.Cells[rangeName])
+                for (int i = 0; i < dataTables.Count; i++)
                 {
-                    if (cell.Value == null || string.IsNullOrEmpty(cell.Value.ToString()))
-                    {
-                        cell.ClearFormulaValues();
-                    }
+                    if (dataTables[i] == null)
+                        throw new ArgumentException("Bảng dữ liệu thứ " + (i + 1) + " không hợp lệ.");
+                    if (string.IsNullOrWhiteSpace(sheetNames[i]))
+                        throw new ArgumentException("Tên sheet thứ " + (i + 1) + " không hợp lệ.");
+                    if (string.IsNullOrWhiteSpace(rangeNames[i]))
+                        throw new ArgumentException("Vùng dữ liệu thứ " + (i + 1) + " không hợp lệ.");
+
+                    ExcelWorksheet workSheet = excel.Workbook.Worksheets[sheetNames[i]];
+                    if (workSheet == null)
+                        throw new InvalidOperationException("Không tìm thấy sheet '" + sheetNames[i] + "' trong file Excel mẫu.");
+
+                    workSheet.Cells[rangeNames[i]].ClearFormulaValues();
+                    workSheet.Cells[rangeNames[i]].LoadFromDataTable(dataTables[i]);
                 }
 
-                //if (string.IsNullOrEmpty(saveFolder))
                 if (string.IsNullOrEmpty(saveFolder))
                     excel.Save();
-                else excel.SaveAs(saveFolder);
+                else
+                    excel.SaveAs(saveFolder);
             }
-            catch (Exception ex) { throw ex; }
-            
+
             return true;
         }
 
@@ -159,12 +175,10 @@ namespace ASPExcelDataProcess
             List<string> sheetNames = new List<string>();
 
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            var excel = new ExcelPackage(fileName);
-            var worksheets = excel.Workbook.Worksheets;
-
-            foreach (var sheet in worksheets)
+            using (ExcelPackage excel = new ExcelPackage(new FileInfo(fileName)))
             {
-                sheetNames.Add(sheet.Name);
+                foreach (var sheet in excel.Workbook.Worksheets)
+                    sheetNames.Add(sheet.Name);
             }
 
             return sheetNames;

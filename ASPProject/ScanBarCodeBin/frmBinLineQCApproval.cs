@@ -1,4 +1,5 @@
-﻿using ASPData.ASPDAO;
+﻿using ASPData;
+using ASPData.ASPDAO;
 using ASPData.ProdStatisticDTO;
 using DevExpress.DataAccess.Native.Data;
 using DevExpress.XtraEditors;
@@ -26,37 +27,28 @@ namespace ASPProject.ScanBarCodeBin
     {
         DataTable dtQC = new DataTable();
         BindingSource bdsQC = new BindingSource();
-<<<<<<< HEAD
         DataTable dtQCVerify = new DataTable();
         BindingSource bdsQCVerify = new BindingSource();
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         ProdStatisticDAO prodStatisticDAO = new ProdStatisticDAO();
         ProdStatisticDTO prodStatisticDTO = new ProdStatisticDTO();
+        private readonly SQLHelper _sqlHelper = new SQLHelper();
         int currentRowHandle = 0;
         bool isScanning = false;
-<<<<<<< HEAD
         //DateTime FromDate, ToDate;
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         //System.Windows.Forms.TextBox hiddenTextBox;
         public frmBinLineQCApproval()
         {
             InitializeComponent();
 
             this.Load += FrmBinLineQCApproval_Load;
-<<<<<<< HEAD
 
             this.dtFromDate.EditValue = DateTime.Now;
             this.dtToDate.EditValue = DateTime.Now;
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
            
             this.gridBinLineQCApprovalView.CellValueChanging += GridBinLineQCApprovalView_CellValueChanging;
             this.gridBinLineQCApprovalView.MouseUp += GridBinLineQCApprovalView_MouseUp;
             this.gridBinLineQCApprovalView.RowCellClick += GridBinLineQCApprovalView_RowCellClick;
             this.gridBinLineQCApprovalView.RowClick += GridBinLineQCApprovalView_RowClick;
-<<<<<<< HEAD
             this.gridBinLineQCApprovalView.RowStyle += GridBinLineQCApprovalView_RowStyle;
 
             this.txtQRContent.KeyDown += TxtQRContent_KeyDown;
@@ -64,13 +56,182 @@ namespace ASPProject.ScanBarCodeBin
             this.txtProdEmpName.KeyDown += TxtProdEmpName_KeyDown;
             this.txtQCEmpName.KeyDown += TxtQCEmpName_KeyDown;
             this.btFilter.Click += BtFilter_Click;
+            this.txtPOCode.KeyDown += TxtPOCode_KeyDown;
+            this.txtPOKH.KeyDown += TxtPOKH_KeyDown;
+            //this.txtRev.KeyDown += TxtRev_KeyDown;
+            this.txtSupplier.KeyDown += TxtSupplier_KeyDown;
+            this.txtEngLevel.KeyDown += TxtEngLevel_KeyDown;
+            this.txtPartNo0.KeyDown += TxtPartNo0_KeyDown;
+            this.txtWODocNo.KeyDown += TxtWODocNo_KeyDown;
+
+            this.txtQRContent.ImeMode = ImeMode.Off;
+            this.txtQRQuantity.ImeMode = ImeMode.Off;
+            this.txtProdEmpName.ImeMode = ImeMode.Off;
+            this.txtQCEmpName.ImeMode = ImeMode.Off;
+            
+            this.txtPOCode.ImeMode = ImeMode.Off;
+            this.txtPOKH.ImeMode = ImeMode.Off;
+            //this.txtRev.KeyDown += TxtRev_KeyDown;
+            this.txtSupplier.ImeMode = ImeMode.Off;
+            this.txtEngLevel.ImeMode = ImeMode.Off;
+            this.txtPartNo0.ImeMode = ImeMode.Off;
+            this.txtWODocNo.ImeMode = ImeMode.Off;
+
+            this.btProdInput.Click += BtProdInput_Click;
+            
+        }
+
+        private void TxtWODocNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string scanResult = txtWODocNo.Text.Trim();
+                if (!string.IsNullOrEmpty(scanResult))
+                {
+                    gridBinLineQCApprovalView.SetRowCellValue(currentRowHandle, "WODocNo", scanResult);
+                    DataRow drCurrent = gridBinLineQCApprovalView.GetDataRow(currentRowHandle);
+                    drCurrent["WODocNo"] = scanResult;
+
+                    if (drCurrent != null)
+                    {
+                        SaveData();
+                    }
+
+                    // Xóa TextEdit sau khi chèn
+                    txtWODocNo.Text = "";
+                }
+                e.Handled = true; // Ngăn xử lý thêm
+            }
+        }
+
+        private void BtProdInput_Click(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show("Bạn có muốn nhập thành phẩm của các Lệnh sản xuất này không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+
+            foreach (int i in   gridBinLineQCApprovalView.GetSelectedRows())
+            {
+                DataRow drI = gridBinLineQCApprovalView.GetDataRow(i);
+
+                string woDocNo = drI["WODocNo"].ToString().Trim();
+
+                DateTime printDate = Convert.ToDateTime(drI["PrintDate"]);
+
+                var dicParams = new Dictionary<string, object>()
+                {
+                    { "@WODocNo", woDocNo },
+                    { "@PrintDate", printDate }
+                };
+
+                _sqlHelper.ExecProcedureNonData("sp_ASPTransferInputProduct", dicParams);
+            }
+
+            XtraMessageBox.Show("Đã chuyển thành công!");
+        }
+
+        private void TxtPartNo0_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string scanResult = txtPartNo0.Text.Trim();
+                if (!string.IsNullOrEmpty(scanResult))
+                {
+                    gridBinLineQCApprovalView.SetRowCellValue(currentRowHandle, "PartNo0", scanResult);
+                    DataRow drCurrent = gridBinLineQCApprovalView.GetDataRow(currentRowHandle);
+                    drCurrent["PartNo0"] = scanResult;
+
+                    if (drCurrent != null)
+                    {
+                        SaveData();
+                    }
+
+                    // Xóa TextEdit sau khi chèn
+                    txtPartNo0.Text = "";
+                }
+                e.Handled = true; // Ngăn xử lý thêm
+            }
+        }
+
+        private void TxtEngLevel_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string scanResult = txtEngLevel.Text.Trim();
+                if (!string.IsNullOrEmpty(scanResult))
+                {
+                    gridBinLineQCApprovalView.SetRowCellValue(currentRowHandle, "EngLevel", scanResult);
+                    DataRow drCurrent = gridBinLineQCApprovalView.GetDataRow(currentRowHandle);
+                    drCurrent["EngLevel"] = scanResult;
+
+                    if (drCurrent != null)
+                    {
+                        SaveData();
+                    }
+
+                    // Xóa TextEdit sau khi chèn
+                    txtEngLevel.Text = "";
+                }
+                e.Handled = true; // Ngăn xử lý thêm
+            }
+        }
+
+        private void TxtSupplier_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string scanResult = txtSupplier.Text.Trim();
+                if (!string.IsNullOrEmpty(scanResult))
+                {
+                    gridBinLineQCApprovalView.SetRowCellValue(currentRowHandle, "Supplier", scanResult);
+                    DataRow drCurrent = gridBinLineQCApprovalView.GetDataRow(currentRowHandle);
+                    drCurrent["Supplier"] = scanResult;
+
+                    if (drCurrent != null)
+                    {
+                        SaveData();
+                    }
+
+                    // Xóa TextEdit sau khi chèn
+                    txtSupplier.Text = "";
+                }
+                e.Handled = true; // Ngăn xử lý thêm
+            }
+        }
+
+        private void TxtPOKH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string scanResult = txtPOKH.Text.Trim();
+                if (!string.IsNullOrEmpty(scanResult))
+                {
+                    gridBinLineQCApprovalView.SetRowCellValue(currentRowHandle, "POText", scanResult);
+                    DataRow drCurrent = gridBinLineQCApprovalView.GetDataRow(currentRowHandle);
+                    drCurrent["POText"] = scanResult;
+
+                    if (drCurrent != null)
+                    {
+                        if (scanResult.Trim() == (string)drCurrent["POTextLinkQ"])
+                            drCurrent["POTextVerify"] = "OK";
+                        else
+                            drCurrent["POTextVerify"] = "NG";
+
+                        SaveData();
+                    }
+
+                    // Xóa TextEdit sau khi chèn
+                    txtPOKH.Text = "";
+                }
+                e.Handled = true; // Ngăn xử lý thêm
+            }
         }
 
         private void GridBinLineQCApprovalView_RowStyle(object sender, RowStyleEventArgs e)
         {
             string isDup = Convert.ToString(gridBinLineQCApprovalView.GetRowCellValue(e.RowHandle, "QRCodeVerify"));
+            string isPOKH = Convert.ToString(gridBinLineQCApprovalView.GetRowCellValue(e.RowHandle, "POTextVerify"));
 
-            if (isDup == "NG")
+            if (isDup == "NG" || isPOKH == "NG")
             {
                 e.Appearance.BackColor = Color.Red;
             }
@@ -131,11 +292,6 @@ namespace ASPProject.ScanBarCodeBin
         {
             FillData();
             FillDataVerify();
-=======
-
-            this.txtQRContent.KeyDown += TxtQRContent_KeyDown;
-            this.txtQRQuantity.KeyDown += TxtQRQuantity_KeyDown;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         }
 
         private void TxtQRContent_KeyDown(object sender, KeyEventArgs e)
@@ -166,15 +322,36 @@ namespace ASPProject.ScanBarCodeBin
             }
         }
 
+        private void TxtPOCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string scanResult = txtPOCode.Text.Trim();
+                if (!string.IsNullOrEmpty(scanResult))
+                {
+                    gridBinLineQCApprovalView.SetRowCellValue(currentRowHandle, "POCode", scanResult);
+                    DataRow drCurrent = gridBinLineQCApprovalView.GetDataRow(currentRowHandle);
+                    drCurrent["POCode"] = scanResult;
+
+                    if (drCurrent != null)
+                    {
+                      
+
+                        SaveData();
+                    }
+
+                    // Xóa TextEdit sau khi chèn
+                    txtPOCode.Text = "";
+                }
+                e.Handled = true; // Ngăn xử lý thêm
+            }
+        }
+
         private void TxtQRQuantity_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-<<<<<<< HEAD
                 string scanResult = txtQRQuantity.Text.Trim().Replace("pcs", string.Empty).Replace("PCS", string.Empty).Replace("+P+C+S", string.Empty);
-=======
-                string scanResult = txtQRQuantity.Text.Trim().Replace("pcs", string.Empty);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
                 if (!string.IsNullOrEmpty(scanResult))
                 {
                     gridBinLineQCApprovalView.SetRowCellValue(currentRowHandle, "SumQuantity", scanResult);
@@ -203,11 +380,6 @@ namespace ASPProject.ScanBarCodeBin
             currentRowHandle = e.RowHandle;
         }
 
-<<<<<<< HEAD
-       
-
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         private void GridBinLineQCApprovalView_RowCellClick(object sender, RowCellClickEventArgs e)
         {
             // Kiểm tra xem cột được nhấp vào có phải là "Xác nhận QC" không
@@ -216,7 +388,6 @@ namespace ASPProject.ScanBarCodeBin
                 // Lấy giá trị hiện tại của ô
                 bool currentValue = Convert.ToBoolean(gridBinLineQCApprovalView.GetRowCellValue(e.RowHandle, e.Column));
 
-<<<<<<< HEAD
                 string qcEmpName = Convert.ToString(gridBinLineQCApprovalView.GetRowCellValue(e.RowHandle, "QCEmpName"));
                 string prodEmpName = Convert.ToString(gridBinLineQCApprovalView.GetRowCellValue(e.RowHandle, "ProdEmpName"));
 
@@ -225,8 +396,6 @@ namespace ASPProject.ScanBarCodeBin
                     return;
                 }
 
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
                 // Đảo ngược giá trị (từ true thành false hoặc ngược lại)
                 bool newValue = !currentValue;
 
@@ -243,12 +412,9 @@ namespace ASPProject.ScanBarCodeBin
 
                 // Ngăn sự kiện mặc định để không yêu cầu click lần thứ hai
                 e.Handled = true;
-<<<<<<< HEAD
 
                 FillData();
                 FillDataVerify();
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             }
         }
 
@@ -257,18 +423,7 @@ namespace ASPProject.ScanBarCodeBin
         private void FrmBinLineQCApproval_Load(object sender, EventArgs e)
         {
             FillData();
-<<<<<<< HEAD
             FillDataVerify();
-=======
-           
-            //gridBinLineQCApprovalView.OptionsBehavior.Editable = true;
-           
-            //foreach (GridColumn dc in gridBinLineQCApprovalView.Columns)
-            //{
-            //    if (dc.FieldName.ToUpper() != "QRCODEDATA")
-            //        dc.OptionsColumn.ReadOnly = true;
-            //}
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         }
 
         private void GridBinLineQCApprovalView_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -309,8 +464,7 @@ namespace ASPProject.ScanBarCodeBin
                 // Lưu DataTable về cơ sở dữ liệu
                 prodStatisticDAO.UpdateBinQCApproval(dtQC);
 
-                // Thông báo lưu thành công (tùy chọn)
-                //MessageBox.Show("Lưu dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FillData();
             }
             catch (Exception ex)
             {
@@ -320,16 +474,11 @@ namespace ASPProject.ScanBarCodeBin
 
         private void FillData()
         {
-<<<<<<< HEAD
             dtQC = prodStatisticDAO.GetBinQCApproval(Convert.ToDateTime(dtFromDate.EditValue), Convert.ToDateTime(dtToDate.EditValue));
-=======
-            dtQC = prodStatisticDAO.GetBinQCApproval();
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             bdsQC.DataSource = dtQC;
 
             gridBinLineQCApproval.DataSource = bdsQC;
         }
-<<<<<<< HEAD
 
         private void FillDataVerify()
         {
@@ -338,7 +487,5 @@ namespace ASPProject.ScanBarCodeBin
 
             gridQC.DataSource = bdsQCVerify;
         }
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
     }
 }

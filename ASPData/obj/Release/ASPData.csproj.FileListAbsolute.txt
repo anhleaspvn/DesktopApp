@@ -1,7 +1,0 @@
-D:\Airspeed Dev\ASPProjects\ASP\ASPData.dll
-D:\Airspeed Dev\ASPProjects\ASP\ASPData.pdb
-D:\Airspeed Dev\ASPProjects\ASPData\obj\Release\ASPData.csproj.AssemblyReference.cache
-D:\Airspeed Dev\ASPProjects\ASPData\obj\Release\ASPData.csproj.CoreCompileInputs.cache
-D:\Airspeed Dev\ASPProjects\ASPData\obj\Release\ASPData.csproj.Up2Date
-D:\Airspeed Dev\ASPProjects\ASPData\obj\Release\ASPData.dll
-D:\Airspeed Dev\ASPProjects\ASPData\obj\Release\ASPData.pdb

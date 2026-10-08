@@ -95,7 +95,7 @@ namespace ASPProject.Machine
                     //
                     ASPExcelDataProcess.ASPExcelDataProcess excel = new ASPExcelDataProcess.ASPExcelDataProcess();
                     DataTable dtExcel = new DataTable();
-                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:D10000");
+                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:H10000");
                   
                     for (int i = 0; i < dtExcel.Rows.Count; i++)
                     {
@@ -119,8 +119,13 @@ namespace ASPProject.Machine
 
                         machineDto.MachineID = Convert.ToString(dr["MachineID"]);
                         machineDto.MachineName = Convert.ToString(dr["MachineName"]);
-                        machineDto.MaintenanceMonth = Convert.ToInt32(dr["MaintenanceMonth"]);
+                        machineDto.MaintenanceMonth = Convert.ToString(dr["MaintenanceMonth"]);
                         machineDto.MachineGroup = Convert.ToString(dr["MachineGroup"]);
+                        machineDto.ACCID = Convert.ToString(dr["ACCID"]);
+                        machineDto.MachineOrigin = Convert.ToString(dr["MachineOrigin"]);
+                        machineDto.WarehouseEntryDate = Convert.ToDateTime(dr["WarehouseEntryDate"]);
+                        machineDto.TypeID = Convert.ToString(dr["TypeID"]);
+                        machineDto.Supplier = string.Empty;
                         machineDto.CreatedBy = userName;
                         machineDto.CreatedDate = DateTime.Now;
                         machineDto.LastModifiedBy = userName;

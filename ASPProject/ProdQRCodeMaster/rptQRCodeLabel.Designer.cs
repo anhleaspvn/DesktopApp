@@ -77,34 +77,34 @@
             this.xrLabel2.Angle = 180F;
             this.xrLabel2.Dpi = 254F;
             this.xrLabel2.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(5.999939F, 7F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(31F, 30F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(283F, 210F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(267F, 210F);
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "xrLabel1";
-            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleJustify;
+            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel1
             // 
             this.xrLabel1.Dpi = 254F;
             this.xrLabel1.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(9.999939F, 881.8867F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(31F, 862.8867F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(283.0001F, 210F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(267F, 210F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
             this.xrLabel1.Text = "xrLabel1";
-            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleJustify;
+            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrBarCode2
             // 
             this.xrBarCode2.Dpi = 254F;
-            this.xrBarCode2.LocationFloat = new DevExpress.Utils.PointFloat(67.58328F, 715.7202F);
+            this.xrBarCode2.LocationFloat = new DevExpress.Utils.PointFloat(67.58328F, 696.7202F);
             this.xrBarCode2.Module = 3F;
             this.xrBarCode2.Name = "xrBarCode2";
             this.xrBarCode2.Padding = new DevExpress.XtraPrinting.PaddingInfo(25, 25, 0, 0, 254F);
@@ -117,7 +117,7 @@
             // 
             this.xrBarCode1.BarCodeOrientation = DevExpress.XtraPrinting.BarCode.BarCodeOrientation.UpsideDown;
             this.xrBarCode1.Dpi = 254F;
-            this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 312.3327F);
+            this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 335.3327F);
             this.xrBarCode1.Module = 3F;
             this.xrBarCode1.Name = "xrBarCode1";
             this.xrBarCode1.Padding = new DevExpress.XtraPrinting.PaddingInfo(25, 25, 0, 0, 254F);
@@ -131,7 +131,7 @@
             this.lbQR2.Angle = 180F;
             this.lbQR2.Dpi = 254F;
             this.lbQR2.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbQR2.LocationFloat = new DevExpress.Utils.PointFloat(8.999968F, 250.9794F);
+            this.lbQR2.LocationFloat = new DevExpress.Utils.PointFloat(8.999968F, 273.9794F);
             this.lbQR2.Multiline = true;
             this.lbQR2.Name = "lbQR2";
             this.lbQR2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -145,7 +145,7 @@
             // 
             this.lbQR1.Dpi = 254F;
             this.lbQR1.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbQR1.LocationFloat = new DevExpress.Utils.PointFloat(9.999937F, 793.4667F);
+            this.lbQR1.LocationFloat = new DevExpress.Utils.PointFloat(9.999937F, 774.4667F);
             this.lbQR1.Multiline = true;
             this.lbQR1.Name = "lbQR1";
             this.lbQR1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);

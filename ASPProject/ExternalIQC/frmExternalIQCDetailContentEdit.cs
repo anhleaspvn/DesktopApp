@@ -1,4 +1,4 @@
-﻿using ASPData.ASPDAO;
+using ASPData.ASPDAO;
 using ASPData.ProdStatisticDTO;
 using ASPData;
 using System;
@@ -27,6 +27,7 @@ namespace ASPProject.ExternalIQC
         public long AutoID;
         public string iqcCheckID, userName, iqcEvalueResult;
         public double iqcTemplateQuantity;
+        public string checkState = string.Empty;
         private DataTable dtIQCCheckContent = new DataTable();
         public DataTable dtSaveMulti = new DataTable();
         private List<string> lstCheckingTime = new List<string>();
@@ -60,6 +61,7 @@ namespace ASPProject.ExternalIQC
             switch (editType)
             {
                 case 1:
+                    cboCheckState.EditValue = string.Empty;
                     lkeIQCCheckID.Properties.DataSource = iqcDao.GetCheckStateList(string.Empty);
                     lkeIQCCheckID.Properties.ValueMember = "IQCCheckID";
                     lkeIQCCheckID.Properties.DisplayMember = "IQCCheckID";
@@ -81,7 +83,7 @@ namespace ASPProject.ExternalIQC
                     
 
                     txtIQCTemplateQuantity.Text = iqcTemplateQuantity > 0 ? Convert.ToString(iqcTemplateQuantity) : string.Empty;
-
+                    cboCheckState.EditValue = checkState ?? string.Empty;
                     break;
                 default:
                     break;
@@ -137,6 +139,7 @@ namespace ASPProject.ExternalIQC
                         iqcDto.IQCTemplateQuantity = Convert.ToDouble(!string.IsNullOrEmpty(txtIQCTemplateQuantity.Text) ? txtIQCTemplateQuantity.Text : "0");
                         iqcDto.IQCEvalueResult = !string.IsNullOrEmpty(txtEvalueResult.Text) ? txtEvalueResult.Text : string.Empty;
                         iqcDto.IQCPeriodTime = !string.IsNullOrEmpty(txtIQCPeriodTime.Text) ? txtIQCPeriodTime.Text : string.Empty;
+                        iqcDto.CheckState = Convert.ToString(cboCheckState.EditValue);
                         iqcDto.CreatedBy = userName;
                         iqcDto.CreatedDate = DateTime.Now;
 
@@ -169,7 +172,7 @@ namespace ASPProject.ExternalIQC
                             iqcDto.LastModifiedBy = userName;
                             iqcDto.LastModifiedDate = DateTime.Now;
 
-                            iqcDao.UpdateIQCCheckContent(iqcDto.AutoID, iqcDto.HeaderID, iqcDto.IQCCheckID, iqcDto.IQCTemplateQuantity, iqcDto.IQCEvalueResult, iqcDto.IQCPeriodTime);
+                            iqcDao.UpdateIQCCheckContent(iqcDto.AutoID, iqcDto.HeaderID, iqcDto.IQCCheckID, iqcDto.IQCTemplateQuantity, iqcDto.IQCEvalueResult, iqcDto.IQCPeriodTime, Convert.ToString(cboCheckState.EditValue));
                         }
                         else
                         {

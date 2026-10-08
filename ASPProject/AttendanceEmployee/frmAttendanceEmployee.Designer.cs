@@ -60,6 +60,14 @@
             this.DinnerTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LastModifiedBy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LastModifiedDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtEveVege_1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtMorVege_1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txtEveSalt_1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtMorSalt_1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lkeDinnerTime.Properties)).BeginInit();
@@ -72,10 +80,22 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAttendance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridAttendanceView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEveVege_1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMorVege_1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEveSalt_1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMorSalt_1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.txtEveSalt_1);
+            this.panelControl1.Controls.Add(this.txtMorSalt_1);
+            this.panelControl1.Controls.Add(this.labelControl6);
+            this.panelControl1.Controls.Add(this.labelControl7);
+            this.panelControl1.Controls.Add(this.txtEveVege_1);
+            this.panelControl1.Controls.Add(this.txtMorVege_1);
+            this.panelControl1.Controls.Add(this.labelControl4);
+            this.panelControl1.Controls.Add(this.labelControl5);
             this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Controls.Add(this.lkeDinnerTime);
             this.panelControl1.Controls.Add(this.lkeLunchTime);
@@ -90,12 +110,12 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1256, 119);
+            this.panelControl1.Size = new System.Drawing.Size(1280, 122);
             this.panelControl1.TabIndex = 0;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(393, 81);
+            this.labelControl3.Location = new System.Drawing.Point(985, 81);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(70, 16);
@@ -105,7 +125,7 @@
             // lkeDinnerTime
             // 
             this.lkeDinnerTime.EditValue = "";
-            this.lkeDinnerTime.Location = new System.Drawing.Point(488, 78);
+            this.lkeDinnerTime.Location = new System.Drawing.Point(1080, 78);
             this.lkeDinnerTime.Margin = new System.Windows.Forms.Padding(4);
             this.lkeDinnerTime.Name = "lkeDinnerTime";
             this.lkeDinnerTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -117,7 +137,7 @@
             // lkeLunchTime
             // 
             this.lkeLunchTime.EditValue = "";
-            this.lkeLunchTime.Location = new System.Drawing.Point(488, 48);
+            this.lkeLunchTime.Location = new System.Drawing.Point(1080, 48);
             this.lkeLunchTime.Margin = new System.Windows.Forms.Padding(4);
             this.lkeLunchTime.Name = "lkeLunchTime";
             this.lkeLunchTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -128,7 +148,7 @@
             // 
             // lblLuchTime
             // 
-            this.lblLuchTime.Location = new System.Drawing.Point(393, 51);
+            this.lblLuchTime.Location = new System.Drawing.Point(985, 51);
             this.lblLuchTime.Margin = new System.Windows.Forms.Padding(5);
             this.lblLuchTime.Name = "lblLuchTime";
             this.lblLuchTime.Size = new System.Drawing.Size(64, 16);
@@ -187,7 +207,7 @@
             this.lblLineID.Appearance.ForeColor = System.Drawing.Color.Orange;
             this.lblLineID.Appearance.Options.UseFont = true;
             this.lblLineID.Appearance.Options.UseForeColor = true;
-            this.lblLineID.Location = new System.Drawing.Point(391, 16);
+            this.lblLineID.Location = new System.Drawing.Point(983, 16);
             this.lblLineID.Margin = new System.Windows.Forms.Padding(4);
             this.lblLineID.Name = "lblLineID";
             this.lblLineID.Size = new System.Drawing.Size(73, 24);
@@ -232,14 +252,14 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl2.Location = new System.Drawing.Point(0, 580);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1256, 77);
+            this.panelControl2.Size = new System.Drawing.Size(1280, 77);
             this.panelControl2.TabIndex = 1;
             // 
             // btSummary
             // 
             this.btSummary.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btSummary.ImageOptions.Image = global::ASPProject.Properties.Resources.paper;
-            this.btSummary.Location = new System.Drawing.Point(879, 14);
+            this.btSummary.Location = new System.Drawing.Point(903, 14);
             this.btSummary.Margin = new System.Windows.Forms.Padding(4);
             this.btSummary.Name = "btSummary";
             this.btSummary.Size = new System.Drawing.Size(175, 49);
@@ -270,7 +290,7 @@
             // 
             this.btDelete.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btDelete.ImageOptions.Image = global::ASPProject.Properties.Resources.close__2_;
-            this.btDelete.Location = new System.Drawing.Point(1081, 14);
+            this.btDelete.Location = new System.Drawing.Point(1105, 14);
             this.btDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(143, 49);
@@ -302,10 +322,10 @@
             // gridAttendance
             // 
             this.gridAttendance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridAttendance.Location = new System.Drawing.Point(0, 119);
+            this.gridAttendance.Location = new System.Drawing.Point(0, 122);
             this.gridAttendance.MainView = this.gridAttendanceView;
             this.gridAttendance.Name = "gridAttendance";
-            this.gridAttendance.Size = new System.Drawing.Size(1256, 461);
+            this.gridAttendance.Size = new System.Drawing.Size(1280, 458);
             this.gridAttendance.TabIndex = 2;
             this.gridAttendance.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridAttendanceView});
@@ -440,11 +460,103 @@
             this.LastModifiedDate.VisibleIndex = 10;
             this.LastModifiedDate.Width = 94;
             // 
+            // txtEveVege_1
+            // 
+            this.txtEveVege_1.Location = new System.Drawing.Point(488, 78);
+            this.txtEveVege_1.Margin = new System.Windows.Forms.Padding(8);
+            this.txtEveVege_1.Name = "txtEveVege_1";
+            this.txtEveVege_1.Properties.DisplayFormat.FormatString = "#0.00";
+            this.txtEveVege_1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtEveVege_1.Properties.EditFormat.FormatString = "#0.00";
+            this.txtEveVege_1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtEveVege_1.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtEveVege_1.Properties.MaskSettings.Set("mask", "#####");
+            this.txtEveVege_1.Properties.UseMaskAsDisplayFormat = true;
+            this.txtEveVege_1.Size = new System.Drawing.Size(136, 23);
+            this.txtEveVege_1.TabIndex = 135;
+            // 
+            // txtMorVege_1
+            // 
+            this.txtMorVege_1.Location = new System.Drawing.Point(488, 48);
+            this.txtMorVege_1.Margin = new System.Windows.Forms.Padding(8);
+            this.txtMorVege_1.Name = "txtMorVege_1";
+            this.txtMorVege_1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtMorVege_1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtMorVege_1.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtMorVege_1.Properties.MaskSettings.Set("mask", "#####");
+            this.txtMorVege_1.Properties.UseMaskAsDisplayFormat = true;
+            this.txtMorVege_1.Size = new System.Drawing.Size(136, 23);
+            this.txtMorVege_1.TabIndex = 134;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(365, 81);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(115, 16);
+            this.labelControl4.TabIndex = 133;
+            this.labelControl4.Text = "SL chay chiều ASM3";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(365, 51);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(112, 16);
+            this.labelControl5.TabIndex = 132;
+            this.labelControl5.Text = "SL chay sáng ASM3";
+            // 
+            // txtEveSalt_1
+            // 
+            this.txtEveSalt_1.Location = new System.Drawing.Point(780, 78);
+            this.txtEveSalt_1.Margin = new System.Windows.Forms.Padding(8);
+            this.txtEveSalt_1.Name = "txtEveSalt_1";
+            this.txtEveSalt_1.Properties.DisplayFormat.FormatString = "#0.00";
+            this.txtEveSalt_1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtEveSalt_1.Properties.EditFormat.FormatString = "#0.00";
+            this.txtEveSalt_1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtEveSalt_1.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtEveSalt_1.Properties.MaskSettings.Set("mask", "#####");
+            this.txtEveSalt_1.Properties.UseMaskAsDisplayFormat = true;
+            this.txtEveSalt_1.Size = new System.Drawing.Size(136, 23);
+            this.txtEveSalt_1.TabIndex = 139;
+            // 
+            // txtMorSalt_1
+            // 
+            this.txtMorSalt_1.Location = new System.Drawing.Point(780, 48);
+            this.txtMorSalt_1.Margin = new System.Windows.Forms.Padding(8);
+            this.txtMorSalt_1.Name = "txtMorSalt_1";
+            this.txtMorSalt_1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtMorSalt_1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtMorSalt_1.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtMorSalt_1.Properties.MaskSettings.Set("mask", "#####");
+            this.txtMorSalt_1.Properties.UseMaskAsDisplayFormat = true;
+            this.txtMorSalt_1.Size = new System.Drawing.Size(136, 23);
+            this.txtMorSalt_1.TabIndex = 138;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(657, 81);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(114, 16);
+            this.labelControl6.TabIndex = 137;
+            this.labelControl6.Text = "SL mặn chiều ASM3";
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(657, 51);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(111, 16);
+            this.labelControl7.TabIndex = 136;
+            this.labelControl7.Text = "SL mặn sáng ASM3";
+            // 
             // frmAttendanceEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1256, 657);
+            this.ClientSize = new System.Drawing.Size(1280, 657);
             this.Controls.Add(this.gridAttendance);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
@@ -464,6 +576,10 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridAttendance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridAttendanceView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEveVege_1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMorVege_1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEveSalt_1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMorSalt_1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -501,5 +617,13 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraGrid.Columns.GridColumn LunchTime;
         private DevExpress.XtraGrid.Columns.GridColumn DinnerTime;
+        private DevExpress.XtraEditors.TextEdit txtEveVege_1;
+        private DevExpress.XtraEditors.TextEdit txtMorVege_1;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.TextEdit txtEveSalt_1;
+        private DevExpress.XtraEditors.TextEdit txtMorSalt_1;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
     }
 }

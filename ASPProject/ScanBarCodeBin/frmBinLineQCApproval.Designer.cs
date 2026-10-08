@@ -28,10 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.tabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.btProdInput = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.txtWODocNo = new System.Windows.Forms.TextBox();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.txtPartNo0 = new System.Windows.Forms.TextBox();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.txtEngLevel = new System.Windows.Forms.TextBox();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.txtSupplier = new System.Windows.Forms.TextBox();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.txtPOCode = new System.Windows.Forms.TextBox();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.txtPOKH = new System.Windows.Forms.TextBox();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtQCEmpName = new System.Windows.Forms.TextBox();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -41,9 +53,6 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.dtToDate = new DevExpress.XtraEditors.DateEdit();
             this.dtFromDate = new DevExpress.XtraEditors.DateEdit();
-=======
-            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtQRQuantity = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -58,21 +67,23 @@
             this.colQRCodeVerify = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQRCodeData = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCustomerVerify = new DevExpress.XtraGrid.Columns.GridColumn();
-<<<<<<< HEAD
-=======
-            this.colQCVerify = new DevExpress.XtraGrid.Columns.GridColumn();
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.colPrintUser = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSumQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLinkQQuantityPerBin = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBinSize = new DevExpress.XtraGrid.Columns.GridColumn();
-<<<<<<< HEAD
             this.colProdEmpName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQCEmpName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSupplier = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colENGLevel = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPartNo0 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPOText = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPOCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPOTextVerify = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.gridQC = new DevExpress.XtraGrid.GridControl();
             this.gridQCView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -87,18 +98,22 @@
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.POCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colProdStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
             this.splitContainerControl1.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).BeginInit();
             this.splitContainerControl1.Panel2.SuspendLayout();
             this.splitContainerControl1.SuspendLayout();
-<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -129,12 +144,6 @@
             this.tabPage1.Size = new System.Drawing.Size(1610, 742);
             this.tabPage1.Text = "Chưa xác nhận QC";
             // 
-=======
-            ((System.ComponentModel.ISupportInitialize)(this.gridBinLineQCApproval)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridBinLineQCApprovalView)).BeginInit();
-            this.SuspendLayout();
-            // 
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -144,7 +153,19 @@
             // 
             // splitContainerControl1.Panel1
             // 
-<<<<<<< HEAD
+            this.splitContainerControl1.Panel1.Controls.Add(this.btProdInput);
+            this.splitContainerControl1.Panel1.Controls.Add(this.labelControl13);
+            this.splitContainerControl1.Panel1.Controls.Add(this.txtWODocNo);
+            this.splitContainerControl1.Panel1.Controls.Add(this.labelControl12);
+            this.splitContainerControl1.Panel1.Controls.Add(this.txtPartNo0);
+            this.splitContainerControl1.Panel1.Controls.Add(this.labelControl11);
+            this.splitContainerControl1.Panel1.Controls.Add(this.txtEngLevel);
+            this.splitContainerControl1.Panel1.Controls.Add(this.labelControl10);
+            this.splitContainerControl1.Panel1.Controls.Add(this.txtSupplier);
+            this.splitContainerControl1.Panel1.Controls.Add(this.labelControl7);
+            this.splitContainerControl1.Panel1.Controls.Add(this.txtPOCode);
+            this.splitContainerControl1.Panel1.Controls.Add(this.labelControl8);
+            this.splitContainerControl1.Panel1.Controls.Add(this.txtPOKH);
             this.splitContainerControl1.Panel1.Controls.Add(this.labelControl6);
             this.splitContainerControl1.Panel1.Controls.Add(this.txtQCEmpName);
             this.splitContainerControl1.Panel1.Controls.Add(this.labelControl5);
@@ -154,8 +175,6 @@
             this.splitContainerControl1.Panel1.Controls.Add(this.labelControl4);
             this.splitContainerControl1.Panel1.Controls.Add(this.dtToDate);
             this.splitContainerControl1.Panel1.Controls.Add(this.dtFromDate);
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.splitContainerControl1.Panel1.Controls.Add(this.labelControl2);
             this.splitContainerControl1.Panel1.Controls.Add(this.txtQRQuantity);
             this.splitContainerControl1.Panel1.Controls.Add(this.labelControl1);
@@ -166,16 +185,147 @@
             // 
             this.splitContainerControl1.Panel2.Controls.Add(this.gridBinLineQCApproval);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-<<<<<<< HEAD
             this.splitContainerControl1.Size = new System.Drawing.Size(1610, 742);
-            this.splitContainerControl1.SplitterPosition = 109;
+            this.splitContainerControl1.SplitterPosition = 173;
             this.splitContainerControl1.TabIndex = 13;
+            // 
+            // btProdInput
+            // 
+            this.btProdInput.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btProdInput.Appearance.Options.UseFont = true;
+            this.btProdInput.ImageOptions.Image = global::ASPProject.Properties.Resources.money;
+            this.btProdInput.Location = new System.Drawing.Point(1132, 111);
+            this.btProdInput.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btProdInput.Name = "btProdInput";
+            this.btProdInput.Size = new System.Drawing.Size(233, 46);
+            this.btProdInput.TabIndex = 39;
+            this.btProdInput.Text = "NHẬP THÀNH PHẨM";
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl13.Appearance.Options.UseFont = true;
+            this.labelControl13.Location = new System.Drawing.Point(693, 106);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(103, 18);
+            this.labelControl13.TabIndex = 38;
+            this.labelControl13.Text = "Lệnh sản xuất";
+            // 
+            // txtWODocNo
+            // 
+            this.txtWODocNo.BackColor = System.Drawing.Color.Cyan;
+            this.txtWODocNo.Location = new System.Drawing.Point(687, 129);
+            this.txtWODocNo.MaximumSize = new System.Drawing.Size(500, 50);
+            this.txtWODocNo.MinimumSize = new System.Drawing.Size(100, 23);
+            this.txtWODocNo.Name = "txtWODocNo";
+            this.txtWODocNo.Size = new System.Drawing.Size(185, 23);
+            this.txtWODocNo.TabIndex = 37;
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl12.Appearance.Options.UseFont = true;
+            this.labelControl12.Location = new System.Drawing.Point(472, 106);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(71, 18);
+            this.labelControl12.TabIndex = 36;
+            this.labelControl12.Text = "Part No 0";
+            // 
+            // txtPartNo0
+            // 
+            this.txtPartNo0.BackColor = System.Drawing.Color.Cyan;
+            this.txtPartNo0.Location = new System.Drawing.Point(466, 129);
+            this.txtPartNo0.MaximumSize = new System.Drawing.Size(500, 50);
+            this.txtPartNo0.MinimumSize = new System.Drawing.Size(100, 23);
+            this.txtPartNo0.Name = "txtPartNo0";
+            this.txtPartNo0.Size = new System.Drawing.Size(185, 23);
+            this.txtPartNo0.TabIndex = 35;
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl11.Appearance.Options.UseFont = true;
+            this.labelControl11.Location = new System.Drawing.Point(233, 106);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(77, 18);
+            this.labelControl11.TabIndex = 34;
+            this.labelControl11.Text = "ENG Level";
+            // 
+            // txtEngLevel
+            // 
+            this.txtEngLevel.BackColor = System.Drawing.Color.Cyan;
+            this.txtEngLevel.Location = new System.Drawing.Point(227, 129);
+            this.txtEngLevel.MaximumSize = new System.Drawing.Size(500, 50);
+            this.txtEngLevel.MinimumSize = new System.Drawing.Size(100, 23);
+            this.txtEngLevel.Name = "txtEngLevel";
+            this.txtEngLevel.Size = new System.Drawing.Size(185, 23);
+            this.txtEngLevel.TabIndex = 33;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl10.Appearance.Options.UseFont = true;
+            this.labelControl10.Location = new System.Drawing.Point(12, 106);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(78, 18);
+            this.labelControl10.TabIndex = 32;
+            this.labelControl10.Text = "SUPPLIER";
+            // 
+            // txtSupplier
+            // 
+            this.txtSupplier.BackColor = System.Drawing.Color.Cyan;
+            this.txtSupplier.Location = new System.Drawing.Point(6, 129);
+            this.txtSupplier.MaximumSize = new System.Drawing.Size(500, 50);
+            this.txtSupplier.MinimumSize = new System.Drawing.Size(100, 23);
+            this.txtSupplier.Name = "txtSupplier";
+            this.txtSupplier.Size = new System.Drawing.Size(185, 23);
+            this.txtSupplier.TabIndex = 31;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Location = new System.Drawing.Point(1138, 44);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(49, 18);
+            this.labelControl7.TabIndex = 28;
+            this.labelControl7.Text = "MÃ PO";
+            // 
+            // txtPOCode
+            // 
+            this.txtPOCode.BackColor = System.Drawing.Color.Cyan;
+            this.txtPOCode.Location = new System.Drawing.Point(1132, 67);
+            this.txtPOCode.MaximumSize = new System.Drawing.Size(500, 50);
+            this.txtPOCode.MinimumSize = new System.Drawing.Size(100, 23);
+            this.txtPOCode.Name = "txtPOCode";
+            this.txtPOCode.Size = new System.Drawing.Size(185, 23);
+            this.txtPOCode.TabIndex = 27;
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Location = new System.Drawing.Point(917, 44);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(73, 18);
+            this.labelControl8.TabIndex = 26;
+            this.labelControl8.Text = "SỐ PO KH";
+            // 
+            // txtPOKH
+            // 
+            this.txtPOKH.BackColor = System.Drawing.Color.Cyan;
+            this.txtPOKH.Location = new System.Drawing.Point(911, 67);
+            this.txtPOKH.MaximumSize = new System.Drawing.Size(500, 50);
+            this.txtPOKH.MinimumSize = new System.Drawing.Size(100, 23);
+            this.txtPOKH.Name = "txtPOKH";
+            this.txtPOKH.Size = new System.Drawing.Size(185, 23);
+            this.txtPOKH.TabIndex = 25;
             // 
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(1297, 37);
+            this.labelControl6.Location = new System.Drawing.Point(693, 44);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(113, 18);
             this.labelControl6.TabIndex = 24;
@@ -184,18 +334,18 @@
             // txtQCEmpName
             // 
             this.txtQCEmpName.BackColor = System.Drawing.Color.Cyan;
-            this.txtQCEmpName.Location = new System.Drawing.Point(1291, 60);
+            this.txtQCEmpName.Location = new System.Drawing.Point(687, 67);
             this.txtQCEmpName.MaximumSize = new System.Drawing.Size(500, 50);
             this.txtQCEmpName.MinimumSize = new System.Drawing.Size(100, 30);
             this.txtQCEmpName.Name = "txtQCEmpName";
-            this.txtQCEmpName.Size = new System.Drawing.Size(300, 23);
+            this.txtQCEmpName.Size = new System.Drawing.Size(185, 23);
             this.txtQCEmpName.TabIndex = 23;
             // 
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(977, 37);
+            this.labelControl5.Location = new System.Drawing.Point(472, 44);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(112, 18);
             this.labelControl5.TabIndex = 22;
@@ -204,11 +354,11 @@
             // txtProdEmpName
             // 
             this.txtProdEmpName.BackColor = System.Drawing.Color.Cyan;
-            this.txtProdEmpName.Location = new System.Drawing.Point(971, 60);
+            this.txtProdEmpName.Location = new System.Drawing.Point(466, 67);
             this.txtProdEmpName.MaximumSize = new System.Drawing.Size(500, 50);
             this.txtProdEmpName.MinimumSize = new System.Drawing.Size(100, 30);
             this.txtProdEmpName.Name = "txtProdEmpName";
-            this.txtProdEmpName.Size = new System.Drawing.Size(300, 23);
+            this.txtProdEmpName.Size = new System.Drawing.Size(185, 23);
             this.txtProdEmpName.TabIndex = 21;
             // 
             // btFilter
@@ -272,20 +422,12 @@
             this.dtFromDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtFromDate.Size = new System.Drawing.Size(166, 23);
             this.dtFromDate.TabIndex = 16;
-=======
-            this.splitContainerControl1.Size = new System.Drawing.Size(1361, 774);
-            this.splitContainerControl1.TabIndex = 12;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-<<<<<<< HEAD
-            this.labelControl2.Location = new System.Drawing.Point(358, 44);
-=======
-            this.labelControl2.Location = new System.Drawing.Point(487, 29);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.labelControl2.Location = new System.Drawing.Point(233, 44);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(156, 18);
             this.labelControl2.TabIndex = 15;
@@ -294,26 +436,18 @@
             // txtQRQuantity
             // 
             this.txtQRQuantity.BackColor = System.Drawing.Color.Cyan;
-<<<<<<< HEAD
-            this.txtQRQuantity.Location = new System.Drawing.Point(352, 67);
-=======
-            this.txtQRQuantity.Location = new System.Drawing.Point(481, 52);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.txtQRQuantity.Location = new System.Drawing.Point(227, 67);
             this.txtQRQuantity.MaximumSize = new System.Drawing.Size(500, 50);
             this.txtQRQuantity.MinimumSize = new System.Drawing.Size(100, 30);
             this.txtQRQuantity.Name = "txtQRQuantity";
-            this.txtQRQuantity.Size = new System.Drawing.Size(300, 23);
+            this.txtQRQuantity.Size = new System.Drawing.Size(185, 23);
             this.txtQRQuantity.TabIndex = 14;
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-<<<<<<< HEAD
-            this.labelControl1.Location = new System.Drawing.Point(43, 44);
-=======
-            this.labelControl1.Location = new System.Drawing.Point(37, 29);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.labelControl1.Location = new System.Drawing.Point(12, 44);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(153, 18);
             this.labelControl1.TabIndex = 13;
@@ -322,15 +456,11 @@
             // txtQRContent
             // 
             this.txtQRContent.BackColor = System.Drawing.Color.Cyan;
-<<<<<<< HEAD
-            this.txtQRContent.Location = new System.Drawing.Point(37, 67);
-=======
-            this.txtQRContent.Location = new System.Drawing.Point(31, 52);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.txtQRContent.Location = new System.Drawing.Point(6, 67);
             this.txtQRContent.MaximumSize = new System.Drawing.Size(500, 50);
             this.txtQRContent.MinimumSize = new System.Drawing.Size(100, 30);
             this.txtQRContent.Name = "txtQRContent";
-            this.txtQRContent.Size = new System.Drawing.Size(300, 23);
+            this.txtQRContent.Size = new System.Drawing.Size(185, 23);
             this.txtQRContent.TabIndex = 12;
             // 
             // gridBinLineQCApproval
@@ -341,11 +471,7 @@
             this.gridBinLineQCApproval.MainView = this.gridBinLineQCApprovalView;
             this.gridBinLineQCApproval.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.gridBinLineQCApproval.Name = "gridBinLineQCApproval";
-<<<<<<< HEAD
-            this.gridBinLineQCApproval.Size = new System.Drawing.Size(1610, 626);
-=======
-            this.gridBinLineQCApproval.Size = new System.Drawing.Size(1361, 667);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.gridBinLineQCApproval.Size = new System.Drawing.Size(1610, 562);
             this.gridBinLineQCApproval.TabIndex = 13;
             this.gridBinLineQCApproval.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridBinLineQCApprovalView});
@@ -354,6 +480,7 @@
             // 
             this.gridBinLineQCApprovalView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colWODocNo,
+            this.colProdStatus,
             this.colPrintDate,
             this.colLine,
             this.colProductIDVN,
@@ -361,30 +488,25 @@
             this.colQRCodeVerify,
             this.colQRCodeData,
             this.colCustomerVerify,
-<<<<<<< HEAD
             this.colPrintUser,
             this.colSumQuantity,
             this.colLinkQQuantityPerBin,
             this.colBinSize,
             this.colProdEmpName,
-            this.colQCEmpName});
-=======
-            this.colQCVerify,
-            this.colPrintUser,
-            this.colSumQuantity,
-            this.colLinkQQuantityPerBin,
-            this.colBinSize});
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.colQCEmpName,
+            this.colSupplier,
+            this.colENGLevel,
+            this.colPartNo0,
+            this.colPOText,
+            this.colPOCode,
+            this.colPOTextVerify});
             this.gridBinLineQCApprovalView.GridControl = this.gridBinLineQCApproval;
             this.gridBinLineQCApprovalView.Name = "gridBinLineQCApprovalView";
             this.gridBinLineQCApprovalView.OptionsBehavior.Editable = false;
             this.gridBinLineQCApprovalView.OptionsFilter.AllowAutoFilterConditionChange = DevExpress.Utils.DefaultBoolean.False;
             this.gridBinLineQCApprovalView.OptionsMenu.ShowAutoFilterRowItem = false;
             this.gridBinLineQCApprovalView.OptionsPrint.AutoWidth = false;
-<<<<<<< HEAD
-=======
             this.gridBinLineQCApprovalView.OptionsSelection.MultiSelect = true;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.gridBinLineQCApprovalView.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridBinLineQCApprovalView.OptionsView.ColumnAutoWidth = false;
             this.gridBinLineQCApprovalView.OptionsView.RowAutoHeight = true;
@@ -398,25 +520,19 @@
             this.colWODocNo.MinWidth = 25;
             this.colWODocNo.Name = "colWODocNo";
             this.colWODocNo.Visible = true;
-<<<<<<< HEAD
-            this.colWODocNo.VisibleIndex = 0;
-=======
             this.colWODocNo.VisibleIndex = 1;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.colWODocNo.Width = 94;
             // 
             // colPrintDate
             // 
             this.colPrintDate.Caption = "Ngày in";
+            this.colPrintDate.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.colPrintDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colPrintDate.FieldName = "PrintDate";
             this.colPrintDate.MinWidth = 25;
             this.colPrintDate.Name = "colPrintDate";
             this.colPrintDate.Visible = true;
-<<<<<<< HEAD
-            this.colPrintDate.VisibleIndex = 1;
-=======
-            this.colPrintDate.VisibleIndex = 2;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.colPrintDate.VisibleIndex = 3;
             this.colPrintDate.Width = 94;
             // 
             // colLine
@@ -426,11 +542,7 @@
             this.colLine.MinWidth = 25;
             this.colLine.Name = "colLine";
             this.colLine.Visible = true;
-<<<<<<< HEAD
-            this.colLine.VisibleIndex = 2;
-=======
-            this.colLine.VisibleIndex = 3;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.colLine.VisibleIndex = 4;
             this.colLine.Width = 94;
             // 
             // colProductIDVN
@@ -440,11 +552,7 @@
             this.colProductIDVN.MinWidth = 25;
             this.colProductIDVN.Name = "colProductIDVN";
             this.colProductIDVN.Visible = true;
-<<<<<<< HEAD
-            this.colProductIDVN.VisibleIndex = 3;
-=======
-            this.colProductIDVN.VisibleIndex = 4;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.colProductIDVN.VisibleIndex = 5;
             this.colProductIDVN.Width = 94;
             // 
             // colCustomer
@@ -454,11 +562,7 @@
             this.colCustomer.MinWidth = 25;
             this.colCustomer.Name = "colCustomer";
             this.colCustomer.Visible = true;
-<<<<<<< HEAD
-            this.colCustomer.VisibleIndex = 4;
-=======
-            this.colCustomer.VisibleIndex = 5;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.colCustomer.VisibleIndex = 6;
             this.colCustomer.Width = 94;
             // 
             // colQRCodeVerify
@@ -468,12 +572,8 @@
             this.colQRCodeVerify.MinWidth = 25;
             this.colQRCodeVerify.Name = "colQRCodeVerify";
             this.colQRCodeVerify.Visible = true;
-<<<<<<< HEAD
-            this.colQRCodeVerify.VisibleIndex = 5;
-=======
-            this.colQRCodeVerify.VisibleIndex = 6;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
-            this.colQRCodeVerify.Width = 94;
+            this.colQRCodeVerify.VisibleIndex = 7;
+            this.colQRCodeVerify.Width = 122;
             // 
             // colQRCodeData
             // 
@@ -482,11 +582,7 @@
             this.colQRCodeData.MinWidth = 25;
             this.colQRCodeData.Name = "colQRCodeData";
             this.colQRCodeData.Visible = true;
-<<<<<<< HEAD
-            this.colQRCodeData.VisibleIndex = 6;
-=======
-            this.colQRCodeData.VisibleIndex = 7;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.colQRCodeData.VisibleIndex = 8;
             this.colQRCodeData.Width = 94;
             // 
             // colCustomerVerify
@@ -496,25 +592,9 @@
             this.colCustomerVerify.MinWidth = 25;
             this.colCustomerVerify.Name = "colCustomerVerify";
             this.colCustomerVerify.Visible = true;
-<<<<<<< HEAD
-            this.colCustomerVerify.VisibleIndex = 7;
+            this.colCustomerVerify.VisibleIndex = 9;
             this.colCustomerVerify.Width = 94;
             // 
-=======
-            this.colCustomerVerify.VisibleIndex = 8;
-            this.colCustomerVerify.Width = 94;
-            // 
-            // colQCVerify
-            // 
-            this.colQCVerify.Caption = "Xác nhận QC";
-            this.colQCVerify.FieldName = "QCVerify";
-            this.colQCVerify.MinWidth = 25;
-            this.colQCVerify.Name = "colQCVerify";
-            this.colQCVerify.Visible = true;
-            this.colQCVerify.VisibleIndex = 9;
-            this.colQCVerify.Width = 94;
-            // 
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             // colPrintUser
             // 
             this.colPrintUser.Caption = "SX In Tem";
@@ -522,11 +602,7 @@
             this.colPrintUser.MinWidth = 25;
             this.colPrintUser.Name = "colPrintUser";
             this.colPrintUser.Visible = true;
-<<<<<<< HEAD
-            this.colPrintUser.VisibleIndex = 8;
-=======
             this.colPrintUser.VisibleIndex = 10;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.colPrintUser.Width = 94;
             // 
             // colSumQuantity
@@ -538,11 +614,7 @@
             this.colSumQuantity.MinWidth = 25;
             this.colSumQuantity.Name = "colSumQuantity";
             this.colSumQuantity.Visible = true;
-<<<<<<< HEAD
-            this.colSumQuantity.VisibleIndex = 9;
-=======
             this.colSumQuantity.VisibleIndex = 11;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.colSumQuantity.Width = 94;
             // 
             // colLinkQQuantityPerBin
@@ -554,11 +626,7 @@
             this.colLinkQQuantityPerBin.MinWidth = 25;
             this.colLinkQQuantityPerBin.Name = "colLinkQQuantityPerBin";
             this.colLinkQQuantityPerBin.Visible = true;
-<<<<<<< HEAD
-            this.colLinkQQuantityPerBin.VisibleIndex = 10;
-=======
             this.colLinkQQuantityPerBin.VisibleIndex = 12;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.colLinkQQuantityPerBin.Width = 94;
             // 
             // colBinSize
@@ -568,8 +636,7 @@
             this.colBinSize.MinWidth = 25;
             this.colBinSize.Name = "colBinSize";
             this.colBinSize.Visible = true;
-<<<<<<< HEAD
-            this.colBinSize.VisibleIndex = 11;
+            this.colBinSize.VisibleIndex = 13;
             this.colBinSize.Width = 94;
             // 
             // colProdEmpName
@@ -579,7 +646,7 @@
             this.colProdEmpName.MinWidth = 25;
             this.colProdEmpName.Name = "colProdEmpName";
             this.colProdEmpName.Visible = true;
-            this.colProdEmpName.VisibleIndex = 12;
+            this.colProdEmpName.VisibleIndex = 14;
             this.colProdEmpName.Width = 94;
             // 
             // colQCEmpName
@@ -589,8 +656,68 @@
             this.colQCEmpName.MinWidth = 25;
             this.colQCEmpName.Name = "colQCEmpName";
             this.colQCEmpName.Visible = true;
-            this.colQCEmpName.VisibleIndex = 13;
+            this.colQCEmpName.VisibleIndex = 15;
             this.colQCEmpName.Width = 94;
+            // 
+            // colSupplier
+            // 
+            this.colSupplier.Caption = "Supplier";
+            this.colSupplier.FieldName = "Supplier";
+            this.colSupplier.MinWidth = 25;
+            this.colSupplier.Name = "colSupplier";
+            this.colSupplier.Visible = true;
+            this.colSupplier.VisibleIndex = 16;
+            this.colSupplier.Width = 94;
+            // 
+            // colENGLevel
+            // 
+            this.colENGLevel.Caption = "ENGLevel";
+            this.colENGLevel.FieldName = "ENGLevel";
+            this.colENGLevel.MinWidth = 25;
+            this.colENGLevel.Name = "colENGLevel";
+            this.colENGLevel.Visible = true;
+            this.colENGLevel.VisibleIndex = 17;
+            this.colENGLevel.Width = 94;
+            // 
+            // colPartNo0
+            // 
+            this.colPartNo0.Caption = "PartNo0";
+            this.colPartNo0.FieldName = "PartNo0";
+            this.colPartNo0.MinWidth = 25;
+            this.colPartNo0.Name = "colPartNo0";
+            this.colPartNo0.Visible = true;
+            this.colPartNo0.VisibleIndex = 18;
+            this.colPartNo0.Width = 94;
+            // 
+            // colPOText
+            // 
+            this.colPOText.Caption = "Số PO KH";
+            this.colPOText.FieldName = "POText";
+            this.colPOText.MinWidth = 25;
+            this.colPOText.Name = "colPOText";
+            this.colPOText.Visible = true;
+            this.colPOText.VisibleIndex = 19;
+            this.colPOText.Width = 94;
+            // 
+            // colPOCode
+            // 
+            this.colPOCode.Caption = "Mã PO";
+            this.colPOCode.FieldName = "POCode";
+            this.colPOCode.MinWidth = 25;
+            this.colPOCode.Name = "colPOCode";
+            this.colPOCode.Visible = true;
+            this.colPOCode.VisibleIndex = 20;
+            this.colPOCode.Width = 94;
+            // 
+            // colPOTextVerify
+            // 
+            this.colPOTextVerify.Caption = "Xác nhận PO Text";
+            this.colPOTextVerify.FieldName = "POTextVerify";
+            this.colPOTextVerify.MinWidth = 25;
+            this.colPOTextVerify.Name = "colPOTextVerify";
+            this.colPOTextVerify.Visible = true;
+            this.colPOTextVerify.VisibleIndex = 21;
+            this.colPOTextVerify.Width = 94;
             // 
             // tabPage2
             // 
@@ -616,6 +743,7 @@
             // 
             this.gridQCView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
+            this.gridColumn21,
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
@@ -629,7 +757,13 @@
             this.gridColumn12,
             this.gridColumn13,
             this.gridColumn14,
-            this.gridColumn15});
+            this.gridColumn15,
+            this.gridColumn16,
+            this.gridColumn17,
+            this.POCode,
+            this.gridColumn18,
+            this.gridColumn19,
+            this.gridColumn20});
             this.gridQCView.GridControl = this.gridQC;
             this.gridQCView.Name = "gridQCView";
             this.gridQCView.OptionsBehavior.Editable = false;
@@ -653,6 +787,16 @@
             this.gridColumn1.VisibleIndex = 1;
             this.gridColumn1.Width = 94;
             // 
+            // gridColumn21
+            // 
+            this.gridColumn21.Caption = "Trạng thái";
+            this.gridColumn21.FieldName = "ProdStatus";
+            this.gridColumn21.MinWidth = 25;
+            this.gridColumn21.Name = "gridColumn21";
+            this.gridColumn21.Visible = true;
+            this.gridColumn21.VisibleIndex = 2;
+            this.gridColumn21.Width = 94;
+            // 
             // gridColumn2
             // 
             this.gridColumn2.Caption = "Ngày in";
@@ -660,7 +804,7 @@
             this.gridColumn2.MinWidth = 25;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 2;
+            this.gridColumn2.VisibleIndex = 3;
             this.gridColumn2.Width = 94;
             // 
             // gridColumn3
@@ -670,7 +814,7 @@
             this.gridColumn3.MinWidth = 25;
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
+            this.gridColumn3.VisibleIndex = 4;
             this.gridColumn3.Width = 94;
             // 
             // gridColumn4
@@ -680,7 +824,7 @@
             this.gridColumn4.MinWidth = 25;
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 4;
+            this.gridColumn4.VisibleIndex = 5;
             this.gridColumn4.Width = 94;
             // 
             // gridColumn5
@@ -690,7 +834,7 @@
             this.gridColumn5.MinWidth = 25;
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 5;
+            this.gridColumn5.VisibleIndex = 6;
             this.gridColumn5.Width = 94;
             // 
             // gridColumn6
@@ -700,7 +844,7 @@
             this.gridColumn6.MinWidth = 25;
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 6;
+            this.gridColumn6.VisibleIndex = 7;
             this.gridColumn6.Width = 94;
             // 
             // gridColumn7
@@ -710,7 +854,7 @@
             this.gridColumn7.MinWidth = 25;
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 7;
+            this.gridColumn7.VisibleIndex = 8;
             this.gridColumn7.Width = 94;
             // 
             // gridColumn8
@@ -720,7 +864,7 @@
             this.gridColumn8.MinWidth = 25;
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 8;
+            this.gridColumn8.VisibleIndex = 9;
             this.gridColumn8.Width = 94;
             // 
             // gridColumn9
@@ -730,7 +874,7 @@
             this.gridColumn9.MinWidth = 25;
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 9;
+            this.gridColumn9.VisibleIndex = 10;
             this.gridColumn9.Width = 94;
             // 
             // gridColumn10
@@ -740,7 +884,7 @@
             this.gridColumn10.MinWidth = 25;
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 10;
+            this.gridColumn10.VisibleIndex = 11;
             this.gridColumn10.Width = 94;
             // 
             // gridColumn11
@@ -752,7 +896,7 @@
             this.gridColumn11.MinWidth = 25;
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 11;
+            this.gridColumn11.VisibleIndex = 12;
             this.gridColumn11.Width = 94;
             // 
             // gridColumn12
@@ -764,7 +908,7 @@
             this.gridColumn12.MinWidth = 25;
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 12;
+            this.gridColumn12.VisibleIndex = 13;
             this.gridColumn12.Width = 94;
             // 
             // gridColumn13
@@ -774,7 +918,7 @@
             this.gridColumn13.MinWidth = 25;
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 15;
+            this.gridColumn13.VisibleIndex = 21;
             this.gridColumn13.Width = 94;
             // 
             // gridColumn14
@@ -784,7 +928,7 @@
             this.gridColumn14.MinWidth = 25;
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 13;
+            this.gridColumn14.VisibleIndex = 14;
             this.gridColumn14.Width = 94;
             // 
             // gridColumn15
@@ -794,19 +938,83 @@
             this.gridColumn15.MinWidth = 25;
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 14;
+            this.gridColumn15.VisibleIndex = 15;
             this.gridColumn15.Width = 94;
             // 
-=======
-            this.colBinSize.VisibleIndex = 13;
-            this.colBinSize.Width = 94;
+            // gridColumn16
             // 
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+            this.gridColumn16.Caption = "Supplier";
+            this.gridColumn16.FieldName = "Supplier";
+            this.gridColumn16.MinWidth = 25;
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 16;
+            this.gridColumn16.Width = 94;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "Eng Level";
+            this.gridColumn17.FieldName = "EngLevel";
+            this.gridColumn17.MinWidth = 25;
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 17;
+            this.gridColumn17.Width = 94;
+            // 
+            // POCode
+            // 
+            this.POCode.Caption = "PO Code";
+            this.POCode.FieldName = "POCode";
+            this.POCode.MinWidth = 25;
+            this.POCode.Name = "POCode";
+            this.POCode.Visible = true;
+            this.POCode.VisibleIndex = 18;
+            this.POCode.Width = 94;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "PO Text";
+            this.gridColumn18.FieldName = "POText";
+            this.gridColumn18.MinWidth = 25;
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 19;
+            this.gridColumn18.Width = 94;
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.Caption = "Part No 0";
+            this.gridColumn19.FieldName = "PartNo0";
+            this.gridColumn19.MinWidth = 25;
+            this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.Visible = true;
+            this.gridColumn19.VisibleIndex = 20;
+            this.gridColumn19.Width = 94;
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.Caption = "PO Text Verify";
+            this.gridColumn20.FieldName = "POTextVerify";
+            this.gridColumn20.MinWidth = 25;
+            this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.Visible = true;
+            this.gridColumn20.VisibleIndex = 22;
+            this.gridColumn20.Width = 94;
+            // 
+            // colProdStatus
+            // 
+            this.colProdStatus.Caption = "Trạng thái";
+            this.colProdStatus.FieldName = "ProdStatus";
+            this.colProdStatus.MinWidth = 25;
+            this.colProdStatus.Name = "colProdStatus";
+            this.colProdStatus.Visible = true;
+            this.colProdStatus.VisibleIndex = 2;
+            this.colProdStatus.Width = 94;
+            // 
             // frmBinLineQCApproval
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1616, 774);
             this.Controls.Add(this.xtraTabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -815,13 +1023,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-=======
-            this.ClientSize = new System.Drawing.Size(1361, 774);
-            this.Controls.Add(this.splitContainerControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmBinLineQCApproval";
-            this.Text = "frmBinLineQCApproval";
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();
             this.splitContainerControl1.Panel1.ResumeLayout(false);
             this.splitContainerControl1.Panel1.PerformLayout();
@@ -829,7 +1030,6 @@
             this.splitContainerControl1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
-<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtToDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtFromDate.Properties.CalendarTimeProperties)).EndInit();
@@ -839,21 +1039,14 @@
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridQC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridQCView)).EndInit();
-=======
-            ((System.ComponentModel.ISupportInitialize)(this.gridBinLineQCApproval)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridBinLineQCApprovalView)).EndInit();
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-<<<<<<< HEAD
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage tabPage1;
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.TextBox txtQRQuantity;
@@ -869,15 +1062,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn colQRCodeVerify;
         private DevExpress.XtraGrid.Columns.GridColumn colQRCodeData;
         private DevExpress.XtraGrid.Columns.GridColumn colCustomerVerify;
-<<<<<<< HEAD
-=======
-        private DevExpress.XtraGrid.Columns.GridColumn colQCVerify;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         private DevExpress.XtraGrid.Columns.GridColumn colPrintUser;
         private DevExpress.XtraGrid.Columns.GridColumn colSumQuantity;
         private DevExpress.XtraGrid.Columns.GridColumn colLinkQQuantityPerBin;
         private DevExpress.XtraGrid.Columns.GridColumn colBinSize;
-<<<<<<< HEAD
         private DevExpress.XtraTab.XtraTabPage tabPage2;
         private DevExpress.XtraGrid.GridControl gridQC;
         private DevExpress.XtraGrid.Views.Grid.GridView gridQCView;
@@ -907,7 +1095,32 @@
         private System.Windows.Forms.TextBox txtProdEmpName;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+        private DevExpress.XtraGrid.Columns.GridColumn colSupplier;
+        private DevExpress.XtraGrid.Columns.GridColumn colENGLevel;
+        private DevExpress.XtraGrid.Columns.GridColumn colPartNo0;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private System.Windows.Forms.TextBox txtPOCode;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private System.Windows.Forms.TextBox txtPOKH;
+        private DevExpress.XtraGrid.Columns.GridColumn colPOText;
+        private DevExpress.XtraGrid.Columns.GridColumn colPOCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colPOTextVerify;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private System.Windows.Forms.TextBox txtPartNo0;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private System.Windows.Forms.TextBox txtEngLevel;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private System.Windows.Forms.TextBox txtSupplier;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private System.Windows.Forms.TextBox txtWODocNo;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
+        private DevExpress.XtraGrid.Columns.GridColumn POCode;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
+        private DevExpress.XtraEditors.SimpleButton btProdInput;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
+        private DevExpress.XtraGrid.Columns.GridColumn colProdStatus;
     }
 }

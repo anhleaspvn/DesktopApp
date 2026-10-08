@@ -177,7 +177,7 @@ namespace ASPProject.SOPStage
                     List<string> arrProd = new List<string>();
                     ASPExcelDataProcess.ASPExcelDataProcess excel = new ASPExcelDataProcess.ASPExcelDataProcess();
                     DataTable dtExcel = new DataTable();
-                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:G10000");
+                    dtExcel = excel.ReadDataFromExcelFile(openExcel.FileName, "Sheet1", "A1:H100000");
                  
                     foreach (DataRow dr in dtExcel.Rows)
                     {
@@ -196,6 +196,7 @@ namespace ASPProject.SOPStage
                         woDto.CycleTime = Convert.ToDouble(dr["CycleTime"]);
                         woDto.UsageBom = Convert.ToDouble(dr["UsageBom"]);
                         woDto.ManPower = Convert.ToDouble(dr["ManPower"]);
+                        woDto.SkillID = Convert.ToString(dr["SkillID"]);
                         woDto.CreatedBy = userName;
                         woDto.CreatedDate = DateTime.Now;
 

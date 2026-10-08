@@ -22,7 +22,7 @@ namespace ASPProject.ExternalIQC
         public int editType, saveMulti;
         public int iNgonNgu;
         public long HeaderID, AutoID;
-        public string iqcCheckID, defectID, userName;
+        public string iqcCheckID, defectID, defectDescription, userName;
         public double defectQuantity;
         private DataTable dtIQCDefect = new DataTable();
         public DataTable dtSaveMulti = new DataTable();
@@ -75,6 +75,7 @@ namespace ASPProject.ExternalIQC
                     lkeDefectiD.EditValue = defectID;
 
                     txtDefectQuantity.Text = defectQuantity > 0 ? Convert.ToString(defectQuantity) : string.Empty;
+                    txtDefectDescription.Text = defectDescription ?? string.Empty;
 
                     break;
                 default:
@@ -108,6 +109,7 @@ namespace ASPProject.ExternalIQC
             {
                 iqcDto.AutoID = AutoID;
                 iqcDto.DefectQuantity = Convert.ToDouble(txtDefectQuantity.Text);
+                iqcDto.DefectDescription = txtDefectDescription.Text;
                 iqcDto.LastModifiedBy = userName;
                 iqcDto.LastModifiedDate = DateTime.Now;
 

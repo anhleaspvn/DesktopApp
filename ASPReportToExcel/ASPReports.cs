@@ -1,18 +1,20 @@
-﻿using System;
+﻿using ASPControl;
+using ASPData;
+using ASPData.ASPDAO;
+using Dapper;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ASPControl;
-using ASPData;
-using ASPData.ASPDAO;
-using Dapper;
-using DevExpress.XtraEditors;
 
 
 namespace ASPReportToExcel
@@ -69,7 +71,105 @@ namespace ASPReportToExcel
             cboOutlist.EditValueChanged += CboOutlist_EditValueChanged;
             cboSheetOut.EditValueChanged += CboSheetOut_EditValueChanged;
             cboSheetName.EditValueChanged += CboSheetName_EditValueChanged;
+            gridStatSummaryView.RowCellStyle += GridStatSummaryView_RowCellStyle;
         }
+
+        public enum MidType
+        {
+            Average,
+            Median
+        }
+
+        private double GetMedian(List<double> values)
+        {
+            var sorted = values.OrderBy(x => x).ToList();
+            int count = sorted.Count;
+            if (count % 2 == 1)
+                return sorted[count / 2];
+            else
+                return (sorted[(count / 2) - 1] + sorted[count / 2]) / 2.0;
+        }
+
+        private void GridStatSummaryView_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            GridView view = sender as GridView;
+            DataRow row = view.GetDataRow(e.RowHandle);
+
+            if (row == null) return;
+
+            DateTime date = DateTime.Now;
+
+            if (row.Table.Columns.Contains("StatisticDate"))
+                if (!string.IsNullOrEmpty(row["StatisticDate"].ToString()))
+                    date = Convert.ToDateTime(row["StatisticDate"]);
+
+            // ✅ Ưu tiên Chủ Nhật
+            //if (date.DayOfWeek == DayOfWeek.Sunday)
+            //{
+            //    e.Appearance.BackColor = Color.Blue;
+            //    e.Appearance.ForeColor = Color.White;
+
+            //    if (e.Column.FieldName != "StatisticDate" && e.Column.FieldName != "DayOfWeeks")
+            //    {
+            //        row[e.Column.FieldName] = DBNull.Value; // ⬅️ ẩn giá trị thay vì xoá dữ liệu
+            //    }
+            //    return; // ⬅️ thoát luôn, không cho logic khác ghi đè
+            //}
+
+            // ✅ Các ngày khác mới chạy scale màu
+            if (e.Column.FieldName == "YieldProductivity" || e.Column.FieldName == "DailyProductivity")
+            {
+                var values = Enumerable.Range(0, view.DataRowCount)
+                    .Select(r => view.GetRowCellValue(r, "YieldProductivity"))
+                    .Where(v => v != null && v != DBNull.Value && double.TryParse(v.ToString(), out _))
+                    .Select(v => Convert.ToDouble(v))
+                    .ToList();
+
+                if (values.Count == 0) return;
+
+                double min = values.Min();
+                double max = values.Max();
+                double mid = GetMedian(values);
+
+                double val = 0;
+                if (e.CellValue != null && e.CellValue != DBNull.Value)
+                    double.TryParse(e.CellValue.ToString(), out val);
+
+                if (val <= 0) return;
+
+                if (val <= mid)
+                {
+                    double ratio = (val - min) / (mid - min + 0.00001);
+                    if (ratio > 0)
+                        e.Appearance.BackColor = InterpolateColor(Color.Red, Color.Yellow, ratio);
+                }
+                else
+                {
+                    double ratio = (val - mid) / (max - mid + 0.00001);
+                    if (ratio > 0)
+                        e.Appearance.BackColor = InterpolateColor(Color.Yellow, Color.Green, ratio);
+                }
+            }
+        }
+
+
+        private Color InterpolateColor(Color c1, Color c2, double ratio)
+        {
+            // đảm bảo ratio trong [0..1]
+            ratio = Math.Max(0, Math.Min(1, ratio));
+
+            int r = (int)Math.Round(c1.R + (c2.R - c1.R) * ratio);
+            int g = (int)Math.Round(c1.G + (c2.G - c1.G) * ratio);
+            int b = (int)Math.Round(c1.B + (c2.B - c1.B) * ratio);
+
+            // clamp về 0–255
+            r = Math.Max(0, Math.Min(255, r));
+            g = Math.Max(0, Math.Min(255, g));
+            b = Math.Max(0, Math.Min(255, b));
+
+            return Color.FromArgb(r, g, b);
+        }
+
 
         private void ASPReportExcel_Load(object sender, EventArgs e)
         {
@@ -128,7 +228,7 @@ namespace ASPReportToExcel
             cboFields.Properties.DisplayMember = dtNNghe.Columns["Ten_NNghe"].ColumnName;
 
             //fill ma line
-            strSQL = "SELECT Ma_Day_Chuyen, Ten_Day_Chuyen FROM L81DMDAYCHUYENASP UNION SELECT '*' AS Ma_Day_Chuyen, N'Tất cả' AS Ten_Day_Chuyen";
+            strSQL = "SELECT Ma_Day_Chuyen, Ten_Day_Chuyen FROM L81DMDAYCHUYENASP UNION SELECT '*' AS Ma_Day_Chuyen, N'Tất cả' AS Ten_Day_Chuyen UNION SELECT '*_asm3' AS Ma_Day_Chuyen, N'Tất cả ASM3' AS Ten_Day_Chuyen";
             DataTable dtLines = _sqlhelper.ExecQueryDataAsDataTable(strSQL);
 
             BindingSource bdsLines = new BindingSource();
@@ -152,7 +252,7 @@ namespace ASPReportToExcel
 
         private bool FormCheckValid()
         {
-            if (dtRepIn.Rows.Count == 0)
+            if (dtRepIn == null || dtRepIn.Rows.Count == 0)
             {
                 if (string.IsNullOrEmpty(_fileName) || string.IsNullOrEmpty(_sheetName) || string.IsNullOrEmpty(_rangeName))
                 {
@@ -169,21 +269,58 @@ namespace ASPReportToExcel
 
             return true;
         }
+
+        private void LogReportProcessingError(string processStep, Exception exception)
+        {
+            try
+            {
+                string logFolder = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                    "ASPProject",
+                    "Logs");
+                Directory.CreateDirectory(logFolder);
+
+                string logPath = Path.Combine(logFolder, "report-excel.log");
+                string logContent = string.Format(
+                    "{0:yyyy-MM-dd HH:mm:ss} | Report={1} | Step={2} | Process={3}-bit | ManagedMemory={4:N0} bytes{5}{6}{5}{5}",
+                    DateTime.Now,
+                    Convert.ToString(cboReportName.EditValue),
+                    processStep,
+                    Environment.Is64BitProcess ? 64 : 32,
+                    GC.GetTotalMemory(false),
+                    Environment.NewLine,
+                    exception);
+
+                File.AppendAllText(logPath, logContent, Encoding.UTF8);
+            }
+            catch
+            {
+                // Logging must not hide the original processing error.
+            }
+        }
+
         #endregion
 
         #region Event
         private void BtnProcessExcelFile_Click(object sender, EventArgs e)
         {
+            if (!FormCheckValid())
+                return;
+
+            string processStep = "Khởi tạo xử lý";
+            Exception processError = null;
+            bool hasData = false;
+            bool processSucceeded = false;
+
             try
             {
-                if (!FormCheckValid())
-                    return;
-
                 _loading.CreateWaitDialog();
                 _loading.SetWaitDialogCaption("Đang xử lý...");
 
                 cboSheetOut.Enabled = true;
                 txtRangeOut.Enabled = true;
+
+                processStep = "Chuẩn bị tham số báo cáo";
 
                 var dicParams = new Dictionary<string, object>
                 {
@@ -218,8 +355,15 @@ namespace ASPReportToExcel
 
                 var parameters = new DynamicParameters(dicParams);
 
+                processStep = "Lấy dữ liệu báo cáo từ cơ sở dữ liệu";
+                if (ds != null)
+                {
+                    ds.Dispose();
+                    ds = new DataSet();
+                }
                 ds = _sqlhelper.ExecProcedureDataAsDataSet(_reportProc, parameters);
 
+                processStep = "Đọc cấu hình đầu ra";
                 dtRepOut = _sqlhelper.ExecQueryDataAsDataTable("SELECT Report_Out_SheetName, Report_Out_RangeName FROM ReportEx_Output WHERE Report_ID = '" + cboReportName.EditValue.ToString() + "' ORDER BY Stt, Report_ID");
 
                 if (dtRepOut.Rows.Count == 0)
@@ -258,33 +402,80 @@ namespace ASPReportToExcel
                 //write excel file
                 if (ds.Tables.Count > 0)
                 {
-                    if (dtRepIn.Rows.Count > 0)
+                    hasData = true;
+                    processStep = "Ghi dữ liệu vào file Excel";
+
+                    if (dtRepIn != null && dtRepIn.Rows.Count > 0)
                     {
+                        if (ds.Tables.Count < dtRepIn.Rows.Count)
+                            throw new InvalidOperationException("Số bảng dữ liệu trả về ít hơn số vùng đầu vào đã cấu hình.");
+
+                        List<DataTable> inputTables = new List<DataTable>();
+                        List<string> inputSheetNames = new List<string>();
+                        List<string> inputRangeNames = new List<string>();
+
                         for (int k = 0; k <= dtRepIn.Rows.Count - 1; k++)
                         {
-                            if (k == 0)
-                                _writeExcel.WriteDataIntoExcelFile(ds.Tables[k], _fileName, Convert.ToString(dtRepIn.Rows[k]["Report_In_SheetName"]), Convert.ToString(dtRepIn.Rows[k]["Report_In_RangeName"]), _saveFolder);
-                            else if (k > 0)
-                                _writeExcel.WriteDataIntoExcelFile(ds.Tables[k], _saveFolder, Convert.ToString(dtRepIn.Rows[k]["Report_In_SheetName"]), Convert.ToString(dtRepIn.Rows[k]["Report_In_RangeName"]), _saveFolder);
+                            inputTables.Add(ds.Tables[k]);
+                            inputSheetNames.Add(Convert.ToString(dtRepIn.Rows[k]["Report_In_SheetName"]));
+                            inputRangeNames.Add(Convert.ToString(dtRepIn.Rows[k]["Report_In_RangeName"]));
                         }
+
+                        _writeExcel.WriteDataTablesIntoExcelFile(
+                            inputTables,
+                            _fileName,
+                            inputSheetNames,
+                            inputRangeNames,
+                            _saveFolder);
                     }
                     else
                         _writeExcel.WriteDataIntoExcelFile(ds.Tables[0], _fileName, _sheetName, _rangeName, _saveFolder);
 
-                    _loading.simpleCloseWait();
+                    processSucceeded = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                processError = ex;
+                LogReportProcessingError(processStep, ex);
+            }
+            finally
+            {
+                _loading.simpleCloseWait();
+            }
 
-                    if (XtraMessageBox.Show("Xử lý thành công, bạn có muốn mở file đã xử lý lên không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        Process.Start(string.IsNullOrEmpty(_saveFolder) ? _fileName : _saveFolder);
-                    }
+            if (processError != null)
+            {
+                if (processError is OutOfMemoryException)
+                {
+                    XtraMessageBox.Show(
+                        "Không đủ bộ nhớ tại bước '" + processStep + "'. Vui lòng thu hẹp khoảng ngày hoặc giảm số lượng dữ liệu cần xuất.",
+                        "Không thể xử lý",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    _loading.simpleCloseWait();
-                    XtraMessageBox.Show("Không có dữ liệu.");
+                    XtraMessageBox.Show(
+                        "Không thể xử lý đầu vào tại bước '" + processStep + "': " + processError.Message,
+                        "Không thể xử lý",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
+
+                return;
             }
-            catch (Exception ex) { _loading.simpleCloseWait(); throw ex; }
+
+            if (!hasData)
+            {
+                XtraMessageBox.Show("Không có dữ liệu.");
+                return;
+            }
+
+            if (processSucceeded && XtraMessageBox.Show("Xử lý thành công, bạn có muốn mở file đã xử lý lên không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Process.Start(string.IsNullOrEmpty(_saveFolder) ? _fileName : _saveFolder);
+            }
         }
 
         private void BtnProcessOut_Click(object sender, EventArgs e)

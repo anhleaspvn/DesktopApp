@@ -1,13 +1,12 @@
-﻿using ASPData;
+using ASPData;
 using ASPData.ASPDAO;
 using ASPData.ProdStatisticDTO;
-<<<<<<< HEAD
+using DevExpress.DataProcessing.InMemoryDataProcessor.Executors;
 using DevExpress.Utils.Extensions;
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraPrinting.Native.Lines;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +18,8 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace ASPProject.ScanBarCodeBin
 {
@@ -58,17 +59,13 @@ namespace ASPProject.ScanBarCodeBin
             this.btCopy1.Click += BtCopy1_Click;
             this.btExcel1.Click += BtExcel1_Click;
             this.btTrans1.Click += BtTrans1_Click;
-<<<<<<< HEAD
             this.btFilter.Click += BtFilter_Click;
             this.btDelete.Click += BtDelete_Click;
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             gridScanBarcodeBinLine.GotFocus += (s, e) => lastFocusedGridControl = gridScanBarcodeBinLine;
             gridScanBarcodeBinLineV2.GotFocus += (s, e) => lastFocusedGridControl = gridScanBarcodeBinLineV2;
 
             this.gridScanBarcodeBinLineView.RowStyle += GridScanBarcodeBinLineView_RowStyle;
             this.gridScanBarcodeBinLineV2View.RowStyle += GridScanBarcodeBinLineV2View_RowStyle;
-<<<<<<< HEAD
 
             this.dtFromDate.EditValue = DateTime.Now;
             this.dtToDate.EditValue = DateTime.Now;
@@ -106,26 +103,18 @@ namespace ASPProject.ScanBarCodeBin
         private void BtFilter_Click(object sender, EventArgs e)
         {
             FillData();
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         }
 
         private void BtExcel1_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             DataTable dt = new DataTable();
             for (int row = 0; row <= gridScanBarcodeBinLineView.GetSelectedRows().Length - 1; row++)
-=======
-
-            foreach (int row in gridScanBarcodeBinLineView.GetSelectedRows())
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             {
                 DataRow drow = gridScanBarcodeBinLineView.GetDataRow(row);
 
                 if (drow == null)
                     continue;
 
-<<<<<<< HEAD
                 var dicParams = new Dictionary<string, object>()
                 {
                     { "@AutoID", (long)Convert.ToDouble(drow["AutoID"]) },
@@ -141,12 +130,95 @@ namespace ASPProject.ScanBarCodeBin
 
                     dt.ImportRow(dtTemp.Rows[0]);
                 }
-=======
-                DataTable dt = drow.Table.Clone();
-                dt.ImportRow(drow);
 
-                ExportExcel(dt);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+                //transfer sang du lieu QC duyet
+                int[] selectrowsHandle = gridScanBarcodeBinLineView.GetSelectedRows();
+
+                if (selectrowsHandle.Length > 0)
+                {
+                    int intFirstRow = selectrowsHandle[0];
+
+                    if (intFirstRow >= 0)
+                    {
+                        DataRow firstRow = gridScanBarcodeBinLineView.GetDataRow(intFirstRow);
+
+                        string partNo = Convert.ToString(drow["PartNo"]);
+                        string itemNo = Convert.ToString(drow["ItemNo"]);
+
+                        dicParams = new Dictionary<string, object>()
+                        {
+                            { "@PartNo", drow["PartNo"] },
+                            { "@ItemNo", drow["ItemNo"] }
+                        };
+
+                        DataTable dtOriginalBin = _sqlHelper.ExecQueryDataAsDataTable("SELECT * FROM ASPScanBarcodeBinLine WHERE PartNo = @PartNo AND ItemNo = @ItemNo", dicParams);
+
+                        DataRow drOriginal = null;
+
+                        if (dtOriginalBin.Rows.Count > 0)
+                            drOriginal = dtOriginalBin.Rows[0];
+
+                        if (firstRow != null && drOriginal != null)
+                        {
+                            //xu ly insert
+                            psScanBin.WO = Convert.ToString(drow["WO"]).Replace("W.O: ", string.Empty);
+                            dicParams = new Dictionary<string, object>()
+                            {
+                                { "@WODocNo", psScanBin.WO.Substring(0,14) }
+                            };
+                            DataTable dtLine = _sqlHelper.ExecQueryDataAsDataTable("SELECT * FROM L14CTLSXASP WHERE So_Ct = @WODocNo", dicParams);
+                            psScanBin.PrintDate = DateTime.Now;
+                            psScanBin.Line = dtLine.Rows.Count > 0 ? (string)dtLine.Rows[0]["Ma_Day_Chuyen"] : string.Empty;
+                            psScanBin.ProductIDVN = (string)drow["ItemNo"];
+                            psScanBin.Customer = string.Empty;
+                            psScanBin.QRCodeVerify = string.Empty;
+                            psScanBin.QRCodeData = string.Empty;
+                            psScanBin.CustomerVerify = string.Empty;
+                            psScanBin.ULStamp = (string)drow["ULStamp"];
+                            psScanBin.QCVerify = false;
+                            psScanBin.QCVerify_Log = string.Empty;
+                            psScanBin.PrintUser = userName;
+                            psScanBin.FirstBinQuantity = 0;
+                            psScanBin.LastBinQuantity = 0;
+                            psScanBin.SumQuantity = Convert.ToDouble(drow["Quantity"]);
+                            psScanBin.LinkQQuantityPerBin = 0;
+                            psScanBin.BinSize = string.Empty;//Convert.ToString(firstRow["BinSize"]);
+                            psScanBin.N5 = Convert.ToDouble(drOriginal["N-5"]);
+                            psScanBin.N25 = Convert.ToDouble(drOriginal["N-25"]);
+                            psScanBin.N100 = Convert.ToDouble(drOriginal["N-100"]);
+                            psScanBin.N250 = Convert.ToDouble(drOriginal["N-250"]);
+                            psScanBin.N500 = Convert.ToDouble(drOriginal["N-500"]);
+                            psScanBin.N1_25 = Convert.ToDouble(drOriginal["1-N-25"]);
+                            psScanBin.N1_100 = Convert.ToDouble(drOriginal["1-N-100"]);
+                            psScanBin.N1_250 = Convert.ToDouble(drOriginal["1-N-250"]);
+                            psScanBin.N1_500 = Convert.ToDouble(drOriginal["1-N-500"]);
+                            psScanBin.N5_Line = 0;
+                            psScanBin.N25_Line = 0;
+                            psScanBin.N100_Line = 0;
+                            psScanBin.N250_Line = 0;
+                            psScanBin.N500_Line = 0;
+                            psScanBin.N1_25_Line = 0;
+                            psScanBin.N1_100_Line = 0;
+                            psScanBin.N1_250_Line = 0;
+                            psScanBin.N1_500_Line = 0;
+                            psScanBin.CreatedBy = userName;
+                            psScanBin.CreatedDate = DateTime.Now;
+                            psScanBin.LastModifiedBy = userName;
+                            psScanBin.LastModifiedDate = DateTime.Now;
+                            psScanBin.NW = Convert.ToDouble(drow["NW"]);
+                            psScanBin.GW = Convert.ToDouble(drow["GW"]);
+                            psScanBin.RePrint = Convert.ToBoolean(drOriginal["RePrint"]);
+
+                            if (Convert.ToString(drow["LotNo"]).Length > 0)
+                            {
+                                string[] argShipdate = Convert.ToString(drow["LotNo"]).Split(':');
+                                psScanBin.LotNo = argShipdate[1].Trim();
+                            }
+
+                            prodStatisticDAO.TransScanBinQCApproval(psScanBin);
+                        }
+                    }
+                }
 
                 psScanBin.PartNo = Convert.ToString(drow["PartNo"]);
                 psScanBin.ItemNo = Convert.ToString(drow["ItemNo"]);
@@ -167,11 +239,46 @@ namespace ASPProject.ScanBarCodeBin
                 psScanBin.LastModifiedDate = DateTime.Now;
                 psScanBin.AutoID = (long)Convert.ToDouble(drow["AutoID"]);
                 psScanBin.IntType = 1;
+                psScanBin.POCode = Convert.ToString(drow["POCode"]);
+                psScanBin.POText = Convert.ToString(drow["POText"]);
+                psScanBin.Supplier = Convert.ToString(drow["Supplier"]);
+                psScanBin.ENGLevel = Convert.ToString(drow["ENGLevel"]);
+                psScanBin.PartNo0 = Convert.ToString(drow["PartNo0"]);
+                psScanBin.RePrint = Convert.ToBoolean(drow["RePrint"]);
+                psScanBin.OriginalMaterial = Convert.ToString(drow["OriginalMaterial"]);
 
                 prodStatisticDAO.TransScanBarcodeBinLine(psScanBin);
 
+            }
+
+            ExportExcel(dt, "DailyLineLabelReport", 0);
+
+            DataTable dt2 = new DataTable();
+            foreach (int row in gridScanBarcodeBinLineV2View.GetSelectedRows())
+            {
+                DataRow drow = gridScanBarcodeBinLineV2View.GetDataRow(row);
+
+                if (drow == null)
+                    continue;
+
+                var dicParams = new Dictionary<string, object>()
+                {
+                    { "@AutoID", (long)Convert.ToDouble(drow["AutoID"]) },
+                    { "@Type", 2 }
+                };
+
+                DataTable dtTemp = _sqlHelper.ExecProcedureDataAsDataTable("sp_ASPPSPrintBinLabel", dicParams);
+
+                if (dtTemp.Rows.Count > 0)
+                {
+                    if (dt2.Rows.Count == 0)
+                        dt2 = dtTemp.Clone();
+
+                    dt2.ImportRow(dtTemp.Rows[0]);
+                }
+
                 //transfer sang du lieu QC duyet
-                int[] selectrowsHandle = gridScanBarcodeBinLineView.GetSelectedRows();
+                int[] selectrowsHandle = gridScanBarcodeBinLineV2View.GetSelectedRows();
 
                 if (selectrowsHandle.Length > 0)
                 {
@@ -179,28 +286,17 @@ namespace ASPProject.ScanBarCodeBin
 
                     if (intFirstRow >= 0)
                     {
-                        DataRow firstRow = gridScanBarcodeBinLineView.GetDataRow(intFirstRow);
+                        DataRow firstRow = gridScanBarcodeBinLineV2View.GetDataRow(intFirstRow);
 
-<<<<<<< HEAD
-                        string partNo = Convert.ToString(drow["PartNo"]);
-                        string itemNo = Convert.ToString(drow["ItemNo"]);
+                        //string partNo = Convert.ToString(firstRow["PartNo"]);
+                        //string itemNo = Convert.ToString(firstRow["ItemNo"]);
 
                         dicParams = new Dictionary<string, object>()
                         {
-                            { "@PartNo", drow["PartNo"] },
-                            { "@ItemNo", drow["ItemNo"] }
-=======
-                        string partNo = Convert.ToString(firstRow["PartNo"]);
-                        string itemNo = Convert.ToString(firstRow["ItemNo"]);
-
-                        var dicParams = new Dictionary<string, object>()
-                        {
-                            { "@PartNo", firstRow["PartNo"] },
-                            { "@ItemNo", firstRow["ItemNo"] }
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+                            { "@CusID", drow["CusID"] }
                         };
 
-                        DataTable dtOriginalBin = _sqlHelper.ExecQueryDataAsDataTable("SELECT * FROM ASPScanBarcodeBin WHERE PartNo = @PartNo AND ItemNo = @ItemNo", dicParams);
+                        DataTable dtOriginalBin = _sqlHelper.ExecQueryDataAsDataTable("SELECT * FROM ASPScanBarcodeBinLineV2 WHERE CusID = @CusID", dicParams);
 
                         DataRow drOriginal = null;
 
@@ -210,43 +306,26 @@ namespace ASPProject.ScanBarCodeBin
                         if (firstRow != null && drOriginal != null)
                         {
                             //xu ly insert
-<<<<<<< HEAD
-                            psScanBin.WO = Convert.ToString(drow["WO"]).Replace("W.O: ", string.Empty);
-=======
-                            psScanBin.WO = Convert.ToString(firstRow["WO"]).Replace("W.O: ", string.Empty);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+                            psScanBin.WO = Convert.ToString(drow["WO"]).Replace("WO: ", string.Empty);
                             dicParams = new Dictionary<string, object>()
                             {
-                                { "@WODocNo", psScanBin.WO }
+                                { "@WODocNo", psScanBin.WO.Trim() }
                             };
                             DataTable dtLine = _sqlHelper.ExecQueryDataAsDataTable("SELECT * FROM L14CTLSXASP WHERE So_Ct = @WODocNo", dicParams);
                             psScanBin.PrintDate = DateTime.Now;
-<<<<<<< HEAD
                             psScanBin.Line = dtLine.Rows.Count > 0 ? (string)dtLine.Rows[0]["Ma_Day_Chuyen"] : string.Empty;
-                            psScanBin.ProductIDVN = (string)drow["ItemNo"];
-=======
-                            psScanBin.Line = dtLine.Rows.Count > 0 ? (string)dtLine.Rows[0]["LineID"] : string.Empty;
-                            psScanBin.ProductIDVN = (string)firstRow["ItemNo"];
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+                            psScanBin.ProductIDVN = (string)drow["PartNo"];
                             psScanBin.Customer = string.Empty;
                             psScanBin.QRCodeVerify = string.Empty;
                             psScanBin.QRCodeData = string.Empty;
                             psScanBin.CustomerVerify = string.Empty;
-<<<<<<< HEAD
-                            psScanBin.ULStamp = (string)drow["ULStamp"];
-=======
-                            psScanBin.ULStamp = (string)firstRow["ULStamp"];
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+                            psScanBin.ULStamp = string.Empty;
                             psScanBin.QCVerify = false;
                             psScanBin.QCVerify_Log = string.Empty;
                             psScanBin.PrintUser = userName;
                             psScanBin.FirstBinQuantity = 0;
                             psScanBin.LastBinQuantity = 0;
-<<<<<<< HEAD
-                            psScanBin.SumQuantity = Convert.ToDouble(drow["Quantity"]);
-=======
-                            psScanBin.SumQuantity = Convert.ToDouble(firstRow["Quantity"]);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+                            psScanBin.SumQuantity = Convert.ToDouble(drOriginal["Quantity"].ToString().ToUpper().Replace("PCS", string.Empty));
                             psScanBin.LinkQQuantityPerBin = 0;
                             psScanBin.BinSize = string.Empty;//Convert.ToString(firstRow["BinSize"]);
                             psScanBin.N5 = Convert.ToDouble(drOriginal["N-5"]);
@@ -272,48 +351,41 @@ namespace ASPProject.ScanBarCodeBin
                             psScanBin.LastModifiedBy = userName;
                             psScanBin.LastModifiedDate = DateTime.Now;
 
+                            string PkgGwt = (string)drOriginal["PkgGwt"];
+                            //psScanBin.NW = (string)drOriginal["1-N-500"];
+
+                            Match match = Regex.Match(PkgGwt, @"[\d,.]+");
+
+                            if (match.Success)
+                            {
+                                string numberString = match.Value.Replace(",", ".");
+
+                                double weight = double.Parse(numberString, CultureInfo.InvariantCulture);
+
+                                psScanBin.GW = weight;
+                                psScanBin.NW = psScanBin.GW - 0.7;
+                            }
+                            else
+                            {
+                                psScanBin.GW = 0;
+                                psScanBin.NW = 0;
+                            }
+
+                            if (Convert.ToString(drOriginal["ShipDate"]).Length > 0)
+                            {
+                                string[] argShipdate = Convert.ToString(drOriginal["ShipDate"]).Split(':');
+                                psScanBin.LotNo = argShipdate[1].Trim();
+                            }
+                            else
+                            {
+                                psScanBin.LotNo = string.Empty;
+                            }
+                            psScanBin.RePrint = Convert.ToBoolean(drOriginal["RePrint"]);
                             prodStatisticDAO.TransScanBinQCApproval(psScanBin);
                         }
                     }
                 }
-<<<<<<< HEAD
 
-            }
-
-            ExportExcel(dt, "DailyLineLabelReport", 0);
-
-            DataTable dt2 = new DataTable();
-=======
-                
-            }
-
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
-            foreach (int row in gridScanBarcodeBinLineV2View.GetSelectedRows())
-            {
-                DataRow drow = gridScanBarcodeBinLineV2View.GetDataRow(row);
-
-                if (drow == null)
-                    continue;
-
-<<<<<<< HEAD
-                var dicParams = new Dictionary<string, object>()
-                {
-                    { "@AutoID", (long)Convert.ToDouble(drow["AutoID"]) },
-                    { "@Type", 2 }
-                };
-
-                DataTable dtTemp = _sqlHelper.ExecProcedureDataAsDataTable("sp_ASPPSPrintBinLabel", dicParams);
-
-                if (dtTemp.Rows.Count > 0)
-                {
-                    if (dt2.Rows.Count == 0)
-                        dt2 = dtTemp.Clone();
-
-                    dt2.ImportRow(dtTemp.Rows[0]);
-                }
-
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
                 psScanBin.CusID = Convert.ToString(drow["CusID"]);
                 psScanBin.Quantity = Convert.ToString(drow["Quantity"]);
                 psScanBin.BinQuantity = Convert.ToString(drow["BinQuantity"]);
@@ -331,127 +403,20 @@ namespace ASPProject.ScanBarCodeBin
                 psScanBin.LastModifiedDate = DateTime.Now;
                 psScanBin.AutoID = (long)Convert.ToDouble(drow["AutoID"]);
                 psScanBin.IntType = 1;
+                psScanBin.OriginalMaterial = Convert.ToString(drow["OriginalMaterial"]);
 
-<<<<<<< HEAD
-=======
-                DataTable dt = drow.Table.Clone();
-                dt.ImportRow(drow);
-
-                ExportExcel(dt);
-
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
                 prodStatisticDAO.TransScanBarcodeBinLineV2(psScanBin);
 
-                //transfer sang du lieu QC duyet
-                int[] selectrowsHandle = gridScanBarcodeBinLineV2View.GetSelectedRows();
-
-                if (selectrowsHandle.Length > 0)
-                {
-                    int intFirstRow = selectrowsHandle[0];
-
-                    if (intFirstRow >= 0)
-                    {
-                        DataRow firstRow = gridScanBarcodeBinLineV2View.GetDataRow(intFirstRow);
-
-                        //string partNo = Convert.ToString(firstRow["PartNo"]);
-                        //string itemNo = Convert.ToString(firstRow["ItemNo"]);
-
-<<<<<<< HEAD
-                        dicParams = new Dictionary<string, object>()
-                        {
-                            { "@CusID", drow["CusID"] }
-=======
-                        var dicParams = new Dictionary<string, object>()
-                        {
-                            { "@CusID", firstRow["CusID"] }
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
-                        };
-
-                        DataTable dtOriginalBin = _sqlHelper.ExecQueryDataAsDataTable("SELECT * FROM ASPScanBarcodeBinV2 WHERE CusID = @CusID", dicParams);
-
-                        DataRow drOriginal = null;
-
-                        if (dtOriginalBin.Rows.Count > 0)
-                            drOriginal = dtOriginalBin.Rows[0];
-
-                        if (firstRow != null && drOriginal != null)
-                        {
-                            //xu ly insert
-<<<<<<< HEAD
-                            psScanBin.WO = Convert.ToString(drow["WO"]).Replace("WO: ", string.Empty);
-=======
-                            psScanBin.WO = Convert.ToString(firstRow["WO"]).Replace("WO: ", string.Empty);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
-                            dicParams = new Dictionary<string, object>()
-                            {
-                                { "@WODocNo", psScanBin.WO.Trim() }
-                            };
-                            DataTable dtLine = _sqlHelper.ExecQueryDataAsDataTable("SELECT * FROM L14CTLSXASP WHERE So_Ct = @WODocNo", dicParams);
-                            psScanBin.PrintDate = DateTime.Now;
-                            psScanBin.Line = dtLine.Rows.Count > 0 ? (string)dtLine.Rows[0]["Ma_Day_Chuyen"] : string.Empty;
-<<<<<<< HEAD
-                            psScanBin.ProductIDVN = (string)drow["PartNo"];
-=======
-                            psScanBin.ProductIDVN = (string)firstRow["PartNo"];
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
-                            psScanBin.Customer = string.Empty;
-                            psScanBin.QRCodeVerify = string.Empty;
-                            psScanBin.QRCodeData = string.Empty;
-                            psScanBin.CustomerVerify = string.Empty;
-                            psScanBin.ULStamp = string.Empty;
-                            psScanBin.QCVerify = false;
-                            psScanBin.QCVerify_Log = string.Empty;
-                            psScanBin.PrintUser = userName;
-                            psScanBin.FirstBinQuantity = 0;
-                            psScanBin.LastBinQuantity = 0;
-<<<<<<< HEAD
-                            psScanBin.SumQuantity = Convert.ToDouble(drOriginal["Quantity"].ToString().Replace("pcs", string.Empty));
-=======
-                            psScanBin.SumQuantity = Convert.ToDouble(firstRow["Quantity"].ToString().Replace("pcs", string.Empty));
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
-                            psScanBin.LinkQQuantityPerBin = 0;
-                            psScanBin.BinSize = string.Empty;//Convert.ToString(firstRow["BinSize"]);
-                            psScanBin.N5 = Convert.ToDouble(drOriginal["N-5"]);
-                            psScanBin.N25 = Convert.ToDouble(drOriginal["N-25"]);
-                            psScanBin.N100 = Convert.ToDouble(drOriginal["N-100"]);
-                            psScanBin.N250 = Convert.ToDouble(drOriginal["N-250"]);
-                            psScanBin.N500 = Convert.ToDouble(drOriginal["N-500"]);
-                            psScanBin.N1_25 = Convert.ToDouble(drOriginal["1-N-25"]);
-                            psScanBin.N1_100 = Convert.ToDouble(drOriginal["1-N-100"]);
-                            psScanBin.N1_250 = Convert.ToDouble(drOriginal["1-N-250"]);
-                            psScanBin.N1_500 = Convert.ToDouble(drOriginal["1-N-500"]);
-                            psScanBin.N5_Line = 0;
-                            psScanBin.N25_Line = 0;
-                            psScanBin.N100_Line = 0;
-                            psScanBin.N250_Line = 0;
-                            psScanBin.N500_Line = 0;
-                            psScanBin.N1_25_Line = 0;
-                            psScanBin.N1_100_Line = 0;
-                            psScanBin.N1_250_Line = 0;
-                            psScanBin.N1_500_Line = 0;
-                            psScanBin.CreatedBy = userName;
-                            psScanBin.CreatedDate = DateTime.Now;
-                            psScanBin.LastModifiedBy = userName;
-                            psScanBin.LastModifiedDate = DateTime.Now;
-
-                            prodStatisticDAO.TransScanBinQCApproval(psScanBin);
-                        }
-                    }
-                }
             }
 
-<<<<<<< HEAD
             ExportExcel(dt2, "DailyLineLabelReport2", 1);
 
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             FillData();
             XtraMessageBox.Show("Đã xuất Excel thành công!");
         }
 
         private void BtTrans1_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
 
             foreach (int row in gridScanBarcodeBinLine_FView.GetSelectedRows())
             {
@@ -513,76 +478,6 @@ namespace ASPProject.ScanBarCodeBin
 
             FillData();
             XtraMessageBox.Show("Đã chuyển thành công!");
-=======
-            if (gridScanBarcodeBinLine_F.FocusedView == gridScanBarcodeBinLine_FView)
-            {
-                foreach (int row in gridScanBarcodeBinLine_FView.GetSelectedRows())
-                {
-                    DataRow drow = gridScanBarcodeBinLine_FView.GetDataRow(row);
-
-                    if (drow == null)
-                        continue;
-
-                    psScanBin.PartNo = Convert.ToString(drow["PartNo"]);
-                    psScanBin.ItemNo = Convert.ToString(drow["ItemNo"]);
-                    psScanBin.Quantity = Convert.ToString(drow["Quantity"]);
-                    psScanBin.NW = Convert.ToDouble(drow["NW"]);
-                    psScanBin.GW = Convert.ToDouble(drow["GW"]);
-                    psScanBin.CartNo = Convert.ToString(drow["CartNo"]);
-                    psScanBin.LotNo = Convert.ToString(drow["LotNo"]);
-                    psScanBin.WO = Convert.ToString(drow["WO"]);
-                    psScanBin.Cable = Convert.ToString(drow["Cable"]);
-                    psScanBin.BinSize = Convert.ToString(drow["BinSize"]);
-                    psScanBin.ULStamp = Convert.ToString(drow["ULStamp"]);
-                    psScanBin.UL2Stamp = Convert.ToString(drow["UL2Stamp"]);
-                    psScanBin.SBDate = Convert.ToString(drow["SBDate"]);
-                    psScanBin.CreatedBy = userName;
-                    psScanBin.CreatedDate = DateTime.Now;
-                    psScanBin.LastModifiedBy = userName;
-                    psScanBin.LastModifiedDate = DateTime.Now;
-                    psScanBin.AutoID = (long)Convert.ToDouble(drow["AutoID"]);
-                    psScanBin.IntType = 2;
-
-                    prodStatisticDAO.TransScanBarcodeBinLine(psScanBin);
-                }
-
-                FillData();
-                XtraMessageBox.Show("Đã chuyển thành công!");
-            }
-            else if (gridScanBarcodeBinLineV2_F.FocusedView == gridScanBarcodeBinLineV2_FView)
-            {
-                foreach (int row in gridScanBarcodeBinLineV2_FView.GetSelectedRows())
-                {
-                    DataRow drow = gridScanBarcodeBinLineV2_FView.GetDataRow(row);
-
-                    if (drow == null)
-                        continue;
-
-                    psScanBin.CusID = Convert.ToString(drow["CusID"]);
-                    psScanBin.Quantity = Convert.ToString(drow["Quantity"]);
-                    psScanBin.BinQuantity = Convert.ToString(drow["BinQuantity"]);
-                    psScanBin.BinQuantitySum = Convert.ToString(drow["BinQuantitySum"]);
-                    psScanBin.ShipDate = Convert.ToString(drow["ShipDate"]);
-                    psScanBin.Rev = Convert.ToString(drow["Rev"]);
-                    psScanBin.PartNo = Convert.ToString(drow["PartNo"]);
-                    psScanBin.WO = Convert.ToString(drow["WO"]);
-                    psScanBin.PkgGwt = Convert.ToString(drow["PkgGwt"]);
-                    psScanBin.Desc = Convert.ToString(drow["Desc"]);
-                    psScanBin.MadeInVN = Convert.ToString(drow["MadeInVN"]);
-                    psScanBin.CreatedBy = userName;
-                    psScanBin.CreatedDate = DateTime.Now;
-                    psScanBin.LastModifiedBy = userName;
-                    psScanBin.LastModifiedDate = DateTime.Now;
-                    psScanBin.AutoID = (long)Convert.ToDouble(drow["AutoID"]);
-                    psScanBin.IntType = 2;
-
-                    prodStatisticDAO.TransScanBarcodeBinLineV2(psScanBin);
-                }
-
-                FillData();
-                XtraMessageBox.Show("Đã chuyển thành công!");
-            }
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
         }
 
         private void GridScanBarcodeBinLineV2View_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
@@ -631,16 +526,12 @@ namespace ASPProject.ScanBarCodeBin
                     psScanBin.NW = Convert.ToDouble(drow["NW"]);
                     psScanBin.GW = Convert.ToDouble(drow["GW"]);
                     psScanBin.CartNo = iCartNo;
-<<<<<<< HEAD
 
                     double dbTemp = 0;
 
                     double.TryParse(Convert.ToString(drow["LotNo"]).Substring(Convert.ToString(drow["LotNo"]).Length - 6, 6), out dbTemp);
 
                     psScanBin.LotNo = dbTemp == 0 ? Convert.ToString(drow["LotNo"]).Substring(0, Convert.ToString(drow["LotNo"]).Length - 3) + iCartNo : Convert.ToString(drow["LotNo"]);
-=======
-                    psScanBin.LotNo = Convert.ToString(drow["LotNo"]).Substring(0, Convert.ToString(drow["LotNo"]).Length - 3) + iCartNo;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
                     psScanBin.WO = Convert.ToString(drow["WO"]);
                     psScanBin.Cable = Convert.ToString(drow["Cable"]);
                     psScanBin.BinSize = Convert.ToString(drow["BinSize"]);
@@ -651,6 +542,12 @@ namespace ASPProject.ScanBarCodeBin
                     psScanBin.CreatedDate = DateTime.Now;
                     psScanBin.LastModifiedBy = userName;
                     psScanBin.LastModifiedDate = DateTime.Now;
+                    psScanBin.Supplier = Convert.ToString(drow["Supplier"]);
+                    psScanBin.ENGLevel = Convert.ToString(drow["ENGLevel"]);
+                    psScanBin.PartNo0 = Convert.ToString(drow["PartNo0"]);
+                    psScanBin.POCode = Convert.ToString(drow["POCode"]);
+                    psScanBin.POText = Convert.ToString(drow["POText"]);
+                    psScanBin.OriginalMaterial = Convert.ToString(drow["OriginalMaterial"]);
 
                     prodStatisticDAO.CopyScanBarcodeBinLine(psScanBin);
                 }
@@ -709,12 +606,11 @@ namespace ASPProject.ScanBarCodeBin
                     frmEdit1.GW = Convert.ToString(row1["GW"]);
                     frmEdit1.LotNo = Convert.ToString(row1["LotNo"]);
                     frmEdit1.WO = Convert.ToString(row1["WO"]);
-<<<<<<< HEAD
                     frmEdit1.SBDate = Convert.ToString(row1["SBDate"]);
                     frmEdit1.BinSize = Convert.ToString(row1["BinSize"]);
-=======
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
                     frmEdit1.AutoID = (long)Convert.ToDouble(row1["AutoID"]);
+                    frmEdit1.POCode = Convert.ToString(row1["POCode"]);
+                    frmEdit1.POText = Convert.ToString(row1["POText"]);
 
                     // Thêm event handler cho FormClosed
                     frmEdit1.FormClosed += (s, args) =>
@@ -728,11 +624,7 @@ namespace ASPProject.ScanBarCodeBin
                     frmEdit1.Show();
                 }
             }
-<<<<<<< HEAD
 
-=======
-           
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             if (focusedGrid == gridScanBarcodeBinLineV2)
             {
                 DataRowView row2 = (DataRowView)gridScanBarcodeBinLineV2View.GetFocusedRow();
@@ -772,18 +664,11 @@ namespace ASPProject.ScanBarCodeBin
             FillData();
         }
 
-<<<<<<< HEAD
         private void ExportExcel(DataTable dtExcel, string PSReportID, int numTime)
         {
 
             DataTable dtTemplate = new DataTable();
             dtTemplate = _sqlHelper.ExecQueryDataAsDataTable("SELECT * FROM ASPPSReport WHERE PSReportID = '" + PSReportID + "'");
-=======
-        private void ExportExcel(DataTable dtExcel)
-        {
-            DataTable dtTemplate = new DataTable();
-            dtTemplate = _sqlHelper.ExecQueryDataAsDataTable("SELECT * FROM ASPPSReport WHERE PSReportID = 'DailyLineLabelReport'");
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
 
             for (int i = 0; i < dtTemplate.Rows.Count; i++)
             {
@@ -792,11 +677,9 @@ namespace ASPProject.ScanBarCodeBin
                 string excelRange = Convert.ToString(dtTemplate.Rows[i]["PSReportRange"]);
                 string[] arrRange = excelRange.Split(',');
                 string fileTemplate = Application.StartupPath + "\\" + Convert.ToString(dtTemplate.Rows[i]["PSTemplatePath"]);
-<<<<<<< HEAD
-                string localPath = Convert.ToString(dtTemplate.Rows[i]["FileTemplate"]);
-=======
-                string localPath = Path.GetDirectoryName(fileTemplate);
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
+                //string localPath = Convert.ToString(dtTemplate.Rows[i]["FileTemplate"]);
+                //string localPath = "D:\\";
+                string localPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\";
                 string resultFilename = Convert.ToString(dtTemplate.Rows[i]["PSResultName"]);
                 string resultTemplate = @"\\" + Convert.ToString(dtTemplate.Rows[i]["PSResultPath"]) + "\\" + resultFilename + DateTime.Now.ToString("ddMMyyyyHHmmss") + ".xlsx";
                 string networkPath = Convert.ToString(dtTemplate.Rows[i]["PSNetworkPath"]);
@@ -804,14 +687,9 @@ namespace ASPProject.ScanBarCodeBin
                 WindowsIdentity identity = WindowsIdentity.GetCurrent();
                 WindowsImpersonationContext context = identity.Impersonate();
 
-<<<<<<< HEAD
                 string myNetworkPath = networkPath + PSReportID + ".xlsx";
                 string myLocalPath = localPath + Convert.ToString(dtTemplate.Rows[i]["FileNameOutput"]) + ".xlsx";
 
-=======
-                string myNetworkPath = networkPath;
-                string myLocalPath = localPath;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
                 using (context)
                 {
                     if (arrRange.Length > 0)
@@ -819,7 +697,6 @@ namespace ASPProject.ScanBarCodeBin
                         for (int j = 0; j <= arrRange.Length - 1; j++)
                         {
                             if (!File.Exists(myLocalPath))
-<<<<<<< HEAD
                             {
                                 if (numTime == 0)
                                 {
@@ -847,26 +724,6 @@ namespace ASPProject.ScanBarCodeBin
                     }
                 }
 
-=======
-                                excel.WriteDataIntoExcelFile(dtExcel, fileTemplate, excelSheet, arrRange[j], myLocalPath);
-                            else
-                                excel.WriteDataIntoExcelFile(dtExcel, myLocalPath, excelSheet, arrRange[j], myLocalPath);
-
-                            if (j == arrRange.Length - 1)
-                                File.Copy(myLocalPath, myNetworkPath, true);
-                        }
-                    }
-                    if (arrRange.Length == 1)
-                    {
-                        if (!File.Exists(myLocalPath))
-                            excel.WriteDataIntoExcelFile(dtExcel, fileTemplate, excelSheet, arrRange[0], myLocalPath);
-                        else
-                            excel.WriteDataIntoExcelFile(dtExcel, myLocalPath, excelSheet, arrRange[0], myLocalPath);
-                        File.Copy(myLocalPath, myNetworkPath, true);
-                    }
-                }
-                    
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
             }
         }
 
@@ -874,13 +731,8 @@ namespace ASPProject.ScanBarCodeBin
         {
             DataSet ds = new DataSet();
 
-<<<<<<< HEAD
             prodStatisticDTO.FromDate = Convert.ToDateTime(dtFromDate.EditValue).Date;
             prodStatisticDTO.ToDate = Convert.ToDateTime(dtToDate.EditValue).Date;
-=======
-            prodStatisticDTO.FromDate = DateTime.Now;
-            prodStatisticDTO.ToDate = DateTime.Now;
->>>>>>> b4dba61a39139c1e165f2fcd8c08128b1994801f
 
             ds = prodStatisticDAO.GetScanBarcodeBinLine(prodStatisticDTO);
 

@@ -44,12 +44,25 @@ namespace ASPProject.ProdQRCodeMaster
         public frmProdQRCodeJigTestLog()
         {
             InitializeComponent();
-
+            
             this.KeyPreview = true;
             this.Load += FrmProdQRCodeJigTestLog_Load;
 
             this.txtQRCodeData.TextChanged += TxtQRCodeData_TextChanged;
             this.gridQRCodeLogView.RowCellClick += GridQRCodeLogView_RowCellClick;
+            this.btExcel.Click += BtExcel_Click;
+        }
+
+        private void BtExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Excel|*.xlsx";
+            saveFileDialog1.Title = "Save an File";
+            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.FileName != "")
+            {
+                gridQRCodeLog.ExportToXlsx(saveFileDialog1.FileName);
+            }
         }
 
         private void GridQRCodeLogView_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)

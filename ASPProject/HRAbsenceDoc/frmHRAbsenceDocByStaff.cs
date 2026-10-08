@@ -34,6 +34,12 @@ namespace ASPProject.HRAbsenceDoc
         {
             InitializeComponent();
 
+            lkeEmpID.Properties.DataSource = hrDao.GetHREmployeeListV2(userName);
+            lkeEmpID.Properties.ValueMember = "Ma_CbNv";
+            lkeEmpID.Properties.DisplayMember = "Ma_CbNv";
+            lkeEmpID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            lkeEmpID.Properties.PopupFilterMode = PopupFilterMode.Contains;
+
             dtpFromDate.EditValue = DateTime.Now;
             dtpToDate.EditValue = DateTime.Now;
 
@@ -62,12 +68,6 @@ namespace ASPProject.HRAbsenceDoc
 
         private void LoadData()
         {
-            lkeEmpID.Properties.DataSource = hrDao.GetHREmployeeListV2(userName);
-            lkeEmpID.Properties.ValueMember = "Ma_CbNv";
-            lkeEmpID.Properties.DisplayMember = "Ma_CbNv";
-            lkeEmpID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            lkeEmpID.Properties.PopupFilterMode = PopupFilterMode.Contains;
-
             hrDto.FromDate = Convert.ToDateTime(dtpFromDate.EditValue);
             hrDto.ToDate = Convert.ToDateTime(dtpToDate.EditValue);
             hrDto.EmpID = Convert.ToString(lkeEmpID.EditValue);

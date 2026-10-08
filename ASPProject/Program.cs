@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using ASPProject.Load;
 
 namespace ASPProject
 {
@@ -16,6 +17,12 @@ namespace ASPProject
             //DevExpress.UserSkins.BonusSkins.Register();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            if (AutoUpdater.CheckAndStartUpdate(null))
+            {
+                return;
+            }
+
             Application.Run(new frmLogin());
         }
     }

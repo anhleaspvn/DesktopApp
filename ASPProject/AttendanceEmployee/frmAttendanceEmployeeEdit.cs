@@ -22,7 +22,7 @@ namespace ASPProject.AttendanceEmployee
         public string userName, lineID, empID, timeKeeping;
         public DateTime attendanceDate;
         public TimeSpan dateBeginTime, dateEndTime;
-        public int iNgonNgu, saveMulti, morVege, eveVege;
+        public int iNgonNgu, saveMulti, morVege, eveVege, morVege_1, eveVege_1, morSalt_1, eveSalt_1;
         public DataTable dtSaveMulti = new DataTable();
        
         private readonly ASPData.SQLHelper _sqlhelper = new ASPData.SQLHelper();
@@ -109,6 +109,10 @@ namespace ASPProject.AttendanceEmployee
                     attendEmpDTO.Timekeeping = Convert.ToString(lkeTimekeepID.EditValue);
                     attendEmpDTO.MorVege = morVege;
                     attendEmpDTO.EveVege = eveVege;
+                    attendEmpDTO.MorVege_1 =morVege_1;
+                    attendEmpDTO.EveVege_1 = eveVege_1;
+                    attendEmpDTO.MorSalt_1 = morSalt_1;
+                    attendEmpDTO.EveSalt_1 = eveSalt_1;
                     attendEmpDTO.DateBeginTime = TimeSpan.Parse(Convert.ToDateTime(dtpBeginTime.EditValue).ToString("HH:mm:ss"));
                     attendEmpDTO.DateEndTime = TimeSpan.Parse(Convert.ToDateTime(dtpEndTime.EditValue).ToString("HH:mm:ss"));
                     attendEmpDTO.CreatedDate = DateTime.Now;
@@ -130,6 +134,10 @@ namespace ASPProject.AttendanceEmployee
                         attendEmpDTO.Timekeeping = Convert.ToString(lkeTimekeepID.EditValue);
                         attendEmpDTO.MorVege = morVege;
                         attendEmpDTO.EveVege = eveVege;
+                        attendEmpDTO.MorVege_1 = morVege_1;
+                        attendEmpDTO.EveVege_1 = eveVege_1;
+                        attendEmpDTO.MorSalt_1 = morSalt_1;
+                        attendEmpDTO.EveSalt_1 = eveSalt_1;
                         attendEmpDTO.DateBeginTime = TimeSpan.Parse(Convert.ToDateTime(dtpBeginTime.EditValue).ToString("HH:mm:ss"));
                         attendEmpDTO.DateEndTime = TimeSpan.Parse(Convert.ToDateTime(dtpEndTime.EditValue).ToString("HH:mm:ss"));
                         attendEmpDTO.CreatedDate = DateTime.Now;

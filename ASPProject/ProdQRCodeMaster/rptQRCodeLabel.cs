@@ -37,13 +37,13 @@ namespace ASPProject.ProdQRCodeMaster
             DataTable dtWeek = _sqlhelper.ExecProcedureDataAsDataTable("sp_ASPFindWeeknameByDate", dicParams);
             if (dtWeek.Rows.Count > 0)
             {
-                strWeek = "22";//dtWeek.Rows[0]["IntWeek"].ToString().PadLeft(2, '0');
+                strWeek = dtWeek.Rows[0]["IntWeek"].ToString().PadLeft(2, '0');
             }
 
             string dateStr = strYear + strWeek;
 
-            //string xrLabel = "M81715A001 REV A " + dateStr + "      Airspeed        MADE IN VIETNAM";
-            string xrLabel = "HOBART P/N:\r\n01-605028-00001\r\nREV.E\r\n" + dateStr + "\r\nRoHS COMPLIANT\r\nMADE IN VIETNAM";
+            string xrLabel = "M18715A001 REV:B " + dateStr + " Airspeed        MADE IN VIETNAM";
+            //string xrLabel = "HOBART P/N:\r\n01-605028-00001\r\nREV.E\r\n" + dateStr + "\r\nRoHS COMPLIANT\r\nMADE IN VIETNAM";
 
             xrLabel1.Text = xrLabel;
             xrLabel2.Text = xrLabel;

@@ -32,6 +32,8 @@ namespace ASPProject.ProdQRCodeMaster
         QRCodeLog qrDto = new QRCodeLog();
         ProdStatisticDAO qrDao = new ProdStatisticDAO();
 
+        ASPDAO aspDao = new ASPDAO();
+
         public frmMain frm;
         public delegate void _deDongTab();
         public _deDongTab deDongTab;
@@ -66,7 +68,7 @@ namespace ASPProject.ProdQRCodeMaster
 
             if (dtUsbDevice.Rows.Count > 0)
             {
-                qrDto.LogID = ASPGenLogQRCode();
+                qrDto.LogID = aspDao.ASPGenLogQRCode("LOG", 20, "LogID", "ASPProdScanQRCodeLog");
                 qrDto.StageID = Convert.ToString(lkeProduct.EditValue);
                 qrDto.LogTime = DateTime.Now;
                 qrDto.LogResult = (string)dtUsbDevice.Rows[0]["AreaScan"];
@@ -168,56 +170,11 @@ namespace ASPProject.ProdQRCodeMaster
             FillData();
         }
 
-        private static List<UsbDevice> GetMyUSBDevices(int vid, int pid, string areaId, string status)
-        {
-            ManagementObjectCollection collection;
-            using (var searcher = new ManagementObjectSearcher(@"Select * From Win32_USBHub"))
-                collection = searcher.Get();
-
-            var usbDevice =
-                (from ManagementBaseObject device in collection
-                 select new UsbDevice(
-         (string)device.GetPropertyValue("DeviceID"),
-         (string)device.GetPropertyValue("Description"), areaId, status)).ToList();
-
-            var devices = new List<UsbDevice>();
-
-            foreach (var device in collection)
-            {
-                
-                devices.Add(new UsbDevice(
-                (string)device.GetPropertyValue("DeviceID"),
-                (string)device.GetPropertyValue("Description"),
-                areaId, status
-                ));
-            }
-
-            collection.Dispose();
-
-            return devices.Where(device => device.DeviceId.Contains("VID") && device.VID == vid && device.DeviceId.Contains("VID") && device.PID == pid && device.Status == status).ToList();
-        }
-
-        private string ASPGenLogQRCode()
-        {
-            string qrCode = string.Empty;
-
-            var dicParams = new Dictionary<string, object> {
-                { "@Prefix", "LOG" },
-                { "@NumLen", 20 },
-                { "@ColumnID", "LogID" },
-                { "@TableName", "ASPProdScanQRCodeLog" }
-            };
-
-            qrCode = (string)_sqlHelper.ExecProcedureSacalar("sp_ASPGenerateCode", dicParams);
-
-            return qrCode;
-        }
-
         private void FillData()
         {
             qrDto.Username = userName;
 
-            dtProdScanQRCode = qrDao.GetQRCodeLog(qrDto);
+            dtProdScanQRCode = qrDao.GetQCQRCodeLog(qrDto);
             bdsProdScanQRCode.DataSource = dtProdScanQRCode;
 
             gridQRCodeLog.DataSource = dtProdScanQRCode;

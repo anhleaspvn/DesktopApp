@@ -102,7 +102,7 @@ namespace ASPProject.LineProdStatistic
 
         private void GridAttMonthView_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
-            if (e.Column.Name == "Productivity")
+            if (e.Column.Name == "Productivity" || e.Column.Name == "ParChildProductivity")
             {
                 if (Convert.ToDouble(e.CellValue) >= 100)
                     e.Appearance.ForeColor = Color.Blue;

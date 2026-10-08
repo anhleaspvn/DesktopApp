@@ -1,4 +1,4 @@
-﻿namespace ASPProject
+namespace ASPProject
 {
     partial class frmMain
     {
@@ -94,6 +94,8 @@
             this.btAttendanceTable = new DevExpress.XtraBars.BarButtonItem();
             this.btProdPlan = new DevExpress.XtraBars.BarButtonItem();
             this.btHRAbsenceByStaff = new DevExpress.XtraBars.BarButtonItem();
+            this.btAlternative = new DevExpress.XtraBars.BarButtonItem();
+            this.btXuatQR = new DevExpress.XtraBars.BarButtonItem();
             this.btWOSOP = new DevExpress.XtraBars.BarButtonItem();
             this.btQCOutputChart = new DevExpress.XtraBars.BarButtonItem();
             this.btInternalAudit = new DevExpress.XtraBars.BarButtonItem();
@@ -111,14 +113,20 @@
             this.btPlanningMasterList = new DevExpress.XtraBars.BarButtonItem();
             this.btQRCodeMaster = new DevExpress.XtraBars.BarButtonItem();
             this.btProdScanQRCodeLog = new DevExpress.XtraBars.BarButtonItem();
-            this.btTracebility = new DevExpress.XtraBars.BarButtonItem();
+          
             this.btScanQRCodeJig = new DevExpress.XtraBars.BarButtonItem();
             this.btDetailTableJig = new DevExpress.XtraBars.BarButtonItem();
             this.btSBLine = new DevExpress.XtraBars.BarButtonItem();
             this.btSumDataQRCode = new DevExpress.XtraBars.BarButtonItem();
             this.btBinQCApproval = new DevExpress.XtraBars.BarButtonItem();
             this.btMachineIns = new DevExpress.XtraBars.BarButtonItem();
-            this.ribDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.btPlanning = new DevExpress.XtraBars.BarButtonItem();
+            this.btSkillmap = new DevExpress.XtraBars.BarButtonItem();
+            this.btScanQR037 = new DevExpress.XtraBars.BarButtonItem();
+            this.btIPQCInspect = new DevExpress.XtraBars.BarButtonItem();
+            this.btLineProductivity = new DevExpress.XtraBars.BarButtonItem();
+            this.btProdStatisticASM2 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribEMES_List = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribNhanVien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbDefectMode = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbLosstime = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -126,20 +134,24 @@
             this.rbLSXSOPStage = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.isoAuditEmail = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.scanBarCodeBinList = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btPlanningList = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbQRCodeMaster = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribChucNang = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.rbProd = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbMachineTime = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribEMES_HRM = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribPageEMES_HRM_VP = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribPageEMES_HRM_CN = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribEMES_SX = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribGeneral = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribEMES_MRP_ASM1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribEMES_MRP_ASM2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribEMES_SX_INTEM = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.scanBarCodeBinList = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribEMES_QA = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbQuality = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbNFCReader = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbReport = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribEMES_REPORT = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribEMES_SYSTEM = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribHeThongBar = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribTroGiup = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribEMES_HELP = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.repositoryItemTimeZone1 = new DevExpress.XtraScheduler.UI.RepositoryItemTimeZone();
             this.repositoryItemWeekOfMonth1 = new DevExpress.XtraScheduler.UI.RepositoryItemWeekOfMonth();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
@@ -162,6 +174,7 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.barMayChu = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.btTraceability = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeZone1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemWeekOfMonth1)).BeginInit();
@@ -177,7 +190,7 @@
             // ribbon
             // 
             this.ribbon.ApplicationButtonText = null;
-            this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(86, 89, 86, 89);
+            this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(107, 111, 107, 111);
             this.ribbon.ExpandCollapseItem.Id = 106;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
@@ -242,6 +255,8 @@
             this.btAttendanceTable,
             this.btProdPlan,
             this.btHRAbsenceByStaff,
+            this.btAlternative,
+            this.btXuatQR,
             this.btWOSOP,
             this.btQCOutputChart,
             this.btInternalAudit,
@@ -259,24 +274,34 @@
             this.btPlanningMasterList,
             this.btQRCodeMaster,
             this.btProdScanQRCodeLog,
-            this.btTracebility,
+         
             this.btScanQRCodeJig,
             this.btDetailTableJig,
             this.btSBLine,
             this.btSumDataQRCode,
             this.btBinQCApproval,
-            this.btMachineIns});
+            this.btMachineIns,
+            this.btPlanning,
+            this.btSkillmap,
+            this.btScanQR037,
+            this.btIPQCInspect,
+            this.btLineProductivity,
+            this.btProdStatisticASM2,
+            this.btTraceability});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(10);
-            this.ribbon.MaxItemId = 182;
+            this.ribbon.Margin = new System.Windows.Forms.Padding(12);
+            this.ribbon.MaxItemId = 190;
             this.ribbon.Name = "ribbon";
-            this.ribbon.OptionsMenuMinWidth = 939;
+            this.ribbon.OptionsMenuMinWidth = 1174;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribDanhMuc,
-            this.ribChucNang,
-            this.rbReport,
-            this.ribHeThong,
-            this.ribTroGiup});
+            this.ribEMES_List,
+            this.ribEMES_HRM,
+            this.ribEMES_SX,
+            this.ribEMES_SX_INTEM,
+            this.ribEMES_QA,
+            this.ribEMES_REPORT,
+            this.ribEMES_SYSTEM,
+            this.ribEMES_HELP});
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTimeZone1,
             this.repositoryItemWeekOfMonth1,
@@ -631,10 +656,11 @@
             this.btOutputChart.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btOutputChart.ImageOptions.Image")));
             this.btOutputChart.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btOutputChart.ImageOptions.LargeImage")));
             this.btOutputChart.Name = "btOutputChart";
+            this.btOutputChart.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // btProdReport
             // 
-            this.btProdReport.Caption = "Báo cáo sản xuất";
+            this.btProdReport.Caption = "Công cụ xuất báo cáo";
             this.btProdReport.Id = 145;
             this.btProdReport.ImageOptions.Image = global::ASPProject.Properties.Resources.report;
             this.btProdReport.ImageOptions.LargeImage = global::ASPProject.Properties.Resources.report;
@@ -663,7 +689,6 @@
             this.btNFCReader.ImageOptions.Image = global::ASPProject.Properties.Resources.backup;
             this.btNFCReader.ImageOptions.LargeImage = global::ASPProject.Properties.Resources.backup;
             this.btNFCReader.Name = "btNFCReader";
-            this.btNFCReader.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // btAttendanceTable
             // 
@@ -688,6 +713,21 @@
             this.btHRAbsenceByStaff.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btHRAbsenceByStaff.ImageOptions.Image")));
             this.btHRAbsenceByStaff.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btHRAbsenceByStaff.ImageOptions.LargeImage")));
             this.btHRAbsenceByStaff.Name = "btHRAbsenceByStaff";
+            // 
+            // btAlternative
+            // 
+            this.btAlternative.Caption = "Đăng ký lịch nghỉ luân phiên";
+            this.btAlternative.Id = 156;
+            this.btAlternative.ImageOptions.Image = global::ASPProject.Properties.Resources.report;
+            this.btAlternative.ImageOptions.LargeImage = global::ASPProject.Properties.Resources.report;
+            this.btAlternative.Name = "btAlternative";
+            // 
+            // btXuatQR
+            // 
+            this.btXuatQR.Caption = "Xuất QR Code";
+            this.btXuatQR.Id = 189;
+            this.btXuatQR.Name = "btXuatQR";
+            this.btXuatQR.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // btWOSOP
             // 
@@ -820,19 +860,12 @@
             // 
             // btProdScanQRCodeLog
             // 
-            this.btProdScanQRCodeLog.Caption = "Scan QR Code";
+            this.btProdScanQRCodeLog.Caption = "OQC Scan Result";
             this.btProdScanQRCodeLog.Id = 174;
             this.btProdScanQRCodeLog.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btProdScanQRCodeLog.ImageOptions.Image")));
             this.btProdScanQRCodeLog.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btProdScanQRCodeLog.ImageOptions.LargeImage")));
             this.btProdScanQRCodeLog.Name = "btProdScanQRCodeLog";
-            // 
-            // btTracebility
-            // 
-            this.btTracebility.Caption = "Traceability";
-            this.btTracebility.Id = 175;
-            this.btTracebility.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btTracebility.ImageOptions.Image")));
-            this.btTracebility.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btTracebility.ImageOptions.LargeImage")));
-            this.btTracebility.Name = "btTracebility";
+            
             // 
             // btScanQRCodeJig
             // 
@@ -882,9 +915,58 @@
             this.btMachineIns.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btMachineIns.ImageOptions.LargeImage")));
             this.btMachineIns.Name = "btMachineIns";
             // 
-            // ribDanhMuc
+            // btPlanning
             // 
-            this.ribDanhMuc.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.btPlanning.Caption = "Planning";
+            this.btPlanning.Id = 182;
+            this.btPlanning.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btPlanning.ImageOptions.Image")));
+            this.btPlanning.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btPlanning.ImageOptions.LargeImage")));
+            this.btPlanning.Name = "btPlanning";
+            // 
+            // btSkillmap
+            // 
+            this.btSkillmap.Caption = "Skill Map";
+            this.btSkillmap.Id = 183;
+            this.btSkillmap.ImageOptions.Image = global::ASPProject.Properties.Resources.Hien;
+            this.btSkillmap.ImageOptions.LargeImage = global::ASPProject.Properties.Resources.Hien;
+            this.btSkillmap.Name = "btSkillmap";
+            // 
+            // btScanQR037
+            // 
+            this.btScanQR037.Caption = "Scan QRCODE P";
+            this.btScanQR037.Id = 186;
+            this.btScanQR037.ImageOptions.Image = global::ASPProject.Properties.Resources.barcode;
+            this.btScanQR037.ImageOptions.LargeImage = global::ASPProject.Properties.Resources.barcode;
+            this.btScanQR037.Name = "btScanQR037";
+            // 
+            // btIPQCInspect
+            // 
+            this.btIPQCInspect.Caption = "IPQC Inspection";
+            this.btIPQCInspect.Id = 187;
+            this.btIPQCInspect.ImageOptions.Image = global::ASPProject.Properties.Resources.paper;
+            this.btIPQCInspect.ImageOptions.LargeImage = global::ASPProject.Properties.Resources.paper;
+            this.btIPQCInspect.Name = "btIPQCInspect";
+            // 
+            // btLineProductivity
+            // 
+            this.btLineProductivity.Caption = "Bảng năng suất";
+            this.btLineProductivity.Id = 188;
+            this.btLineProductivity.ImageOptions.Image = global::ASPProject.Properties.Resources.listvn;
+            this.btLineProductivity.ImageOptions.LargeImage = global::ASPProject.Properties.Resources.listvn;
+            this.btLineProductivity.Name = "btLineProductivity";
+            this.btLineProductivity.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
+            // btProdStatisticASM2
+            // 
+            this.btProdStatisticASM2.Caption = "Thống kê sản xuất";
+            this.btProdStatisticASM2.Id = 190;
+            this.btProdStatisticASM2.ImageOptions.Image = global::ASPProject.Properties.Resources.info;
+            this.btProdStatisticASM2.ImageOptions.LargeImage = global::ASPProject.Properties.Resources.info;
+            this.btProdStatisticASM2.Name = "btProdStatisticASM2";
+            // 
+            // ribEMES_List
+            // 
+            this.ribEMES_List.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribNhanVien,
             this.rbDefectMode,
             this.rbLosstime,
@@ -892,11 +974,10 @@
             this.rbLSXSOPStage,
             this.ribbonPageGroup4,
             this.isoAuditEmail,
-            this.scanBarCodeBinList,
             this.btPlanningList,
             this.rbQRCodeMaster});
-            this.ribDanhMuc.Name = "ribDanhMuc";
-            this.ribDanhMuc.Text = "Danh Mục";
+            this.ribEMES_List.Name = "ribEMES_List";
+            this.ribEMES_List.Text = "Danh Mục";
             // 
             // ribNhanVien
             // 
@@ -943,14 +1024,6 @@
             this.isoAuditEmail.Name = "isoAuditEmail";
             this.isoAuditEmail.Text = "ISO Audit Email";
             // 
-            // scanBarCodeBinList
-            // 
-            this.scanBarCodeBinList.ItemLinks.Add(this.btScanBarcodeBin);
-            this.scanBarCodeBinList.ItemLinks.Add(this.btSBLine);
-            this.scanBarCodeBinList.ItemLinks.Add(this.btBinQCApproval);
-            this.scanBarCodeBinList.Name = "scanBarCodeBinList";
-            this.scanBarCodeBinList.Text = "Scan Barcode  Bin";
-            // 
             // btPlanningList
             // 
             this.btPlanningList.ItemLinks.Add(this.btPlanningMasterList);
@@ -963,79 +1036,111 @@
             this.rbQRCodeMaster.Name = "rbQRCodeMaster";
             this.rbQRCodeMaster.Text = "QR Code Master";
             // 
-            // ribChucNang
+            // ribEMES_HRM
             // 
-            this.ribChucNang.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rbProd,
-            this.rbMachineTime,
-            this.rbQuality,
-            this.ribbonPageGroup3,
-            this.rbNFCReader});
-            this.ribChucNang.Name = "ribChucNang";
-            this.ribChucNang.Text = "Chức Năng";
+            this.ribEMES_HRM.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribPageEMES_HRM_VP,
+            this.ribPageEMES_HRM_CN});
+            this.ribEMES_HRM.Name = "ribEMES_HRM";
+            this.ribEMES_HRM.Text = "Nhân sự";
             // 
-            // rbProd
+            // ribPageEMES_HRM_VP
             // 
-            this.rbProd.ItemLinks.Add(this.btAttendance);
-            this.rbProd.ItemLinks.Add(this.btProdStatistic);
-            this.rbProd.ItemLinks.Add(this.btProdExLosstime);
-            this.rbProd.ItemLinks.Add(this.btOutputChart);
-            this.rbProd.ItemLinks.Add(this.btProdScanQRCodeLog);
-            this.rbProd.ItemLinks.Add(this.btSumDataQRCode);
-            this.rbProd.ItemLinks.Add(this.btAttendanceTable);
-            this.rbProd.ItemLinks.Add(this.btProdPlan);
-            this.rbProd.ItemLinks.Add(this.btSumReport);
-            this.rbProd.ItemLinks.Add(this.btRptMatStage);
-            this.rbProd.ItemLinks.Add(this.btRptMachineStage);
-            this.rbProd.ItemLinks.Add(this.btEmpCapacity);
-            this.rbProd.ItemLinks.Add(this.btProdORChart);
-            this.rbProd.ItemLinks.Add(this.btTracebility);
-            this.rbProd.ItemLinks.Add(this.btAbsenceDoc);
-            this.rbProd.ItemLinks.Add(this.btAbsenceFollow);
-            this.rbProd.ItemLinks.Add(this.btHRAbsence);
-            this.rbProd.ItemLinks.Add(this.btScanQRCodeJig);
-            this.rbProd.ItemLinks.Add(this.btMachineIns);
-            this.rbProd.Name = "rbProd";
-            this.rbProd.Text = "Sản xuất";
+            this.ribPageEMES_HRM_VP.ItemLinks.Add(this.btHRAbsence);
+            this.ribPageEMES_HRM_VP.ItemLinks.Add(this.btHRAbsenceByStaff);
+            this.ribPageEMES_HRM_VP.ItemLinks.Add(this.btAlternative);
+            this.ribPageEMES_HRM_VP.ItemLinks.Add(this.btXuatQR);
+            this.ribPageEMES_HRM_VP.Name = "ribPageEMES_HRM_VP";
+            this.ribPageEMES_HRM_VP.Text = "Khối gián tiếp";
             // 
-            // rbMachineTime
+            // ribPageEMES_HRM_CN
             // 
-            this.rbMachineTime.ItemLinks.Add(this.btMachineChart);
-            this.rbMachineTime.ItemLinks.Add(this.btRptMold);
-            this.rbMachineTime.ItemLinks.Add(this.btDetailTableJig);
-            this.rbMachineTime.Name = "rbMachineTime";
-            this.rbMachineTime.Text = "Machine Time";
-            this.rbMachineTime.Visible = false;
+            this.ribPageEMES_HRM_CN.ItemLinks.Add(this.btHRAbsence);
+            this.ribPageEMES_HRM_CN.ItemLinks.Add(this.btAbsenceDoc);
+            this.ribPageEMES_HRM_CN.ItemLinks.Add(this.btAbsenceFollow);
+            this.ribPageEMES_HRM_CN.Name = "ribPageEMES_HRM_CN";
+            this.ribPageEMES_HRM_CN.Text = "Khối trực tiếp";
+            // 
+            // ribEMES_SX
+            // 
+            this.ribEMES_SX.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribGeneral,
+            this.ribEMES_MRP_ASM1,
+            this.ribEMES_MRP_ASM2});
+            this.ribEMES_SX.Name = "ribEMES_SX";
+            this.ribEMES_SX.Text = "Sản xuất";
+            // 
+            // ribGeneral
+            // 
+            this.ribGeneral.ItemLinks.Add(this.btAttendance);
+            this.ribGeneral.ItemLinks.Add(this.btProdExLosstime);
+            this.ribGeneral.ItemLinks.Add(this.btAttendanceTable);
+            this.ribGeneral.ItemLinks.Add(this.btProdPlan);
+            this.ribGeneral.ItemLinks.Add(this.btLineProductivity);
+            this.ribGeneral.ItemLinks.Add(this.btSumReport);
+            this.ribGeneral.ItemLinks.Add(this.btRptMatStage);
+            this.ribGeneral.ItemLinks.Add(this.btProdORChart);
+            this.ribGeneral.Name = "ribGeneral";
+            this.ribGeneral.Text = "General";
+            // 
+            // ribEMES_MRP_ASM1
+            // 
+            this.ribEMES_MRP_ASM1.ItemLinks.Add(this.btProdStatistic);
+            this.ribEMES_MRP_ASM1.ItemLinks.Add(this.btSumDataQRCode);
+            this.ribEMES_MRP_ASM1.ItemLinks.Add(this.btScanQRCodeJig);
+            this.ribEMES_MRP_ASM1.ItemLinks.Add(this.btMachineIns);
+            this.ribEMES_MRP_ASM1.ItemLinks.Add(this.btPlanning);
+            this.ribEMES_MRP_ASM1.ItemLinks.Add(this.btSkillmap);
+            this.ribEMES_MRP_ASM1.ItemLinks.Add(this.btTraceability);
+            this.ribEMES_MRP_ASM1.Name = "ribEMES_MRP_ASM1";
+            this.ribEMES_MRP_ASM1.Text = "Sản xuất NM1";
+            // 
+            // ribEMES_MRP_ASM2
+            // 
+            this.ribEMES_MRP_ASM2.ItemLinks.Add(this.btProdStatisticASM2);
+            this.ribEMES_MRP_ASM2.ItemLinks.Add(this.btNFCReader);
+            this.ribEMES_MRP_ASM2.Name = "ribEMES_MRP_ASM2";
+            this.ribEMES_MRP_ASM2.Text = "Sản xuất ASM2";
+            // 
+            // ribEMES_SX_INTEM
+            // 
+            this.ribEMES_SX_INTEM.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.scanBarCodeBinList});
+            this.ribEMES_SX_INTEM.Name = "ribEMES_SX_INTEM";
+            this.ribEMES_SX_INTEM.Text = "Sản xuất In tem";
+            // 
+            // scanBarCodeBinList
+            // 
+            this.scanBarCodeBinList.ItemLinks.Add(this.btScanBarcodeBin);
+            this.scanBarCodeBinList.ItemLinks.Add(this.btSBLine);
+            this.scanBarCodeBinList.ItemLinks.Add(this.btBinQCApproval);
+            this.scanBarCodeBinList.Name = "scanBarCodeBinList";
+            this.scanBarCodeBinList.Text = "Scan Barcode  Bin";
+            // 
+            // ribEMES_QA
+            // 
+            this.ribEMES_QA.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rbQuality});
+            this.ribEMES_QA.Name = "ribEMES_QA";
+            this.ribEMES_QA.Text = "Chất lượng";
             // 
             // rbQuality
             // 
             this.rbQuality.ItemLinks.Add(this.btExDimQC);
+            this.rbQuality.ItemLinks.Add(this.btIPQCInspect);
+            this.rbQuality.ItemLinks.Add(this.btProdScanQRCodeLog);
             this.rbQuality.ItemLinks.Add(this.btQCOutputChart);
             this.rbQuality.ItemLinks.Add(this.btInternalAudit);
+            this.rbQuality.ItemLinks.Add(this.btScanQR037);
             this.rbQuality.Name = "rbQuality";
             this.rbQuality.Text = "Chất lượng";
             // 
-            // ribbonPageGroup3
+            // ribEMES_REPORT
             // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.btHRAbsenceByStaff);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "Nhân sự";
-            this.ribbonPageGroup3.Visible = false;
-            // 
-            // rbNFCReader
-            // 
-            this.rbNFCReader.ImageOptions.Image = global::ASPProject.Properties.Resources.backup;
-            this.rbNFCReader.ItemLinks.Add(this.btNFCReader);
-            this.rbNFCReader.Name = "rbNFCReader";
-            this.rbNFCReader.Text = "NFC Reader";
-            this.rbNFCReader.Visible = false;
-            // 
-            // rbReport
-            // 
-            this.rbReport.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribEMES_REPORT.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2});
-            this.rbReport.Name = "rbReport";
-            this.rbReport.Text = "Báo cáo";
+            this.ribEMES_REPORT.Name = "ribEMES_REPORT";
+            this.ribEMES_REPORT.Text = "Báo cáo";
             // 
             // ribbonPageGroup2
             // 
@@ -1043,12 +1148,12 @@
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Sản xuất";
             // 
-            // ribHeThong
+            // ribEMES_SYSTEM
             // 
-            this.ribHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribEMES_SYSTEM.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribHeThongBar});
-            this.ribHeThong.Name = "ribHeThong";
-            this.ribHeThong.Text = "Hệ Thống";
+            this.ribEMES_SYSTEM.Name = "ribEMES_SYSTEM";
+            this.ribEMES_SYSTEM.Text = "Hệ Thống";
             // 
             // ribHeThongBar
             // 
@@ -1058,10 +1163,11 @@
             this.ribHeThongBar.Name = "ribHeThongBar";
             this.ribHeThongBar.Text = "Hệ Thống";
             // 
-            // ribTroGiup
+            // ribEMES_HELP
             // 
-            this.ribTroGiup.Name = "ribTroGiup";
-            this.ribTroGiup.Text = "Trợ Giúp";
+            this.ribEMES_HELP.Name = "ribEMES_HELP";
+            this.ribEMES_HELP.Text = "Trợ Giúp";
+            this.ribEMES_HELP.Visible = false;
             // 
             // repositoryItemTimeZone1
             // 
@@ -1105,7 +1211,7 @@
             this.ribbonStatusBar.ItemLinks.Add(this.barDatabase);
             this.ribbonStatusBar.ItemLinks.Add(this.barThoiGian);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 703);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(10);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(12);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1556, 27);
@@ -1116,7 +1222,7 @@
             this.clientPanel.Controls.Add(this.tabControl12);
             this.clientPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clientPanel.Location = new System.Drawing.Point(0, 181);
-            this.clientPanel.Margin = new System.Windows.Forms.Padding(10);
+            this.clientPanel.Margin = new System.Windows.Forms.Padding(12);
             this.clientPanel.Name = "clientPanel";
             this.clientPanel.Size = new System.Drawing.Size(1556, 522);
             this.clientPanel.TabIndex = 2;
@@ -1129,7 +1235,7 @@
             this.tabControl12.CloseButtonPosition = DevComponents.DotNetBar.eTabCloseButtonPosition.Right;
             this.tabControl12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl12.Location = new System.Drawing.Point(0, 0);
-            this.tabControl12.Margin = new System.Windows.Forms.Padding(10);
+            this.tabControl12.Margin = new System.Windows.Forms.Padding(12);
             this.tabControl12.Name = "tabControl12";
             this.tabControl12.SelectedTabFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.tabControl12.SelectedTabIndex = -1;
@@ -1232,6 +1338,14 @@
             this.barStaticItem1.Id = 67;
             this.barStaticItem1.Name = "barStaticItem1";
             // 
+            // btTraceability
+            // 
+            this.btTraceability.Caption = "Traceability";
+            this.btTraceability.Id = 189;
+            this.btTraceability.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btTraceability.ImageOptions.Image")));
+            this.btTraceability.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btTraceability.ImageOptions.LargeImage")));
+            this.btTraceability.Name = "btTraceability";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1269,13 +1383,13 @@
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribDanhMuc;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribEMES_List;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraEditors.PanelControl clientPanel;
         private DevComponents.DotNetBar.TabControl tabControl12;
         private DevExpress.XtraBars.BarButtonItem btKhuVuc;
         private DevExpress.XtraBars.BarButtonItem btKho;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribChucNang;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribEMES_SX;
         private DevExpress.XtraBars.BarButtonItem btNhomHang;
         private DevExpress.XtraBars.BarButtonItem btMatHang;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribNhanVien;
@@ -1286,11 +1400,11 @@
         private DevExpress.XtraBars.BarButtonItem btCongNoNCC;
         private DevExpress.XtraBars.BarButtonItem btCongNoKH;
         private DevExpress.XtraBars.BarButtonItem btPhucHoi;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribHeThong;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribEMES_SYSTEM;
         private DevExpress.XtraBars.BarButtonItem btSaoLuu;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribHeThongBar;
         private DevExpress.XtraBars.BarButtonItem btHuongDan;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribTroGiup;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribEMES_HELP;
         private DevExpress.XtraBars.BarButtonItem btLienHe;
         private DevExpress.XtraBars.BarButtonItem btTacGia;
         private DevExpress.XtraBars.BarButtonItem btDonViTinh;
@@ -1340,7 +1454,6 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private DevExpress.XtraBars.BarButtonItem btExportReportExcel;
         private DevExpress.XtraBars.BarButtonItem btMachineChart;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbMachineTime;
         private DevExpress.XtraBars.BarButtonItem btDefectMode;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbDefectMode;
         private DevExpress.XtraBars.BarButtonItem btLosstime;
@@ -1349,21 +1462,20 @@
         private DevExpress.XtraBars.BarStaticItem barStaticItem3;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         private DevExpress.XtraBars.BarButtonItem btProdStatistic;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbProd;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribEMES_MRP_ASM1;
         private DevExpress.XtraBars.BarButtonItem btTimekeeping;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem btAttendance;
         private DevExpress.XtraBars.BarButtonItem btProdExLosstime;
         private DevExpress.XtraBars.BarButtonItem btOutputChart;
         private DevExpress.XtraBars.BarButtonItem btProdReport;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rbReport;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribEMES_REPORT;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem btExDimQC;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbQuality;
         private DevExpress.XtraBars.BarButtonItem btHRAbsence;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribPageEMES_HRM_VP;
         private DevExpress.XtraBars.BarButtonItem btNFCReader;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbNFCReader;
         private DevExpress.XtraBars.BarButtonItem btAttendanceTable;
         private DevExpress.XtraBars.BarButtonItem btProdPlan;
         private DevExpress.XtraBars.BarButtonItem btHRAbsenceByStaff;
@@ -1390,12 +1502,27 @@
         private DevExpress.XtraBars.BarButtonItem btQRCodeMaster;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbQRCodeMaster;
         private DevExpress.XtraBars.BarButtonItem btProdScanQRCodeLog;
-        private DevExpress.XtraBars.BarButtonItem btTracebility;
+       
         private DevExpress.XtraBars.BarButtonItem btScanQRCodeJig;
         private DevExpress.XtraBars.BarButtonItem btDetailTableJig;
         private DevExpress.XtraBars.BarButtonItem btSBLine;
         private DevExpress.XtraBars.BarButtonItem btSumDataQRCode;
         private DevExpress.XtraBars.BarButtonItem btBinQCApproval;
         private DevExpress.XtraBars.BarButtonItem btMachineIns;
+        private DevExpress.XtraBars.BarButtonItem btPlanning;
+        private DevExpress.XtraBars.BarButtonItem btSkillmap;
+        private DevExpress.XtraBars.BarButtonItem btScanQR037;
+        private DevExpress.XtraBars.BarButtonItem btIPQCInspect;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribEMES_QA;
+        private DevExpress.XtraBars.BarButtonItem btLineProductivity;
+        private DevExpress.XtraBars.BarButtonItem btAlternative;
+        private DevExpress.XtraBars.BarButtonItem btXuatQR;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribEMES_HRM;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribPageEMES_HRM_CN;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribEMES_SX_INTEM;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribEMES_MRP_ASM2;
+        private DevExpress.XtraBars.BarButtonItem btProdStatisticASM2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribGeneral;
+        private DevExpress.XtraBars.BarButtonItem btTraceability;
     }
 }
